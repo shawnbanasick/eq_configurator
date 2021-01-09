@@ -1,7 +1,7 @@
 const electron = require("electron");
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
-const Tray = electron.Tray;
+// const Tray = electron.Tray;
 const dialog = require("electron").dialog;
 const path = require("path");
 const isDev = require("electron-is-dev");
@@ -11,6 +11,9 @@ const i18n = require("i18next");
 const i18nextBackend = require("i18next-node-fs-backend");
 const menuFactoryService = require("./services/menuFactory");
 const ipcMain = electron.ipcMain;
+
+const { fork } = require('child_process');
+const ps = fork(`${__dirname}/server.js`);
 
 let mainWindow;
 
@@ -75,9 +78,11 @@ function createWindow() {
   // }
 
   // for testing - remove
-  currentLanguage = "en";
+  // currentLanguage = "en";
 
   let pathToTranslation;
+  let pathToMissing;
+  
   if (isDev) {
     pathToTranslation = path.join(
       __dirname,
