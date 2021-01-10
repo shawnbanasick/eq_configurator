@@ -15,7 +15,7 @@
                 <a ng-if="!(config.disableBackButton === 'true') && canGoBack()" onclick="history.back()" href="" ng-bind-html="language.backButton" class="btn btn-default"></a>
             </div>
 
-            <div class="col-xs-4">
+            <div class="col-xs-4  progressAdj">
                 <div class="progress">
                     <div class="progress-bar" role="progressbar" ng-style="{ width: progressStyle()}">
                         <span class="sr-only">{{ progress() * 100 | number:0}}% complete</span>{{ progress() * 100 | number:0}}%
