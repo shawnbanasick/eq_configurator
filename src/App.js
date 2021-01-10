@@ -5,7 +5,13 @@ import { useTranslation } from "react-i18next";
 import { view } from "@risingstack/react-easy-state";
 import styled, { css } from "styled-components";
 import Start from "./Sections/Start/Start";
-import appState from "./Sections/GlobalState/appState";
+import Config from "./Sections/Config/Config";
+import Statements from "./Sections/Statements/Statements";
+import Map from "./Sections/Map/Map";
+import Language from "./Sections/Language/Language";
+import Firebase from "./Sections/Firebase/Firebase";
+import Server from "./Sections/Server/Server";
+import appState from "./GlobalState/appState";
 import ErrorBoundary from "./Utils/ErrorBoundary";
 import indicateDataButtonColor from "./Sections/Start/indicateDataButtonColor";
 
@@ -22,17 +28,12 @@ const App = (props) => {
   
   const {
     viewStart,
-    viewInput,
-    viewData,
-    viewClearProject,
-    viewCorrelations,
-    viewFactors,
-    viewRotation,
-    viewLoadings,
-    viewOutput,
-    viewProjectHistory,
-    viewHelp,
-    viewLicense
+    viewConfig,
+    viewStatements,
+    viewMap,
+    viewLanguage,
+    viewFirebase,
+    viewServer
   } = appState;
 
   const { isDataButtonGreen, hasUnforcedBeenConfirmed } = appState;
@@ -83,94 +84,59 @@ const App = (props) => {
             </StartButton>
             <FileButton
               buttonColor={inputButtonColor}
-              active={viewInput}
-              onClick={() => handleClick("viewInput")}
+              active={viewConfig}
+              onClick={() => handleClick("viewConfig")}
             >
-              <p className="title">{`1. ${t("Input")}`}</p>
+              <p className="title">{`1. ${t("Config")}`}</p>
             </FileButton>
             <FileButton
               buttonColor={indicateDataButtonColor(
                 isDataButtonGreen,
                 hasUnforcedBeenConfirmed
               )}
-              active={viewData}
-              onClick={() => handleClick("viewData")}
+              active={viewStatements}
+              onClick={() => handleClick("viewStatements")}
             >
-              <p className="title">{`2. ${t("Data")}`}</p>
+              <p className="title">{`2. ${t("Statements")}`}</p>
             </FileButton>
             <FileButton
               buttonColor={correlationsButtonColor}
-              active={viewCorrelations}
-              onClick={() => handleClick("viewCorrelations")}
+              active={viewMap}
+              onClick={() => handleClick("viewMap")}
             >
-              <p className="title">{`3. ${t("Correlations")}`}</p>
+              <p className="title">{`3. ${t("Map")}`}</p>
             </FileButton>
             <FileButton
               buttonColor={factorsButtonColor}
-              active={viewFactors}
-              onClick={() => handleClick("viewFactors")}
+              active={viewLanguage}
+              onClick={() => handleClick("viewLanguage")}
             >
-              <p className="title">{`4. ${t("Factors")}`}</p>
+              <p className="title">{`4. ${t("Language")}`}</p>
             </FileButton>
             <FileButton
               buttonColor={rotationButtonColor}
-              active={viewRotation}
-              onClick={() => handleClick("viewRotation")}
+              active={viewFirebase}
+              onClick={() => handleClick("viewFirebase")}
             >
-              <p className="title">{`5. ${t("Rotation")}`}</p>
+              <p className="title">{`5. ${t("Firebase")}`}</p>
             </FileButton>
             <FileButton
               buttonColor={loadingsButtonColor}
-              active={viewLoadings}
-              onClick={() => handleClick("viewLoadings")}
+              active={viewServer}
+              onClick={() => handleClick("viewServer")}
             >
-              <p className="title">{`6. ${t("Loadings")}`}</p>
-            </FileButton>
-            <FileButton
-              buttonColor={outputButtonColor}
-              active={viewOutput}
-              onClick={() => handleClick("viewOutput")}
-            >
-              <p className="title">{`7. ${t("Output")}`}</p>
-            </FileButton>
-            <FileButton
-              active={viewProjectHistory}
-              onClick={() => handleClick("viewProjectHistory")}
-            >
-              <p className="title">{t("Project Log")}</p>
-            </FileButton>
-
-            <FileButton
-              active={viewClearProject}
-              onClick={() => handleClick("viewClearProject")}
-            >
-              <p className="title">{t("Clear Project")}</p>
-            </FileButton>
-            <FileButton
-              active={viewHelp}
-              onClick={() => handleClick("viewHelp")}
-            >
-              <p className="title">{t("Help")}</p>
-            </FileButton>
-            <FileButton
-              className="attributionBox"
-              active={viewLicense}
-              onClick={() => handleClick("viewLicense")}
-            >
-              <p className="title">
-                {t("Attribution")} <br /> / {t("License")}
-              </p>
+              <p className="title">{`6. ${t("Server")}`}</p>
             </FileButton>
           </FilesWindow>
           <ActionWindow>
             {viewStart && <Start view={viewStart} />}
-            {/* {viewInput && <Input view={viewInput} />}
-            {viewData && <Data view={viewData} />}
-            {viewCorrelations && <Correlations view={viewCorrelations} />}
-            {viewFactors && <Factors view={viewFactors} />}
-            {viewRotation && <Rotation view={viewRotation} />}
-            {viewLoadings && <Loadings view={viewLoadings} />}
-            {viewOutput && <Output view={viewOutput} />}
+            {viewConfig && <Config view={viewConfig} />}
+            {viewStatements && <Statements view={viewStatements} />}
+            {viewMap && <Map view={viewMap} />}
+            {viewLanguage && <Language view={viewLanguage} />}
+            {viewFirebase && <Firebase view={viewFirebase} />}
+            {viewServer && <Server view={viewServer} />}
+            {/* {viewOutput && <Output view={viewOutput} />}
             {viewProjectHistory && <ProjectHistory view={viewProjectHistory} />}
             {viewHelp && <Help view={viewHelp} />}
             {viewLicense && <License view={viewLicense} />}
