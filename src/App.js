@@ -14,6 +14,7 @@ import Server from "./Sections/Server/Server";
 import appState from "./GlobalState/appState";
 import ErrorBoundary from "./Utils/ErrorBoundary";
 import indicateDataButtonColor from "./Sections/Start/indicateDataButtonColor";
+import './Utils/UserSelectionSwitch.css'
 
 const handleClick = target => {
   const activeWindow = appState.activeWindow;
@@ -61,9 +62,9 @@ const App = (props) => {
   const loadingsButtonColor = appState.isLoadingsButtonGreen
     ? "var(--main-theme-color)"
     : "#d6dbe0";
-  const outputButtonColor = appState.isOutputButtonGreen
-    ? "var(--main-theme-color)"
-    : "#d6dbe0";
+  // const outputButtonColor = appState.isOutputButtonGreen
+  //   ? "var(--main-theme-color)"
+  //   : "#d6dbe0";
 
   let showTopBar = false;
   // if (process.platform === "darwin") {

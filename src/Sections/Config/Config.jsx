@@ -4,7 +4,8 @@ import styled, { keyframes } from "styled-components";
 import GlobalStyle from "../../Utils/GlobalStyle";
 import GeneralButton from '../../Utils/GeneralButton';
 import exportToXml from '../../Utils/exportToXml';
-
+import UserSelectionSwitch from '../../Utils/UserSelectionSwitch';
+import RadioButtons from '../../Utils/RadioButtons';
 
 const handleClick = () => {
     console.log("clicked");
@@ -35,9 +36,16 @@ const Config = () => {
         <h3>Options</h3>
         <ol>
             <li>Title of the Study</li>
-            <li>text align property (left | right)</li>
+            <li>text align property (left | right) 
+            <UserSelectionSwitch
+          name="willIndicateDistinguishing"
+          value="willIndicateDistinguishing"
+          toggle
+        />
+            </li>
             <li>shuffle cards (true | false)</li>
         </ol>
+        <RadioButtons label="2. Text align property" buttonIdArray={["left", "right"]} stateId="textAlign" sectionName="config" />
     <GeneralButton onClick={() => handleClick()}>Download Config.xml file</GeneralButton>
     </MainContent>
   );
