@@ -1,5 +1,5 @@
 import React from "react";
-import { view, autoEffect } from "@risingstack/react-easy-state";
+import { view } from "@risingstack/react-easy-state";
 import styled, { keyframes } from "styled-components";
 import GlobalStyle from "../../Utils/GlobalStyle";
 import GeneralButton from "../../Utils/GeneralButton";
@@ -8,10 +8,9 @@ import UserSelectionSwitch from "../../Utils/UserSelectionSwitch";
 import RadioButtons from "../../Utils/RadioButtons";
 import UserTextInput from "../../Utils/UserTextInput";
 import appState from "../../GlobalState/appState";
+import UserDropdown from "../../Utils/UserDropdown";
 
 const handleClick = () => {
-  console.log("clicked");
-
   const data = `
     <config version="1.0" htmlParse="false">
 
@@ -34,10 +33,6 @@ const handleClick = () => {
 // });
 
 const Config = () => {
-  // let showSurvey;
-  // autoEffect(() => (showSurvey = Boolean(appState.config8ShowStep5)));
-  console.log(appState.config8ShowStep5);
-  // console.log(showSurvey);
   let showSurvey = appState.config8ShowStep5;
 
   return (
@@ -121,7 +116,7 @@ const Config = () => {
           sectionName="config"
         />
         <RadioButtons
-          label="9. Disable Back Button (Easy HTMLQ only):"
+          label="9. Disable Back Button:"
           buttonIdArray={["true", "false"]}
           stateId="9DisableBackButton"
           sectionName="config"
@@ -129,7 +124,47 @@ const Config = () => {
       </QuestionContainer>
       {showSurvey === "true" && (
         <SurveyContainer>
-          <h2>Add Survey Questions</h2>
+          <h2 style={{ marginBottom: 50 }}>Add Survey Questions</h2>
+          <UserDropdown />
+          <UserTextInput
+            label="2. Question label:"
+            stateId="surveyQuestionLabel"
+            sectionName="survey"
+            width={500}
+            left={0}
+          />
+          <UserTextInput
+            label="3. Question note (optional):"
+            stateId="surveyQuestionNote"
+            sectionName="survey"
+            width={500}
+            left={0}
+          />
+          <RadioButtons
+            label="4. Answer required:"
+            buttonIdArray={["true", "false"]}
+            stateId="surveyAnswerRequired"
+            sectionName="survey"
+          />
+          <RadioButtons
+            label="5. Answer restricted to numbers (0-9):"
+            buttonIdArray={["true", "false"]}
+            stateId="surveyAnswerRestricted"
+            sectionName="survey"
+          />
+          <RadioButtons
+            label="6a. Limit answer length:"
+            buttonIdArray={["true", "false"]}
+            stateId="surveyAnswerLenLimited"
+            sectionName="survey"
+          />
+          <UserTextInput
+            label="6b. Answer maximum length:"
+            stateId="6bsurveyAnswerLenMax"
+            sectionName="survey"
+            width={40}
+            left={0}
+          />
         </SurveyContainer>
       )}
       <GeneralButton onClick={() => handleClick()}>
