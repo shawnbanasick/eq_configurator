@@ -25,13 +25,15 @@ const SelectionButtons = (props) => {
     const key = `${props.sectionName}${props.stateId}`;
     appState[buttonActiveState] = true;
     appState[key] = value;
+    console.log(JSON.stringify(appState, null, 2));
   };
 
   return (
     <ButtonsContainerDiv>
-      <TitleSpan>{`${t(props.label)}: `}</TitleSpan>
+      <TitleSpan>{`${t(props.label)} `}</TitleSpan>
       {props.buttonIdArray.map((item) => (
         <SelcButtons
+          tabindex="0"
           as={GeneralButton}
           key={`buttonSelect${item}`}
           value={item}
