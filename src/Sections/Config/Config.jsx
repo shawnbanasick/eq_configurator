@@ -3,11 +3,28 @@ import { view } from "@risingstack/react-easy-state";
 import styled, { keyframes } from "styled-components";
 import GlobalStyle from "../../Utils/GlobalStyle";
 import GeneralButton from '../../Utils/GeneralButton';
-
+import exportToXml from '../../Utils/exportToXml';
 
 
 const handleClick = () => {
     console.log("clicked");
+
+    const data = `
+    <config version="1.0" htmlParse="false">
+
+      <!-- title of the study -->
+      <item id="studyTitle">Name of your study</item>
+
+      <!-- text-align property(left|right) -->
+      <item id="textAlign">left</item>
+
+      <item id="日本語">left</item>
+
+    </config>
+      `
+
+      exportToXml("config.xml", data);
+
   };
 
 const Config = () => {

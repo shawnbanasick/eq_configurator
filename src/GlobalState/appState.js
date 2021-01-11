@@ -1,6 +1,13 @@
 import { store } from "@risingstack/react-easy-state";
 
 const appState = store({
+  
+  /*
+  set default save file path */
+  userSelectedFilePath: "",
+  
+  
+  
   activeWindow: "viewStart",
 
   changes: [],
@@ -9,33 +16,14 @@ const appState = store({
   extendedErrorMessage: "",
   errorStackTrace: "",
 
-  hasUnforcedBeenConfirmed: false,
-
   isDataButtonGreen: false,
   isInputButtonGreen: false,
-  isCorrelationsButtonGreen: false,
-  isFactorsButtonGreen: false,
-  isLoadingsButtonGreen: false,
-  isRotationButtonGreen: false,
-  isOutputButtonGreen: false,
+ 
 
   showErrorMessageBar: false,
   showUpdateModal: false,
 
-  updateVersion: "",
 
-  version: "1.2.0",
-  viewAttribution: false,
-  viewData: false,
-  viewClearProject: false,
-  viewCorrelations: false,
-  viewFactors: false,
-  viewHelp: false,
-  viewInput: false,
-  viewLicense: false,
-  viewLoadings: false,
-  viewOutput: false,
-  viewProjectHistory: false,
   viewRotation: false,
   viewStart: true
 });
