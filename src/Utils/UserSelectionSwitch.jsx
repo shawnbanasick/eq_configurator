@@ -6,12 +6,12 @@ import Toggle from "react-toggle";
 import BatsuMark from "./batsuMark";
 import CheckMark from "./checkMark";
 
-const clone = require("rfdc")();
+// const clone = require("rfdc")();
 
-const UserSelectionSwitch = props => {
+const UserSelectionSwitch = (props) => {
   const [toggle, setToggle] = useState(props.toggle);
 
-  const clickToggle = e => {
+  const clickToggle = (e) => {
     e.stopPropagation();
     const oldValue = toggle;
     const newValue = !oldValue;
@@ -29,10 +29,10 @@ const UserSelectionSwitch = props => {
       id={props.name}
       name={props.name}
       defaultChecked={props.toggle}
-      onChange={e => clickToggle(e)}
+      onChange={(e) => clickToggle(e)}
       icons={{
         checked: <CheckMark />,
-        unchecked: <BatsuMark />
+        unchecked: <BatsuMark />,
       }}
     />
   );

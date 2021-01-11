@@ -2,15 +2,15 @@ import React from "react";
 import { view } from "@risingstack/react-easy-state";
 import styled, { keyframes } from "styled-components";
 import GlobalStyle from "../../Utils/GlobalStyle";
-import GeneralButton from '../../Utils/GeneralButton';
-import exportToXml from '../../Utils/exportToXml';
-import UserSelectionSwitch from '../../Utils/UserSelectionSwitch';
-import RadioButtons from '../../Utils/RadioButtons';
+import GeneralButton from "../../Utils/GeneralButton";
+import exportToXml from "../../Utils/exportToXml";
+import UserSelectionSwitch from "../../Utils/UserSelectionSwitch";
+import RadioButtons from "../../Utils/RadioButtons";
 
 const handleClick = () => {
-    console.log("clicked");
+  console.log("clicked");
 
-    const data = `
+  const data = `
     <config version="1.0" htmlParse="false">
 
       <!-- title of the study -->
@@ -22,31 +22,38 @@ const handleClick = () => {
       <item id="日本語">left</item>
 
     </config>
-      `
+      `;
 
-      exportToXml("config.xml", data);
-
-  };
+  exportToXml("config.xml", data);
+};
 
 const Config = () => {
   return (
     <MainContent>
-        <GlobalStyle />
-        <Title>Config.xml</Title>
-        <h3>Options</h3>
-        <ol>
-            <li>Title of the Study</li>
-            <li>text align property (left | right) 
-            <UserSelectionSwitch
-          name="willIndicateDistinguishing"
-          value="willIndicateDistinguishing"
-          toggle
-        />
-            </li>
-            <li>shuffle cards (true | false)</li>
-        </ol>
-        <RadioButtons label="2. Text align property" buttonIdArray={["left", "right"]} stateId="textAlign" sectionName="config" />
-    <GeneralButton onClick={() => handleClick()}>Download Config.xml file</GeneralButton>
+      <GlobalStyle />
+      <Title>Config.xml</Title>
+      <h3>Options</h3>
+      <ol>
+        <li>Title of the Study</li>
+        <li>
+          text align property (left | right)
+          <UserSelectionSwitch
+            name="willIndicateDistinguishing"
+            value="willIndicateDistinguishing"
+            toggle
+          />
+        </li>
+        <li>shuffle cards (true | false)</li>
+      </ol>
+      <RadioButtons
+        label="2. Text align property"
+        buttonIdArray={["left", "right"]}
+        stateId="2textAlign"
+        sectionName="config"
+      />
+      <GeneralButton onClick={() => handleClick()}>
+        Download Config.xml file
+      </GeneralButton>
     </MainContent>
   );
 };
@@ -73,7 +80,6 @@ const fadeOut = keyframes`
   }
 `;
 
-
 const MainContent = styled.div`
   box-sizing: border-box;
   display: grid;
@@ -89,8 +95,8 @@ const MainContent = styled.div`
   justify-items: left;
   align-items: center;
   background-color: white;
-  visibility: ${props => (props.view ? "hidden" : "visible")};
-  animation: ${props => (props.view ? fadeOut : fadeIn)} 0.5s linear;
+  visibility: ${(props) => (props.view ? "hidden" : "visible")};
+  animation: ${(props) => (props.view ? fadeOut : fadeIn)} 0.5s linear;
   transition: visibility 0.5s linear;
   font-family: Helvetica, sans-serif;
   font-size: 18px;
@@ -102,12 +108,11 @@ const MainContent = styled.div`
   user-select: none;
 `;
 
-
 const Title = styled.h1`
   display: grid;
   grid-area: row1;
-    font-size: 50px;
-    width: 80vw;
-   align-items: center;
-   justify-content: center;
+  font-size: 50px;
+  width: 80vw;
+  align-items: center;
+  justify-content: center;
 `;
