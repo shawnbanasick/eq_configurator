@@ -10,6 +10,8 @@ import UserTextInput from "../../Utils/UserTextInput";
 import appState from "../../GlobalState/appState";
 import UserDropdown from "../../Utils/UserDropdown";
 
+const TextImage = React.lazy(() => import("./textQuestion"));
+
 const handleClick = () => {
   const data = `
     <config version="1.0" htmlParse="false">
@@ -126,8 +128,12 @@ const Config = () => {
         <SurveyContainer>
           <h2 style={{ marginBottom: 50 }}>Add Survey Questions</h2>
           <UserDropdown />
+          <ImageContainer>
+            <p>Example:</p>
+            <TextImage />
+          </ImageContainer>
           <UserTextInput
-            label="2. Question label:"
+            label="2. Question text:"
             stateId="surveyQuestionLabel"
             sectionName="survey"
             width={500}
@@ -244,4 +250,11 @@ const QuestionContainer = styled.div`
 const SurveyContainer = styled.div`
   margin-bottom: 25px;
   border: 2px solid green;
+`;
+
+const ImageContainer = styled.div`
+  border: 3px solid black;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left: 10px;
 `;
