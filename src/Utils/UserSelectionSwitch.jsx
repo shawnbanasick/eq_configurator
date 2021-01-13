@@ -16,7 +16,7 @@ const UserSelectionSwitch = (props) => {
     const oldValue = toggle;
     const newValue = !oldValue;
     // const factorVizOptionsHolder = clone(vizState.factorVizOptionsHolder);
-    const key = props.value;
+    // const key = props.value;
     // factorVizOptionsHolder[key] = newValue;
     setToggle(newValue);
 

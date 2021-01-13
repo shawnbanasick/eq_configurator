@@ -7,7 +7,7 @@ import exportToXml from "../../Utils/exportToXml";
 import UserSelectionSwitch from "../../Utils/UserSelectionSwitch";
 import RadioButtons from "../../Utils/RadioButtons";
 import UserTextInput from "../../Utils/UserTextInput";
-import appState from "../../GlobalState/appState";
+// import appState from "../../GlobalState/appState";
 
 const handleClick = () => {
   const data = `
@@ -47,7 +47,7 @@ const Config = () => {
           label="1. Title of study:"
           stateId="1title"
           sectionName="config"
-          width={500}
+          width={50}
           left={0}
         />
         <RadioButtons
@@ -72,7 +72,7 @@ const Config = () => {
           label="4b. Log In Password:"
           stateId="4bLogInPassword"
           sectionName="config"
-          width={300}
+          width={30}
           left={0}
         />
         <RadioButtons
@@ -85,7 +85,7 @@ const Config = () => {
           label="5b. Log In Script URL:"
           stateId="5bLogInScriptURL"
           sectionName="config"
-          width={500}
+          width={40}
           left={0}
         />
         <RadioButtons
@@ -191,17 +191,6 @@ const Title = styled.h1`
 
 const QuestionContainer = styled.div`
   margin-bottom: 25px;
+  width: calc(100vw - 215px);
   border: 2px solid purple;
-`;
-
-const SurveyContainer = styled.div`
-  margin-bottom: 25px;
-  border: 2px solid green;
-`;
-
-const ImageContainer = styled.div`
-  border: 3px solid black;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding-left: 10px;
 `;

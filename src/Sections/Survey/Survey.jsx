@@ -1,19 +1,23 @@
 import React from "react";
 import { view } from "@risingstack/react-easy-state";
 import styled, { keyframes } from "styled-components";
-// import "./anchorStyling.css";
 import GlobalStyle from "../../Utils/GlobalStyle";
-// import heroImage from "../../assets/kade-hero-image.png";
-// import TranslationAttribution from "./TranslationAttribution";
-import UserDropdown from "../../Utils/UserDropdown";
+import UserDropdown from "./UserDropdown";
 import appState from "../../GlobalState/appState";
 import RadioButtons from "../../Utils/RadioButtons";
 import UserTextInput from "../../Utils/UserTextInput";
 
-const TextImage = React.lazy(() => import("./textQuestion"));
+import TextImage from "./textQuestion";
+import TextAreaImage from "./textAreaQuestion";
 
 const Survey = () => {
   let showSurvey = appState.config8ShowStep5;
+  console.log(appState.showSurveytextareaImage);
+  console.log(appState.showSurveytextImage);
+
+  //   const test = "true";
+  let showSurveytextImage = appState.showSurveytextImage;
+  let showSurveytextareaImage = appState.showSurveytextareaImage;
 
   return (
     <MainContent>
@@ -25,20 +29,21 @@ const Survey = () => {
           <UserDropdown />
           <ImageContainer>
             <p>Example:</p>
-            <TextImage />
+            {showSurveytextImage === "true" && <TextImage />}
+            {showSurveytextareaImage === "true" && <TextAreaImage />}
           </ImageContainer>
           <UserTextInput
             label="2. Question text:"
             stateId="surveyQuestionLabel"
             sectionName="survey"
-            width={500}
+            width={50}
             left={0}
           />
           <UserTextInput
             label="3. Question note (optional):"
             stateId="surveyQuestionNote"
             sectionName="survey"
-            width={500}
+            width={40}
             left={0}
           />
           <RadioButtons
@@ -115,7 +120,7 @@ const MainContent = styled.div`
   transition: visibility 0.5s linear;
   font-family: Helvetica, sans-serif;
   font-size: 18px;
-  width: calc(100vw - 140px);
+  width: 100%; // calc(100vw - 160px);
   box-sizing: border-box;
   max-height: calc(100vh - 23px);
   padding-left: 50px;
@@ -129,13 +134,14 @@ const Title = styled.h1`
   display: grid;
   grid-area: row1;
   font-size: 50px;
-  width: 80vw;
+  width: 70vw;
   align-items: center;
   justify-content: center;
 `;
 
 const SurveyContainer = styled.div`
   margin-bottom: 25px;
+  width: 85vw;
   border: 2px solid green;
 `;
 
@@ -144,4 +150,5 @@ const ImageContainer = styled.div`
   margin-top: 20px;
   margin-bottom: 20px;
   padding-left: 10px;
+  width: 100%;
 `;

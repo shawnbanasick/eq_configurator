@@ -40,7 +40,7 @@ const UserTextInput = (props) => {
 export default view(UserTextInput);
 
 const UserText = styled.input((props) => ({
-  width: `${props.width}px`,
+  width: `${props.width}vw`,
   marginLeft: `${props.left}px`,
   paddingLeft: `10px`,
 }));
