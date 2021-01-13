@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 // import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 import { useTranslation } from "react-i18next";
 import { view } from "@risingstack/react-easy-state";
 import styled, { css } from "styled-components";
@@ -11,22 +11,23 @@ import Map from "./Sections/Map/Map";
 import Language from "./Sections/Language/Language";
 import Firebase from "./Sections/Firebase/Firebase";
 import Server from "./Sections/Server/Server";
+import Weblinks from "./Sections/Weblinks/Weblinks";
+import Survey from "./Sections/Survey/Survey";
 import appState from "./GlobalState/appState";
 import ErrorBoundary from "./Utils/ErrorBoundary";
 import indicateDataButtonColor from "./Sections/Start/indicateDataButtonColor";
-import './Utils/UserSelectionSwitch.css'
+import "./Utils/UserSelectionSwitch.css";
 
-const handleClick = target => {
+const handleClick = (target) => {
   const activeWindow = appState.activeWindow;
   appState[activeWindow] = false;
   appState[target] = true;
   appState.activeWindow = target;
 };
 
-
 const App = (props) => {
   const [t] = useTranslation();
-  
+
   const {
     viewStart,
     viewConfig,
@@ -34,7 +35,9 @@ const App = (props) => {
     viewMap,
     viewLanguage,
     viewFirebase,
-    viewServer
+    viewServer,
+    viewWeblinks,
+    viewSurvey,
   } = appState;
 
   const { isDataButtonGreen, hasUnforcedBeenConfirmed } = appState;
@@ -91,6 +94,13 @@ const App = (props) => {
               <p className="title">{`1. ${t("Config")}`}</p>
             </FileButton>
             <FileButton
+              buttonColor={inputButtonColor}
+              active={viewSurvey}
+              onClick={() => handleClick("viewSurvey")}
+            >
+              <p className="title">{`2. ${t("Survey")}`}</p>
+            </FileButton>
+            <FileButton
               buttonColor={indicateDataButtonColor(
                 isDataButtonGreen,
                 hasUnforcedBeenConfirmed
@@ -98,47 +108,55 @@ const App = (props) => {
               active={viewStatements}
               onClick={() => handleClick("viewStatements")}
             >
-              <p className="title">{`2. ${t("Statements")}`}</p>
+              <p className="title">{`3. ${t("Statements")}`}</p>
             </FileButton>
             <FileButton
               buttonColor={correlationsButtonColor}
               active={viewMap}
               onClick={() => handleClick("viewMap")}
             >
-              <p className="title">{`3. ${t("Map")}`}</p>
+              <p className="title">{`4. ${t("Map")}`}</p>
             </FileButton>
             <FileButton
               buttonColor={factorsButtonColor}
               active={viewLanguage}
               onClick={() => handleClick("viewLanguage")}
             >
-              <p className="title">{`4. ${t("Language")}`}</p>
+              <p className="title">{`5. ${t("Language")}`}</p>
             </FileButton>
             <FileButton
               buttonColor={rotationButtonColor}
               active={viewFirebase}
               onClick={() => handleClick("viewFirebase")}
             >
-              <p className="title">{`5. ${t("Firebase")}`}</p>
+              <p className="title">{`6. ${t("Firebase")}`}</p>
             </FileButton>
             <FileButton
               buttonColor={loadingsButtonColor}
               active={viewServer}
               onClick={() => handleClick("viewServer")}
             >
-              <p className="title">{`6. ${t("Server")}`}</p>
+              <p className="title">{`7. ${t("Server")}`}</p>
+            </FileButton>
+            <FileButton
+              buttonColor={loadingsButtonColor}
+              active={viewServer}
+              onClick={() => handleClick("viewWeblinks")}
+            >
+              <p className="title">{`8. ${t("Web Links")}`}</p>
             </FileButton>
           </FilesWindow>
           <ActionWindow>
             {viewStart && <Start view={viewStart} />}
             {viewConfig && <Config view={viewConfig} />}
+            {viewSurvey && <Survey view={viewSurvey} />}
             {viewStatements && <Statements view={viewStatements} />}
             {viewMap && <Map view={viewMap} />}
             {viewLanguage && <Language view={viewLanguage} />}
             {viewFirebase && <Firebase view={viewFirebase} />}
             {viewServer && <Server view={viewServer} />}
-            {/* {viewOutput && <Output view={viewOutput} />}
-            {viewProjectHistory && <ProjectHistory view={viewProjectHistory} />}
+            {viewWeblinks && <Weblinks view={viewWeblinks} />}
+            {/*{viewProjectHistory && <ProjectHistory view={viewProjectHistory} />}
             {viewHelp && <Help view={viewHelp} />}
             {viewLicense && <License view={viewLicense} />}
             {viewClearProject && <ClearProject view={viewClearProject} />} */}
@@ -147,11 +165,9 @@ const App = (props) => {
       </ErrorBoundary>
     </AppWrap>
   );
-  
 };
 
 export default view(App);
-
 
 const Header = styled.header`
   box-sizing: border-box;
@@ -227,7 +243,7 @@ const FileButton = styled.button`
   padding-top: 15px;
   width: 100%;
   height: auto;
-  background: ${props => props.buttonColor || "#d6dbe0"};
+  background: ${(props) => props.buttonColor || "#d6dbe0"};
   color: black;
   border: none;
   text-align: left;
@@ -308,4 +324,3 @@ const StartButton = styled.button`
 //   text-align: left;
 //   transition: 0.3s ease all;
 // `;
-

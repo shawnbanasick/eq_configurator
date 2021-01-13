@@ -8,49 +8,6 @@ import UserSelectionSwitch from "../../Utils/UserSelectionSwitch";
 import RadioButtons from "../../Utils/RadioButtons";
 import UserTextInput from "../../Utils/UserTextInput";
 import appState from "../../GlobalState/appState";
-import UserDropdown from "../../Utils/UserDropdown";
-
-const TextImage = React.lazy(() => import("./textQuestion"));
-
-const surveyQuestionObject = {
-  text: {
-    label: "Age",
-    note: "Please enter your year of birth (YYYY, eg. 1980).",
-    required: "true",
-    maxlength: 4,
-    restricted: "0-9",
-  },
-  textArea: {
-    label: "Comments",
-    required: "false",
-  },
-  radio: {
-    label: "Gender",
-    note: "Please select your gender",
-    required: "true",
-    options: "female;male",
-  },
-  rating2: {
-    label: "Please answer the following questions.",
-    required: "false",
-    scale: "Yes;No;",
-    options: "There's a car in my household;I own a car for myself",
-  },
-  checkbox: {
-    label: "What kind of transportation do you prefer?",
-    required: "false",
-    options: "Car;Railroad;Bike;",
-  },
-  select: {
-    label: "What kind of transportation do you prefer?",
-    required: "false",
-    options: "Car;Railroad;Bike",
-  },
-  note: {
-    bg: "false",
-    option: "All fields marked with an * are mandatory",
-  },
-};
 
 const handleClick = () => {
   const data = `
@@ -75,8 +32,6 @@ const handleClick = () => {
 // });
 
 const Config = () => {
-  let showSurvey = appState.config8ShowStep5;
-
   return (
     <MainContent>
       <GlobalStyle />
@@ -164,55 +119,7 @@ const Config = () => {
           sectionName="config"
         />
       </QuestionContainer>
-      {showSurvey === "true" && (
-        <SurveyContainer>
-          <h2 style={{ marginBottom: 50 }}>Add Survey Questions</h2>
-          <UserDropdown />
-          <ImageContainer>
-            <p>Example:</p>
-            <TextImage />
-          </ImageContainer>
-          <UserTextInput
-            label="2. Question text:"
-            stateId="surveyQuestionLabel"
-            sectionName="survey"
-            width={500}
-            left={0}
-          />
-          <UserTextInput
-            label="3. Question note (optional):"
-            stateId="surveyQuestionNote"
-            sectionName="survey"
-            width={500}
-            left={0}
-          />
-          <RadioButtons
-            label="4. Answer required:"
-            buttonIdArray={["true", "false"]}
-            stateId="surveyAnswerRequired"
-            sectionName="survey"
-          />
-          <RadioButtons
-            label="5. Answer restricted to numbers (0-9):"
-            buttonIdArray={["true", "false"]}
-            stateId="surveyAnswerRestricted"
-            sectionName="survey"
-          />
-          <RadioButtons
-            label="6a. Limit answer length:"
-            buttonIdArray={["true", "false"]}
-            stateId="surveyAnswerLenLimited"
-            sectionName="survey"
-          />
-          <UserTextInput
-            label="6b. Answer maximum length:"
-            stateId="6bsurveyAnswerLenMax"
-            sectionName="survey"
-            width={40}
-            left={0}
-          />
-        </SurveyContainer>
-      )}
+
       <GeneralButton onClick={() => handleClick()}>
         Download Config.xml file
       </GeneralButton>
