@@ -17,7 +17,7 @@ const optionsArray = [
 ];
 
 const clearImages = () => {
-  optionsArray.forEach((item) => (appState[item] = "false"));
+  optionsArray.forEach((item) => (appState[item] = false));
 };
 
 const handleCategoryChange = (category) => {
@@ -25,7 +25,7 @@ const handleCategoryChange = (category) => {
   appState.surveyQuestionType = category;
   const key = `showSurvey${category}Image`;
   console.log(key);
-  appState[key] = "true";
+  appState[key] = true;
   console.log(category);
 };
 

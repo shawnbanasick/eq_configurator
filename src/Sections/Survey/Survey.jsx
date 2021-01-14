@@ -43,14 +43,14 @@ const Survey = () => {
           <UserDropdown />
           <ImageContainer>
             <p>Example:</p>
-            {showSurveytextImage === "true" && <TextImage />}
-            {showSurveytextareaImage === "true" && <TextAreaImage />}
-            {showSurveyradioImage === "true" && <RadioImage />}
-            {showSurveyselectImage === "true" && <SelectImage />}
-            {showSurveycheckboxImage === "true" && <CheckboxImage />}
-            {showSurveyrating2Image === "true" && <Scale2Image />}
-            {showSurveyrating5Image === "true" && <Scale5Image />}
-            {showSurveyrating10Image === "true" && <Scale10Image />}
+            {showSurveytextImage && <TextImage />}
+            {showSurveytextareaImage && <TextAreaImage />}
+            {showSurveyradioImage && <RadioImage />}
+            {showSurveyselectImage && <SelectImage />}
+            {showSurveycheckboxImage && <CheckboxImage />}
+            {showSurveyrating2Image && <Scale2Image />}
+            {showSurveyrating5Image && <Scale5Image />}
+            {showSurveyrating10Image && <Scale10Image />}
             {/* {showSurveynoteImage === "true" && <TextImage />} */}
           </ImageContainer>
           <UserTextInput
