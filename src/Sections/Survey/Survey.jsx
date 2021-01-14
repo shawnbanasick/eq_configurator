@@ -19,6 +19,7 @@ import SelectImage from "./selectQuestion";
 
 const Survey = () => {
   let showSurvey = appState.config8ShowStep5;
+  console.log("show survey", showSurvey);
   console.log(appState.showSurveytextareaImage);
   console.log(appState.showSurveytextImage);
 

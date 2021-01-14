@@ -22,10 +22,12 @@ const SelectionButtons = (props) => {
     clearAllButtons();
     const value = event.target.value;
     const buttonActiveState = event.target.id;
+    console.log(buttonActiveState);
     const key = `${props.sectionName}${props.stateId}`;
     appState[buttonActiveState] = true;
     appState[key] = value;
-    console.log(JSON.stringify(appState, null, 2));
+    console.log(key);
+    // console.log(JSON.stringify(appState, null, 2));
   };
 
   return (

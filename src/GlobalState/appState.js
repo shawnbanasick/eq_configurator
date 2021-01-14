@@ -7,7 +7,9 @@ const appState = store({
 
   /*
   config.xml default settings */
-
+  showSurveytextImage: true,
+  config8ShowStep5trueActive: true,
+  config8ShowStep5: "true",
   /*
   config.xml settings */
 
