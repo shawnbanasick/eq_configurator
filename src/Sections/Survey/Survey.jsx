@@ -9,6 +9,13 @@ import UserTextInput from "../../Utils/UserTextInput";
 
 import TextImage from "./textQuestion";
 import TextAreaImage from "./textAreaQuestion";
+import RadioImage from "./radioQuestion";
+import Scale2Image from "./scale2Question";
+import Scale5Image from "./scale5Question";
+import Scale10Image from "./scale10Question";
+import CheckboxImage from "./checkboxQuestion";
+import SelectImage from "./selectQuestion";
+// import NoteImage from "./noteQuestion";
 
 const Survey = () => {
   let showSurvey = appState.config8ShowStep5;
@@ -18,11 +25,18 @@ const Survey = () => {
   //   const test = "true";
   let showSurveytextImage = appState.showSurveytextImage;
   let showSurveytextareaImage = appState.showSurveytextareaImage;
+  let showSurveyradioImage = appState.showSurveyradioImage;
+  let showSurveyselectImage = appState.showSurveyselectImage;
+  let showSurveycheckboxImage = appState.showSurveycheckboxImage;
+  let showSurveyrating2Image = appState.showSurveyrating2Image;
+  let showSurveyrating5Image = appState.showSurveyrating5Image;
+  let showSurveyrating10Image = appState.showSurveyrating10Image;
+  // let showSurveytextImage = appState.showSurveytextImage;
 
   return (
     <MainContent>
       <GlobalStyle />
-      <Title>Survey Settings</Title>
+      <Title>Question Generator</Title>
       {showSurvey === "true" && (
         <SurveyContainer>
           <h2 style={{ marginBottom: 50 }}>Add Survey Questions</h2>
@@ -31,6 +45,13 @@ const Survey = () => {
             <p>Example:</p>
             {showSurveytextImage === "true" && <TextImage />}
             {showSurveytextareaImage === "true" && <TextAreaImage />}
+            {showSurveyradioImage === "true" && <RadioImage />}
+            {showSurveyselectImage === "true" && <SelectImage />}
+            {showSurveycheckboxImage === "true" && <CheckboxImage />}
+            {showSurveyrating2Image === "true" && <Scale2Image />}
+            {showSurveyrating5Image === "true" && <Scale5Image />}
+            {showSurveyrating10Image === "true" && <Scale10Image />}
+            {/* {showSurveynoteImage === "true" && <TextImage />} */}
           </ImageContainer>
           <UserTextInput
             label="2. Question text:"

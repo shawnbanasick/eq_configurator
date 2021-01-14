@@ -7,7 +7,7 @@ import appState from "../../GlobalState/appState";
 const optionsArray = [
   "showSurveytextImage",
   "showSurveytextareaImage",
-  "showSurveytadioImage",
+  "showSurveyradioImage",
   "showSurveyselectImage",
   "showSurveycheckboxImage",
   "showSurveyrating2Image",
