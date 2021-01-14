@@ -38,8 +38,6 @@ const appState = store({
 
   viewRotation: false,
   viewStart: true,
-
-  config8ShowStep5: true,
 });
 
 export default appState;

@@ -7,7 +7,7 @@ const exportSurveyObject = () => {
       "maxlength: 4",
       `restricted: "0-9"`,
     ],
-    textArea: ["label: Comments", "required: false"],
+    textarea: ["label: Comments", "required: false"],
     radio: [
       "label: Gender",
       "note: Please select your gender",

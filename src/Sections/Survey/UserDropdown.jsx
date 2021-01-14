@@ -3,6 +3,7 @@ import { view } from "@risingstack/react-easy-state";
 import styled from "styled-components";
 import appState from "../../GlobalState/appState";
 // import { useTranslation } from "react-i18next";
+import exportSurveyObject from "./exportSurveyObject";
 
 const optionsArray = [
   "showSurveytextImage",
@@ -24,9 +25,9 @@ const handleCategoryChange = (category) => {
   clearImages();
   appState.surveyQuestionType = category;
   const key = `showSurvey${category}Image`;
-  console.log(key);
   appState[key] = true;
-  console.log(category);
+  const detailsArray2 = exportSurveyObject();
+  appState.detailsArray = detailsArray2[category];
 };
 
 const UserDropdown = () => {

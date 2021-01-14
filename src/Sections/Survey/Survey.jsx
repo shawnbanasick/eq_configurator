@@ -34,67 +34,81 @@ const Survey = () => {
   let showSurveyrating10Image = appState.showSurveyrating10Image;
   // let showSurveytextImage = appState.showSurveytextImage;
 
+  // let detailsArray = ["sdfskf", "sdfs", "sdfdsf"];
+  let detailsArray = appState.detailsArray;
+  console.log(detailsArray);
+
+  // for development only
+  showSurvey = true;
+
   return (
     <MainContent>
       <GlobalStyle />
       <Title>Question Generator</Title>
-      {showSurvey === "true" && (
-        <SurveyContainer>
-          <h2 style={{ marginBottom: 50 }}>Add Survey Questions</h2>
-          <UserDropdown />
-          <ImageContainer>
-            <p>Example:</p>
-            {showSurveytextImage && <TextImage />}
-            {showSurveytextareaImage && <TextAreaImage />}
-            {showSurveyradioImage && <RadioImage />}
-            {showSurveyselectImage && <SelectImage />}
-            {showSurveycheckboxImage && <CheckboxImage />}
-            {showSurveyrating2Image && <Scale2Image />}
-            {showSurveyrating5Image && <Scale5Image />}
-            {showSurveyrating10Image && <Scale10Image />}
-            {/* {showSurveynoteImage === "true" && <TextImage />} */}
-          </ImageContainer>
-          <UserTextInput
-            label="2. Question text:"
-            stateId="surveyQuestionLabel"
-            sectionName="survey"
-            width={50}
-            left={0}
-          />
-          <UserTextInput
-            label="3. Question note (optional):"
-            stateId="surveyQuestionNote"
-            sectionName="survey"
-            width={40}
-            left={0}
-          />
-          <RadioButtons
-            label="4. Answer required:"
-            buttonIdArray={["true", "false"]}
-            stateId="surveyAnswerRequired"
-            sectionName="survey"
-          />
-          <RadioButtons
-            label="5. Answer restricted to numbers (0-9):"
-            buttonIdArray={["true", "false"]}
-            stateId="surveyAnswerRestricted"
-            sectionName="survey"
-          />
-          <RadioButtons
-            label="6a. Limit answer length:"
-            buttonIdArray={["true", "false"]}
-            stateId="surveyAnswerLenLimited"
-            sectionName="survey"
-          />
-          <UserTextInput
-            label="6b. Answer maximum length:"
-            stateId="6bsurveyAnswerLenMax"
-            sectionName="survey"
-            width={40}
-            left={0}
-          />
-        </SurveyContainer>
-      )}
+      {/* {showSurvey === "true" && ( */}
+      <SurveyContainer>
+        <h2 style={{ marginBottom: 50 }}>Add Survey Questions</h2>
+        <UserDropdown />
+        <ImageContainer>
+          <p>Example:</p>
+          {showSurveytextImage && <TextImage />}
+          {showSurveytextareaImage && <TextAreaImage />}
+          {showSurveyradioImage && <RadioImage />}
+          {showSurveyselectImage && <SelectImage />}
+          {showSurveycheckboxImage && <CheckboxImage />}
+          {showSurveyrating2Image && <Scale2Image />}
+          {showSurveyrating5Image && <Scale5Image />}
+          {showSurveyrating10Image && <Scale10Image />}
+          {/* {showSurveynoteImage === "true" && <TextImage />} */}
+        </ImageContainer>
+        {detailsArray && (
+          <ul>
+            {detailsArray.map((item, index) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        )}
+        <UserTextInput
+          label="2. Question text:"
+          stateId="surveyQuestionLabel"
+          sectionName="survey"
+          width={50}
+          left={0}
+        />
+        <UserTextInput
+          label="3. Question note (optional):"
+          stateId="surveyQuestionNote"
+          sectionName="survey"
+          width={40}
+          left={0}
+        />
+        <RadioButtons
+          label="4. Answer required:"
+          buttonIdArray={["true", "false"]}
+          stateId="surveyAnswerRequired"
+          sectionName="survey"
+        />
+        <RadioButtons
+          label="5. Answer restricted to numbers (0-9):"
+          buttonIdArray={["true", "false"]}
+          stateId="surveyAnswerRestricted"
+          sectionName="survey"
+        />
+        <RadioButtons
+          label="6a. Limit answer length:"
+          buttonIdArray={["true", "false"]}
+          stateId="surveyAnswerLenLimited"
+          sectionName="survey"
+        />
+        <UserTextInput
+          label="6b. Answer maximum length:"
+          stateId="6bsurveyAnswerLenMax"
+          sectionName="survey"
+          width={40}
+          left={0}
+        />
+      </SurveyContainer>
+      {/* )} */}
     </MainContent>
   );
 };
