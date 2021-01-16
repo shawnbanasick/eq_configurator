@@ -35,7 +35,7 @@ const UserDropdown = () => {
 
   return (
     <InputContainerDiv>
-      <TitleSpan>1. Select question type</TitleSpan>
+      <TitleSpan>Select question type</TitleSpan>
       <select
         name="category"
         value={appState.surveyQuestionType}

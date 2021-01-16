@@ -17,11 +17,21 @@ import CheckboxImage from "./checkboxQuestion";
 import SelectImage from "./selectQuestion";
 // import NoteImage from "./noteQuestion";
 
+const defaultArray = [
+  "label: Age",
+  "note: Please enter your year of birth (YYYY, eg. 1980).",
+  "required: true",
+  "maxlength: 4",
+  `restricted: "0-9"`,
+];
+
 const Survey = () => {
   let showSurvey = appState.config8ShowStep5;
   console.log("show survey", showSurvey);
   console.log(appState.showSurveytextareaImage);
   console.log(appState.showSurveytextImage);
+
+  let detailsArray = appState.detailsArray || defaultArray;
 
   //   const test = "true";
   let showSurveytextImage = appState.showSurveytextImage;
@@ -35,7 +45,6 @@ const Survey = () => {
   // let showSurveytextImage = appState.showSurveytextImage;
 
   // let detailsArray = ["sdfskf", "sdfs", "sdfdsf"];
-  let detailsArray = appState.detailsArray;
   console.log(detailsArray);
 
   // for development only
@@ -47,8 +56,6 @@ const Survey = () => {
       <Title>Question Generator</Title>
       {/* {showSurvey === "true" && ( */}
       <SurveyContainer>
-        <h2 style={{ marginBottom: 50 }}>Add Survey Questions</h2>
-        <UserDropdown />
         <ImageContainer>
           <p>Example:</p>
           {showSurveytextImage && <TextImage />}
@@ -60,48 +67,50 @@ const Survey = () => {
           {showSurveyrating5Image && <Scale5Image />}
           {showSurveyrating10Image && <Scale10Image />}
           {/* {showSurveynoteImage === "true" && <TextImage />} */}
+          {detailsArray && (
+            <ul>
+              {detailsArray.map((item, index) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          )}
         </ImageContainer>
-        {detailsArray && (
-          <ul>
-            {detailsArray.map((item, index) => (
-              <li>{item}</li>
-            ))}
-          </ul>
-        )}
+        <h2 style={{ marginBottom: 10, marginTop: 50 }}>Add Question</h2>
+        <UserDropdown />
+        <RadioButtons
+          label="Answer required:"
+          buttonIdArray={["true", "false"]}
+          stateId="surveyAnswerRequired"
+          sectionName="survey"
+        />
         <UserTextInput
-          label="2. Question text:"
+          label="Label:"
           stateId="surveyQuestionLabel"
           sectionName="survey"
           width={50}
           left={0}
         />
         <UserTextInput
-          label="3. Question note (optional):"
+          label="Question note (optional):"
           stateId="surveyQuestionNote"
           sectionName="survey"
           width={40}
           left={0}
         />
         <RadioButtons
-          label="4. Answer required:"
-          buttonIdArray={["true", "false"]}
-          stateId="surveyAnswerRequired"
-          sectionName="survey"
-        />
-        <RadioButtons
-          label="5. Answer restricted to numbers (0-9):"
+          label="Answer restricted to numbers (0-9):"
           buttonIdArray={["true", "false"]}
           stateId="surveyAnswerRestricted"
           sectionName="survey"
         />
         <RadioButtons
-          label="6a. Limit answer length:"
+          label="Limit answer length:"
           buttonIdArray={["true", "false"]}
           stateId="surveyAnswerLenLimited"
           sectionName="survey"
         />
         <UserTextInput
-          label="6b. Answer maximum length:"
+          label="Answer maximum length:"
           stateId="6bsurveyAnswerLenMax"
           sectionName="survey"
           width={40}
@@ -163,7 +172,7 @@ const MainContent = styled.div`
   padding-right: 50px;
   overflow: auto;
   user-select: none;
-  border: 2px solid red;
+  /* border: 2px solid red; */
 `;
 
 const Title = styled.h1`
@@ -177,8 +186,8 @@ const Title = styled.h1`
 
 const SurveyContainer = styled.div`
   margin-bottom: 25px;
-  width: 85vw;
-  border: 2px solid green;
+  width: 80vw;
+  /* border: 2px solid green; */
 `;
 
 const ImageContainer = styled.div`
@@ -187,4 +196,6 @@ const ImageContainer = styled.div`
   margin-bottom: 20px;
   padding-left: 10px;
   width: 100%;
+  height: 400px;
+  transition: opacity 3s ease-in-out;
 `;
