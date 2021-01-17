@@ -6,7 +6,6 @@ import UserDropdown from "./UserDropdown";
 import appState from "../../GlobalState/appState";
 import RadioButtons from "../../Utils/RadioButtons";
 import UserTextInput from "../../Utils/UserTextInput";
-
 import TextImage from "./textQuestion";
 import TextAreaImage from "./textAreaQuestion";
 import RadioImage from "./radioQuestion";
@@ -16,11 +15,12 @@ import Scale10Image from "./scale10Question";
 import CheckboxImage from "./checkboxQuestion";
 import SelectImage from "./selectQuestion";
 import InformationImage from "./informationQuestion";
+import shouldDisplayObject from "./shouldDisplayObject";
 
 const defaultArray = [
-  "label: Age",
+  "required (true/false): true",
+  "label text: Age",
   "note: Please enter your year of birth (YYYY, eg. 1980).",
-  "required: true",
   "maxlength: 4",
   `restricted: "0-9"`,
 ];
@@ -43,10 +43,16 @@ const Survey = () => {
   // for development only
   showSurvey = true;
 
+  const surveyQuestionType = appState.surveyQuestionType;
+  const displayBoolean2 = shouldDisplayObject();
+  console.log(surveyQuestionType);
+  const displayBoolean = displayBoolean2[surveyQuestionType];
+  console.log(displayBoolean);
+
   return (
     <MainContent>
       <GlobalStyle />
-      <Title>Question Generator</Title>
+      <Title>Survey Generator</Title>
       {/* {showSurvey === "true" && ( */}
       <SurveyContainer>
         <ImageContainer>
@@ -62,6 +68,9 @@ const Survey = () => {
           {showSurveyrating5Image && <Scale5Image />}
           {showSurveyrating10Image && <Scale10Image />}
           {showSurveyinformationImage && <InformationImage />}
+          <p>
+            <strong>Settings:</strong>
+          </p>
           {detailsArray && (
             <ul>
               {detailsArray.map((item) => (
@@ -70,47 +79,87 @@ const Survey = () => {
             </ul>
           )}
         </ImageContainer>
-        <h2 style={{ marginBottom: 10, marginTop: 50 }}>Add Question</h2>
-        <UserDropdown />
-        <RadioButtons
-          label="Answer required:"
-          buttonIdArray={["true", "false"]}
-          stateId="surveyAnswerRequired"
-          sectionName="survey"
-        />
-        <UserTextInput
-          label="Label:"
-          stateId="surveyQuestionLabel"
-          sectionName="survey"
-          width={50}
-          left={0}
-        />
-        <UserTextInput
-          label="Question note (optional):"
-          stateId="surveyQuestionNote"
-          sectionName="survey"
-          width={40}
-          left={0}
-        />
-        <RadioButtons
-          label="Answer restricted to numbers (0-9):"
-          buttonIdArray={["true", "false"]}
-          stateId="surveyAnswerRestricted"
-          sectionName="survey"
-        />
-        <RadioButtons
-          label="Limit answer length:"
-          buttonIdArray={["true", "false"]}
-          stateId="surveyAnswerLenLimited"
-          sectionName="survey"
-        />
-        <UserTextInput
-          label="Answer maximum length:"
-          stateId="6bsurveyAnswerLenMax"
-          sectionName="survey"
-          width={40}
-          left={0}
-        />
+        <SettingsContainer>
+          <h2 style={{ marginBottom: 5, marginTop: 5 }}>Add Item</h2>
+          <UserDropdown />
+          {displayBoolean.required && (
+            <RadioButtons
+              label="Answer required:"
+              buttonIdArray={["true", "false"]}
+              stateId="surveyAnswerRequired"
+              sectionName="survey"
+            />
+          )}
+          {displayBoolean.label && (
+            <UserTextInput
+              label="Label:"
+              stateId="surveyQuestionLabel"
+              sectionName="survey"
+              width={50}
+              left={0}
+            />
+          )}
+          {displayBoolean.note && (
+            <UserTextInput
+              label="Question note:"
+              stateId="surveyQuestionNote"
+              sectionName="survey"
+              width={40}
+              left={0}
+            />
+          )}
+          {displayBoolean.restricted && (
+            <RadioButtons
+              label="Answer restricted to numbers (0-9):"
+              buttonIdArray={["true", "false"]}
+              stateId="surveyAnswerRestricted"
+              sectionName="survey"
+            />
+          )}
+          {displayBoolean.maxlength && (
+            <RadioButtons
+              label="Limit answer length:"
+              buttonIdArray={["true", "false"]}
+              stateId="surveyAnswerLenLimited"
+              sectionName="survey"
+            />
+          )}
+          {displayBoolean.maxlength && (
+            <UserTextInput
+              label="Answer maximum length:"
+              stateId="6bsurveyAnswerLenMax"
+              sectionName="survey"
+              width={5}
+              left={0}
+            />
+          )}
+          {displayBoolean.scale && (
+            <UserTextInput
+              label="Scale:"
+              stateId="surveyQuestionOptions"
+              sectionName="survey"
+              width={65}
+              left={0}
+            />
+          )}
+          {displayBoolean.options && (
+            <UserTextInput
+              label="Options:"
+              stateId="surveyQuestionOptions"
+              sectionName="survey"
+              width={65}
+              left={0}
+            />
+          )}
+          {displayBoolean.bg && (
+            <RadioButtons
+              label="Display background:"
+              buttonIdArray={["true", "false"]}
+              stateId="surveyBackgroundDisplay"
+              sectionName="survey"
+            />
+          )}
+        </SettingsContainer>
       </SurveyContainer>
       {/* )} */}
     </MainContent>
@@ -192,6 +241,16 @@ const ImageContainer = styled.div`
   margin-bottom: 20px;
   padding-left: 10px;
   width: 100%;
-  height: 400px;
+  height: 420px;
+  transition: opacity 3s ease-in-out;
+`;
+
+const SettingsContainer = styled.div`
+  border: 3px solid black;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-left: 10px;
+  width: 100%;
+  height: 480px;
   transition: opacity 3s ease-in-out;
 `;

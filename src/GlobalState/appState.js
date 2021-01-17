@@ -10,6 +10,7 @@ const appState = store({
   showSurveytextImage: true,
   config8ShowStep5trueActive: true,
   config8ShowStep5: "true",
+  surveyQuestionType: "text",
   /*
   config.xml settings */
 

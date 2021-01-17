@@ -10,7 +10,7 @@ const shouldDisplayObject = () => {
       options: false,
       bg: false,
     },
-    textArea: {
+    textarea: {
       required: true,
       label: true,
       note: true,
@@ -18,6 +18,16 @@ const shouldDisplayObject = () => {
       restricted: false,
       scale: false,
       options: false,
+      bg: false,
+    },
+    radio: {
+      required: true,
+      label: true,
+      note: true,
+      maxlength: false,
+      restricted: false,
+      scale: false,
+      options: true,
       bg: false,
     },
     rating2: {
@@ -71,8 +81,8 @@ const shouldDisplayObject = () => {
       bg: false,
     },
     information: {
-      required: true,
-      label: true,
+      required: false,
+      label: false,
       note: false,
       maxlength: false,
       restricted: false,
