@@ -28,9 +28,36 @@ const defaultArray = [
 
 const grid = 8;
 let testItems = [
-  { id: "item-0", content: "item 0" },
-  { id: "item-1", content: "item 1" },
-  { id: "item-2", content: "item 2" },
+  {
+    id: "item-0",
+    content: [
+      "required (true/false): true",
+      "label text: Age",
+      "note: Please enter your year of birth (YYYY, eg. 1980).",
+      "maxlength: 4",
+      `restricted: "0-9"`,
+    ],
+  },
+  {
+    id: "item-1",
+    content: [
+      "required (true/false): true",
+      "label text: Age",
+      "note: Please enter your year of birth (YYYY, eg. 1980).",
+      "maxlength: 4",
+      `restricted: "0-9"`,
+    ],
+  },
+  {
+    id: "item-2",
+    content: [
+      "required (true/false): true",
+      "label text: Age",
+      "note: Please enter your year of birth (YYYY, eg. 1980).",
+      "maxlength: 4",
+      `restricted: "0-9"`,
+    ],
+  },
 ];
 
 const getItemStyle = (isDragging, draggableStyle) => ({
@@ -49,7 +76,7 @@ const getItemStyle = (isDragging, draggableStyle) => ({
 const getListStyle = (isDraggingOver) => ({
   background: isDraggingOver ? "lightblue" : "lightgrey",
   padding: grid,
-  width: 250,
+  width: 850,
 });
 
 // a little function to help us with reordering the result
@@ -212,36 +239,46 @@ const Survey = () => {
             />
           )}
         </SettingsContainer>
-        <DragDropContext onDragEnd={onDragEnd}>
-          <Droppable droppableId="droppable">
-            {(provided, snapshot) => (
-              <div
-                {...provided.droppableProps}
-                ref={provided.innerRef}
-                style={getListStyle(snapshot.isDraggingOver)}
-              >
-                {testItems.map((item, index) => (
-                  <Draggable key={item.id} draggableId={item.id} index={index}>
-                    {(provided, snapshot) => (
-                      <div
-                        ref={provided.innerRef}
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                        style={getItemStyle(
-                          snapshot.isDragging,
-                          provided.draggableProps.style
-                        )}
-                      >
-                        {item.content}
-                      </div>
-                    )}
-                  </Draggable>
-                ))}
-                {provided.placeholder}
-              </div>
-            )}
-          </Droppable>
-        </DragDropContext>
+        <DragAndDropContainer>
+          <DragDropContext onDragEnd={onDragEnd}>
+            <Droppable droppableId="droppable">
+              {(provided, snapshot) => (
+                <div
+                  {...provided.droppableProps}
+                  ref={provided.innerRef}
+                  style={getListStyle(snapshot.isDraggingOver)}
+                >
+                  {testItems.map((item, index) => (
+                    <Draggable
+                      key={item.id}
+                      draggableId={item.id}
+                      index={index}
+                    >
+                      {(provided, snapshot) => (
+                        <div
+                          ref={provided.innerRef}
+                          {...provided.draggableProps}
+                          {...provided.dragHandleProps}
+                          style={getItemStyle(
+                            snapshot.isDragging,
+                            provided.draggableProps.style
+                          )}
+                        >
+                          <ul>
+                            {item.content.map((item) => (
+                              <li key={item}>{item}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </Draggable>
+                  ))}
+                  {provided.placeholder}
+                </div>
+              )}
+            </Droppable>
+          </DragDropContext>
+        </DragAndDropContainer>
       </SurveyContainer>
       {/* )} */}
     </MainContent>
@@ -335,4 +372,8 @@ const SettingsContainer = styled.div`
   width: 100%;
   height: 440px;
   transition: opacity 3s ease-in-out;
+`;
+
+const DragAndDropContainer = styled.div`
+  overflow: auto;
 `;
