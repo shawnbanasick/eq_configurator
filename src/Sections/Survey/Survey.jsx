@@ -26,55 +26,25 @@ const defaultArray = [
   `restricted: "0-9"`,
 ];
 
-const grid = 8;
-let testItems = [
-  {
-    id: "item-0",
-    content: [
-      "required (true/false): true",
-      "label text: Age",
-      "note: Please enter your year of birth (YYYY, eg. 1980).",
-      "maxlength: 4",
-      `restricted: "0-9"`,
-    ],
-  },
-  {
-    id: "item-1",
-    content: [
-      "required (true/false): true",
-      "label text: Age",
-      "note: Please enter your year of birth (YYYY, eg. 1980).",
-      "maxlength: 4",
-      `restricted: "0-9"`,
-    ],
-  },
-  {
-    id: "item-2",
-    content: [
-      "required (true/false): true",
-      "label text: Age",
-      "note: Please enter your year of birth (YYYY, eg. 1980).",
-      "maxlength: 4",
-      `restricted: "0-9"`,
-    ],
-  },
-];
+const grid = 5;
+let testItems = appState.surveyQuestionsArray;
 
 const getItemStyle = (isDragging, draggableStyle) => ({
   // some basic styles to make the items look a bit nicer
   userSelect: "none",
   padding: grid * 2,
   margin: `0 0 ${grid}px 0`,
+  borderRadius: "15px",
 
   // change background colour if dragging
-  background: isDragging ? "lightgreen" : "grey",
+  background: isDragging ? "#e6bbad" : "#b2b2b2",
 
   // styles we need to apply on draggables
   ...draggableStyle,
 });
 
 const getListStyle = (isDraggingOver) => ({
-  background: isDraggingOver ? "lightblue" : "lightgrey",
+  background: isDraggingOver ? "lightgrey" : "lightblue",
   padding: grid,
   width: 850,
 });
@@ -135,9 +105,7 @@ const Survey = () => {
       {/* {showSurvey === "true" && ( */}
       <SurveyContainer>
         <ImageContainer>
-          <p>
-            <strong>Example:</strong>
-          </p>
+          <h2>Example:</h2>
           {showSurveytextImage && <TextImage />}
           {showSurveytextareaImage && <TextAreaImage />}
           {showSurveyradioImage && <RadioImage />}
@@ -240,6 +208,7 @@ const Survey = () => {
           )}
         </SettingsContainer>
         <DragAndDropContainer>
+          <h2 style={{ marginBottom: 5, marginTop: 5 }}>Question List:</h2>
           <DragDropContext onDragEnd={onDragEnd}>
             <Droppable droppableId="droppable">
               {(provided, snapshot) => (
@@ -360,7 +329,7 @@ const ImageContainer = styled.div`
   margin-bottom: 0px;
   padding-left: 10px;
   width: 100%;
-  height: 420px;
+  height: 450px;
   transition: opacity 3s ease-in-out;
 `;
 
