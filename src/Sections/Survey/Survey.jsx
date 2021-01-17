@@ -15,7 +15,7 @@ import Scale5Image from "./scale5Question";
 import Scale10Image from "./scale10Question";
 import CheckboxImage from "./checkboxQuestion";
 import SelectImage from "./selectQuestion";
-// import NoteImage from "./noteQuestion";
+import InformationImage from "./informationQuestion";
 
 const defaultArray = [
   "label: Age",
@@ -28,8 +28,7 @@ const defaultArray = [
 const Survey = () => {
   let showSurvey = appState.config8ShowStep5;
   console.log("show survey", showSurvey);
-  console.log(appState.showSurveytextareaImage);
-  console.log(appState.showSurveytextImage);
+  // console.log(appState.showSurveytextareaImage);
 
   let detailsArray = appState.detailsArray || defaultArray;
 
@@ -42,7 +41,7 @@ const Survey = () => {
   let showSurveyrating2Image = appState.showSurveyrating2Image;
   let showSurveyrating5Image = appState.showSurveyrating5Image;
   let showSurveyrating10Image = appState.showSurveyrating10Image;
-  // let showSurveytextImage = appState.showSurveytextImage;
+  let showSurveyinformationImage = appState.showSurveyinformationImage;
 
   // let detailsArray = ["sdfskf", "sdfs", "sdfdsf"];
   console.log(detailsArray);
@@ -66,10 +65,10 @@ const Survey = () => {
           {showSurveyrating2Image && <Scale2Image />}
           {showSurveyrating5Image && <Scale5Image />}
           {showSurveyrating10Image && <Scale10Image />}
-          {/* {showSurveynoteImage === "true" && <TextImage />} */}
+          {showSurveyinformationImage && <InformationImage />}
           {detailsArray && (
             <ul>
-              {detailsArray.map((item, index) => (
+              {detailsArray.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
@@ -192,6 +191,7 @@ const SurveyContainer = styled.div`
 
 const ImageContainer = styled.div`
   border: 3px solid black;
+  background: #eaeaff;
   margin-top: 20px;
   margin-bottom: 20px;
   padding-left: 10px;

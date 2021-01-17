@@ -14,7 +14,7 @@ const optionsArray = [
   "showSurveyrating2Image",
   "showSurveyrating5Image",
   "showSurveyrating10Image",
-  "showSurveynoteImage",
+  "showSurveyinformationImage",
 ];
 
 const clearImages = () => {
@@ -49,7 +49,7 @@ const UserDropdown = () => {
         <option id="5">rating2</option>
         <option id="6">rating5</option>
         <option id="7">rating10</option>
-        <option id="8">note</option>
+        <option id="8">information</option>
       </select>
     </InputContainerDiv>
   );

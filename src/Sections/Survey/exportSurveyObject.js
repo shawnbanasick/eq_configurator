@@ -42,7 +42,10 @@ const exportSurveyObject = () => {
       "label: What kind of transportation do you prefer?",
       "options: Car;Railroad;Bike",
     ],
-    note: ["bg: false", "option: All fields marked with an * are mandatory"],
+    information: [
+      "bg: false",
+      "option: All fields marked with an * are mandatory",
+    ],
   };
   return surveyQuestionObject;
 };
