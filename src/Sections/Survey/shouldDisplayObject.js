@@ -13,7 +13,7 @@ const shouldDisplayObject = () => {
     textarea: {
       required: true,
       label: true,
-      note: true,
+      note: false,
       maxlength: false,
       restricted: false,
       scale: false,
@@ -86,7 +86,7 @@ const shouldDisplayObject = () => {
       note: false,
       maxlength: false,
       restricted: false,
-      scale: true,
+      scale: false,
       options: true,
       bg: true,
     },

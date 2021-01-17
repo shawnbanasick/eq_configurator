@@ -16,6 +16,7 @@ import CheckboxImage from "./checkboxQuestion";
 import SelectImage from "./selectQuestion";
 import InformationImage from "./informationQuestion";
 import shouldDisplayObject from "./shouldDisplayObject";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 const defaultArray = [
   "required (true/false): true",
@@ -24,6 +25,57 @@ const defaultArray = [
   "maxlength: 4",
   `restricted: "0-9"`,
 ];
+
+const grid = 8;
+let testItems = [
+  { id: "item-0", content: "item 0" },
+  { id: "item-1", content: "item 1" },
+  { id: "item-2", content: "item 2" },
+];
+
+const getItemStyle = (isDragging, draggableStyle) => ({
+  // some basic styles to make the items look a bit nicer
+  userSelect: "none",
+  padding: grid * 2,
+  margin: `0 0 ${grid}px 0`,
+
+  // change background colour if dragging
+  background: isDragging ? "lightgreen" : "grey",
+
+  // styles we need to apply on draggables
+  ...draggableStyle,
+});
+
+const getListStyle = (isDraggingOver) => ({
+  background: isDraggingOver ? "lightblue" : "lightgrey",
+  padding: grid,
+  width: 250,
+});
+
+// a little function to help us with reordering the result
+const reorder = (list, startIndex, endIndex) => {
+  const result = Array.from(list);
+  const [removed] = result.splice(startIndex, 1);
+  result.splice(endIndex, 0, removed);
+
+  return result;
+};
+
+const onDragEnd = (result) => {
+  // dropped outside the list
+  if (!result.destination) {
+    return;
+  }
+
+  const items = reorder(
+    testItems,
+    result.source.index,
+    result.destination.index
+  );
+
+  testItems = [...items];
+  console.log(JSON.stringify(testItems));
+};
 
 const Survey = () => {
   let showSurvey = appState.config8ShowStep5;
@@ -80,7 +132,7 @@ const Survey = () => {
           )}
         </ImageContainer>
         <SettingsContainer>
-          <h2 style={{ marginBottom: 5, marginTop: 5 }}>Add Item</h2>
+          <h2 style={{ marginBottom: 5, marginTop: 5 }}>New Item Settings:</h2>
           <UserDropdown />
           {displayBoolean.required && (
             <RadioButtons
@@ -108,19 +160,11 @@ const Survey = () => {
               left={0}
             />
           )}
-          {displayBoolean.restricted && (
-            <RadioButtons
-              label="Answer restricted to numbers (0-9):"
-              buttonIdArray={["true", "false"]}
-              stateId="surveyAnswerRestricted"
-              sectionName="survey"
-            />
-          )}
           {displayBoolean.maxlength && (
             <RadioButtons
               label="Limit answer length:"
               buttonIdArray={["true", "false"]}
-              stateId="surveyAnswerLenLimited"
+              stateId="surveyAnswerLenIsLimited"
               sectionName="survey"
             />
           )}
@@ -133,19 +177,18 @@ const Survey = () => {
               left={0}
             />
           )}
+          {displayBoolean.restricted && (
+            <RadioButtons
+              label="Answer restricted to numbers (0-9):"
+              buttonIdArray={["true", "false"]}
+              stateId="surveyAnswerRestricted"
+              sectionName="survey"
+            />
+          )}
           {displayBoolean.scale && (
             <UserTextInput
               label="Scale:"
-              stateId="surveyQuestionOptions"
-              sectionName="survey"
-              width={65}
-              left={0}
-            />
-          )}
-          {displayBoolean.options && (
-            <UserTextInput
-              label="Options:"
-              stateId="surveyQuestionOptions"
+              stateId="surveyQuestionScale"
               sectionName="survey"
               width={65}
               left={0}
@@ -159,7 +202,46 @@ const Survey = () => {
               sectionName="survey"
             />
           )}
+          {displayBoolean.options && (
+            <UserTextInput
+              label="Options:"
+              stateId="surveyQuestionOptions"
+              sectionName="survey"
+              width={65}
+              left={0}
+            />
+          )}
         </SettingsContainer>
+        <DragDropContext onDragEnd={onDragEnd}>
+          <Droppable droppableId="droppable">
+            {(provided, snapshot) => (
+              <div
+                {...provided.droppableProps}
+                ref={provided.innerRef}
+                style={getListStyle(snapshot.isDraggingOver)}
+              >
+                {testItems.map((item, index) => (
+                  <Draggable key={item.id} draggableId={item.id} index={index}>
+                    {(provided, snapshot) => (
+                      <div
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        style={getItemStyle(
+                          snapshot.isDragging,
+                          provided.draggableProps.style
+                        )}
+                      >
+                        {item.content}
+                      </div>
+                    )}
+                  </Draggable>
+                ))}
+                {provided.placeholder}
+              </div>
+            )}
+          </Droppable>
+        </DragDropContext>
       </SurveyContainer>
       {/* )} */}
     </MainContent>
@@ -238,7 +320,7 @@ const ImageContainer = styled.div`
   border: 3px solid black;
   background: #cde7f0;
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   padding-left: 10px;
   width: 100%;
   height: 420px;
@@ -247,10 +329,10 @@ const ImageContainer = styled.div`
 
 const SettingsContainer = styled.div`
   border: 3px solid black;
-  margin-top: 5px;
+  margin-top: 0px;
   margin-bottom: 5px;
   padding-left: 10px;
   width: 100%;
-  height: 480px;
+  height: 440px;
   transition: opacity 3s ease-in-out;
 `;
