@@ -27,12 +27,9 @@ const defaultArray = [
 
 const Survey = () => {
   let showSurvey = appState.config8ShowStep5;
-  console.log("show survey", showSurvey);
-  // console.log(appState.showSurveytextareaImage);
 
   let detailsArray = appState.detailsArray || defaultArray;
 
-  //   const test = "true";
   let showSurveytextImage = appState.showSurveytextImage;
   let showSurveytextareaImage = appState.showSurveytextareaImage;
   let showSurveyradioImage = appState.showSurveyradioImage;
@@ -42,9 +39,6 @@ const Survey = () => {
   let showSurveyrating5Image = appState.showSurveyrating5Image;
   let showSurveyrating10Image = appState.showSurveyrating10Image;
   let showSurveyinformationImage = appState.showSurveyinformationImage;
-
-  // let detailsArray = ["sdfskf", "sdfs", "sdfdsf"];
-  console.log(detailsArray);
 
   // for development only
   showSurvey = true;
@@ -56,7 +50,9 @@ const Survey = () => {
       {/* {showSurvey === "true" && ( */}
       <SurveyContainer>
         <ImageContainer>
-          <p>Example:</p>
+          <p>
+            <strong>Example:</strong>
+          </p>
           {showSurveytextImage && <TextImage />}
           {showSurveytextareaImage && <TextAreaImage />}
           {showSurveyradioImage && <RadioImage />}
@@ -191,7 +187,7 @@ const SurveyContainer = styled.div`
 
 const ImageContainer = styled.div`
   border: 3px solid black;
-  background: #eaeaff;
+  background: #cde7f0;
   margin-top: 20px;
   margin-bottom: 20px;
   padding-left: 10px;
