@@ -12,8 +12,7 @@ const SurveyItemDndList = () => {
   let testItems = clone(appState.surveyQuestionsArray);
 
   const getItemStyle = (isDragging, draggableStyle) => ({
-    // some basic styles to make the items look a bit nicer
-    display: "flex",
+    // drag container style
     flexDirection: "row",
     userSelect: "none",
     padding: grid * 2,
@@ -68,7 +67,7 @@ const SurveyItemDndList = () => {
   return (
     <DragAndDropContainer>
       <h2 style={{ marginBottom: 5, marginTop: 5 }}>Question List:</h2>
-      <DragDropContext onDragEnd={onDragEnd}>
+      <DragDropContext style={{ display: "flex" }} onDragEnd={onDragEnd}>
         <Droppable droppableId="droppable">
           {(provided, snapshot) => (
             <div
@@ -95,7 +94,9 @@ const SurveyItemDndList = () => {
                     >
                       <ul>
                         {item.content.map((item) => (
-                          <li key={item}>{item}</li>
+                          <li style={{ width: "50vw" }} key={item}>
+                            {item}
+                          </li>
                         ))}
                       </ul>
                       <DeleteButton value={index} onClick={callDelete}>
@@ -121,7 +122,7 @@ const DragAndDropContainer = styled.div`
 `;
 
 const DeleteButton = styled(GeneralButton)`
-  align-self: right;
-  margin-left: 48vw;
-  height: 30px;
+  align-self: flex-end;
+  margin-left: 64vw;
+  height: 20px !important;
 `;
