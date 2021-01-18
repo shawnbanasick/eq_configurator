@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import React from "react";
 import { view } from "@risingstack/react-easy-state";
 import styled, { keyframes } from "styled-components";
@@ -17,6 +18,7 @@ import SelectImage from "./selectQuestion";
 import InformationImage from "./informationQuestion";
 import shouldDisplayObject from "./shouldDisplayObject";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import GeneralButton from "../../Utils/GeneralButton";
 
 const defaultArray = [
   "required (true/false): true",
@@ -31,10 +33,13 @@ let testItems = appState.surveyQuestionsArray;
 
 const getItemStyle = (isDragging, draggableStyle) => ({
   // some basic styles to make the items look a bit nicer
+  display: "flex",
+  flexDirection: "row",
   userSelect: "none",
-  padding: grid * 2,
+  padding: grid,
   margin: `0 0 ${grid}px 0`,
   borderRadius: "15px",
+  width: "100%",
 
   // change background colour if dragging
   background: isDragging ? "#e6bbad" : "#b2b2b2",
@@ -71,7 +76,11 @@ const onDragEnd = (result) => {
   );
 
   testItems = [...items];
-  console.log(JSON.stringify(testItems));
+  // console.log(JSON.stringify(testItems));
+};
+
+const callDelete = (e) => {
+  console.log(e.target.value);
 };
 
 const Survey = () => {
@@ -220,6 +229,7 @@ const Survey = () => {
                   {testItems.map((item, index) => (
                     <Draggable
                       key={item.id}
+                      data-id={item.id}
                       draggableId={item.id}
                       index={index}
                     >
@@ -238,6 +248,9 @@ const Survey = () => {
                               <li key={item}>{item}</li>
                             ))}
                           </ul>
+                          <DeleteButton value={index} onClick={callDelete}>
+                            Delete
+                          </DeleteButton>
                         </div>
                       )}
                     </Draggable>
@@ -339,10 +352,16 @@ const SettingsContainer = styled.div`
   margin-bottom: 5px;
   padding-left: 10px;
   width: 100%;
-  height: 440px;
+  height: 460px;
   transition: opacity 3s ease-in-out;
 `;
 
 const DragAndDropContainer = styled.div`
   overflow: auto;
+`;
+
+const DeleteButton = styled(GeneralButton)`
+  align-self: right;
+  margin-left: 280px;
+  height: 50px;
 `;
