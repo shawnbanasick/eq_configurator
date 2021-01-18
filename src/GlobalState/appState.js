@@ -15,7 +15,7 @@ const appState = store({
     {
       id: "item-0",
       content: [
-        "required (true/false): true",
+        "required (true/false): true 1",
         "label text: Age",
         "note: Please enter your year of birth (YYYY, eg. 1980).",
         "maxlength: 4",
@@ -25,7 +25,7 @@ const appState = store({
     {
       id: "item-1",
       content: [
-        "required (true/false): true",
+        "required (true/false): true 2",
         "label text: Age",
         "note: Please enter your year of birth (YYYY, eg. 1980).",
         "maxlength: 4",
@@ -35,7 +35,7 @@ const appState = store({
     {
       id: "item-2",
       content: [
-        "required (true/false): true",
+        "required (true/false): true 3",
         "label text: Age",
         "note: Please enter your year of birth (YYYY, eg. 1980).",
         "maxlength: 4",
@@ -45,7 +45,7 @@ const appState = store({
     {
       id: "item-3",
       content: [
-        "required (true/false): true",
+        "required (true/false): true 4",
         "label text: Age",
         "note: Please enter your year of birth (YYYY, eg. 1980).",
         "maxlength: 4",
@@ -55,7 +55,7 @@ const appState = store({
     {
       id: "item-4",
       content: [
-        "required (true/false): true",
+        "required (true/false): true 5",
         "label text: Age",
         "note: Please enter your year of birth (YYYY, eg. 1980).",
         "maxlength: 4",
@@ -65,7 +65,7 @@ const appState = store({
     {
       id: "item-5",
       content: [
-        "required (true/false): true",
+        "required (true/false): true 6",
         "label text: Age",
         "note: Please enter your year of birth (YYYY, eg. 1980).",
         "maxlength: 4",

@@ -5,9 +5,11 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import GeneralButton from "../../Utils/GeneralButton";
 import appState from "../../GlobalState/appState";
 
+const clone = require("rfdc/default");
+
 const SurveyItemDndList = () => {
   const grid = 5;
-  let testItems = appState.surveyQuestionsArray;
+  let testItems = clone(appState.surveyQuestionsArray);
 
   const getItemStyle = (isDragging, draggableStyle) => ({
     // some basic styles to make the items look a bit nicer
@@ -28,7 +30,7 @@ const SurveyItemDndList = () => {
   const getListStyle = (isDraggingOver) => ({
     background: isDraggingOver ? "lightgrey" : "lightblue",
     padding: grid,
-    width: 850,
+    width: "78vw",
   });
 
   // a little function to help us with reordering the result
@@ -59,7 +61,7 @@ const SurveyItemDndList = () => {
   const callDelete = (e) => {
     const item = e.target.value;
     testItems.splice(item, 1);
-    console.log(testItems);
+    console.log(JSON.stringify(testItems, null, 2));
     appState.surveyQuestionsArray = testItems;
   };
 
@@ -120,6 +122,6 @@ const DragAndDropContainer = styled.div`
 
 const DeleteButton = styled(GeneralButton)`
   align-self: right;
-  margin-left: 280px;
+  margin-left: 48vw;
   height: 30px;
 `;

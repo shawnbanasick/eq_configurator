@@ -16,8 +16,7 @@ import CheckboxImage from "./checkboxQuestion";
 import SelectImage from "./selectQuestion";
 import InformationImage from "./informationQuestion";
 import shouldDisplayObject from "./shouldDisplayObject";
-// import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-// import GeneralButton from "../../Utils/GeneralButton";
+import GeneralButton from "../../Utils/GeneralButton";
 import SurveyItemDndList from "./SurveyItemDndList";
 
 const defaultArray = [
@@ -52,23 +51,27 @@ const Survey = () => {
   const displayBoolean = displayBoolean2[surveyQuestionType];
   console.log(displayBoolean);
 
+  const addItem = () => {};
+
   return (
     <MainContent>
       <GlobalStyle />
       <Title>Survey Generator</Title>
       {/* {showSurvey === "true" && ( */}
       <SurveyContainer>
-        <ImageContainer>
+        <ExampleContainer>
           <h2>Example:</h2>
-          {showSurveytextImage && <TextImage />}
-          {showSurveytextareaImage && <TextAreaImage />}
-          {showSurveyradioImage && <RadioImage />}
-          {showSurveyselectImage && <SelectImage />}
-          {showSurveycheckboxImage && <CheckboxImage />}
-          {showSurveyrating2Image && <Scale2Image />}
-          {showSurveyrating5Image && <Scale5Image />}
-          {showSurveyrating10Image && <Scale10Image />}
-          {showSurveyinformationImage && <InformationImage />}
+          <ImageContainer>
+            {showSurveytextImage && <TextImage />}
+            {showSurveytextareaImage && <TextAreaImage />}
+            {showSurveyradioImage && <RadioImage />}
+            {showSurveyselectImage && <SelectImage />}
+            {showSurveycheckboxImage && <CheckboxImage />}
+            {showSurveyrating2Image && <Scale2Image />}
+            {showSurveyrating5Image && <Scale5Image />}
+            {showSurveyrating10Image && <Scale10Image />}
+            {showSurveyinformationImage && <InformationImage />}
+          </ImageContainer>
           <p>
             <strong>Settings:</strong>
           </p>
@@ -79,7 +82,7 @@ const Survey = () => {
               ))}
             </ul>
           )}
-        </ImageContainer>
+        </ExampleContainer>
         <SettingsContainer>
           <h2 style={{ marginBottom: 5, marginTop: 5 }}>New Item Settings:</h2>
           <UserDropdown />
@@ -156,10 +159,11 @@ const Survey = () => {
               label="Options:"
               stateId="surveyQuestionOptions"
               sectionName="survey"
-              width={65}
+              width={60}
               left={0}
             />
           )}
+          <AddItemButton onClick={addItem}>Add Item</AddItemButton>
         </SettingsContainer>
         <SurveyItemDndList />
       </SurveyContainer>
@@ -227,23 +231,39 @@ const SurveyContainer = styled.div`
   /* border: 2px solid green; */
 `;
 
-const ImageContainer = styled.div`
+const ExampleContainer = styled.div`
   border: 3px solid black;
   background: #cde7f0;
   margin-top: 20px;
   margin-bottom: 0px;
   padding-left: 10px;
-  width: 100%;
-  height: 450px;
+  width: 78vw;
+  height: auto;
   transition: opacity 3s ease-in-out;
 `;
 
 const SettingsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   border: 3px solid black;
   margin-top: 0px;
   margin-bottom: 5px;
   padding-left: 10px;
-  width: 100%;
-  height: 460px;
+  width: 78vw;
+  height: auto;
   transition: opacity 3s ease-in-out;
+`;
+
+const AddItemButton = styled(GeneralButton)`
+  align-self: right;
+  margin-left: 70px; // 68vw;
+  margin-top: 50px; // 68vw;
+  margin-bottom: 10px; // 68vw;
+  height: 30px;
+  width: 150px;
+  /* margin-bottom: 10px; */
+`;
+
+const ImageContainer = styled.div`
+  width: clamp(500px, 75vw, 1300px);
 `;
