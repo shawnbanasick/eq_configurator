@@ -42,6 +42,36 @@ const appState = store({
         `restricted: "0-9"`,
       ],
     },
+    {
+      id: "item-3",
+      content: [
+        "required (true/false): true",
+        "label text: Age",
+        "note: Please enter your year of birth (YYYY, eg. 1980).",
+        "maxlength: 4",
+        `restricted: "0-9"`,
+      ],
+    },
+    {
+      id: "item-4",
+      content: [
+        "required (true/false): true",
+        "label text: Age",
+        "note: Please enter your year of birth (YYYY, eg. 1980).",
+        "maxlength: 4",
+        `restricted: "0-9"`,
+      ],
+    },
+    {
+      id: "item-5",
+      content: [
+        "required (true/false): true",
+        "label text: Age",
+        "note: Please enter your year of birth (YYYY, eg. 1980).",
+        "maxlength: 4",
+        `restricted: "0-9"`,
+      ],
+    },
   ],
   /*
   config.xml settings */

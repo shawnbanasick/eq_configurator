@@ -1,4 +1,3 @@
-/* eslint-disable no-use-before-define */
 import React from "react";
 import { view } from "@risingstack/react-easy-state";
 import styled, { keyframes } from "styled-components";
@@ -17,8 +16,9 @@ import CheckboxImage from "./checkboxQuestion";
 import SelectImage from "./selectQuestion";
 import InformationImage from "./informationQuestion";
 import shouldDisplayObject from "./shouldDisplayObject";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-import GeneralButton from "../../Utils/GeneralButton";
+// import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+// import GeneralButton from "../../Utils/GeneralButton";
+import SurveyItemDndList from "./SurveyItemDndList";
 
 const defaultArray = [
   "required (true/false): true",
@@ -27,61 +27,6 @@ const defaultArray = [
   "maxlength: 4",
   `restricted: "0-9"`,
 ];
-
-const grid = 5;
-let testItems = appState.surveyQuestionsArray;
-
-const getItemStyle = (isDragging, draggableStyle) => ({
-  // some basic styles to make the items look a bit nicer
-  display: "flex",
-  flexDirection: "row",
-  userSelect: "none",
-  padding: grid,
-  margin: `0 0 ${grid}px 0`,
-  borderRadius: "15px",
-  width: "100%",
-
-  // change background colour if dragging
-  background: isDragging ? "#e6bbad" : "#b2b2b2",
-
-  // styles we need to apply on draggables
-  ...draggableStyle,
-});
-
-const getListStyle = (isDraggingOver) => ({
-  background: isDraggingOver ? "lightgrey" : "lightblue",
-  padding: grid,
-  width: 850,
-});
-
-// a little function to help us with reordering the result
-const reorder = (list, startIndex, endIndex) => {
-  const result = Array.from(list);
-  const [removed] = result.splice(startIndex, 1);
-  result.splice(endIndex, 0, removed);
-
-  return result;
-};
-
-const onDragEnd = (result) => {
-  // dropped outside the list
-  if (!result.destination) {
-    return;
-  }
-
-  const items = reorder(
-    testItems,
-    result.source.index,
-    result.destination.index
-  );
-
-  testItems = [...items];
-  // console.log(JSON.stringify(testItems));
-};
-
-const callDelete = (e) => {
-  console.log(e.target.value);
-};
 
 const Survey = () => {
   let showSurvey = appState.config8ShowStep5;
@@ -216,51 +161,7 @@ const Survey = () => {
             />
           )}
         </SettingsContainer>
-        <DragAndDropContainer>
-          <h2 style={{ marginBottom: 5, marginTop: 5 }}>Question List:</h2>
-          <DragDropContext onDragEnd={onDragEnd}>
-            <Droppable droppableId="droppable">
-              {(provided, snapshot) => (
-                <div
-                  {...provided.droppableProps}
-                  ref={provided.innerRef}
-                  style={getListStyle(snapshot.isDraggingOver)}
-                >
-                  {testItems.map((item, index) => (
-                    <Draggable
-                      key={item.id}
-                      data-id={item.id}
-                      draggableId={item.id}
-                      index={index}
-                    >
-                      {(provided, snapshot) => (
-                        <div
-                          ref={provided.innerRef}
-                          {...provided.draggableProps}
-                          {...provided.dragHandleProps}
-                          style={getItemStyle(
-                            snapshot.isDragging,
-                            provided.draggableProps.style
-                          )}
-                        >
-                          <ul>
-                            {item.content.map((item) => (
-                              <li key={item}>{item}</li>
-                            ))}
-                          </ul>
-                          <DeleteButton value={index} onClick={callDelete}>
-                            Delete
-                          </DeleteButton>
-                        </div>
-                      )}
-                    </Draggable>
-                  ))}
-                  {provided.placeholder}
-                </div>
-              )}
-            </Droppable>
-          </DragDropContext>
-        </DragAndDropContainer>
+        <SurveyItemDndList />
       </SurveyContainer>
       {/* )} */}
     </MainContent>
@@ -293,15 +194,6 @@ const MainContent = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  /* grid-template-columns: 1fr;
-  grid-template-rows: 150px 130px 20px 350px 200px 1fr;
-  grid-template-areas:
-    "title"
-    "options"
-    "row3"
-    "row4"
-    "row5"
-    "row6"; */
   justify-items: left;
   align-items: left;
   background-color: white;
@@ -354,14 +246,4 @@ const SettingsContainer = styled.div`
   width: 100%;
   height: 460px;
   transition: opacity 3s ease-in-out;
-`;
-
-const DragAndDropContainer = styled.div`
-  overflow: auto;
-`;
-
-const DeleteButton = styled(GeneralButton)`
-  align-self: right;
-  margin-left: 280px;
-  height: 50px;
 `;
