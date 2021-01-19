@@ -15,7 +15,6 @@ const UserTextInput = (props) => {
   const handleChange = (event) => {
     event.preventDefault();
     const value = event.target.value;
-    console.log(key, value);
     appState[key] = value;
   };
 
