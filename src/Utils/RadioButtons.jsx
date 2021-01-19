@@ -11,7 +11,7 @@ const SelectionButtons = (props) => {
   const clearAllButtons = () => {
     const array = props.buttonIdArray;
     array.forEach((element) => {
-      let key = `${props.sectionName}${props.stateId}${element}Active`;
+      let key = `${props.stateId}${element}Active`; //
       appState[key] = false;
     });
   };
@@ -19,15 +19,14 @@ const SelectionButtons = (props) => {
   const { t } = useTranslation();
 
   const handleOnclick = (event) => {
+    event.preventDefault();
     clearAllButtons();
     const value = event.target.value;
     const buttonActiveState = event.target.id;
     console.log(buttonActiveState);
-    const key = `${props.sectionName}${props.stateId}`;
+    const key = `${props.stateId}`; //
     appState[buttonActiveState] = true;
     appState[key] = value;
-    console.log(key);
-    // console.log(JSON.stringify(appState, null, 2));
   };
 
   return (
@@ -39,12 +38,10 @@ const SelectionButtons = (props) => {
           as={GeneralButton}
           key={`buttonSelect${item}`}
           value={item}
-          isActive={
-            appState[`${props.sectionName}${props.stateId}${item}Active`]
-          }
+          isActive={appState[`${props.stateId}${item}Active`]}
           // disabled={isRadioSelectDisabled}
           onClick={handleOnclick}
-          id={`${props.sectionName}${props.stateId}${item}Active`}
+          id={`${props.stateId}${item}Active`}
         >
           {item}
         </SelcButtons>

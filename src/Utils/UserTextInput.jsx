@@ -10,7 +10,7 @@ const UserTextInput = (props) => {
   // props = label, stateId, sectionName, width, left
   const { t } = useTranslation();
 
-  const key = `${props.sectionName}${props.stateId}`;
+  const key = `${props.stateId}`; // ${props.sectionName}
 
   const handleChange = (event) => {
     event.preventDefault();

@@ -18,6 +18,8 @@ import InformationImage from "./informationQuestion";
 import shouldDisplayObject from "./shouldDisplayObject";
 import GeneralButton from "../../Utils/GeneralButton";
 import SurveyItemDndList from "./SurveyItemDndList";
+import FadeIn from "./FadeIn";
+const clone = require("rfdc/default");
 
 const defaultArray = [
   "required (true/false): true",
@@ -47,11 +49,59 @@ const Survey = () => {
 
   const surveyQuestionType = appState.surveyQuestionType;
   const displayBoolean2 = shouldDisplayObject();
-  console.log(surveyQuestionType);
+  // console.log(surveyQuestionType);
   const displayBoolean = displayBoolean2[surveyQuestionType];
-  console.log(displayBoolean);
+  console.log(JSON.stringify(displayBoolean));
 
-  const addItem = () => {};
+  const addItem = () => {
+    console.log(surveyQuestionType);
+    const newItemObj = {};
+    newItemObj.surveyQuestionType = surveyQuestionType;
+    const newItemArray = [`item type: ${surveyQuestionType}`];
+
+    if (displayBoolean.required === true) {
+      newItemObj.required = appState.surveyAnswerRequired;
+      newItemArray.push(
+        `answer required (true/false): ${appState.surveyAnswerRequired}`
+      );
+    }
+    if (displayBoolean.label === true) {
+      newItemObj.label = appState.surveyQuestionLabel;
+      newItemArray.push(`label text: ${appState.surveyQuestionLabel}`);
+    }
+    if (displayBoolean.note === true) {
+      newItemObj.note = appState.surveyQuestionNote;
+      newItemArray.push(`question note: ${appState.surveyQuestionNote}`);
+    }
+    if (displayBoolean.maxlength === true) {
+      newItemObj.maxlength = appState.surveyAnswerLenMax;
+      newItemArray.push(`max length: ${appState.surveyAnswerLenMax}`);
+    }
+    if (displayBoolean.restricted === true) {
+      newItemObj.restricted = appState.surveyAnswerRestricted;
+      newItemArray.push(
+        `answer restricted to numbers "0-9" (true/false): ${appState.surveyAnswerRestricted}`
+      );
+    }
+    if (displayBoolean.scale === true) {
+      newItemObj.scale = appState.surveyQuestionScale;
+      newItemArray.push(`scale: ${appState.surveyQuestionScale}`);
+    }
+    if (displayBoolean.options === true) {
+      newItemObj.options = appState.surveyQuestionOptions;
+      newItemArray.push(`options: ${appState.surveyQuestionOptions}`);
+    }
+    if (displayBoolean.bg === true) {
+      newItemObj.bg = appState.surveyBackgroundDisplay;
+      newItemArray.push(`background: ${appState.surveyBackgroundDisplay}`);
+    }
+    const val = Math.floor(1000 + Math.random() * 9000);
+    newItemObj.id = `item-${val}`;
+    newItemObj.content = newItemArray;
+    let surveyQuestionsArray = clone(appState.surveyQuestionsArray);
+    surveyQuestionsArray.push(newItemObj);
+    appState.surveyQuestionsArray = surveyQuestionsArray;
+  };
 
   return (
     <MainContent>
@@ -60,17 +110,53 @@ const Survey = () => {
       {/* {showSurvey === "true" && ( */}
       <SurveyContainer>
         <ExampleContainer>
-          <h2>Example:</h2>
+          <h2>Example Item:</h2>
           <ImageContainer>
-            {showSurveytextImage && <TextImage />}
-            {showSurveytextareaImage && <TextAreaImage />}
-            {showSurveyradioImage && <RadioImage />}
-            {showSurveyselectImage && <SelectImage />}
-            {showSurveycheckboxImage && <CheckboxImage />}
-            {showSurveyrating2Image && <Scale2Image />}
-            {showSurveyrating5Image && <Scale5Image />}
-            {showSurveyrating10Image && <Scale10Image />}
-            {showSurveyinformationImage && <InformationImage />}
+            {showSurveytextImage && (
+              <FadeIn>
+                <TextImage />
+              </FadeIn>
+            )}
+            {showSurveytextareaImage && (
+              <FadeIn>
+                <TextAreaImage />
+              </FadeIn>
+            )}
+            {showSurveyradioImage && (
+              <FadeIn>
+                <RadioImage />
+              </FadeIn>
+            )}
+            {showSurveyselectImage && (
+              <FadeIn>
+                <SelectImage />
+              </FadeIn>
+            )}
+            {showSurveycheckboxImage && (
+              <FadeIn>
+                <CheckboxImage />
+              </FadeIn>
+            )}
+            {showSurveyrating2Image && (
+              <FadeIn>
+                <Scale2Image />
+              </FadeIn>
+            )}
+            {showSurveyrating5Image && (
+              <FadeIn>
+                <Scale5Image />
+              </FadeIn>
+            )}
+            {showSurveyrating10Image && (
+              <FadeIn>
+                <Scale10Image />
+              </FadeIn>
+            )}
+            {showSurveyinformationImage && (
+              <FadeIn>
+                <InformationImage />
+              </FadeIn>
+            )}
           </ImageContainer>
           <p>
             <strong>Settings:</strong>
@@ -123,7 +209,7 @@ const Survey = () => {
           {displayBoolean.maxlength && (
             <UserTextInput
               label="Answer maximum length:"
-              stateId="6bsurveyAnswerLenMax"
+              stateId="surveyAnswerLenMax"
               sectionName="survey"
               width={5}
               left={0}

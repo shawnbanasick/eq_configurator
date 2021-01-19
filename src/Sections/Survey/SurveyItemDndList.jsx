@@ -20,7 +20,7 @@ const SurveyItemDndList = () => {
     borderRadius: "15px",
 
     // change background colour if dragging
-    background: isDragging ? "#e6bbad" : "#b2b2b2",
+    background: isDragging ? "#e6bbad" : "#d6dbe0",
 
     // styles we need to apply on draggables
     ...draggableStyle,
@@ -125,4 +125,5 @@ const DeleteButton = styled(GeneralButton)`
   align-self: flex-end;
   margin-left: 64vw;
   height: 20px !important;
+  background: #b2b2b2;
 `;
