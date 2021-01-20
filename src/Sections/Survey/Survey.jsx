@@ -114,6 +114,8 @@ const Survey = () => {
     }
   };
 
+  showSuccessMessage = true;
+
   return (
     <MainContent>
       <GlobalStyle />
@@ -263,9 +265,11 @@ const Survey = () => {
           <ButtonsContainer>
             <AddItemButton onClick={addItem}>Add Item</AddItemButton>
             {showSuccessMessage && (
-              <FadeIn delay={150} duration={450}>
-                <SuccessMessage>Item Added to Question List</SuccessMessage>
-              </FadeIn>
+              // <FadeIn delay={150} duration={450}>
+              <SuccessMessage99>
+                <span>Item Added to Question List</span>
+              </SuccessMessage99>
+              // </FadeIn>
             )}
             {showErrorMessage && (
               <FadeIn>
@@ -358,8 +362,9 @@ const SettingsContainer = styled.div`
   margin-top: 0px;
   margin-bottom: 5px;
   padding-left: 10px;
+  padding-bottom: 5px;
   width: 78vw;
-  height: auto;
+  height: inherit;
   transition: opacity 3s ease-in-out;
 `;
 
@@ -380,9 +385,11 @@ const ImageContainer = styled.div`
 const ButtonsContainer = styled.div`
   display: flex;
   flex-direction: row;
+  /* height: 100px; */
+  border: 2px solid red;
 `;
 
-const SuccessMessage = styled.div`
+const SuccessMessage99 = styled.div`
   background-color: lightgreen;
   width: 300px;
   height: 40px;
@@ -391,6 +398,10 @@ const SuccessMessage = styled.div`
   border-radius: 3px;
   padding: 10px;
   padding-left: 35px;
+
+  span {
+    line-height: 1.4em;
+  }
 `;
 
 const ErrorMessage = styled.div`
