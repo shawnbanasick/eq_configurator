@@ -13,7 +13,6 @@ const SurveyItemDndList = () => {
 
   const getItemStyle = (isDragging, draggableStyle) => ({
     // drag container style
-    flexDirection: "row",
     userSelect: "none",
     padding: grid * 2,
     margin: `0 0 ${grid}px 0`,
@@ -92,16 +91,20 @@ const SurveyItemDndList = () => {
                         provided.draggableProps.style
                       )}
                     >
-                      <ul>
-                        {item.content.map((item) => (
-                          <li style={{ width: "50vw" }} key={item}>
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                      <DeleteButton value={index} onClick={callDelete}>
-                        Delete
-                      </DeleteButton>
+                      <Container>
+                        <UlDiv>
+                          <ul>
+                            {item.content.map((item) => (
+                              <li key={item}>{item}</li>
+                            ))}
+                          </ul>
+                        </UlDiv>
+                        <DelDiv>
+                          <DeleteButton value={index} onClick={callDelete}>
+                            Delete
+                          </DeleteButton>
+                        </DelDiv>
+                      </Container>
                     </div>
                   )}
                 </Draggable>
@@ -122,8 +125,24 @@ const DragAndDropContainer = styled.div`
 `;
 
 const DeleteButton = styled(GeneralButton)`
-  align-self: flex-end;
-  margin-left: 64vw;
   height: 20px !important;
   background: #b2b2b2;
+`;
+
+const DelDiv = styled.div`
+  /* border: 2px solid red; */
+  display: flex;
+  width: 6%;
+  align-items: center;
+  justify-content: center;
+`;
+
+const UlDiv = styled.div`
+  width: 94%;
+  /* border: 2px solid blue; */
+`;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: row;
 `;

@@ -11,6 +11,9 @@ const appState = store({
   config8ShowStep5trueActive: true,
   config8ShowStep5: "true",
   surveyQuestionType: "text",
+  activeWindow: "viewStart",
+  showSuccessMessage: false,
+  showErrorMessage: false,
   surveyQuestionsArray: [
     {
       id: "item-0",
@@ -74,18 +77,16 @@ const appState = store({
     },
   ],
   /*
-  config.xml settings */
+  statements.xml settings */
 
   /*
-  config.xml settings */
+  map.xml settings */
 
   /*
-  config.xml settings */
+  language.xml settings */
 
   /*
-  config.xml settings */
-
-  activeWindow: "viewStart",
+  firebase.xml settings */
 
   changes: [],
 

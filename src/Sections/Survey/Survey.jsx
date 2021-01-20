@@ -31,7 +31,8 @@ const defaultArray = [
 
 const Survey = () => {
   let showSurvey = appState.config8ShowStep5;
-
+  let showSuccessMessage = appState.showSuccessMessage;
+  let showErrorMessage = appState.showErrorMessage;
   let detailsArray = appState.detailsArray || defaultArray;
 
   let showSurveytextImage = appState.showSurveytextImage;
@@ -54,53 +55,63 @@ const Survey = () => {
   console.log(JSON.stringify(displayBoolean));
 
   const addItem = () => {
-    console.log(surveyQuestionType);
-    const newItemObj = {};
-    newItemObj.surveyQuestionType = surveyQuestionType;
-    const newItemArray = [`item type: ${surveyQuestionType}`];
+    try {
+      const newItemObj = {};
+      newItemObj.surveyQuestionType = surveyQuestionType;
+      const newItemArray = [`item type: ${surveyQuestionType}`];
 
-    if (displayBoolean.required === true) {
-      newItemObj.required = appState.surveyAnswerRequired;
-      newItemArray.push(
-        `answer required (true/false): ${appState.surveyAnswerRequired}`
-      );
+      if (displayBoolean.required === true) {
+        newItemObj.required = appState.surveyAnswerRequired;
+        newItemArray.push(
+          `answer required (true/false): ${appState.surveyAnswerRequired}`
+        );
+      }
+      if (displayBoolean.label === true) {
+        newItemObj.label = appState.surveyQuestionLabel;
+        newItemArray.push(`label text: ${appState.surveyQuestionLabel}`);
+      }
+      if (displayBoolean.note === true) {
+        newItemObj.note = appState.surveyQuestionNote;
+        newItemArray.push(`question note: ${appState.surveyQuestionNote}`);
+      }
+      if (displayBoolean.maxlength === true) {
+        newItemObj.maxlength = appState.surveyAnswerLenMax;
+        newItemArray.push(`max length: ${appState.surveyAnswerLenMax}`);
+      }
+      if (displayBoolean.restricted === true) {
+        newItemObj.restricted = appState.surveyAnswerRestricted;
+        newItemArray.push(
+          `answer restricted to numbers "0-9" (true/false): ${appState.surveyAnswerRestricted}`
+        );
+      }
+      if (displayBoolean.scale === true) {
+        newItemObj.scale = appState.surveyQuestionScale;
+        newItemArray.push(`scale: ${appState.surveyQuestionScale}`);
+      }
+      if (displayBoolean.options === true) {
+        newItemObj.options = appState.surveyQuestionOptions;
+        newItemArray.push(`options: ${appState.surveyQuestionOptions}`);
+      }
+      if (displayBoolean.bg === true) {
+        newItemObj.bg = appState.surveyBackgroundDisplay;
+        newItemArray.push(`background: ${appState.surveyBackgroundDisplay}`);
+      }
+      const val = Math.floor(1000 + Math.random() * 9000);
+      newItemObj.id = `item-${val}`;
+      newItemObj.content = newItemArray;
+      let surveyQuestionsArray = clone(appState.surveyQuestionsArray);
+      surveyQuestionsArray.push(newItemObj);
+      appState.surveyQuestionsArray = surveyQuestionsArray;
+      appState.showSuccessMessage = true;
+      setTimeout(function () {
+        appState.showSuccessMessage = false;
+      }, 2000);
+    } catch (error) {
+      appState.showErrorMessage = true;
+      setTimeout(function () {
+        appState.showErrorMessage = false;
+      }, 2000);
     }
-    if (displayBoolean.label === true) {
-      newItemObj.label = appState.surveyQuestionLabel;
-      newItemArray.push(`label text: ${appState.surveyQuestionLabel}`);
-    }
-    if (displayBoolean.note === true) {
-      newItemObj.note = appState.surveyQuestionNote;
-      newItemArray.push(`question note: ${appState.surveyQuestionNote}`);
-    }
-    if (displayBoolean.maxlength === true) {
-      newItemObj.maxlength = appState.surveyAnswerLenMax;
-      newItemArray.push(`max length: ${appState.surveyAnswerLenMax}`);
-    }
-    if (displayBoolean.restricted === true) {
-      newItemObj.restricted = appState.surveyAnswerRestricted;
-      newItemArray.push(
-        `answer restricted to numbers "0-9" (true/false): ${appState.surveyAnswerRestricted}`
-      );
-    }
-    if (displayBoolean.scale === true) {
-      newItemObj.scale = appState.surveyQuestionScale;
-      newItemArray.push(`scale: ${appState.surveyQuestionScale}`);
-    }
-    if (displayBoolean.options === true) {
-      newItemObj.options = appState.surveyQuestionOptions;
-      newItemArray.push(`options: ${appState.surveyQuestionOptions}`);
-    }
-    if (displayBoolean.bg === true) {
-      newItemObj.bg = appState.surveyBackgroundDisplay;
-      newItemArray.push(`background: ${appState.surveyBackgroundDisplay}`);
-    }
-    const val = Math.floor(1000 + Math.random() * 9000);
-    newItemObj.id = `item-${val}`;
-    newItemObj.content = newItemArray;
-    let surveyQuestionsArray = clone(appState.surveyQuestionsArray);
-    surveyQuestionsArray.push(newItemObj);
-    appState.surveyQuestionsArray = surveyQuestionsArray;
   };
 
   return (
@@ -113,47 +124,47 @@ const Survey = () => {
           <h2>Example Item:</h2>
           <ImageContainer>
             {showSurveytextImage && (
-              <FadeIn>
+              <FadeIn delay={150} duration={450}>
                 <TextImage />
               </FadeIn>
             )}
             {showSurveytextareaImage && (
-              <FadeIn>
+              <FadeIn delay={150} duration={450}>
                 <TextAreaImage />
               </FadeIn>
             )}
             {showSurveyradioImage && (
-              <FadeIn>
+              <FadeIn delay={150} duration={450}>
                 <RadioImage />
               </FadeIn>
             )}
             {showSurveyselectImage && (
-              <FadeIn>
+              <FadeIn delay={150} duration={450}>
                 <SelectImage />
               </FadeIn>
             )}
             {showSurveycheckboxImage && (
-              <FadeIn>
+              <FadeIn delay={150} duration={450}>
                 <CheckboxImage />
               </FadeIn>
             )}
             {showSurveyrating2Image && (
-              <FadeIn>
+              <FadeIn delay={150} duration={450}>
                 <Scale2Image />
               </FadeIn>
             )}
             {showSurveyrating5Image && (
-              <FadeIn>
+              <FadeIn delay={150} duration={450}>
                 <Scale5Image />
               </FadeIn>
             )}
             {showSurveyrating10Image && (
-              <FadeIn>
+              <FadeIn delay={150} duration={450}>
                 <Scale10Image />
               </FadeIn>
             )}
             {showSurveyinformationImage && (
-              <FadeIn>
+              <FadeIn delay={150} duration={450}>
                 <InformationImage />
               </FadeIn>
             )}
@@ -249,7 +260,19 @@ const Survey = () => {
               left={0}
             />
           )}
-          <AddItemButton onClick={addItem}>Add Item</AddItemButton>
+          <ButtonsContainer>
+            <AddItemButton onClick={addItem}>Add Item</AddItemButton>
+            {showSuccessMessage && (
+              <FadeIn delay={150} duration={450}>
+                <SuccessMessage>Item Added to Question List</SuccessMessage>
+              </FadeIn>
+            )}
+            {showErrorMessage && (
+              <FadeIn>
+                <ErrorMessage>Error - Item Not Added</ErrorMessage>
+              </FadeIn>
+            )}
+          </ButtonsContainer>
         </SettingsContainer>
         <SurveyItemDndList />
       </SurveyContainer>
@@ -352,4 +375,31 @@ const AddItemButton = styled(GeneralButton)`
 
 const ImageContainer = styled.div`
   width: clamp(500px, 75vw, 1300px);
+`;
+
+const ButtonsContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+const SuccessMessage = styled.div`
+  background-color: lightgreen;
+  width: 300px;
+  height: 40px;
+  margin-top: 50px;
+  margin-left: 20px;
+  border-radius: 3px;
+  padding: 10px;
+  padding-left: 35px;
+`;
+
+const ErrorMessage = styled.div`
+  background-color: lightpink;
+  width: 300px;
+  height: 40px;
+  margin-top: 50px;
+  margin-left: 30px;
+  border-radius: 3px;
+  padding: 10px;
+  padding-left: 55px;
 `;
