@@ -177,7 +177,7 @@ const MainContent = styled.div`
   padding-right: 50px;
   overflow: auto;
   user-select: none;
-  border: 2px solid red;
+  /* border: 2px solid red; */
 `;
 
 const Title = styled.h1`
@@ -192,5 +192,5 @@ const Title = styled.h1`
 const QuestionContainer = styled.div`
   margin-bottom: 25px;
   width: calc(100vw - 215px);
-  border: 2px solid purple;
+  /* border: 2px solid purple; */
 `;

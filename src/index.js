@@ -7,6 +7,7 @@ import i18n from "./configs/i18next.config.client";
 import { I18nextProvider } from "react-i18next";
 import { ipcRenderer } from "./exportHelpers";
 import "./customSettings.css";
+import "react-toastify/dist/ReactToastify.css";
 
 let initialI18nStore = ipcRenderer.sendSync("get-initial-translations");
 

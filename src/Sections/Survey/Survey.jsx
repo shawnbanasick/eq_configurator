@@ -19,6 +19,8 @@ import shouldDisplayObject from "./shouldDisplayObject";
 import GeneralButton from "../../Utils/GeneralButton";
 import SurveyItemDndList from "./SurveyItemDndList";
 import FadeIn from "./FadeIn";
+import { toast } from "react-toastify";
+import { ToastContainer, Slide } from "react-toastify";
 const clone = require("rfdc/default");
 
 const defaultArray = [
@@ -29,10 +31,22 @@ const defaultArray = [
   `restricted: "0-9"`,
 ];
 
+const notifySuccess = () => {
+  toast.success("Item Added", {
+    position: toast.POSITION.BOTTOM_CENTER,
+    transition: Slide,
+  });
+};
+
+const notifyError = () => {
+  toast.error("Error - Item Not Added", {
+    position: toast.POSITION.BOTTOM_CENTER,
+    transition: Slide,
+  });
+};
+
 const Survey = () => {
   let showSurvey = appState.config8ShowStep5;
-  let showSuccessMessage = appState.showSuccessMessage;
-  let showErrorMessage = appState.showErrorMessage;
   let detailsArray = appState.detailsArray || defaultArray;
 
   let showSurveytextImage = appState.showSurveytextImage;
@@ -102,23 +116,17 @@ const Survey = () => {
       let surveyQuestionsArray = clone(appState.surveyQuestionsArray);
       surveyQuestionsArray.push(newItemObj);
       appState.surveyQuestionsArray = surveyQuestionsArray;
-      appState.showSuccessMessage = true;
-      setTimeout(function () {
-        appState.showSuccessMessage = false;
-      }, 2000);
+      notifySuccess();
     } catch (error) {
-      appState.showErrorMessage = true;
-      setTimeout(function () {
-        appState.showErrorMessage = false;
-      }, 2000);
+      notifyError();
+      console.log(error);
     }
   };
-
-  showSuccessMessage = true;
 
   return (
     <MainContent>
       <GlobalStyle />
+      <StyledToastContainer />
       <Title>Survey Generator</Title>
       {/* {showSurvey === "true" && ( */}
       <SurveyContainer>
@@ -262,21 +270,7 @@ const Survey = () => {
               left={0}
             />
           )}
-          <ButtonsContainer>
-            <AddItemButton onClick={addItem}>Add Item</AddItemButton>
-            {showSuccessMessage && (
-              // <FadeIn delay={150} duration={450}>
-              <SuccessMessage99>
-                <span>Item Added to Question List</span>
-              </SuccessMessage99>
-              // </FadeIn>
-            )}
-            {showErrorMessage && (
-              <FadeIn>
-                <ErrorMessage>Error - Item Not Added</ErrorMessage>
-              </FadeIn>
-            )}
-          </ButtonsContainer>
+          <AddItemButton onClick={addItem}>Add Item</AddItemButton>
         </SettingsContainer>
         <SurveyItemDndList />
       </SurveyContainer>
@@ -320,27 +314,28 @@ const MainContent = styled.div`
   font-family: Helvetica, sans-serif;
   font-size: 18px;
   width: 100%; // calc(100vw - 160px);
-  box-sizing: border-box;
-  max-height: calc(100vh - 23px);
+  /* max-height: calc(100vh - 23px); */
   padding-left: 50px;
   padding-right: 50px;
+  /* margin: 0 auto; */
   overflow: auto;
   user-select: none;
   /* border: 2px solid red; */
 `;
 
 const Title = styled.h1`
-  display: grid;
-  grid-area: row1;
+  /* display: grid; */
+  /* grid-area: row1; */
   font-size: 50px;
   width: 70vw;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center; */
+  /* justify-content: center; */
 `;
 
 const SurveyContainer = styled.div`
   margin-bottom: 25px;
-  width: 80vw;
+  /* width: 100%; */
+
   /* border: 2px solid green; */
 `;
 
@@ -356,6 +351,7 @@ const ExampleContainer = styled.div`
 `;
 
 const SettingsContainer = styled.div`
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   border: 3px solid black;
@@ -364,53 +360,29 @@ const SettingsContainer = styled.div`
   padding-left: 10px;
   padding-bottom: 5px;
   width: 78vw;
-  height: inherit;
-  transition: opacity 3s ease-in-out;
+  height: auto;
 `;
 
 const AddItemButton = styled(GeneralButton)`
-  align-self: right;
   margin-left: 70px; // 68vw;
   margin-top: 50px; // 68vw;
   margin-bottom: 10px; // 68vw;
-  height: 30px;
+  /* height: 30px; */
   width: 150px;
   /* margin-bottom: 10px; */
 `;
 
 const ImageContainer = styled.div`
+  box-sizing: border-box;
   width: clamp(500px, 75vw, 1300px);
 `;
 
-const ButtonsContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  /* height: 100px; */
-  border: 2px solid red;
-`;
-
-const SuccessMessage99 = styled.div`
-  background-color: lightgreen;
-  width: 300px;
-  height: 40px;
-  margin-top: 50px;
-  margin-left: 20px;
-  border-radius: 3px;
-  padding: 10px;
-  padding-left: 35px;
-
-  span {
-    line-height: 1.4em;
+const StyledToastContainer = styled(ToastContainer).attrs({
+  // custom props
+})`
+  .Toastify__toast--success {
+    padding-left: 40px;
+    background-color: var(--main-theme-color);
+    width: 200px;
   }
-`;
-
-const ErrorMessage = styled.div`
-  background-color: lightpink;
-  width: 300px;
-  height: 40px;
-  margin-top: 50px;
-  margin-left: 30px;
-  border-radius: 3px;
-  padding: 10px;
-  padding-left: 55px;
 `;
