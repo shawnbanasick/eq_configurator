@@ -8,22 +8,26 @@ import UserSelectionSwitch from "../../Utils/UserSelectionSwitch";
 import RadioButtons from "../../Utils/RadioButtons";
 import UserTextInput from "../../Utils/UserTextInput";
 import Survey from "../Survey/Survey";
+import generateConfigXml from "../Config/generateConfigXml";
+
 // import appState from "../../GlobalState/appState";
 
 const handleClick = () => {
-  const data = `
-    <config version="1.0" htmlParse="false">
+  // const data = `
+  //   <config version="1.0" htmlParse="false">
 
-      <!-- title of the study -->
-      <item id="studyTitle">Name of your study</item>
+  //     <!-- title of the study -->
+  //     <item id="studyTitle">Name of your study</item>
 
-      <!-- text-align property(left|right) -->
-      <item id="textAlign">left</item>
+  //     <!-- text-align property(left|right) -->
+  //     <item id="textAlign">left</item>
 
-      <item id="日本語">left</item>
+  //     <item id="日本語">left</item>
 
-    </config>
-      `;
+  //   </config>
+  //     `;
+
+  const data = generateConfigXml();
 
   exportToXml("config.xml", data);
 };
@@ -46,7 +50,7 @@ const Config = () => {
       <QuestionContainer>
         <UserTextInput
           label="1. Title of study:"
-          stateId="1title"
+          stateId="configTitle"
           sectionName="config"
           width={50}
           left={0}
@@ -54,24 +58,24 @@ const Config = () => {
         <RadioButtons
           label="2. Text align property:"
           buttonIdArray={["left", "right"]}
-          stateId="2textAlign"
+          stateId="configTextAlign"
           sectionName="config"
         />
         <RadioButtons
           label="3. Shuffle cards:"
           buttonIdArray={["true", "false"]}
-          stateId="3shuffleCards"
+          stateId="configshuffleCards"
           sectionName="config"
         />
         <RadioButtons
           label="4a. Log In Required:"
           buttonIdArray={["true", "false"]}
-          stateId="4aLogInRequired"
+          stateId="configLogInRequired"
           sectionName="config"
         />
         <UserTextInput
           label="4b. Log In Password:"
-          stateId="4bLogInPassword"
+          stateId="configLogInPassword"
           sectionName="config"
           width={30}
           left={0}
@@ -79,12 +83,12 @@ const Config = () => {
         <RadioButtons
           label="5a. Use Log In Script:"
           buttonIdArray={["true", "false"]}
-          stateId="5aUseLogInScript"
+          stateId="configUseLogInScript"
           sectionName="config"
         />
         <UserTextInput
           label="5b. Log In Script URL:"
-          stateId="5bLogInScriptURL"
+          stateId="configLogInScriptURL"
           sectionName="config"
           width={40}
           left={0}
@@ -92,31 +96,31 @@ const Config = () => {
         <RadioButtons
           label="5c. Request mode:"
           buttonIdArray={["post", "get"]}
-          stateId="5cRequestMode"
+          stateId="configRequestMode"
           sectionName="config"
         />
         <RadioButtons
           label="6. Show Step 3 (card swapping grid):"
           buttonIdArray={["true", "false"]}
-          stateId="6ShowStep3"
+          stateId="configShowStep3"
           sectionName="config"
         />
         <RadioButtons
           label="7. Show Step 4 (individual card comments screen):"
           buttonIdArray={["true", "false"]}
-          stateId="7ShowStep4"
+          stateId="configShowStep4"
           sectionName="config"
         />
         <RadioButtons
           label="8. Show Step 5 (post-sort questionnaire survey):"
           buttonIdArray={["true", "false"]}
-          stateId="8ShowStep5"
+          stateId="configShowStep5"
           sectionName="config"
         />
         <RadioButtons
           label="9. Disable Back Button:"
           buttonIdArray={["true", "false"]}
-          stateId="9DisableBackButton"
+          stateId="configDisableBackButton"
           sectionName="config"
         />
       </QuestionContainer>
