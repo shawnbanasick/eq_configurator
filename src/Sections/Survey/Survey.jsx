@@ -48,7 +48,7 @@ const notifyError = () => {
 };
 
 const Survey = () => {
-  let showSurvey = appState.config8ShowStep5;
+  // let showSurvey = appState.config8ShowStep5;
   let detailsArray = appState.detailsArray || defaultArray;
 
   let showSurveytextImage = appState.showSurveytextImage;
@@ -62,7 +62,7 @@ const Survey = () => {
   let showSurveyinformationImage = appState.showSurveyinformationImage;
 
   // for development only
-  showSurvey = true;
+  // showSurvey = true;
 
   const surveyQuestionType = appState.surveyQuestionType;
   const displayBoolean2 = shouldDisplayObject();
@@ -128,14 +128,14 @@ const Survey = () => {
   };
 
   return (
-    <MainContent>
+    <>
       <GlobalStyle />
       <StyledToastContainer />
-      <Title>Survey Generator</Title>
+      <Title>Survey Question Creator</Title>
       {/* {showSurvey === "true" && ( */}
       <SurveyContainer>
         <ExampleContainer>
-          <h2>Example Item:</h2>
+          <h3>Example Item:</h3>
           <ImageContainer>
             {showSurveytextImage && (
               <FadeIn delay={150} duration={450}>
@@ -195,7 +195,7 @@ const Survey = () => {
           )}
         </ExampleContainer>
         <SettingsContainer>
-          <h2 style={{ marginBottom: 5, marginTop: 5 }}>New Item Settings:</h2>
+          <h3 style={{ marginBottom: 5, marginTop: 5 }}>New Item Settings:</h3>
           <UserDropdown />
           {displayBoolean.required && (
             <RadioButtons
@@ -279,58 +279,58 @@ const Survey = () => {
         <SurveyItemDndList />
       </SurveyContainer>
       {/* )} */}
-    </MainContent>
+    </>
   );
 };
 
 export default view(Survey);
 
-const fadeIn = keyframes`
-  from {
-    opacity: 0;
-  }
+// const fadeIn = keyframes`
+//   from {
+//     opacity: 0;
+//   }
 
-  to {
-    opacity: 1;
-  }
-`;
+//   to {
+//     opacity: 1;
+//   }
+// `;
 
-const fadeOut = keyframes`
-  from {
-    opacity: 1;
-  }
+// const fadeOut = keyframes`
+//   from {
+//     opacity: 1;
+//   }
 
-  to {
-    opacity: 0;
-  }
-`;
+//   to {
+//     opacity: 0;
+//   }
+// `;
 
-const MainContent = styled.div`
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-items: left;
-  align-items: left;
-  background-color: white;
-  visibility: ${(props) => (props.view ? "hidden" : "visible")};
-  animation: ${(props) => (props.view ? fadeOut : fadeIn)} 0.5s linear;
-  transition: visibility 0.5s linear;
-  font-family: Helvetica, sans-serif;
-  font-size: 18px;
-  width: 100%; // calc(100vw - 160px);
-  /* max-height: calc(100vh - 23px); */
-  padding-left: 50px;
-  padding-right: 50px;
-  /* margin: 0 auto; */
-  overflow: auto;
-  user-select: none;
-  /* border: 2px solid red; */
-`;
+// const MainContent = styled.div`
+//   box-sizing: border-box;
+//   display: flex;
+//   flex-direction: column;
+//   justify-items: left;
+//   align-items: left;
+//   background-color: white;
+//   visibility: ${(props) => (props.view ? "hidden" : "visible")};
+//   animation: ${(props) => (props.view ? fadeOut : fadeIn)} 0.5s linear;
+//   transition: visibility 0.5s linear;
+//   font-family: Helvetica, sans-serif;
+//   font-size: 18px;
+//   width: 100%; // calc(100vw - 160px);
+//   /* max-height: calc(100vh - 23px); */
+//   padding-left: 50px;
+//   padding-right: 50px;
+//   /* margin: 0 auto; */
+//   overflow: auto;
+//   user-select: none;
+//   /* border: 2px solid red; */
+// `;
 
 const Title = styled.h1`
   /* display: grid; */
   /* grid-area: row1; */
-  font-size: 50px;
+  font-size: 35px;
   width: 70vw;
   /* align-items: center; */
   /* justify-content: center; */

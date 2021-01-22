@@ -7,6 +7,7 @@ import exportToXml from "../../Utils/exportToXml";
 import UserSelectionSwitch from "../../Utils/UserSelectionSwitch";
 import RadioButtons from "../../Utils/RadioButtons";
 import UserTextInput from "../../Utils/UserTextInput";
+import Survey from "../Survey/Survey";
 // import appState from "../../GlobalState/appState";
 
 const handleClick = () => {
@@ -119,8 +120,8 @@ const Config = () => {
           sectionName="config"
         />
       </QuestionContainer>
-
-      <GeneralButton onClick={() => handleClick()}>
+      <Survey />
+      <GeneralButton style={{ width: "78vw" }} onClick={() => handleClick()}>
         Download Config.xml file
       </GeneralButton>
     </MainContent>

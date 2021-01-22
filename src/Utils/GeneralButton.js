@@ -5,7 +5,7 @@ const GeneralButton = styled.button`
   align-items: center;
   justify-items: center;
   box-shadow: none;
-  min-height: 40px;
+  min-height: 30px;
   height: auto;
   width: auto;
   text-align: center;
@@ -24,17 +24,16 @@ const GeneralButton = styled.button`
   text-decoration: none;
   color: black;
   transition: all 0.5s ease;
-  /* transition: background-color 0.5s ease; */
   transition-duration: 0.3s;
   transition-property: box-shadow;
   transform: translateZ(0);
   box-shadow: inset 0 0 0 4px
-      ${props => (props.isActive ? "var(--main-theme-color)" : "#d6dbe0")},
+      ${(props) => (props.isActive ? "var(--main-theme-color)" : "#d6dbe0")},
     0 0 1px 0.6;
-  background-color: ${props =>
+  background-color: ${(props) =>
     props.isActive ? "var(--main-theme-color)" : "#d6dbe0"};
 
-  box-shadow: ${props =>
+  box-shadow: ${(props) =>
     props.isActive
       ? "inset 0 0 0 2px #666, 0 0 1px transparent"
       : "inset 0 0 0 0px #666, 0 0 0px transparent"};
@@ -54,10 +53,3 @@ const GeneralButton = styled.button`
 `;
 
 export default GeneralButton;
-
-/* box-shadow: 0 0 1px 0 black inset;
-  &:active {
-    opacity: 0.6;
-    background-color: var(--main-theme-color);
-  }
-  */
