@@ -21,6 +21,8 @@ import SurveyItemDndList from "./SurveyItemDndList";
 import FadeIn from "./FadeIn";
 import { toast } from "react-toastify";
 import { ToastContainer, Slide } from "react-toastify";
+import clearAddItemForm from "./clearAddItemForm";
+
 const clone = require("rfdc/default");
 
 const defaultArray = [
@@ -117,6 +119,8 @@ const Survey = () => {
       surveyQuestionsArray.push(newItemObj);
       appState.surveyQuestionsArray = surveyQuestionsArray;
       notifySuccess();
+      clearAddItemForm();
+      // console.log(JSON.stringify(appState, null, 2));
     } catch (error) {
       notifyError();
       console.log(error);
