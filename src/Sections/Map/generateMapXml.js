@@ -1,6 +1,5 @@
 import appState from "../../GlobalState/appState";
 
-//   const qSortPattern = appState.qSortPattern;
 const qSortPatternObject = appState.qSortPatternObject;
 const columnsArray = [
   "-6",
@@ -36,7 +35,6 @@ const generateConfigXml = () => {
     let colorString = "";
     let value = parseInt(columnsArray[i], 10);
     let numStates = parseInt(qSortPatternObject[columnsArray[i]], 10) || 0;
-    // let valueText = columnsArray[i];
     let mapString;
 
     console.log(numStates);
