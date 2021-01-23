@@ -13,20 +13,6 @@ import generateConfigXml from "../Config/generateConfigXml";
 // import appState from "../../GlobalState/appState";
 
 const handleClick = () => {
-  // const data = `
-  //   <config version="1.0" htmlParse="false">
-
-  //     <!-- title of the study -->
-  //     <item id="studyTitle">Name of your study</item>
-
-  //     <!-- text-align property(left|right) -->
-  //     <item id="textAlign">left</item>
-
-  //     <item id="日本語">left</item>
-
-  //   </config>
-  //     `;
-
   const data = generateConfigXml();
 
   exportToXml("config.xml", data);

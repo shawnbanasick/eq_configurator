@@ -148,6 +148,38 @@ const appState = store({
 
   /*
   map.xml settings */
+  statements: [
+    "1. statement 1",
+    "2. statement 2",
+    "3. statement 3",
+    "4. statement 4",
+    "5. statement 5",
+    "6. statement 6",
+    "7. statement 7",
+    "8. statement 8",
+  ],
+  qSortPattern: [-2, -1, -1, 0, 0, 0, 1, 1, 2],
+  qSortPatternObject: {},
+  activeValueM6: 0,
+  activeValueM5: 0,
+  activeValueM4: 0,
+  activeValueM3: 0,
+  activeValueM2: 0,
+  activeValueM1: 0,
+  activeValue0: 0,
+  activeValue1: 0,
+  activeValue2: 0,
+  activeValue3: 0,
+  activeValue4: 0,
+  activeValue5: 0,
+  activeValue6: 0,
+  activeValue7: 0,
+  activeValue8: 0,
+  activeValue9: 0,
+  activeValue10: 0,
+  activeValue11: 0,
+  activeValue12: 0,
+  activeValue13: 0,
 
   /*
   language.xml settings */
