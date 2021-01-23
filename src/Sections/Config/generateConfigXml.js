@@ -2,8 +2,7 @@
 import appState from "../../GlobalState/appState";
 
 const generateConfigXml = () => {
-  const data1 = `
-<?xml version="1.0" encoding="UTF-8"?>
+  const data1 = `<?xml version="1.0" encoding="UTF-8"?>
 
    <config version="1.0" htmlParse="false">
 
@@ -21,13 +20,19 @@ const generateConfigXml = () => {
   const loginString2 = `     <item id="loginrequired">${appState.configLogInRequired}</item>\n`;
 
   const loginPassString1 = `     <!-- login with common password (leave blank if not required) -->\n`;
-  const loginPassString2 = `     <item id="loginPassword">${appState.configLogInPassword}</item>\n`;
+  const loginPassString2 = `     <item id="loginPassword">${
+    appState.configLogInPassword || ""
+  }</item>\n`;
 
   const loginUrlString1 = `      <!-- URL to individual login script(leave blank if not required) -->\n`;
-  const loginUrlString2 = `     <item id="loginUrl">${appState.configLogInScriptURL}</item>\n`;
+  const loginUrlString2 = `     <item id="loginUrl">${
+    appState.configLogInScriptURL || ""
+  }</item>\n`;
 
   const loginMethodString1 = `     <!-- request mode (post|get) -->\n`;
-  const loginMethodString2 = `     <item id="loginUrlMethod">${appState.configRequestMode}</item>\n\n`;
+  const loginMethodString2 = `     <item id="loginUrlMethod">${
+    appState.configRequestMode || ""
+  }</item>\n\n`;
 
   const showStep3String1 = `     <!-- activate/deactivate optional steps (true|false) -->\n`;
   const showStep3String2 = `     <item id="showStep3">${appState.configShowStep3}</item>\n`;
@@ -136,7 +141,7 @@ const generateConfigXml = () => {
       } else {
         label = `        <label>${itemObject.label}</label>\n`;
       }
-      const input = `        <input type="select" required="${itemObject.required}">${itemObject.options}</input>\n\n`;
+      const input = `        <input type="checkbox" required="${itemObject.required}">${itemObject.options}</input>\n\n`;
       item = accumulatorString.concat(label, input);
     }
 
@@ -147,7 +152,7 @@ const generateConfigXml = () => {
       } else {
         label = `        <label>${itemObject.label}</label>\n`;
       }
-      const input = `        <input type="select" required="${itemObject.required}" scale="${itemObject.scale}">${itemObject.options}</input>\n\n`;
+      const input = `        <input type="rating2" required="${itemObject.required}" scale="${itemObject.scale}">${itemObject.options}</input>\n\n`;
       item = accumulatorString.concat(label, input);
     }
 
@@ -158,25 +163,24 @@ const generateConfigXml = () => {
       } else {
         label = `        <label>${itemObject.label}</label>\n`;
       }
-      const input = `        <input type="select" required="${itemObject.required}" scale="${itemObject.scale}">${itemObject.options}</input>\n\n`;
+      const input = `        <input type="rating5" required="${itemObject.required}" scale="${itemObject.scale}">${itemObject.options}</input>\n\n`;
       item = accumulatorString.concat(label, input);
     }
 
     // for RATING10 items
     if (itemObject.surveyQuestionType === "rating10") {
-      console.log(JSON.stringify(itemObject, null, 2));
       if (itemObject.required === true) {
         label = `        <label>${itemObject.label}*</label>\n`;
       } else {
         label = `        <label>${itemObject.label}</label>\n`;
       }
-      const input = `        <input type="select" required="${itemObject.required}" scale="${itemObject.scale}">${itemObject.options}</input>\n\n`;
+      const input = `        <input type="rating10" required="${itemObject.required}" scale="${itemObject.scale}">${itemObject.options}</input>\n\n`;
       item = accumulatorString.concat(label, input);
     }
 
     // for INFORMATION items
-
-    if (itemObject.surveyQuestionType === "rating10") {
+    if (itemObject.surveyQuestionType === "information") {
+      console.log(JSON.stringify(itemObject, null, 2));
       const note = `        <note bg="${itemObject.bg}">${itemObject.options}</note>\n`;
       item = accumulatorString.concat(note);
     }
@@ -184,15 +188,19 @@ const generateConfigXml = () => {
     data = data.concat(item);
   }
 
-  //       <!-- URL for data transmission via POST/GET (leave blank if not required) -->
-  //       <item id="submitUrl">exe.php?do=save</item>
+  const finalText = `     </item>
 
-  //       <!-- request mode (post|get|firebase) -->
-  //       <item id="submitUrlMethod">firebase</item>
+     <!-- URL for data transmission via POST/GET (leave blank if not required) -->
+     <item id="submitUrl">exe.php?do=save</item>
+  
+     <!-- request mode (post|get|firebase) -->
+     <item id="submitUrlMethod">firebase</item>
+  
+     <!-- data transmission via email, user must have an e-mail programm like Outlook (leave blank if not required) -->
+     <item id="submitMail">yourdomain.com</item>
+   </config>`;
 
-  //       <!-- data transmission via email, user must have an e-mail programm like Outlook (leave blank if not required) -->
-  //       <item id="submitMail">yourdomain.com</item>
-  //    </config>
+  data = data.concat(finalText);
 
   return data;
 };

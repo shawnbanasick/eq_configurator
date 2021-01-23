@@ -1,89 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-   <!--
-//
-// ===================================================
-// FlashQ by Christian Hackert and Gernot Braehler
-// ===================================================
-// Configuration file.
-// @author		Christian Hackert <www.hackert.biz/flashq>
-// @version		FlashQ version 1.0
-// ===================================================
-//
--->
-
    <config version="1.0" htmlParse="false">
 
-      <!-- title of the study -->
-      <item id="studyTitle">Name of your study</item>
+     <!-- title of the study -->
+     <item id="studyTitle">title</item>
 
-      <!-- text-align property(left|right) -->
-      <item id="textAlign">left</item>
+     <!-- text-align property(left|right) -->
+     <item id="textAlign">left</item>
 
-      <!-- shuffle cards (true|false)  -->
-      <item id="shuffleCards">true</item>
+     <!-- shuffle cards (true|false)  -->
+     <item id="shuffleCards">true</item>
 
-      <!-- login required (true|false) -->
-      <item id="loginrequired">true</item>
-      <!-- login with common password (leave blank if not required) -->
-      <item id="loginPassword">test</item>
+     <!-- login required (true|false) -->
+     <item id="loginrequired">false</item>
+     <!-- login with common password (leave blank if not required) -->
+     <item id="loginPassword"></item>
       <!-- URL to individual login script(leave blank if not required) -->
-      <item id="loginUrl"></item>
-      <!-- request mode (post|get) -->
-      <item id="loginUrlMethod"></item>
+     <item id="loginUrl"></item>
+     <!-- request mode (post|get) -->
+     <item id="loginUrlMethod"></item>
 
-      <!-- activate/deactivate optional steps (true|false) -->
-      <item id="showStep3">true</item>
-      <item id="showStep4">true</item>
-      <item id="showStep5">true</item>
+     <!-- activate/deactivate optional steps (true|false) -->
+     <item id="showStep3">false</item>
+     <item id="showStep4">false</item>
+     <item id="showStep5">true</item>
 
-      <!-- HtmlQ only: disable the in-window back button -->
-      <item id="disableBackButton">true</item>
+     <!-- HtmlQ only: disable the in-window back button -->
+     <item id="disableBackButton">false</item>
 
-      <!-- define form elements for step5; only displayed if showStep5 is true (delete tags if not required) -->
-      <!-- add label: <label>[STRING]</label> -->
-      <!-- add note: <note>[STRING]</note> -->
-      <!-- add input-field: <input type="[text|textarea|radio|select|checkbox|rating2|rating5|rating10]">[VALUE]</input> -->
-      <!-- optional attributes: bg, id, maxlength, restricted, required, scale  -->
-      <item id="form">
-         <label>Age*</label>
-         <note>Please enter your year of birth (YYYY, eg. 1980).</note>
-         <input type="text" required="true" maxlength="4" restricted="0-9"></input>
+     <!-- define form elements for step5; only displayed if showStep5 is true (delete tags if not required) -->
+     <!-- add label: <label>[STRING]</label> -->
+     <!-- add note: <note>[STRING]</note> -->
+     <!-- add input-field: <input type="[text|textarea|radio|select|checkbox|rating2|rating5|rating10]">[VALUE]</input> -->
+     <!-- optional attributes: bg, id, maxlength, restricted, required, scale  -->
+     <item id="form">
+        <label>Age*</label>
+        <note>Please enter your year of birth (YYYY, eg. 1980).</note>
+        <input type="text" required="true" maxlength="4" restricted="0-9"></input>
 
-         <label>Gender*</label>
-         <note>Please select your gender.</note>
-         <input type="radio" required="true">female;male</input>
+        <label>Write Comments Here*</label>
+        <input type="textarea" required="true"></input>
 
-         <label>Please answer the following questions.</label>
-         <input type="rating2" required="false" scale="Yes;No;">There's a car in my household;I own a car for myself</input>
-         
-         
-         <label>Please answer the following questions.</label>
-         <input type="rating5" required="false" scale="1;2;3;4;5;">How would you rate your current transportation route;How would you rate your old transportation route</input>
-         
-         
-         <label>Please answer the following questions.</label>
-         <input type="rating10" required="false" scale="1;2;3;4;5;6;7;8;9;10;">How would you rate your current transportation route;How would you rate your old transportation route</input>
-         
+        <label>Gender*</label>
+        <note>Please enter your gender</note>
+        <input type="radio" required="true">male;female</input>
 
-         <label>What kind of transportation do you use?</label>
-         <input type="checkbox" required="false">Car;Railroad;Bike</input>
+        <label>What kind of transportation do you prefer</label>
+        <input type="select" required="false">Car;Railroad;Bike</input>
 
-         <label>What kind of transportation do you prefer?</label>
-         <input type="select" required="false">Car;Railroad;Bike</input>
+        <label>What kind of transportation do you prefer - checkbox</label>
+        <input type="checkbox" required="false">Car;Railroad;Bike;Walking</input>
 
-         <label>Comments</label>
-         <input type="textarea" required="false"></input>
+        <label>Please answer the following questions</label>
+        <input type="rating2" required="false" scale="Yes;No">There's a car in my household; I own a car for myself</input>
 
-         <note bg="false">All fields marked with an * are mandatory.</note>
-      </item>
+        <label>Please answer the following questions</label>
+        <input type="rating5" required="false" scale="1;2;3;4;5">How would you rate your current transportation route;How would you rate your old transportation route</input>
 
-      <!-- URL for data transmission via POST/GET (leave blank if not required) -->
-      <item id="submitUrl">exe.php?do=save</item>
+        <label>Please answer the following questions</label>
+        <input type="rating10" required="false" scale="1;2;3;4;5;6;7;8;9;10">How would you rate your current transportation route;How would you rate your old transportation route</input>
 
-      <!-- request mode (post|get|firebase) -->
-      <item id="submitUrlMethod">firebase</item>
+        <note bg="false">All fields marked with an * are mandatory</note>
+     </item>
 
-      <!-- data transmission via email, user must have an e-mail programm like Outlook (leave blank if not required) -->
-      <item id="submitMail">yourdomain.com</item>
+     <!-- URL for data transmission via POST/GET (leave blank if not required) -->
+     <item id="submitUrl">exe.php?do=save</item>
+  
+     <!-- request mode (post|get|firebase) -->
+     <item id="submitUrlMethod">firebase</item>
+  
+     <!-- data transmission via email, user must have an e-mail programm like Outlook (leave blank if not required) -->
+     <item id="submitMail">yourdomain.com</item>
    </config>
