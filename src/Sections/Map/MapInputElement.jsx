@@ -33,8 +33,6 @@ const localStore = store({
 
 const calcQsortDesign = (event) => {
   let columnName = event.target.name;
-  console.log(columnName);
-  // set local state for display
 
   localStore[`activeValue${event.target.name}`] = event.target.value;
 
@@ -72,7 +70,6 @@ const calcQsortDesign = (event) => {
   appState[fullColumnName] = targetValue;
   appState.qSortPattern = qSortPattern;
   appState.qSortPatternObject = qSortPatternObject;
-  console.log(JSON.stringify(appState, null, 2));
 };
 
 const QsortDesignInputElement = () => {

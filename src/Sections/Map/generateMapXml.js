@@ -29,15 +29,11 @@ const generateConfigXml = () => {
 
    <map version="1.0" htmlParse="false">\n`;
 
-  console.log(JSON.stringify(qSortPatternObject, null, 2));
-
   for (let i = 0; i < columnsArray.length; i += 1) {
     let colorString = "";
     let value = parseInt(columnsArray[i], 10);
     let numStates = parseInt(qSortPatternObject[columnsArray[i]], 10) || 0;
     let mapString;
-
-    console.log(numStates);
 
     if (value > 0) {
       colorString = `colour="9FDFBF"`;
