@@ -1,16 +1,133 @@
 import React from "react";
 import { view } from "@risingstack/react-easy-state";
 import styled, { keyframes } from "styled-components";
-// import "./anchorStyling.css";
 import GlobalStyle from "../../Utils/GlobalStyle";
-// import heroImage from "../../assets/kade-hero-image.png";
-// import TranslationAttribution from "./TranslationAttribution";
+import GeneralButton from "../../Utils/GeneralButton";
+import exportToXml from "../../Utils/exportToXml";
+import UserSelectionSwitch from "../../Utils/UserSelectionSwitch";
+import RadioButtons from "../../Utils/RadioButtons";
+import UserTextInput from "../../Utils/UserTextInput";
+// import generateConfigXml from "../Config/generateConfigXml";
 
 const Language = () => {
   return (
     <MainContent>
-        <GlobalStyle />
-        <Title>Language Settings</Title>
+      <GlobalStyle />
+      <Title>Language Settings</Title>
+      <h3>Button Label Language</h3>
+      <UserTextInput
+        label="Continue..."
+        stateId="langBtnContinue"
+        sectionName="lang"
+        width={25}
+        left={0}
+      />
+      <UserTextInput
+        label="Close"
+        stateId="langBtnClose"
+        sectionName="lang"
+        width={25}
+        left={0}
+      />{" "}
+      <UserTextInput
+        label="Help me!"
+        stateId="langBtnHelp"
+        sectionName="lang"
+        width={25}
+        left={0}
+      />{" "}
+      <UserTextInput
+        label="Agree"
+        stateId="langBtnAgree"
+        sectionName="lang"
+        width={25}
+        left={0}
+      />{" "}
+      <UserTextInput
+        label="Neutral"
+        stateId="langBtnNeutral"
+        sectionName="lang"
+        width={25}
+        left={0}
+      />{" "}
+      <UserTextInput
+        label="Disagree"
+        stateId="langBtnDisagree"
+        sectionName="lang"
+        width={25}
+        left={0}
+      />{" "}
+      <UserTextInput
+        label="Submit data"
+        stateId="langBtnSubmit"
+        sectionName="lang"
+        width={25}
+        left={0}
+      />{" "}
+      {/* <UserTextInput
+        label="Send via email"
+        stateId="langBtnEmail"
+        sectionName="lang"
+        width={25}
+        left={0}
+      />{" "}
+      <UserTextInput
+        label="Print data"
+        stateId="langBtnPrint"
+        sectionName="lang"
+        width={25}
+        left={0}
+      />{" "} */}
+      <UserTextInput
+        label="Exit"
+        stateId="langBtnExit"
+        sectionName="lang"
+        width={25}
+        left={0}
+      />{" "}
+      <UserTextInput
+        label="Please select..."
+        stateId="langBtnSelect"
+        sectionName="lang"
+        width={25}
+        left={0}
+      />
+      <h3>Navigation and Error Language</h3>
+      <UserTextInput
+        label="Your answers will be lost."
+        stateId="langExitWarning"
+        sectionName="lang"
+        width={25}
+        left={0}
+      />{" "}
+      <UserTextInput
+        label="Back"
+        stateId="langBack"
+        sectionName="lang"
+        width={25}
+        left={0}
+      />
+      <UserTextInput
+        label="Please fill in all required fields"
+        stateId="langExit"
+        sectionName="lang"
+        width={25}
+        left={0}
+      />{" "}
+      <UserTextInput
+        label="Please select..."
+        stateId="langSelect"
+        sectionName="lang"
+        width={25}
+        left={0}
+      />
+      <UserTextInput
+        label="Exit"
+        stateId="langBtnExit"
+        sectionName="lang"
+        width={25}
+        left={0}
+      />{" "}
     </MainContent>
   );
 };
@@ -37,24 +154,15 @@ const fadeOut = keyframes`
   }
 `;
 
-
 const MainContent = styled.div`
   box-sizing: border-box;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 170px 130px 30px 10px 200px 1fr;
-  grid-template-areas:
-    "row1 row1 row1 row1"
-    "weblinkRow weblinkRow weblinkRow weblinkRow"
-    "rule rule rule rule"
-    "linkboxRow1 linkboxRow1 linkboxRow2 linkboxRow2"
-    "linkboxRow3 linkboxRow3 linkboxRow4 linkboxRow4"
-    "translation translation translation translation";
+  display: flex;
+  flex-direction: column;
   justify-items: center;
   align-items: center;
   background-color: white;
-  visibility: ${props => (props.view ? "hidden" : "visible")};
-  animation: ${props => (props.view ? fadeOut : fadeIn)} 0.5s linear;
+  visibility: ${(props) => (props.view ? "hidden" : "visible")};
+  animation: ${(props) => (props.view ? fadeOut : fadeIn)} 0.5s linear;
   transition: visibility 0.5s linear;
   font-family: Helvetica, sans-serif;
   font-size: 18px;
@@ -65,12 +173,11 @@ const MainContent = styled.div`
   user-select: none;
 `;
 
-
 const Title = styled.h1`
   display: grid;
   grid-area: row1;
-    font-size: 50px;
-    width: 80vw;
-   align-items: center;
-   justify-content: center;
+  font-size: 50px;
+  width: 80vw;
+  align-items: center;
+  justify-content: center;
 `;

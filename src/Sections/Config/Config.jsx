@@ -28,11 +28,11 @@ const Config = () => {
       <GlobalStyle />
       <Title>Config.xml</Title>
       <h3>Options</h3>
-      <UserSelectionSwitch
+      {/* <UserSelectionSwitch
         name="willIndicateDistinguishing"
         value="willIndicateDistinguishing"
         toggle
-      />
+      /> */}
       <QuestionContainer>
         <UserTextInput
           label="1. Title of study:"
