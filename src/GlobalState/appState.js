@@ -183,24 +183,50 @@ const appState = store({
 
   /*
   language.xml settings */
+  langBtnContinue: "Continue...",
+  langBtnClose: "Close",
+  langBtnHelp: "Help me!",
+  langBtnAgree: "Agree",
+  langBtnNeutral: "Neutral",
+  langBtnDisagree: "Disagree",
+  langBtnSubmit: "Submit data",
+  langBtnExit: "Exit",
+  langBtnSelect: "Please select...",
+  langExitWarning: "Your answers will be lost.",
+  langBack: "Back",
+  langReqFields: "Please fill in all required fields",
+  langError: "Error!",
+  langMaxWindow: "Please maximize your browser for using this application.",
+  langWelcome: "Welcome!",
+  langWelcomeText:
+    "Please note: This is just a demo and no data will be stored. Thanks to Job van Exel, that we can use his survey as an example.{br}{br}Comments and bug reports are highly welcome.{br}{br}Please click on the continue-button.",
+  langUserCode: "User Code",
+  langLogInText:
+    "Please enter your user code. Please note, that in this demo any user code will be accepted.{br}{br}{i}Tip: This is an optional step and you can deactivate it in your own survey.{i}",
+  langFormHeader: "User Code",
+  langNoInput: "Please insert your user code.",
+  langUserCodeInvalid: "User code invalid",
+  langServerConnectFail: "Connection to server failed. Please try again.",
+  langIntroduction: "Introduction",
+  langIntroText: `This study is about travel behaviour. We are interested in your attitude towards car and public transport as travel alternatives for middle-distance trips.{br}{br}Please maximize your browser window and click on the continue-button to start the survey.`,
+  langStep1: "Step 1 of 5",
+  langStep1Text: `Read the folowing statements carefully and split them up into three piles: a pile for statements you tend to disagree with, a pile for cards you tend to agree with, and a pile for the rest.{br}{br}You can either drag the cards into one of the three piles or press 1, 2, 3 on your keyboard. Changes can be made later.{br}{br}If you want to read this instruction a second time, press the help-button at the bottom left corner.`,
+  langStep2: "Step 2 of 5",
+  langStep2Text: `Take the cards from the "AGREE"-pile and read them again. You can scroll through the statements by using the scroll bar. Next, select the two statements you most agree with and place them on right side of the score sheet below the "+2".{br}{br}Now read the cards in the "DISAGREE"-pile again. Just like before, select the two statements you most disagree with and place them on the left side of the score sheet below the "-2".{br}{br}Next, select the statements you second most agree/disagree with and place them under "+1"/"-1". Follow this procedure for all cards in the "AGREE"- and "DIAGREE"-pile.{br}{br}Finally, read the "NEUTRAL"-cards again and arange them in the remaining open boxes of the score sheet.`,
+  langStep3: "Step 3 of 5",
+  langStep3Text: `Now you have placed all cards on the score sheet. Please go over your distribution once more and shift cards if you want to.{br}{br}{i}Tip: This is an optional step and you can deactivate it in your own survey.{i}`,
+  langStep4: "Step 4 of 5",
+  langStep4Text: `Please explain why you agree most or disagree most with the following statements you have placed below "+2" or "-2".{br}{br}{i}Tip: This is a optional step and you can deactivate it in your own survey.{i}`,
+  langStep5: "Step 5 of 5",
+  langStep5Text: `Finally, please answer the following questions regarding your background.{br}{br}{i}Tip: This is a optional step and you can deactivate it in your own survey.{i}`,
+  langTransferHead: "Submit Data",
+  langTransferText: "You've finished the survey. Please submit your data now.",
+  langTransferFailed:
+    "Data submission failed. Please try again or mail your results via email/post.",
+  langTransferOk: `Thank you for using Easy HTMLQ. We would appreciate if you could send us feedback about this application (bugs, ideas, suggestion, etc.).{br}{br}Christian Hackert{br}{a href="http://www.hackert.biz/flashq" target="_blank"}{u}www.hackert.biz/flashq{/u}{/a}.{br}{br}You can now close your browser window.`,
 
   /*
   firebase.xml settings */
-
-  changes: [],
-
-  errorMessage: "",
-  extendedErrorMessage: "",
-  errorStackTrace: "",
-
-  isDataButtonGreen: false,
-  isInputButtonGreen: false,
-
-  showErrorMessageBar: false,
-  showUpdateModal: false,
-
-  viewRotation: false,
-  viewStart: true,
 });
 
 export default appState;
