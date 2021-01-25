@@ -11,6 +11,50 @@ const Statements = () => {
     <MainContent>
       <GlobalStyle />
       <Title>Web Links</Title>
+      <WebLinkRow>
+        <h1>web links:</h1>
+        <Rule />
+      </WebLinkRow>
+      <WebLinkDiv1>
+        <StyledAnchor
+          className="sixth before after"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/shawnbanasick/kade"
+        >
+          Home Page
+        </StyledAnchor>
+      </WebLinkDiv1>
+      <WebLinkDiv2>
+        <StyledAnchor
+          className="sixth before after"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/shawnbanasick/kade/wiki"
+        >
+          User Manual
+        </StyledAnchor>
+      </WebLinkDiv2>
+      <WebLinkDiv3>
+        <StyledAnchor
+          className="sixth before after"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://shawnBanasick.github.io/ken-q-analysis/index.html"
+        >
+          Ken-Q Analysis <br /> Web Application
+        </StyledAnchor>
+      </WebLinkDiv3>
+      <WebLinkDiv4>
+        <StyledAnchor
+          className="sixth before after"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://shawnbanasick.github.io/ken-q-data/index.html"
+        >
+          Ken-Q Data
+        </StyledAnchor>
+      </WebLinkDiv4>
     </MainContent>
   );
 };
@@ -64,11 +108,100 @@ const MainContent = styled.div`
   user-select: none;
 `;
 
+const StyledAnchor = styled.a``;
+
+const WebLinkDiv1 = styled.div`
+  display: flex;
+  grid-area: linkboxRow1;
+  height: 100px;
+  width: 480px;
+  display: grid;
+  align-items: center;
+  justify-content: right;
+  font-size: 22px;
+  margin-right: 3px;
+  margin-bottom: 3px;
+  text-align: center;
+  user-select: none;
+  line-height: 1.2;
+`;
+
+const WebLinkDiv2 = styled.div`
+  display: flex;
+  grid-area: linkboxRow2;
+  height: 100px;
+  width: 480px;
+  display: grid;
+  align-items: center;
+  justify-content: left;
+  font-size: 22px;
+  margin-right: 3px;
+  margin-bottom: 3px;
+  text-align: center;
+  user-select: none;
+  line-height: 1.2;
+`;
+
+const WebLinkDiv3 = styled.div`
+  display: flex;
+  grid-area: linkboxRow3;
+  height: 100px;
+  width: 480px;
+  display: grid;
+  align-items: center;
+  justify-content: right;
+  font-size: 22px;
+  margin-right: 3px;
+  margin-bottom: 3px;
+  text-align: center;
+  user-select: none;
+  line-height: 1.2;
+`;
+
+const WebLinkDiv4 = styled.div`
+  display: flex;
+  grid-area: linkboxRow4;
+  height: 50px;
+  width: 480px;
+  display: grid;
+  align-items: center;
+  justify-content: left;
+  font-size: 22px;
+  margin-right: 3px;
+  margin-bottom: 3px;
+  text-align: center;
+  user-select: none;
+  line-height: 1.2;
+`;
+
+const WebLinkRow = styled.div`
+  align-items: center;
+  grid-area: weblinkRow;
+  width: 900px;
+`;
+
 const Title = styled.h1`
   display: grid;
   grid-area: row1;
-  font-size: 50px;
+  font-size: 80px;
   width: 80vw;
   align-items: center;
   justify-content: center;
+`;
+
+// const ImageContainer = styled.div`
+//   display: grid;
+//   align-items: center;
+//   justify-content: center;
+//   grid-area: row1;
+// `;
+
+// const Image = styled.img`
+//   align-items: center;
+//   justify-content: center;
+//   width: 600px;
+// `;
+
+const Rule = styled.hr`
+  grid-area: rule;
 `;

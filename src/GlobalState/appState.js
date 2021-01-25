@@ -5,6 +5,7 @@ const appState = store({
   set default save file path */
   userSelectedFilePath: "",
 
+  viewStart: true,
   /*
   config.xml default settings */
   showSurveytextImage: true,
