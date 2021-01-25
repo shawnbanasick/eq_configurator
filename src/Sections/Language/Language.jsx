@@ -6,11 +6,13 @@ import GeneralButton from "../../Utils/GeneralButton";
 import exportToXml from "../../Utils/exportToXml";
 import UserTextInput from "../../Utils/UserTextInput";
 import UserTextAreaInput from "../../Utils/UserTextAreaInput";
-// import appState from "../../GlobalState/appState";
+import appState from "../../GlobalState/appState";
 import generateLanguageXml from "../Language/generateLanguageXml";
 
 const handleClick = () => {
   const data = generateLanguageXml();
+  console.log(data);
+  console.log(appState.langBtnClose);
 
   exportToXml("language.xml", data);
 };

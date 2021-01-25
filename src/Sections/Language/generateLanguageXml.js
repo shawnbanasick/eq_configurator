@@ -7,14 +7,14 @@ const generateLanguageXml = () => {
 
         <!-- misc -->
         <item id="btnContinue">${appState.langBtnContinue}</item>
-        <item id="btnclose">Close${appState.langBtnClose}</item>
-        <item id="btnHelp">Help me!${appState.langBtnHelp}</item>
-        <item id="btnAgreement">${appState.langBtnAgree}Agree</item>
-        <item id="btnNeutral">${appState.langBtnNeutral}Neutral</item>
-        <item id="btnDisagreement">${appState.langBtnDisagree}Disagree</item>
-        <item id="btnTransfer">${appState.langBtnSubmit}Submit data</item>
-        <item id="btnExit">${appState.langBtnExit}Exit</item>
-        <item id="selectItem">${appState.langBtnSelect}Please select...</item>
+        <item id="btnclose">${appState.langBtnClose}</item>
+        <item id="btnHelp">${appState.langBtnHelp}</item>
+        <item id="btnAgreement">${appState.langBtnAgree}</item>
+        <item id="btnNeutral">${appState.langBtnNeutral}</item>
+        <item id="btnDisagreement">${appState.langBtnDisagree}</item>
+        <item id="btnTransfer">${appState.langBtnSubmit}</item>
+        <item id="btnExit">${appState.langBtnExit}</item>
+        <item id="selectItem">${appState.langBtnSelect}</item>
         
         <!-- Warning when user is trying to leave the page (this item was added for HtmlQ) -->
         <item id="leaveSiteWarning">${appState.langExitWarning}</item>
