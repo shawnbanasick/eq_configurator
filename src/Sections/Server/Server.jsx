@@ -1,16 +1,26 @@
 import React from "react";
 import { view } from "@risingstack/react-easy-state";
 import styled, { keyframes } from "styled-components";
-// import "./anchorStyling.css";
 import GlobalStyle from "../../Utils/GlobalStyle";
-// import heroImage from "../../assets/kade-hero-image.png";
-// import TranslationAttribution from "./TranslationAttribution";
+import GeneralButton from "../../Utils/GeneralButton";
+
+const handleClick = () => {
+  console.log("clicked");
+
+  // const data = generateConfigXml();
+
+  // exportToXml("config.xml", data);
+};
 
 const Server = () => {
   return (
     <MainContent>
-        <GlobalStyle />
-        <Title>Server Settings</Title>
+      <GlobalStyle />
+      <Title>Server Settings</Title>
+      <GeneralButton style={{ width: "78vw" }} onClick={() => handleClick()}>
+        Navigate to HTMLQ base files &nbsp;&nbsp; &gt;&gt;&gt; &nbsp;&nbsp;
+        index.html
+      </GeneralButton>
     </MainContent>
   );
 };
@@ -37,24 +47,15 @@ const fadeOut = keyframes`
   }
 `;
 
-
 const MainContent = styled.div`
   box-sizing: border-box;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 170px 130px 30px 10px 200px 1fr;
-  grid-template-areas:
-    "row1 row1 row1 row1"
-    "weblinkRow weblinkRow weblinkRow weblinkRow"
-    "rule rule rule rule"
-    "linkboxRow1 linkboxRow1 linkboxRow2 linkboxRow2"
-    "linkboxRow3 linkboxRow3 linkboxRow4 linkboxRow4"
-    "translation translation translation translation";
+  display: flex;
+  flex-direction: column;
   justify-items: center;
   align-items: center;
   background-color: white;
-  visibility: ${props => (props.view ? "hidden" : "visible")};
-  animation: ${props => (props.view ? fadeOut : fadeIn)} 0.5s linear;
+  visibility: ${(props) => (props.view ? "hidden" : "visible")};
+  animation: ${(props) => (props.view ? fadeOut : fadeIn)} 0.5s linear;
   transition: visibility 0.5s linear;
   font-family: Helvetica, sans-serif;
   font-size: 18px;
@@ -65,12 +66,11 @@ const MainContent = styled.div`
   user-select: none;
 `;
 
-
 const Title = styled.h1`
   display: grid;
   grid-area: row1;
-    font-size: 50px;
-    width: 80vw;
-   align-items: center;
-   justify-content: center;
+  font-size: 50px;
+  width: 80vw;
+  align-items: center;
+  justify-content: center;
 `;
