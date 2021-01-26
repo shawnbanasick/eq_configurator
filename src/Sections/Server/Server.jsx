@@ -12,7 +12,7 @@ const mainWindow = remote.getCurrentWindow();
 // const fs = electron.remote.require("fs");
 
 const handleClick = async () => {
-  console.log("clicked");
+  // console.log("clicked");
 
   const data = await dialog
     .showOpenDialog(mainWindow, {
@@ -29,6 +29,7 @@ const handleClick = async () => {
       console.log(err);
     });
 
+  console.log(data);
   ipcRenderer.send("get-file-path", data);
 };
 

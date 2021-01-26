@@ -13,8 +13,15 @@ const menuFactoryService = require("./services/menuFactory");
 const ipcMain = electron.ipcMain;
 
 const { fork } = require("child_process");
-const ps = fork(`${__dirname}/server.js`);
-//const myscript = require('./path/to/nodeJS_server_script.js');
+
+const startServer = (arg) => {
+  const ps = fork(`${__dirname}/server.js`);
+  ps.send({ filePath: arg });
+
+  //const myscript = require('./path/to/nodeJS_server_script.js');
+  return null;
+};
+
 let mainWindow;
 
 function windowStateKeeper(windowName) {
@@ -196,6 +203,7 @@ function createWindow() {
 
 ipcMain.on("get-file-path", (event, arg) => {
   console.log(arg);
+  startServer(arg);
 });
 
 ipcMain.on("get-initial-translations", (event, arg) => {
@@ -219,8 +227,8 @@ ipcMain.on("get-initial-translations", (event, arg) => {
   i18n.changeLanguage(currentLanguage);
 });
 
-let updateVersion = "";
-let versionStoredInUserSettings = "";
+// let updateVersion = "";
+// let versionStoredInUserSettings = "";
 
 app.on("ready", () => {
   createWindow();
