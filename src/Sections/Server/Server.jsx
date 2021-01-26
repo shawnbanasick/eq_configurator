@@ -3,10 +3,15 @@ import { view } from "@risingstack/react-easy-state";
 import styled, { keyframes } from "styled-components";
 import GlobalStyle from "../../Utils/GlobalStyle";
 import GeneralButton from "../../Utils/GeneralButton";
+const electron = window.require("electron");
+const ipcRenderer = electron.ipcRenderer;
+
+// const fs = electron.remote.require("fs");
 
 const handleClick = () => {
   console.log("clicked");
 
+  ipcRenderer.sendSync("get-file-path", "filepath");
   // const data = generateConfigXml();
 
   // exportToXml("config.xml", data);

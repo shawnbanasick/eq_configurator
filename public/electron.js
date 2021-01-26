@@ -194,6 +194,10 @@ function createWindow() {
   });
 } // end of create mainWindow function
 
+ipcMain.on("get-file-path", (event, arg) => {
+  console.log(arg);
+});
+
 ipcMain.on("get-initial-translations", (event, arg) => {
   let currentLanguage;
   if (appConfig.has(`currentLanguage`)) {
