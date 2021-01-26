@@ -5,16 +5,31 @@ import GlobalStyle from "../../Utils/GlobalStyle";
 import GeneralButton from "../../Utils/GeneralButton";
 const electron = window.require("electron");
 const ipcRenderer = electron.ipcRenderer;
+const { dialog } = require("electron").remote;
+const { remote } = require("electron");
+const mainWindow = remote.getCurrentWindow();
 
 // const fs = electron.remote.require("fs");
 
-const handleClick = () => {
+const handleClick = async () => {
   console.log("clicked");
 
-  ipcRenderer.sendSync("get-file-path", "filepath");
-  // const data = generateConfigXml();
+  const data = await dialog
+    .showOpenDialog(mainWindow, {
+      properties: ["openDirectory"],
+    })
+    .then((result) => {
+      console.log(result.canceled);
+      console.log(result.filePaths);
+      if (result.canceled === false) {
+        return result.filePaths;
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 
-  // exportToXml("config.xml", data);
+  ipcRenderer.send("get-file-path", data);
 };
 
 const Server = () => {
