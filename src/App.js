@@ -88,17 +88,17 @@ const App = (props) => {
             </StartButton>
             <FileButton
               buttonColor={inputButtonColor}
-              active={viewConfig}
-              onClick={() => handleClick("viewConfig")}
+              active={viewServer}
+              onClick={() => handleClick("viewServer")}
             >
-              <p className="title">{`1. ${t("Config")}`}</p>
+              <p className="title">{`1. ${t("Server")}`}</p>
             </FileButton>
             <FileButton
               buttonColor={inputButtonColor}
-              active={viewSurvey}
-              onClick={() => handleClick("viewSurvey")}
+              active={viewConfig}
+              onClick={() => handleClick("viewConfig")}
             >
-              <p className="title">{`2. ${t("Survey")}`}</p>
+              <p className="title">{`2. ${t("Config")}`}</p>
             </FileButton>
             <FileButton
               buttonColor={indicateDataButtonColor(
@@ -133,14 +133,14 @@ const App = (props) => {
             </FileButton>
             <FileButton
               buttonColor={loadingsButtonColor}
-              active={viewServer}
-              onClick={() => handleClick("viewServer")}
+              active={viewSurvey}
+              onClick={() => handleClick("viewSurvey")}
             >
-              <p className="title">{`7. ${t("Server")}`}</p>
+              <p className="title">{`7. ${t("Survey")}`}</p>
             </FileButton>
             <FileButton
               buttonColor={loadingsButtonColor}
-              active={viewServer}
+              active={viewWeblinks}
               onClick={() => handleClick("viewWeblinks")}
             >
               <p className="title">{`8. ${t("Web Links")}`}</p>
@@ -149,12 +149,12 @@ const App = (props) => {
           <ActionWindow>
             {viewStart && <Start view={viewStart} />}
             {viewConfig && <Config view={viewConfig} />}
-            {viewSurvey && <Survey view={viewSurvey} />}
+            {viewSurvey && <Survey view={viewServer} />}
             {viewStatements && <Statements view={viewStatements} />}
             {viewMap && <Map view={viewMap} />}
             {viewLanguage && <Language view={viewLanguage} />}
             {viewFirebase && <Firebase view={viewFirebase} />}
-            {viewServer && <Server view={viewServer} />}
+            {viewServer && <Server view={viewSurvey} />}
             {viewWeblinks && <Weblinks view={viewWeblinks} />}
             {/*{viewProjectHistory && <ProjectHistory view={viewProjectHistory} />}
             {viewHelp && <Help view={viewHelp} />}
