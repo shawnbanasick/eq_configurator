@@ -12,9 +12,9 @@ const i18nextBackend = require("i18next-node-fs-backend");
 const menuFactoryService = require("./services/menuFactory");
 const ipcMain = electron.ipcMain;
 
-const { fork } = require('child_process');
+const { fork } = require("child_process");
 const ps = fork(`${__dirname}/server.js`);
-
+//const myscript = require('./path/to/nodeJS_server_script.js');
 let mainWindow;
 
 function windowStateKeeper(windowName) {
@@ -30,7 +30,7 @@ function windowStateKeeper(windowName) {
       x: undefined,
       y: undefined,
       width: 1280,
-      height: 720
+      height: 720,
     };
   }
   function saveState() {
@@ -42,7 +42,7 @@ function windowStateKeeper(windowName) {
   }
   function track(win) {
     window = win;
-    ["resize", "move", "close"].forEach(event => {
+    ["resize", "move", "close"].forEach((event) => {
       win.on(event, saveState);
     });
   }
@@ -53,7 +53,7 @@ function windowStateKeeper(windowName) {
     width: windowState.width,
     height: windowState.height,
     isMaximized: windowState.isMaximized,
-    track
+    track,
   };
 }
 
@@ -67,7 +67,7 @@ function createWindow() {
     y: mainWindowStateKeeper.y,
     width: mainWindowStateKeeper.width,
     height: mainWindowStateKeeper.height,
-    webPreferences: { nodeIntegration: true, enableRemoteModule: true }
+    webPreferences: { nodeIntegration: true, enableRemoteModule: true },
   };
 
   // let currentLanguage;
@@ -82,7 +82,7 @@ function createWindow() {
 
   let pathToTranslation;
   let pathToMissing;
-  
+
   if (isDev) {
     pathToTranslation = path.join(
       __dirname,
@@ -105,10 +105,10 @@ function createWindow() {
       loadPath: pathToTranslation,
       addPath: pathToMissing,
       // jsonIndent to use when storing json files
-      jsonIndent: 2
+      jsonIndent: 2,
     },
     interpolation: {
-      escapeValue: false
+      escapeValue: false,
     },
     keySeparator: ">",
     nsSeparator: "|",
@@ -116,8 +116,8 @@ function createWindow() {
     fallbackLng: config.fallbackLng,
     whitelist: config.languages,
     react: {
-      wait: false
-    }
+      wait: false,
+    },
   };
 
   i18n.use(i18nextBackend);
@@ -127,7 +127,7 @@ function createWindow() {
     i18n.init(i18nextOptions);
   }
 
-  i18n.on("loaded", loaded => {
+  i18n.on("loaded", (loaded) => {
     let currentLanguage;
     if (appConfig.has(`currentLanguage`)) {
       currentLanguage = appConfig.get(`currentLanguage`);
@@ -139,12 +139,12 @@ function createWindow() {
     i18n.off("loaded");
   });
 
-  i18n.on("languageChanged", lng => {
+  i18n.on("languageChanged", (lng) => {
     menuFactoryService.buildMenu(app, mainWindow, i18n);
     mainWindow.webContents.send("language-changed", {
       language: lng,
       namespace: config.namespace,
-      resource: i18n.getResourceBundle(lng, config.namespace)
+      resource: i18n.getResourceBundle(lng, config.namespace),
     });
 
     appConfig.set(`currentLanguage`, lng);
@@ -172,17 +172,17 @@ function createWindow() {
   mainWindow.on("closed", () => (mainWindow = null));
 
   // showMessageBox returns a promise
-  mainWindow.on("close", function(e) {
+  mainWindow.on("close", function (e) {
     e.preventDefault();
     var choice = dialog.showMessageBox(mainWindow, {
       title: "Confirm Quit",
       type: "question",
       buttons: ["Yes", "No"],
       message: "Are you sure you want to quit?",
-      cancelId: 2
+      cancelId: 2,
     });
 
-    choice.then(function(result) {
+    choice.then(function (result) {
       if (result.response === 0) {
         mainWindow.destroy();
       }
@@ -205,8 +205,8 @@ ipcMain.on("get-initial-translations", (event, arg) => {
   i18n.loadLanguages(currentLanguage, (err, t) => {
     const initial = {
       currentLanguage: {
-        translation: i18n.getResourceBundle(currentLanguage, config.namespace)
-      }
+        translation: i18n.getResourceBundle(currentLanguage, config.namespace),
+      },
     };
     event.returnValue = initial;
   });
@@ -230,7 +230,7 @@ app.on("window-all-closed", () => {
   }
 });
 
-app.on("activate", function() {
+app.on("activate", function () {
   // On macOS it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
   if (mainWindow === null) {
@@ -245,7 +245,7 @@ function installExtensions() {
 
     // Install extensions
     installExtension(REACT_DEVELOPER_TOOLS)
-      .then(name => console.log(`Added Extension:  ${name}`))
-      .catch(err => console.log("An error occurred: ", err));
+      .then((name) => console.log(`Added Extension:  ${name}`))
+      .catch((err) => console.log("An error occurred: ", err));
   }
 }
