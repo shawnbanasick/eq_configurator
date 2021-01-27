@@ -6,14 +6,28 @@ import GlobalStyle from "../../Utils/GlobalStyle";
 // import heroImage from "../../assets/kade-hero-image.png";
 // import TranslationAttribution from "./TranslationAttribution";
 import MapInputElement from "./MapInputElement";
-import exportToXml from "../../Utils/exportToXml";
+// import exportToXml from "../../Utils/exportToXml";
 import generateMapXml from "./generateMapXml";
 import GeneralButton from "../../Utils/GeneralButton";
+const fs = require("fs");
+const path = require("path");
+const { app } = require("electron");
 
 const handleClick = () => {
+  const filePath = path.join(__dirname, "map.xml");
+  console.log(filePath);
+  // console.log(app.getPath("home"));
   const data = generateMapXml();
 
-  exportToXml("map.xml", data);
+  fs.writeFile(filePath, data, (err) => {
+    if (err === undefined || err === null) {
+      console.log("success");
+    } else {
+      console.log(err);
+    }
+  });
+
+  // exportToXml("map.xml", data);
 };
 
 const Map = () => {

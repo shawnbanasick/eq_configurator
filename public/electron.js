@@ -15,6 +15,8 @@ const ipcMain = electron.ipcMain;
 const { fork } = require("child_process");
 const ps = fork(`${__dirname}/server.js`);
 
+console.log(__dirname);
+
 let mainWindow;
 
 function windowStateKeeper(windowName) {
