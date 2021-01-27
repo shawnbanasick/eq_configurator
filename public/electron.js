@@ -13,14 +13,7 @@ const menuFactoryService = require("./services/menuFactory");
 const ipcMain = electron.ipcMain;
 
 const { fork } = require("child_process");
-
-const startServer = (arg) => {
-  const ps = fork(`${__dirname}/server.js`);
-  ps.send({ filePath: arg });
-
-  //const myscript = require('./path/to/nodeJS_server_script.js');
-  return null;
-};
+const ps = fork(`${__dirname}/server.js`);
 
 let mainWindow;
 
@@ -201,10 +194,10 @@ function createWindow() {
   });
 } // end of create mainWindow function
 
-ipcMain.on("get-file-path", (event, arg) => {
-  console.log(arg);
-  startServer(arg);
-});
+// ipcMain.on("get-file-path", (event, arg) => {
+//   console.log(arg);
+//   startServer(arg);
+// });
 
 ipcMain.on("get-initial-translations", (event, arg) => {
   let currentLanguage;
