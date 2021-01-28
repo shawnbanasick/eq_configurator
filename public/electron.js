@@ -13,8 +13,10 @@ const ipcMain = electron.ipcMain;
 const fs = require("fs");
 
 const { fork } = require("child_process");
-const ps = fork(`${__dirname}/server/server.js`);
-console.log(`${__dirname}/server/server.js`);
+// console.log(`${__dirname}/server/server.js`);
+
+// server reference
+let ps;
 
 let mainWindow;
 
@@ -198,6 +200,18 @@ function createWindow() {
 // IPC communications
 
 // `file://${path.join(__dirname, "../build/index.html")}`
+
+ipcMain.on("get-file-path", (event, data) => {
+  ps = fork(path.join(__dirname, `/server/server2.js`), ["hello"], {
+    stdio: ["pipe", "pipe", "pipe", "ipc"],
+  });
+  let string = data[0];
+  console.log("main", string);
+  ps.send(data);
+  ps.on("message", (m) => {
+    console.log("Got message:", m);
+  });
+});
 
 ipcMain.on("map-xml-data", (event, data) => {
   try {

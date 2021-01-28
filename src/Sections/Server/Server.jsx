@@ -4,7 +4,7 @@ import styled, { keyframes } from "styled-components";
 import GlobalStyle from "../../Utils/GlobalStyle";
 import GeneralButton from "../../Utils/GeneralButton";
 const electron = window.require("electron");
-// const ipcRenderer = electron.ipcRenderer;
+const ipcRenderer = electron.ipcRenderer;
 const { dialog } = require("electron").remote;
 const { remote } = require("electron");
 const mainWindow = remote.getCurrentWindow();
@@ -30,7 +30,7 @@ const handleClick = async () => {
     });
 
   console.log(data);
-  // ipcRenderer.send("get-file-path", data);
+  ipcRenderer.send("get-file-path", data);
 };
 
 const Server = () => {
