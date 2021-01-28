@@ -196,11 +196,22 @@ function createWindow() {
 
 // IPC communications
 
+// `file://${path.join(__dirname, "../build/index.html")}`
+
 ipcMain.on("map-xml-data", (event, data) => {
   try {
+    if (isDev) {
+      fs.writeFileSync(`${__dirname}/htmlq/settings/map.xml`, data, "utf-8");
+      event.sender.send("map-xml-data-saved", "success");
+    } else {
+      fs.writeFileSync(
+        `${path.join(__dirname, "../public/htmlq/settings/map.xml")}`,
+        data,
+        "utf-8"
+      );
+      event.sender.send("map-xml-data-saved", "success");
+    }
     // console.log(`${__dirname}/htmlq/map.xml`);
-    fs.writeFileSync(`${__dirname}/htmlq/settings/map.xml`, data, "utf-8");
-    event.sender.send("map-xml-data-saved", "success");
   } catch (e) {
     alert("Failed to save the file !");
   }
@@ -239,9 +250,10 @@ app.on("ready", () => {
 menuFactoryService.buildMenu(app, mainWindow, i18n);
 
 app.on("window-all-closed", () => {
-  if (process.platform !== "darwin") {
-    app.quit();
-  }
+  ps.kill();
+  app.quit();
+  // if (process.platform !== "darwin") {
+  // }
 });
 
 app.on("activate", function () {
