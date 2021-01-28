@@ -20,8 +20,10 @@ import "./Utils/UserSelectionSwitch.css";
 
 const handleClick = (target) => {
   const activeWindow = appState.activeWindow;
+  console.log(activeWindow);
   appState[activeWindow] = false;
   appState[target] = true;
+  console.log(target);
   appState.activeWindow = target;
 };
 

@@ -1,5 +1,5 @@
 var static = require("node-static");
-var file = new static.Server(`${__dirname}/htmlq`);
+var file = new static.Server(`${__dirname}/htmlq`, { cache: false });
 
 require("http")
   .createServer(function (request, response) {

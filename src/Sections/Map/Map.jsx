@@ -9,23 +9,34 @@ import MapInputElement from "./MapInputElement";
 // import exportToXml from "../../Utils/exportToXml";
 import generateMapXml from "./generateMapXml";
 import GeneralButton from "../../Utils/GeneralButton";
-const fs = require("fs");
-const path = require("path");
-const { app } = require("electron");
+import appState from "../../GlobalState/appState";
+// const fs = require("fs");
+// const path = require("path");
+// const { app } = require("electron");
+const { ipcRenderer } = require("electron");
+
+ipcRenderer.on("map-xml-data-saved", (event, arg) => {
+  console.log("response");
+  appState.viewStart = false;
+  appState.viewMap = true;
+  appState.activeWindow = "viewMap";
+});
 
 const handleClick = () => {
-  const filePath = path.join(__dirname, "map.xml");
-  console.log(filePath);
-  // console.log(app.getPath("home"));
+  // const filePath = path.join(__dirname, "map.xml");
+  // console.log(filePath);
+  // // console.log(app.getPath("home"));
   const data = generateMapXml();
 
-  fs.writeFile(filePath, data, (err) => {
-    if (err === undefined || err === null) {
-      console.log("success");
-    } else {
-      console.log(err);
-    }
-  });
+  ipcRenderer.send("map-xml-data", data);
+
+  // fs.writeFile(filePath, data, (err) => {
+  //   if (err === undefined || err === null) {
+  //     console.log("success");
+  //   } else {
+  //     console.log(err);
+  //   }
+  // });
 
   // exportToXml("map.xml", data);
 };
