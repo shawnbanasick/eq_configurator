@@ -198,19 +198,18 @@ function createWindow() {
 } // end of create mainWindow function
 
 // IPC communications
-
-// `file://${path.join(__dirname, "../build/index.html")}`
-
 ipcMain.on("get-file-path", (event, data) => {
+  // kill server child process if already active
+  if (ps !== undefined) {
+    ps.kill();
+  }
+  // fork new child process
   ps = fork(path.join(__dirname, `/server/server2.js`), ["hello"], {
     stdio: ["pipe", "pipe", "pipe", "ipc"],
   });
-  let string = data[0];
-  console.log("main", string);
+
+  // start server with file location data
   ps.send(data);
-  ps.on("message", (m) => {
-    console.log("Got message:", m);
-  });
 });
 
 ipcMain.on("map-xml-data", (event, data) => {

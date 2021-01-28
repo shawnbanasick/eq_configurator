@@ -6,10 +6,8 @@ process.on("message", (data) => {
 
   process.send(string);
   var file = new static2.Server(`${string}`, {
-    cache: false,
+    cache: 0,
   });
-
-  console.log("server.js", __dirname);
 
   require("http")
     .createServer(function (request, response) {
