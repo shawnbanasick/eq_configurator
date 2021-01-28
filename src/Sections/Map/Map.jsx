@@ -16,7 +16,9 @@ import appState from "../../GlobalState/appState";
 const { ipcRenderer } = require("electron");
 
 ipcRenderer.on("map-xml-data-saved", (event, arg) => {
-  console.log("response");
+  console.log(arg);
+  // console.log(event);
+  // console.log(event.response);
   appState.viewStart = false;
   appState.viewMap = true;
   appState.activeWindow = "viewMap";

@@ -1,6 +1,8 @@
 var static = require("node-static");
 var file = new static.Server(`${__dirname}/htmlq`, { cache: false });
 
+console.log("server.js", __dirname);
+
 require("http")
   .createServer(function (request, response) {
     request

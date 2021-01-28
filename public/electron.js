@@ -13,7 +13,8 @@ const ipcMain = electron.ipcMain;
 const fs = require("fs");
 
 const { fork } = require("child_process");
-const ps = fork(`${__dirname}/server.js`);
+const ps = fork(`${__dirname}/server/server.js`);
+console.log(`${__dirname}/server/server.js`);
 
 let mainWindow;
 
@@ -201,19 +202,27 @@ function createWindow() {
 ipcMain.on("map-xml-data", (event, data) => {
   try {
     if (isDev) {
-      fs.writeFileSync(`${__dirname}/htmlq/settings/map.xml`, data, "utf-8");
-      event.sender.send("map-xml-data-saved", "success");
-    } else {
+      let info = `${__dirname}`;
       fs.writeFileSync(
-        `${path.join(__dirname, "../public/htmlq/settings/map.xml")}`,
+        `${__dirname}/server/htmlq/settings/map.xml`,
         data,
         "utf-8"
       );
-      event.sender.send("map-xml-data-saved", "success");
+      mainWindow.webContents.send("map-xml-data-saved", info);
+    } else {
+      let info = `${__dirname}`;
+      // let info = `${path.join(__dirname, "../public/htmlq/settings/map.xml")}`;
+      console.log("line 215", info);
+      mainWindow.webContents.send("map-xml-data-saved", info);
+      fs.writeFileSync(
+        `${path.join(__dirname, "/server/htmlq/settings/map.xml")}`,
+        data,
+        "utf-8"
+      );
     }
-    // console.log(`${__dirname}/htmlq/map.xml`);
+    console.log(`${__dirname}`);
   } catch (e) {
-    alert("Failed to save the file !");
+    console.log("Failed to save the file !");
   }
 
   // `${__dirname}/htmlq/map.xml`
