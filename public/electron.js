@@ -212,35 +212,6 @@ ipcMain.on("get-file-path", (event, data) => {
   ps.send(data);
 });
 
-ipcMain.on("map-xml-data", (event, data) => {
-  try {
-    if (isDev) {
-      let info = `${__dirname}`;
-      fs.writeFileSync(
-        `${__dirname}/server/htmlq/settings/map.xml`,
-        data,
-        "utf-8"
-      );
-      mainWindow.webContents.send("map-xml-data-saved", info);
-    } else {
-      let info = `${__dirname}`;
-      // let info = `${path.join(__dirname, "../public/htmlq/settings/map.xml")}`;
-      console.log("line 215", info);
-      mainWindow.webContents.send("map-xml-data-saved", info);
-      fs.writeFileSync(
-        `${path.join(__dirname, "/server/htmlq/settings/map.xml")}`,
-        data,
-        "utf-8"
-      );
-    }
-    console.log(`${__dirname}`);
-  } catch (e) {
-    console.log("Failed to save the file !");
-  }
-
-  // `${__dirname}/htmlq/map.xml`
-});
-
 ipcMain.on("get-initial-translations", (event, arg) => {
   let currentLanguage;
   if (appConfig.has(`currentLanguage`)) {

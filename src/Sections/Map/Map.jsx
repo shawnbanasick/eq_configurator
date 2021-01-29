@@ -1,46 +1,19 @@
 import React from "react";
 import { view } from "@risingstack/react-easy-state";
 import styled, { keyframes } from "styled-components";
-// import "./anchorStyling.css";
 import GlobalStyle from "../../Utils/GlobalStyle";
-// import heroImage from "../../assets/kade-hero-image.png";
-// import TranslationAttribution from "./TranslationAttribution";
 import MapInputElement from "./MapInputElement";
-// import exportToXml from "../../Utils/exportToXml";
+import exportToXml from "../../Utils/exportToXml";
 import generateMapXml from "./generateMapXml";
 import GeneralButton from "../../Utils/GeneralButton";
 import appState from "../../GlobalState/appState";
-// const fs = require("fs");
-// const path = require("path");
-// const { app } = require("electron");
-const { ipcRenderer } = require("electron");
-
-ipcRenderer.on("map-xml-data-saved", (event, arg) => {
-  console.log(arg);
-  // console.log(event);
-  // console.log(event.response);
-  appState.viewStart = false;
-  appState.viewMap = true;
-  appState.activeWindow = "viewMap";
-});
 
 const handleClick = () => {
-  // const filePath = path.join(__dirname, "map.xml");
-  // console.log(filePath);
-  // // console.log(app.getPath("home"));
+  const userSelectedFilePath = `${appState.userSelectedFilePath}/settings/map.xml`;
+  console.log(userSelectedFilePath);
   const data = generateMapXml();
 
-  ipcRenderer.send("map-xml-data", data);
-
-  // fs.writeFile(filePath, data, (err) => {
-  //   if (err === undefined || err === null) {
-  //     console.log("success");
-  //   } else {
-  //     console.log(err);
-  //   }
-  // });
-
-  // exportToXml("map.xml", data);
+  exportToXml("map.xml", data);
 };
 
 const Map = () => {

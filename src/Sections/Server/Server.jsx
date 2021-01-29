@@ -3,13 +3,12 @@ import { view } from "@risingstack/react-easy-state";
 import styled, { keyframes } from "styled-components";
 import GlobalStyle from "../../Utils/GlobalStyle";
 import GeneralButton from "../../Utils/GeneralButton";
+import appState from "../../GlobalState/appState";
 const electron = window.require("electron");
 const ipcRenderer = electron.ipcRenderer;
 const { dialog } = require("electron").remote;
 const { remote } = require("electron");
 const mainWindow = remote.getCurrentWindow();
-
-// const fs = electron.remote.require("fs");
 
 const handleClick = async () => {
   // console.log("clicked");
@@ -22,6 +21,7 @@ const handleClick = async () => {
       console.log(result.canceled);
       console.log(result.filePaths);
       if (result.canceled === false) {
+        appState.userSelectedFilePath = result.filePaths;
         return result.filePaths;
       }
     })

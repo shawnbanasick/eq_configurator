@@ -5,7 +5,6 @@ const { remote } = require("electron");
 const mainWindow = remote.getCurrentWindow();
 
 const exportToXml = async (fileName, data) => {
-  // check for saved default file path
   let userSelectedFilePath = appState.userSelectedFilePath;
   if (
     userSelectedFilePath.length < 3 ||
