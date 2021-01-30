@@ -4,7 +4,7 @@ import styled, { keyframes } from "styled-components";
 import GlobalStyle from "../../Utils/GlobalStyle";
 import GeneralButton from "../../Utils/GeneralButton";
 import exportToXml from "../../Utils/exportToXml";
-import UserSelectionSwitch from "../../Utils/UserSelectionSwitch";
+// import UserSelectionSwitch from "../../Utils/UserSelectionSwitch";
 import RadioButtons from "../../Utils/RadioButtons";
 import UserTextInput from "../../Utils/UserTextInput";
 import Survey from "../Survey/Survey";
@@ -23,7 +23,12 @@ const handleClick = () => {
 // });
 
 const Config = () => {
-  const config8ShowStep5trueActive = appState.config8ShowStep5trueActive;
+  // const configTextAlignleftActive = appState.configTextAlignleftActive;
+  // const configShowStep3trueActive = appState.configShowStep3trueActive;
+  // const configShowStep4trueActive = appState.configShowStep4trueActive;
+  // const configShowStep5trueActive = appState.configShowStep5trueActive;
+  // const configDisableBackButtontrueActive = appState.configDisableBackButtontrueActive;
+
   return (
     <MainContent>
       <GlobalStyle />
@@ -107,7 +112,6 @@ const Config = () => {
           buttonIdArray={["true", "false"]}
           stateId="configShowStep5"
           sectionName="config"
-          isActive={config8ShowStep5trueActive}
         />
         <RadioButtons
           label="9. Disable Back Button:"

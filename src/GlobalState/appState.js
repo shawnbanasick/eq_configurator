@@ -10,8 +10,24 @@ const appState = store({
   /*
   config.xml default settings */
   showSurveytextImage: true,
-  config8ShowStep5trueActive: true,
-  config8ShowStep5: "true",
+
+  configTextAlignleftActive: true,
+  configTextAlign: "left",
+  configshuffleCardstrueActive: true,
+  configshuffleCards: true,
+  configLogInRequiredfalseActive: true,
+  configLogInRequired: false,
+  configUseLogInScriptfalseActive: true,
+  configUseLogInScript: false,
+  configShowStep3trueActive: true,
+  configShowStep3: "true",
+  configShowStep4trueActive: true,
+  configShowStep4: "true",
+  configShowStep5trueActive: true,
+  configShowStep5: "true",
+  configDisableBackButtontrueActive: true,
+  configDisableBackButton: true,
+
   surveyQuestionType: "text",
   activeWindow: "viewStart",
   showSuccessMessage: false,

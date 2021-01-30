@@ -39,7 +39,9 @@ const copyText = () => {
   try {
     copyToClipboard("http://localhost:9990");
     notifySuccess();
-  } catch (e) {}
+  } catch (e) {
+    notifyError();
+  }
 };
 
 const handleClick = async () => {
