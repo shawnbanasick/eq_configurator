@@ -9,7 +9,7 @@ import RadioButtons from "../../Utils/RadioButtons";
 import UserTextInput from "../../Utils/UserTextInput";
 import Survey from "../Survey/Survey";
 import generateConfigXml from "../Config/generateConfigXml";
-
+import appState from "../../GlobalState/appState";
 // import appState from "../../GlobalState/appState";
 
 const handleClick = () => {
@@ -23,10 +23,15 @@ const handleClick = () => {
 // });
 
 const Config = () => {
+  const config8ShowStep5trueActive = appState.config8ShowStep5trueActive;
   return (
     <MainContent>
       <GlobalStyle />
       <Title>Config.xml</Title>
+      <IntroText>
+        This file sets up the overall structure of your project, including the
+        option of adding survey questions at the end of the Q sort.
+      </IntroText>
       <h3>Options</h3>
       {/* <UserSelectionSwitch
         name="willIndicateDistinguishing"
@@ -38,7 +43,7 @@ const Config = () => {
           label="1. Title of study:"
           stateId="configTitle"
           sectionName="config"
-          width={50}
+          width={40}
           left={0}
         />
         <RadioButtons
@@ -102,6 +107,7 @@ const Config = () => {
           buttonIdArray={["true", "false"]}
           stateId="configShowStep5"
           sectionName="config"
+          isActive={config8ShowStep5trueActive}
         />
         <RadioButtons
           label="9. Disable Back Button:"
@@ -144,15 +150,6 @@ const MainContent = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  /* grid-template-columns: 1fr;
-  grid-template-rows: 150px 130px 20px 350px 200px 1fr;
-  grid-template-areas:
-    "title"
-    "options"
-    "row3"
-    "row4"
-    "row5"
-    "row6"; */
   justify-items: left;
   align-items: left;
   background-color: white;
@@ -171,17 +168,26 @@ const MainContent = styled.div`
   /* border: 2px solid red; */
 `;
 
+const IntroText = styled.span`
+  font-size: 2vw;
+  align-self: center;
+  width: 70vw;
+  padding: 15px;
+  /* border: 2px solid red; */
+`;
+
 const Title = styled.h1`
   display: grid;
   grid-area: row1;
   font-size: 50px;
-  width: 80vw;
+  width: 78vw;
   align-items: center;
   justify-content: center;
+  border: 2px solid red;
 `;
 
 const QuestionContainer = styled.div`
   margin-bottom: 25px;
-  width: calc(100vw - 215px);
-  /* border: 2px solid purple; */
+  width: 78vw;
+  border: 2px solid purple;
 `;

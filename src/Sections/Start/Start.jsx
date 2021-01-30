@@ -1,16 +1,42 @@
 import React from "react";
 import { view } from "@risingstack/react-easy-state";
 import styled, { keyframes } from "styled-components";
-import "./anchorStyling.css";
+// import "./anchorStyling.css";
 import GlobalStyle from "../../Utils/GlobalStyle";
-// import heroImage from "../../assets/kade-hero-image.png";
-// import TranslationAttribution from "./TranslationAttribution";
+import GeneralButton from "../../Utils/GeneralButton";
+import appState from "../../GlobalState/appState";
+
+const setMode = (event) => {
+  if (event.target.value === "pro") {
+    appState.beginnerDisplayMode = false;
+  } else {
+    appState.beginnerDisplayMode = true;
+  }
+};
 
 const Start = () => {
   return (
     <MainContent>
       <GlobalStyle />
       <Title>Easy HTMLQ Configurator</Title>
+      <IntroText>
+        Easy HTMLQ Configurator reduces the effort needed to set-up and test an
+        online Q sort.　Anyone can do it. You don't need any special programming
+        skills. If you can copy / paste / point / click - you can easily and
+        quickly setup a basic online Q sort for your project. It creates a
+        simple way to edit files, and immediately see those changes in a web
+        broswer.
+      </IntroText>
+      <ButtonContainer>
+        <BeginnerButton value="beginner" onClick={setMode}>
+          Beginner Mode
+        </BeginnerButton>{" "}
+        <ProButton value="pro" onClick={setMode}>
+          Pro
+          <br />
+          Mode
+        </ProButton>
+      </ButtonContainer>
     </MainContent>
   );
 };
@@ -39,18 +65,9 @@ const fadeOut = keyframes`
 
 const MainContent = styled.div`
   box-sizing: border-box;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 270px 130px 30px 10px 200px 1fr;
-  grid-template-areas:
-    "row1 row1 row1 row1"
-    "weblinkRow weblinkRow weblinkRow weblinkRow"
-    "rule rule rule rule"
-    "linkboxRow1 linkboxRow1 linkboxRow2 linkboxRow2"
-    "linkboxRow3 linkboxRow3 linkboxRow4 linkboxRow4"
-    "translation translation translation translation";
-  justify-items: center;
-  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   background-color: white;
   visibility: ${(props) => (props.view ? "hidden" : "visible")};
   animation: ${(props) => (props.view ? fadeOut : fadeIn)} 0.5s linear;
@@ -62,13 +79,41 @@ const MainContent = styled.div`
   max-height: calc(100vh - 23px);
   overflow: auto;
   user-select: none;
+  /* border: 2px solid green; */
 `;
 
 const Title = styled.h1`
-  display: grid;
-  grid-area: row1;
+  align-self: center;
+  text-align: center;
   font-size: 5vw;
+  /* border: 2px solid red; */
   width: 80vw;
-  align-items: center;
-  justify-content: center;
+`;
+
+const BeginnerButton = styled(GeneralButton)`
+  height: 150px;
+  width: 200px;
+  font-size: 2em;
+`;
+
+const ProButton = styled(GeneralButton)`
+  height: 150px;
+  width: 200px;
+  font-size: 2em;
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  /* border: 2px solid red; */
+  margin-top: 50px;
+`;
+
+const IntroText = styled.span`
+  font-size: 2vw;
+  align-self: center;
+  width: 70vw;
+  padding: 30px;
+  /* border: 2px solid red; */
 `;

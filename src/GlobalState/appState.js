@@ -2,10 +2,11 @@ import { store } from "@risingstack/react-easy-state";
 
 const appState = store({
   /*
-  set default save file path */
+  DEFAULT settings */
   userSelectedFilePath: "",
-
+  beginnerDisplayMode: true,
   viewStart: true,
+
   /*
   config.xml default settings */
   showSurveytextImage: true,

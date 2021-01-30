@@ -215,11 +215,15 @@ const FilesWindow = styled.div`
   min-width: 135px;
   height: 100vh;
   overflow: hidden;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
 `;
 
 const ActionWindow = styled.div`
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
   background-color: white;
-  height: 100vh;
+  height: 99.85vh;
   flex: 1;
   html {
     box-sizing: border-box;

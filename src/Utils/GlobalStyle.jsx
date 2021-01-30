@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
-import ContrailOne from './ContrailOne-Regular.ttf';
+import { createGlobalStyle } from "styled-components";
+import ContrailOne from "./ContrailOne-Regular.ttf";
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -8,6 +8,7 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 400;
     font-style: normal;
     font-display: auto;
+    /* font-size: 3vw; */
   }
   h1 {
     font-family: 'Contrail';
