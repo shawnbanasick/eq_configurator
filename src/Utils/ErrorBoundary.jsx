@@ -1,19 +1,20 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import i18n from "i18next";
+import { view } from "@risingstack/react-easy-state";
 
 class ErrorBoundary extends Component {
   state = {
     error: null,
     hasError: false,
-    showError: false
+    showError: false,
   };
 
   componentDidCatch(e) {
     this.setState({
       hasError: true,
       error: e.message,
-      errorMessage: e.stack
+      errorMessage: e.stack,
     });
   }
 
@@ -33,7 +34,7 @@ class ErrorBoundary extends Component {
           <button
             onClick={() =>
               this.setState({
-                showError: true
+                showError: true,
               })
             }
           >
@@ -60,7 +61,7 @@ class ErrorBoundary extends Component {
   }
 }
 
-export default ErrorBoundary;
+export default view(ErrorBoundary);
 
 const ErrorBoundaryDiv = styled.div`
   margin: 50px;

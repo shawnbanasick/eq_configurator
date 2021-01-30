@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import { view } from "@risingstack/react-easy-state";
 
-const FactorImage = () => {
+const CheckboxQuestion = () => {
   return (
     <Image
       alt="text question (age)"
@@ -10,7 +11,7 @@ const FactorImage = () => {
   );
 };
 
-export default FactorImage;
+export default view(CheckboxQuestion);
 
 const Image = styled.img`
   width: clamp(400px, 75vw, 1300px);

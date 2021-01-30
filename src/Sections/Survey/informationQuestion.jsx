@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { view } from "@risingstack/react-easy-state";
 
 const InformationImage = () => {
   return (
@@ -10,7 +11,7 @@ const InformationImage = () => {
   );
 };
 
-export default InformationImage;
+export default view(InformationImage);
 
 const Image = styled.img`
   width: clamp(500px, 75vw, 1300px);

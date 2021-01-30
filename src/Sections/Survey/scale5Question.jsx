@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { view } from "@risingstack/react-easy-state";
 
 const Scale5Question = () => {
   return (
@@ -10,7 +11,7 @@ const Scale5Question = () => {
   );
 };
 
-export default Scale5Question;
+export default view(Scale5Question);
 
 const Image = styled.img`
   width: clamp(500px, 75vw, 1300px);

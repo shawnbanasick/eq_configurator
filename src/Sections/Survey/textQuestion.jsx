@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import { view } from "@risingstack/react-easy-state";
 
-const FactorImage = () => {
+const TextQuestion = () => {
   return (
     <Image
       alt="text question (age)"
@@ -11,7 +12,7 @@ const FactorImage = () => {
   );
 };
 
-export default FactorImage;
+export default view(TextQuestion);
 
 const Image = styled.img`
   width: clamp(500px, 75vw, 1300px);

@@ -1,4 +1,5 @@
 import React from "react";
+import { view } from "@risingstack/react-easy-state";
 
 const CheckMark = () => (
   <svg width="14" height="11" viewBox="0 0 14 11">
@@ -10,4 +11,4 @@ const CheckMark = () => (
   </svg>
 );
 
-export default CheckMark;
+export default view(CheckMark);

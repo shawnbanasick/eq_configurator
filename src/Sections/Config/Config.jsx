@@ -23,11 +23,8 @@ const handleClick = () => {
 // });
 
 const Config = () => {
-  // const configTextAlignleftActive = appState.configTextAlignleftActive;
-  // const configShowStep3trueActive = appState.configShowStep3trueActive;
-  // const configShowStep4trueActive = appState.configShowStep4trueActive;
-  // const configShowStep5trueActive = appState.configShowStep5trueActive;
-  // const configDisableBackButtontrueActive = appState.configDisableBackButtontrueActive;
+  const configUseLogInScript = appState.configUseLogInScript;
+  console.log(configUseLogInScript);
 
   return (
     <MainContent>
@@ -64,13 +61,13 @@ const Config = () => {
           sectionName="config"
         />
         <RadioButtons
-          label="4a. Log In Required:"
+          label="4a. Project Access Code Required:"
           buttonIdArray={["true", "false"]}
           stateId="configLogInRequired"
           sectionName="config"
         />
         <UserTextInput
-          label="4b. Log In Password:"
+          label="4b. Project Access Code:"
           stateId="configLogInPassword"
           sectionName="config"
           width={30}
@@ -82,19 +79,22 @@ const Config = () => {
           stateId="configUseLogInScript"
           sectionName="config"
         />
-        <UserTextInput
-          label="5b. Log In Script URL:"
-          stateId="configLogInScriptURL"
-          sectionName="config"
-          width={40}
-          left={0}
-        />
+        {configUseLogInScript && (
+          <UserTextInput
+            label="5b. Log In Script URL:"
+            stateId="configLogInScriptURL"
+            sectionName="config"
+            width={40}
+            left={0}
+          />
+        )}
         <RadioButtons
           label="5c. Request mode:"
           buttonIdArray={["post", "get"]}
           stateId="configRequestMode"
           sectionName="config"
         />
+
         <RadioButtons
           label="6. Show Step 3 (card swapping grid):"
           buttonIdArray={["true", "false"]}
