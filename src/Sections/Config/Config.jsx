@@ -18,13 +18,16 @@ const handleClick = () => {
   exportToXml("config.xml", data);
 };
 
-// const localStore = store({
-//   includeSurvey: Boolean(appState.config8ShowStep5),
-// });
-
 const Config = () => {
-  const configUseLogInScript = appState.configUseLogInScript;
-  console.log(configUseLogInScript);
+  let configUseLogInScript = appState.configUseLogInScript;
+  if (configUseLogInScript === false || configUseLogInScript === "false") {
+    configUseLogInScript = false;
+  }
+  let configShowStep5 = appState.configShowStep5;
+  if (configShowStep5 === false || configShowStep5 === "false") {
+    configShowStep5 = false;
+  }
+  console.log(configShowStep5);
 
   return (
     <MainContent>
@@ -80,20 +83,22 @@ const Config = () => {
           sectionName="config"
         />
         {configUseLogInScript && (
-          <UserTextInput
-            label="5b. Log In Script URL:"
-            stateId="configLogInScriptURL"
-            sectionName="config"
-            width={40}
-            left={0}
-          />
+          <>
+            <UserTextInput
+              label="5b. Log In Script URL:"
+              stateId="configLogInScriptURL"
+              sectionName="config"
+              width={40}
+              left={0}
+            />
+            <RadioButtons
+              label="5c. Request mode:"
+              buttonIdArray={["post", "get"]}
+              stateId="configRequestMode"
+              sectionName="config"
+            />
+          </>
         )}
-        <RadioButtons
-          label="5c. Request mode:"
-          buttonIdArray={["post", "get"]}
-          stateId="configRequestMode"
-          sectionName="config"
-        />
 
         <RadioButtons
           label="6. Show Step 3 (card swapping grid):"
@@ -120,7 +125,7 @@ const Config = () => {
           sectionName="config"
         />
       </QuestionContainer>
-      <Survey />
+      {configShowStep5 && <Survey />}
       <GeneralButton style={{ width: "78vw" }} onClick={() => handleClick()}>
         Download Config.xml file
       </GeneralButton>
