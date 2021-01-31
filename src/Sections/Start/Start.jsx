@@ -8,13 +8,24 @@ import appState from "../../GlobalState/appState";
 
 const setMode = (event) => {
   if (event.target.value === "pro") {
-    appState.beginnerDisplayMode = false;
+    appState.displayMode = "pro";
   } else {
-    appState.beginnerDisplayMode = true;
+    appState.displayMode = "beginner";
   }
 };
 
 const Start = () => {
+  let beginnerButtonActive;
+  let proButtonActive;
+  const displayMode = appState.displayMode;
+  if (displayMode === "pro") {
+    beginnerButtonActive = false;
+    proButtonActive = true;
+  } else {
+    beginnerButtonActive = true;
+    proButtonActive = false;
+  }
+
   return (
     <MainContent>
       <GlobalStyle />
@@ -27,14 +38,17 @@ const Start = () => {
         simple way to edit files, and immediately see those changes in a web
         broswer.
       </IntroText>
+      <CustomH2>Select Display Mode:</CustomH2>
       <ButtonContainer>
-        <BeginnerButton value="beginner" onClick={setMode}>
-          Beginner Mode
-        </BeginnerButton>{" "}
-        <ProButton value="pro" onClick={setMode}>
+        <BeginnerButton
+          value="beginner"
+          isActive={beginnerButtonActive}
+          onClick={setMode}
+        >
+          Beginner
+        </BeginnerButton>
+        <ProButton value="pro" isActive={proButtonActive} onClick={setMode}>
           Pro
-          <br />
-          Mode
         </ProButton>
       </ButtonContainer>
     </MainContent>
@@ -103,11 +117,14 @@ const ProButton = styled(GeneralButton)`
 `;
 
 const ButtonContainer = styled.div`
+  /* align-self: center; */
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 40px;
   /* border: 2px solid red; */
-  margin-top: 50px;
+  /* max-width: 1200px; */
+  margin-top: 10px;
 `;
 
 const IntroText = styled.span`
@@ -115,5 +132,10 @@ const IntroText = styled.span`
   align-self: center;
   width: 70vw;
   padding: 30px;
+  /* padding-bottom: 0px; */
   /* border: 2px solid red; */
+`;
+
+const CustomH2 = styled.h2`
+  text-align: center;
 `;

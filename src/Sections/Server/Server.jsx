@@ -77,10 +77,17 @@ const Server = () => {
       {beginnerDisplay && (
         <IntroText>
           The first step is to <strong>download</strong> the base files for Easy
-          HTMLQ (available <a href="">here</a>) and save them to an easily
-          accessible place on your computer (for example, to the "Desktop"
-          folder). The files are in a compressed format (*.zip), so don't forget
-          to uncompress them.
+          HTMLQ (available{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/shawnbanasick/easy-htmlq"
+          >
+            here
+          </a>
+          ) and save them to an easily accessible place on your computer (for
+          example, to the "Desktop" folder). The files are in a compressed
+          format (*.zip), so don't forget to uncompress them.
         </IntroText>
       )}
       <IntroText>

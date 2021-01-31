@@ -5,6 +5,10 @@ const appState = store({
   DEFAULT settings */
   userSelectedFilePath: "",
   beginnerDisplayMode: true,
+
+  /*
+  DEFAULT page opening */
+  // viewConfig: true,
   viewStart: true,
 
   /*

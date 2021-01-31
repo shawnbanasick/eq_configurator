@@ -34,8 +34,9 @@ const Config = () => {
       <GlobalStyle />
       <Title>Config.xml</Title>
       <IntroText>
-        This file sets up the overall structure of your project, including the
-        option of adding survey questions at the end of the Q sort.
+        This file has two parts. The first part sets up the overall structure of
+        your project. The second part is a question generator for the (optional)
+        post-Q sort questionnaire.
       </IntroText>
       <h3>Options</h3>
       {/* <UserSelectionSwitch
@@ -192,11 +193,11 @@ const Title = styled.h1`
   width: 78vw;
   align-items: center;
   justify-content: center;
-  border: 2px solid red;
+  /* border: 2px solid red; */
 `;
 
 const QuestionContainer = styled.div`
   margin-bottom: 25px;
   width: 78vw;
-  border: 2px solid purple;
+  /* border: 2px solid purple; */
 `;
