@@ -1,7 +1,7 @@
 import appState from "../../GlobalState/appState";
 
 const generateStatementXml = () => {
-  let statementsArray = appState.statementsArray;
+  let statementsArray = appState.statements;
 
   let data = `<?xml version="1.0" encoding="UTF-8"?>
 

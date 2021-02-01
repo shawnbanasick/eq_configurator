@@ -277,10 +277,11 @@ const InputRow = styled.div`
 const DesignDiv = styled.div`
   margin-left: 150px;
   margin-top: 10px;
-  margin-bottom: 200px;
+  margin-bottom: 50px;
   display: flex;
   flex-direction: column;
   grid-column-start: 1;
+  /* border: 2px solid red; */
 `;
 
 const TextDiv = styled.div`

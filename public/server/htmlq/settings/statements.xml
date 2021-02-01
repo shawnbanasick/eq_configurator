@@ -1,46 +1,12 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
-<!-- 
-// 
-// This is the place for your statements. The maximum 
-// number of statements is theoretically unlimited, but
-// less then 50 statements are advisable.
-// If your are using German Umlauts and other special 
-// characters, make sure, that you save this XML-file 
-// as an UTF-8-document. White-space inbetween the 
-// nodes are ignored. Any white-space within the text-
-// nodes, including leading or trailing whitespace and 
-// line breaks, is preserved.
-//
-// EXAMPLE
-// Let's define some statements concerning FlashQ:
-// Statement 1: FlashQ is very usefull.
-// Statement 2: I prefer offline surveys.
-// Statement 3: FlashQ is too complicated to configure.
-//
-// Each statement requires a seperate statement-node 
-// consisting out of an opening and a closing tag. The 
-// statement itself goes between this two tags. 
-// The unique statement id is saved as an 
-// attribute called 'id'. We have three exmaple 
-// statements and we need therefore three statement-
-// nodes and one parent-node. 
-//
-// <statements version="1.0" htmlparse="false">
-//   <statement id="1">FlashQ is very usefull.</statement>
-//   <statement id="2">I prefer offline surveys.</statement>
-//   <statement id="3">FlashQ is too complicated to configure</statement>
-// </statements>
-// 
-// ===================================================
-// 
--->
-
-<statements version="1.0" htmlParse="false">
-  <statement id="1">For private use I do not need a car.</statement>
-  <statement id="2">As a result of all those different timetables and lines, travelling by public transport is too complicated.</statement>
-  <statement id="3">What really matters is reaching my destination and getting back, the mode of travel does not matter much.</statement>
-  <statement id="4">I am not really price- or time-sensitive, environmental aspects are most important to me.</statement>
-  <statement id="5">I had rather look out of the compartment window to the passing Dutch landscape than to the bumper of the car before me.</statement>
-  <statement id="6">Public transport is for people who can not afford a car.</statement>
-</statements>
+   <statements version="1.0" htmlParse="false">
+     <statement id="1">1. We accept improvements in status and power of lower class  </statement>
+     <statement id="2">2. All men expected to try to improve selves                  </statement>
+     <statement id="3">3. Success in life by a previously deprived person is resented</statement>
+     <statement id="4">4. Men can expect fair treatment according to merit           </statement>
+     <statement id="5">5. Lower-class not revolutionary                              </statement>
+     <statement id="6">6. Political goals relatively moderate, even conservative     </statement>
+     <statement id="7">7. Those born to high place in society should retain it       </statement>
+     <statement id="8">8. Person with wealth deserves place in high society   </statement>
+   </statements>

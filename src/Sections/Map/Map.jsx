@@ -17,14 +17,20 @@ const handleClick = () => {
 };
 
 const Map = () => {
+  const numStatements = appState.statements.length;
+
   return (
     <MainContent>
       <GlobalStyle />
       <Title>Map Settings</Title>
+      <h2>{numStatements} Statements</h2>
       <MapInputElement />
-      <GeneralButton style={{ width: "78vw" }} onClick={() => handleClick()}>
+      <DownloadMapButton
+        style={{ width: "500px" }}
+        onClick={() => handleClick()}
+      >
         Download Map.xml file
-      </GeneralButton>
+      </DownloadMapButton>
     </MainContent>
   );
 };
@@ -78,4 +84,9 @@ const Title = styled.h1`
   width: 80vw;
   align-items: center;
   justify-content: center;
+`;
+
+const DownloadMapButton = styled(GeneralButton)`
+  width: 500px;
+  /* border: 2px solid red; */
 `;

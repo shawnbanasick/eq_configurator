@@ -4,7 +4,7 @@ const appState = store({
   /*
   DEFAULT settings */
   userSelectedFilePath: "",
-  beginnerDisplayMode: true,
+  displayMode: "beginner",
 
   /*
   DEFAULT page opening */
@@ -221,13 +221,13 @@ const appState = store({
   langMaxWindow: "Please maximize your browser for using this application.",
   langWelcome: "Welcome!",
   langWelcomeText:
-    "Please note: This is just a demo and no data will be stored. Thanks to Job van Exel, that we can use his survey as an example.{br}{br}Comments and bug reports are highly welcome.{br}{br}Please click on the continue-button.",
+    "Please note: This is a demo project on iPad use in the classroom. Thanks to Job van Exel, that we can use his survey as an example.{br}{br}Comments and bug reports are highly welcome.{br}{br}Please click on the continue-button.",
   langUserCode: "User Code",
   langLogInText:
-    "Please enter your user code. Please note, that in this demo any user code will be accepted.{br}{br}{i}Tip: This is an optional step and you can deactivate it in your own survey.{i}",
+    "Please enter your participant code. Please note, that in this demo any user code will be accepted.{br}{br}{i}Tip: This is an optional step and you can deactivate it in your own survey.{i}",
   langFormHeader: "User Code",
-  langNoInput: "Please insert your user code.",
-  langUserCodeInvalid: "User code invalid",
+  langNoInput: "Please insert your participant code.",
+  langUserCodeInvalid: "Participant code invalid",
   langServerConnectFail: "Connection to server failed. Please try again.",
   langIntroduction: "Introduction",
   langIntroText: `This study is about travel behaviour. We are interested in your attitude towards car and public transport as travel alternatives for middle-distance trips.{br}{br}Please maximize your browser window and click on the continue-button to start the survey.`,

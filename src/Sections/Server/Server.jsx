@@ -68,39 +68,46 @@ const handleClick = async () => {
 };
 
 const Server = () => {
-  const beginnerDisplay = appState.beginnerDisplayMode;
+  let displayMode = appState.displayMode;
+  if (displayMode === "beginner") {
+    displayMode = true;
+  } else {
+    displayMode = false;
+  }
+
   return (
     <MainContent>
       <StyledToastContainer />
       <GlobalStyle />
       <Title>Server Startup</Title>
-      {beginnerDisplay && (
-        <IntroText>
-          The first step is to <strong>download</strong> the base files for Easy
-          HTMLQ (available{" "}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://github.com/shawnbanasick/easy-htmlq"
-          >
-            here
-          </a>
-          ) and save them to an easily accessible place on your computer (for
-          example, to the "Desktop" folder). The files are in a compressed
-          format (*.zip), so don't forget to uncompress them.
-        </IntroText>
+      {displayMode && (
+        <>
+          <IntroText>
+            The first step is to <strong>download</strong> the base files for
+            Easy HTMLQ (available{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/shawnbanasick/easy-htmlq"
+            >
+              here
+            </a>
+            ) and save them to an easily accessible place on your computer (for
+            example, to the "Desktop" folder). The files are in a compressed
+            format (*.zip), so don't forget to uncompress them.
+          </IntroText>
+          <IntroText>
+            The configurator has a built-in server. This will allow you to
+            immediately see the changes you make to your files as you make them.
+            To start the server, all you need to do is
+            <strong> find the uncompressed folder </strong>with the Easy HTMLQ
+            base files. You dont't need to select a specific file - you just
+            want to find the folder and then click "open".
+          </IntroText>
+        </>
       )}
-      <IntroText>
-        The configurator has a built-in server. This will allow you to
-        immediately see the changes you make to your files as you make them. To
-        start the server, all you need to do is
-        <strong> find the uncompressed folder </strong>with the Easy HTMLQ base
-        files. You dont't need to select a specific file - you just want to find
-        the folder and then click "open".
-      </IntroText>
       <FindServerButton style={{ width: "78vw" }} onClick={() => handleClick()}>
-        Navigate to the HTMLQ base files folder &nbsp;&nbsp; &gt;&gt;&gt;
-        &nbsp;&nbsp; index.html should be visible.
+        Navigate to the HTMLQ base files folder where "index.html" is located.
       </FindServerButton>
       <IntroText>
         After opening the folder, the configurator will find the "index.html"
@@ -111,16 +118,18 @@ const Server = () => {
         <LinkSpan>http://localhost:9990</LinkSpan>
         <LinkCopyButton onClick={copyText}>Copy to Clipboard</LinkCopyButton>
       </ProjectLinkDiv>
-      <IntroText>
-        The default Easy HTMLQ demo project will now load in your browser. The
-        project is not on the internet - it is being hosted from your computer,
-        and you are accessing it from the browser on your machine. However,
-        after you set up your Firebase file, this demo project will save
-        completed sort data to Firebase. So you can use this to test your
-        complete setup - including data upload. It is important to remember to
-        delete any testing data from your Firebase location before you begin
-        your actual project.
-      </IntroText>
+      {displayMode && (
+        <IntroText>
+          The default Easy HTMLQ demo project will now load in your browser. The
+          project is not on the internet - it is being hosted from your
+          computer, and you are accessing it from the browser on your machine.
+          However, after you set up your Firebase file, this demo project will
+          save completed sort data to Firebase. So you can use this to test your
+          complete setup - including data upload. It is important to remember to
+          delete any testing data from your Firebase location before you begin
+          your actual project.
+        </IntroText>
+      )}
     </MainContent>
   );
 };

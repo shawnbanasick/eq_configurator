@@ -13,7 +13,7 @@ const handleChange = (event) => {
     return el;
   });
   console.log(JSON.stringify(filteredArray, null, 2));
-  appState.statementsArray = filteredArray;
+  appState.statements = filteredArray;
 };
 
 const StatementTextArea = () => {
@@ -37,9 +37,11 @@ const StatementTextsInput = styled.textarea`
   height: 400px;
   margin-top: 10px;
   margin-bottom: 30px;
+  user-select: all;
 `;
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  user-select: all;
 `;
