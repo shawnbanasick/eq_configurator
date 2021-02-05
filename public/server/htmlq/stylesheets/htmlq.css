@@ -50,6 +50,7 @@ li.draggable {
   height: 100%;
 }
 
+/* step 3 sorting grid css */
 .cell .swappable > div,
 .cell .draggable-small > div {
   width: 100%;
@@ -59,7 +60,9 @@ li.draggable {
   overflow: hidden; /* required for text-overflow */
   text-overflow: ellipsis; /* for IE and WebKit (Safari, Chrome) */
   -o-text-overflow: ellipsis;
-  padding: 3px;
+  padding: 0.3em;
+  font-size: 1.2em;
+  text-align: center;
 }
 
 .cell.small-font .swappable > div,
@@ -95,6 +98,7 @@ p.card-counter {
   margin-left: 0px;
   margin-right: 0px;
   min-height: 160px;
+  text-align: center;
 }
 
 .sorted-statements p.heading {
@@ -402,11 +406,15 @@ body {
 }
 
 .container {
-  width: clamp(960px, 95vw, 1300px);
+  width: 95vw;
+  min-width: 960px;
+  max-width: 1300px;
 }
 
 .step1Table {
-  width: clamp(960px, 70vw, 1300px);
+  width: 70vw;
+  min-width: 960px;
+  max-width: 1300px;
   margin: 0 auto;
 }
 
