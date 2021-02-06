@@ -1,36 +1,42 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { view } from "react-easy-state";
-import vizState from "../../GlobalState/vizState";
+import { view } from "@risingstack/react-easy-state";
 import { useTranslation } from "react-i18next";
+import appState from "../GlobalState/appState";
 
-const clone = require("rfdc")();
+// const clone = require("rfdc")();
 
-const UserNumberInput = props => {
+const UserNumberInput = (props) => {
   const { t } = useTranslation();
 
   const [value, setValue] = useState(props.value);
   const [showWarning, setShowWarning] = useState(false);
 
-  const handleChange = e => {
-    const factorVizOptionsHolder = clone(vizState.factorVizOptionsHolder);
+  const handleChange = (e) => {
     let value = e.target.value;
     if (isNaN(value)) {
       return null;
     }
-    const key = props.name;
+    const key = props.stateId;
     setShowWarning(false);
     const upperLimit = props.upperLimit;
     const lowerLimit = props.lowerLimit;
-    if (value < lowerLimit || value > upperLimit) {
+    const upperLimitValue = props.upperLimit + props.step;
+    const lowerLimitValue = props.lowerLimit - props.step;
+    if (value <= lowerLimitValue || value >= upperLimitValue) {
+      if (value < lowerLimit) {
+        value = lowerLimit;
+      }
+      if (value > upperLimit) {
+        value = upperLimit;
+      }
       setValue(value);
       setShowWarning(true);
     } else {
       setValue(value);
-      factorVizOptionsHolder[key] = value;
-      vizState.factorVizOptionsHolder = factorVizOptionsHolder;
-      vizState.updateFactorVisualizationsButtonColor = "orange";
+      // factorVizOptionsHolder[key] = value;
     }
+    appState[key] = value;
   };
 
   const warningMessage = `${t("Lower Limit")}: ${props.lowerLimit}, ${t(
@@ -39,7 +45,9 @@ const UserNumberInput = props => {
 
   return (
     <UserNumberContainer>
+      <TitleSpan>{`${t(props.label)} `}</TitleSpan>
       <NumberInput
+        tabindex="0"
         placeholder={props.placeholder}
         name={props.name}
         step={props.step}
@@ -57,7 +65,7 @@ const UserNumberInput = props => {
 export default view(UserNumberInput);
 
 const NumberInput = styled.input.attrs({
-  type: "number"
+  type: "number",
 })`
   color: black;
   cursor: pointer;
@@ -92,6 +100,14 @@ const NumberWarningMessage = styled.div`
 
 const UserNumberContainer = styled.div`
   display: flex;
+  margin-top: 25px;
+  margin-left: 70px;
+  width: 900px;
   flex-direction: row;
-  width: 400px;
+  justify-content: flex-start;
+  align-items: center;
+`;
+
+const TitleSpan = styled.span`
+  margin-right: 10px;
 `;

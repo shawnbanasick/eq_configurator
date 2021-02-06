@@ -1,6 +1,6 @@
 import React from "react";
 import { view } from "@risingstack/react-easy-state";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import GlobalStyle from "../../Utils/GlobalStyle";
 import UserDropdown from "./UserDropdown";
 import appState from "../../GlobalState/appState";
@@ -68,7 +68,7 @@ const Survey = () => {
   const displayBoolean2 = shouldDisplayObject();
   // console.log(surveyQuestionType);
   const displayBoolean = displayBoolean2[surveyQuestionType];
-  console.log(JSON.stringify(displayBoolean));
+  // console.log(JSON.stringify(displayBoolean));
 
   const addItem = () => {
     try {

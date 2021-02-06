@@ -1018,6 +1018,8 @@ angular
             )(outerScope);
             var w = parseInt(scope.helperWidth, 10) - 8 + "px";
             $(el).css("width", w);
+            $(el).css("fontSize", "1.2em");
+
             $(element).append(el);
             if (reposition) {
               var targetOffset = $(element).offset();
@@ -1381,6 +1383,8 @@ angular
       $rootScope,
       $state
     ) {
+      console.log(config);
+
       $scope.help = function () {
         MessageModal.show(
           messageHead,

@@ -7,6 +7,7 @@ import exportToXml from "../../Utils/exportToXml";
 // import UserSelectionSwitch from "../../Utils/UserSelectionSwitch";
 import RadioButtons from "../../Utils/RadioButtons";
 import UserTextInput from "../../Utils/UserTextInput";
+import UserNumberInput from "../../Utils/UserNumberInput";
 import Survey from "../Survey/Survey";
 import generateConfigXml from "../Config/generateConfigXml";
 import appState from "../../GlobalState/appState";
@@ -101,26 +102,46 @@ const Config = () => {
           </>
         )}
 
+        <UserNumberInput
+          label="6. Step 1 (disagree, neutral, agree initial card sorting) font size:"
+          step={0.1}
+          value={1.2}
+          upperLimit={5.0}
+          lowerLimit={0.1}
+          stateId="configStep1FontSize"
+          sectionName="config"
+        ></UserNumberInput>
+
+        <UserNumberInput
+          label="7. Step 2 (card sorting grid) font size:"
+          step={0.1}
+          placeholder="input font size"
+          value={1.2}
+          upperLimit={5.0}
+          lowerLimit={0.1}
+          stateId="configStep2FontSize"
+          sectionName="config"
+        ></UserNumberInput>
         <RadioButtons
-          label="6. Show Step 3 (card swapping grid):"
+          label="8. Show Step 3 (card swapping grid):"
           buttonIdArray={["true", "false"]}
           stateId="configShowStep3"
           sectionName="config"
         />
         <RadioButtons
-          label="7. Show Step 4 (individual card comments screen):"
+          label="9. Show Step 4 (individual card comments screen):"
           buttonIdArray={["true", "false"]}
           stateId="configShowStep4"
           sectionName="config"
         />
         <RadioButtons
-          label="8. Show Step 5 (post-sort questionnaire survey):"
+          label="10. Show Step 5 (questionnaire):"
           buttonIdArray={["true", "false"]}
           stateId="configShowStep5"
           sectionName="config"
         />
         <RadioButtons
-          label="9. Disable Back Button:"
+          label="11. Disable Back Button:"
           buttonIdArray={["true", "false"]}
           stateId="configDisableBackButton"
           sectionName="config"

@@ -48,25 +48,10 @@ li.draggable {
   background-color: white;
   border: 1px solid;
   height: 100%;
-
-  /* display: table-cell;
-  vertical-align: middle;
-  width: 100%;
-  margin: 0 auto;
-  text-align: center; */
 }
 
-.cell .swappable span {
-  /*  text-align: center;
-  position: relative;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
- */
-}
-
-/* step 3 sorting grid css */
+/* step 2 sorting grid css 
+--------------------------------------------------*/
 .cell .swappable > div,
 .cell .draggable-small > div {
   width: 100%;
@@ -77,7 +62,7 @@ li.draggable {
   text-overflow: ellipsis; /* for IE and WebKit (Safari, Chrome) */
   -o-text-overflow: ellipsis;
   padding: 0.3em;
-  font-size: 1.2em;
+  /* font-size: 1.2em; */
   text-align: center;
 }
 
@@ -346,6 +331,7 @@ li.disagree {
   font-size: 1em;
   box-shadow: 10px 10px 5px #888888;
   display: block;
+  text-align: center;
 }
 
 .draggable.dragging-onto-grid.small-font {
@@ -438,16 +424,17 @@ body {
   margin: 0 auto;
 }
 
-#step2 .outerCard {
-  display: flex;
-}
-
-#step2 .innerCard {
+.innerCard {
   display: flex;
   width: 100%;
   height: 50%;
   margin: auto;
   text-align: center;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
+  overflow: auto;
+}
+
+.outerCard {
+  display: flex;
 }

@@ -38,7 +38,7 @@ const Start = () => {
         simple way to edit files, and immediately see those changes in a web
         broswer.
       </IntroText>
-      <CustomH2>Select Display Mode:</CustomH2>
+      <CustomH2>Select Configurator Display Mode:</CustomH2>
       <ButtonContainer>
         <BeginnerButton
           value="beginner"
@@ -48,7 +48,7 @@ const Start = () => {
           Beginner
         </BeginnerButton>
         <ProButton value="pro" isActive={proButtonActive} onClick={setMode}>
-          Pro
+          Expert
         </ProButton>
       </ButtonContainer>
     </MainContent>
