@@ -39,7 +39,7 @@ const Config = () => {
         your project. The second part is a question generator for the (optional)
         post-Q sort questionnaire.
       </IntroText>
-      <h3>Options</h3>
+      <Title2>Project Options</Title2>
       {/* <UserSelectionSwitch
         name="willIndicateDistinguishing"
         value="willIndicateDistinguishing"
@@ -221,4 +221,13 @@ const QuestionContainer = styled.div`
   margin-bottom: 25px;
   width: 78vw;
   /* border: 2px solid purple; */
+`;
+
+const Title2 = styled.h1`
+  /* display: grid; */
+  /* grid-area: row1; */
+  font-size: 35px;
+  width: 70vw;
+  /* align-items: center; */
+  /* justify-content: center; */
 `;

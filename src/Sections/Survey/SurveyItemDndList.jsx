@@ -59,7 +59,7 @@ const SurveyItemDndList = () => {
   const callDelete = (e) => {
     const item = e.target.value;
     testItems.splice(item, 1);
-    console.log(JSON.stringify(testItems, null, 2));
+    // console.log(JSON.stringify(testItems, null, 2));
     appState.surveyQuestionsArray = testItems;
   };
 

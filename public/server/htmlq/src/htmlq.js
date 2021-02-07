@@ -1018,7 +1018,7 @@ angular
             )(outerScope);
             var w = parseInt(scope.helperWidth, 10) - 8 + "px";
             $(el).css("width", w);
-            $(el).css("fontSize", "1.2em");
+            $(el).css("fontSize", "0.8em");
 
             $(element).append(el);
             if (reposition) {

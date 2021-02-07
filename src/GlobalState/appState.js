@@ -31,8 +31,8 @@ const appState = store({
   configShowStep5: "true",
   configDisableBackButtontrueActive: true,
   configDisableBackButton: true,
-  configStep1FontSize: 1.2,
-  configStep2FontSize: 1.2,
+  configStep1FontSize: 0.8,
+  configStep2FontSize: 0.8,
 
   surveyQuestionType: "text",
   activeWindow: "viewStart",
