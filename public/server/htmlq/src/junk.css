@@ -16,7 +16,7 @@ body {
   width: 300px;
   height: 200px;
   padding: 12px;
-  /* font-size: 1.5em; */
+  font-size: 1.5em;
   box-shadow: 6px 6px 5px #888888;
   background-color: white;
   z-index: 999;
@@ -50,8 +50,6 @@ li.draggable {
   height: 100%;
 }
 
-/* step 2 sorting grid css 
---------------------------------------------------*/
 .cell .swappable > div,
 .cell .draggable-small > div {
   width: 100%;
@@ -61,9 +59,7 @@ li.draggable {
   overflow: hidden; /* required for text-overflow */
   text-overflow: ellipsis; /* for IE and WebKit (Safari, Chrome) */
   -o-text-overflow: ellipsis;
-  padding: 0.3em;
-  /* font-size: 1.2em; */
-  text-align: center;
+  padding: 3px;
 }
 
 .cell.small-font .swappable > div,
@@ -99,7 +95,6 @@ p.card-counter {
   margin-left: 0px;
   margin-right: 0px;
   min-height: 160px;
-  text-align: center;
 }
 
 .sorted-statements p.heading {
@@ -331,7 +326,6 @@ li.disagree {
   font-size: 1em;
   box-shadow: 10px 10px 5px #888888;
   display: block;
-  text-align: center;
 }
 
 .draggable.dragging-onto-grid.small-font {
@@ -347,7 +341,7 @@ li.disagree {
   position: absolute;
   top: 0;
   left: 0;
-  /* font-size: 2em; */
+  font-size: 2em;
   font-weight: bolder;
   text-align: center;
   background-color: rgb(200, 200, 200);
@@ -408,34 +402,14 @@ body {
 }
 
 .container {
-  width: 95vw;
-  min-width: 960px;
-  max-width: 1300px;
+  width: clamp(960px, 95vw, 1300px);
 }
 
 .step1Table {
-  width: 70vw;
-  min-width: 960px;
-  max-width: 1300px;
+  width: clamp(960px, 70vw, 1300px);
   margin: 0 auto;
 }
 
 .centerDiv {
   margin: 0 auto;
-}
-
-.innerCard {
-  height: 100%;
-  /* display: flex;
-  width: 100%;
-  margin: auto;
-  text-align: center;
-  justify-content: center;
-  /* align-items: center; */
-}
-
-.outerCard {
-  /* display: table-cell;
-  vertical-align: middle;
-  overflow: hidden;  */
 }

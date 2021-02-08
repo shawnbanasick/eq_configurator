@@ -28,10 +28,9 @@
         </tr>
         <tr>
           <td
-            class="col-xs-1"
+            class="col-xs-1 outerCard"
             ng-repeat="col in sortedStatements.grid"
             ng-style="{width: totalGridWidth/map.column.length}"
-            class="outerCard"
           >
             <div ng-style="{width: totalGridWidth/map.column.length}">
               <div
@@ -40,7 +39,6 @@
                 class="cell"
                 ng-class="{'small-font': (config.smallFont === 'true')}"
                 ng-style="{height: cellHeight}"
-                class="outerCard"
               >
                 <div
                   swappable-statement="cell.statement"
