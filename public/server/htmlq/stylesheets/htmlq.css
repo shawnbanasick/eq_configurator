@@ -307,15 +307,21 @@ li.disagree {
 }
 
 .grid {
-  width: 960px;
+  width: 1260px;
   margin: 30px auto 30px auto;
 }
 
 .grid table {
   table-layout: fixed;
-  width: 960px;
+  width: 1260px;
   border: 2px solid red;
 }
+
+/* @media screen and (max-width: 992px) {
+  .column {
+    width: 50%;
+  }
+} */
 
 /* step 2 and step 3 font size
 ---------------------------------*/

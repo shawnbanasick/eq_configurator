@@ -1001,7 +1001,9 @@ angular
             var el = $compile(
               '<div swappable-statement="cell.statement" swappable-statement-cell="cell" swappable="false" class="swappable" ng-class="{textright: textAlignRight}" style="position: relative;"></div>'
             )(outerScope);
+            console.log("helperWidth: ", scope.helperWidth);
             var w = parseInt(scope.helperWidth, 10) - 8 + "px";
+            console.log("w is: ", w);
             $(el).css("width", w);
             $(element).append(el);
             if (reposition) {
