@@ -394,22 +394,10 @@ angular
       $scope.configXml = configXml;
       $scope.duration = Duration;
 
-      var viewHeight = window.innerHeight - 435;
+      var viewHeight = window.innerHeight - 325;
       if (viewHeight < 60) {
         viewHeight = 60;
       }
-      if (viewHeight > 1000) {
-        viewHeight = 1000;
-      }
-
-      var totalGridWidth = window.innerWidth - 100;
-      if (totalGridWidth < 960) {
-        totalGridWidth = 960;
-      }
-      if (totalGridWidth > 1300) {
-        totalGridWidth = 1300;
-      }
-      console.log(totalGridWidth / map.column.length);
 
       var longestColumn = _.last(
         _.sortBy(map.column, function (column) {
@@ -418,8 +406,6 @@ angular
       );
 
       $scope.cellHeight = viewHeight / parseInt(longestColumn.__text, 10);
-      $scope.totalGridWidth = totalGridWidth;
-      $scope.totalGridWidthPx = `${totalGridWidth}px`;
 
       $scope.textAlignRight = config.textAlign === "right";
 
@@ -876,7 +862,6 @@ angular
           if (!scope.cloneOnDrag || scope.cloneOnDrag()) {
             options.helper = function (event) {
               var ret = $(this).clone().addClass("dragging-onto-grid");
-              console.log("dragging");
               if (scope.smallFont && scope.smallFont() === "true") {
                 ret.addClass("small-font");
               }
@@ -1018,8 +1003,6 @@ angular
             )(outerScope);
             var w = parseInt(scope.helperWidth, 10) - 8 + "px";
             $(el).css("width", w);
-            // $(el).css("fontSize", "0.8em");
-
             $(element).append(el);
             if (reposition) {
               var targetOffset = $(element).offset();
@@ -1119,7 +1102,7 @@ angular
                   var s = scope.$new(true);
                   s.statement = dragElement.initialStatement;
                   var el = $compile(
-                    '<div draggable-statement="statement" clone-on-drag="false" class="destroy-on-place draggable dragging-onto-grid" ng-class="{neutral: statement.category === \'neutral\', agree: statement.category === \'agree\', disagree: statement.category === \'disagree\', textright: textAlignRight}" style="position: relative;" data-placement="bottom" data-toggle="tooltip" data-trigger="hover click" title="{{ statement.__text }} ({{ statement._id }})">< {{statement.__text }}</div>'
+                    '<div draggable-statement="statement" clone-on-drag="false" class="destroy-on-place draggable dragging-onto-grid" ng-class="{neutral: statement.category === \'neutral\', agree: statement.category === \'agree\', disagree: statement.category === \'disagree\', textright: textAlignRight}" style="position: relative;" data-placement="bottom" data-toggle="tooltip" data-trigger="hover click" title="{{ statement.__text }} ({{ statement._id }})">{{statement.__text }} <b>({{statement._id}})</b></div>'
                   )(s);
                   if (
                     dragElement.smallFont &&
@@ -1383,8 +1366,6 @@ angular
       $rootScope,
       $state
     ) {
-      console.log(config);
-
       $scope.help = function () {
         MessageModal.show(
           messageHead,
