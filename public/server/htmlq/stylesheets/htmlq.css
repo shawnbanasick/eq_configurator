@@ -116,7 +116,6 @@ p.card-counter {
   font-weight: bolder;
 }
 
-
 .sortable .overlay {
   position: relative;
   top: 0px;
@@ -307,7 +306,6 @@ li.disagree {
   padding-top: 30px;
 }
 
-
 .grid .rating {
   text-align: center;
   font-size: 1.2em;
@@ -370,6 +368,7 @@ li.disagree {
   padding-right: 5px;
   padding-left: 5px;
   border-radius: 3px;
+  margin-bottom: 10px;
   /* display: none; */
 }
 
@@ -440,7 +439,7 @@ body {
 /* new statement number styles
 -------------------------------------------------- */
 .idNum {
-  margin-left: 10px;
+  margin-right: 5px;
   font-size: 12px;
   opacity: 0.5;
 }
@@ -458,9 +457,9 @@ body {
 }
 
 .container {
-/* margin-left: 20px; */
-margin: 0 auto;
-/* border: 2px solid purple; */
+  /* margin-left: 20px; */
+  margin: 0 auto;
+  /* border: 2px solid purple; */
 }
 
 .step1Table {
@@ -486,7 +485,6 @@ margin: 0 auto;
   height: 150px;
   overflow: hidden;
 }
-
 
 /* 
 .innerCard {

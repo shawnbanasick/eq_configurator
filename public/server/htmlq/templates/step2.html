@@ -4,13 +4,21 @@
       <div class="grid" ng-style="{width: viewWidth}">
         <table ng-style="{width: viewWidth}">
           <tr>
-            <td ng-style="{width: viewWidth}" class="grid-heading"  colspan="{{ map.column.length }}">
+            <td
+              ng-style="{width: viewWidth}"
+              class="grid-heading"
+              colspan="{{ map.column.length }}"
+            >
               <span
                 style="float: left"
                 class="tableLabelText"
                 ng-bind-html="language.btnDisagreement"
               ></span>
-              <div class="tableLableCenterTextDiv"><span class="tableLableCenterText">Conditions of Instruction Hint</span></div>
+              <div class="tableLableCenterTextDiv">
+                <span class="tableLableCenterText"
+                  >Conditions of Instruction Hint</span
+                >
+              </div>
               <span
                 style="float: right; text-align: right"
                 class="tableLabelText"
@@ -64,8 +72,8 @@
               small-font="config.smallFont"
               ng-class="{neutral: statement.category === 'neutral', agree: statement.category === 'agree', disagree: statement.category === 'disagree', textright: textAlignRight}"
             >
-              <span ng-bind-html="statement.__text"></span
-              ><b>({{ statement._id }})</b>
+              <span class="idNum">({{ statement._id }})</span>
+              <span ng-bind-html="statement.__text"></span>
             </li>
           </ul>
         </div>
@@ -81,8 +89,8 @@
               small-font="config.smallFont"
               ng-class="{neutral: statement.category === 'neutral', agree: statement.category === 'agree', disagree: statement.category === 'disagree', textright: textAlignRight}"
             >
-              <span ng-bind-html="statement.__text"></span
-              ><b>({{ statement._id }})</b>
+              <span class="idNum">({{ statement._id }})</span>
+              <span ng-bind-html="statement.__text"></span>
             </li>
           </ul>
         </div>
@@ -98,8 +106,8 @@
               small-font="config.smallFont"
               ng-class="{neutral: statement.category === 'neutral', agree: statement.category === 'agree', disagree: statement.category === 'disagree', textright: textAlignRight}"
             >
-              <span ng-bind-html="statement.__text"></span
-              ><b>({{ statement._id }})</b>
+              <span class="idNum">({{ statement._id }})</span>
+              <span ng-bind-html="statement.__text"></span>
             </li>
           </ul>
         </div>

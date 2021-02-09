@@ -1119,7 +1119,7 @@ angular
                   var s = scope.$new(true);
                   s.statement = dragElement.initialStatement;
                   var el = $compile(
-                    '<div draggable-statement="statement" clone-on-drag="false" class="destroy-on-place draggable dragging-onto-grid" ng-class="{neutral: statement.category === \'neutral\', agree: statement.category === \'agree\', disagree: statement.category === \'disagree\', textright: textAlignRight}" style="position: relative;" data-placement="bottom" data-toggle="tooltip" data-trigger="hover click" title="{{ statement.__text }} ({{ statement._id }})">{{statement.__text }} <b>({{statement._id}})</b></div>'
+                    '<div draggable-statement="statement" clone-on-drag="false" class="destroy-on-place draggable dragging-onto-grid" ng-class="{neutral: statement.category === \'neutral\', agree: statement.category === \'agree\', disagree: statement.category === \'disagree\', textright: textAlignRight}" style="position: relative;" data-placement="bottom" data-toggle="tooltip" data-trigger="hover click" title="({{ statement._id }}) {{ statement.__text }} "> <span class="idNum">({{statement._id}})</span> {{statement.__text }}</div>'
                   )(s);
                   if (
                     dragElement.smallFont &&
