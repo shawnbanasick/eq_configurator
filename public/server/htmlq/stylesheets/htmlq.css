@@ -307,14 +307,15 @@ li.disagree {
 }
 
 .grid {
-  width: 1260px;
+  /* width: 1260px; */
   margin: 30px auto 30px auto;
 }
 
 .grid table {
   table-layout: fixed;
-  width: 1260px;
+  /* width: 1260px; */
   border: 2px solid red;
+  margin: 0 auto;
 }
 
 /* @media screen and (max-width: 992px) {
@@ -328,7 +329,7 @@ li.disagree {
 .grid td {
   vertical-align: top;
   padding: 0;
-  font-size: 0.7em;
+  font-size: 1.2em;
 }
 
 /* draggable helper */
@@ -415,9 +416,9 @@ body {
 }
 
 .container {
-  width: 95vw;
+  /* width: 95vw;
   min-width: 960px;
-  max-width: 1300px;
+  max-width: 1300px; */
 }
 
 .step1Table {

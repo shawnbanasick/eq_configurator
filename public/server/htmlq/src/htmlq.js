@@ -395,9 +395,18 @@ angular
       $scope.duration = Duration;
 
       var viewHeight = window.innerHeight - 325;
-      if (viewHeight < 60) {
-        viewHeight = 60;
+      if (viewHeight < 760) {
+        viewHeight = 760;
       }
+
+      var viewWidth = window.innerWidth - 40;
+      if (viewWidth < 960) {
+        viewWidth = 960;
+      }
+
+      console.log("viewWidth: ", viewWidth);
+
+      $scope.viewWidth = viewWidth;
 
       var longestColumn = _.last(
         _.sortBy(map.column, function (column) {

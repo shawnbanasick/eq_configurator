@@ -1,10 +1,10 @@
 <div track-duration="duration[1]">
   <div id="step2" droppable-background="" on-drop="removeStatement($statement)">
     <div class="row">
-      <div class="grid">
-        <table>
+      <div class="grid" ng-style="{width: viewWidth}">
+        <table ng-style="{width: viewWidth}">
           <tr class="grid-heading">
-            <td style="width: 960px" colspan="{{ map.column.length }}">
+            <td ng-style="{width: viewWidth}" colspan="{{ map.column.length }}">
               <span
                 style="float: left"
                 ng-bind-html="language.btnDisagreement"
@@ -19,7 +19,7 @@
             <td
               class="col-xs-1 rating"
               ng-repeat="col in map.column"
-              ng-style="{'background-color': '#' + col._colour, width: 960/map.column.length}"
+              ng-style="{'background-color': '#' + col._colour, width: viewWidth/map.column.length}"
             >
               <b>{{ col._id }}</b>
             </td>
@@ -28,7 +28,7 @@
             <td
               class="col-xs-1"
               ng-repeat="col in sortedStatements.grid"
-              ng-style="{width: 960/map.column.length}"
+              ng-style="{width: viewWidth/map.column.length}"
             >
               <div
                 small-font="config.smallFont"
@@ -37,7 +37,7 @@
                 dynamically-create-initial-statement="true"
                 ng-repeat="cell in col"
                 class="cell"
-                helper-width="{{ 960/map.column.length }}"
+                helper-width="{{ viewWidth/map.column.length }}"
                 ng-style="{height: cellHeight}"
                 ng-class="{'small-font': (config.smallFont === 'true')}"
               ></div>
@@ -57,7 +57,7 @@
               clone-on-drag="true"
               draggable-statement="statement"
               ng-repeat="statement in sortedStatements.disagree"
-              helper-width="{{ 960/map.column.length }}"
+              helper-width="{{ viewWidth/map.column.length }}"
               small-font="config.smallFont"
               ng-class="{neutral: statement.category === 'neutral', agree: statement.category === 'agree', disagree: statement.category === 'disagree', textright: textAlignRight}"
             >
@@ -74,7 +74,7 @@
               clone-on-drag="true"
               draggable-statement="statement"
               ng-repeat="statement in sortedStatements.neutral"
-              helper-width="{{ 960/map.column.length }}"
+              helper-width="{{ viewWidth/map.column.length }}"
               small-font="config.smallFont"
               ng-class="{neutral: statement.category === 'neutral', agree: statement.category === 'agree', disagree: statement.category === 'disagree', textright: textAlignRight}"
             >
@@ -91,7 +91,7 @@
               clone-on-drag="true"
               draggable-statement="statement"
               ng-repeat="statement in sortedStatements.agree"
-              helper-width="{{ 960/map.column.length }}"
+              helper-width="{{ viewWidth/map.column.length }}"
               small-font="config.smallFont"
               ng-class="{neutral: statement.category === 'neutral', agree: statement.category === 'agree', disagree: statement.category === 'disagree', textright: textAlignRight}"
             >
