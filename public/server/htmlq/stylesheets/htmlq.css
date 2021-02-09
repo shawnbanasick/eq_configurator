@@ -50,7 +50,7 @@ li.draggable {
   height: 100%;
 }
 
-/* step 2 sorting grid css 
+/* step #2 sorting grid css 
 --------------------------------------------------*/
 .cell .swappable > div,
 .cell .draggable-small > div {
@@ -90,7 +90,7 @@ p.card-counter {
   font-size: 5em;
 }
 
-/* step 1  -  3-column-view (disagree, agree, neutral) 
+/* step #1  -  3-column-view cards css (disagree, agree, neutral) 
 ----------------------------------------------------------*/
 .sorted-statements {
   background-color: #d8d8d8;
@@ -139,7 +139,7 @@ pre-sort stack at bottom of step #1 (see above for gray container)
 }
 
 /* styles for disagree-neutral-agree pre-sort stack at bottom of sort page
-   step 1 custom height
+   step #1 custom height
 -------------------------------------------------- */
 .step1 {
   height: 700px;
@@ -329,7 +329,7 @@ li.disagree {
   }
 } */
 
-/* step 2 and step 3 font size
+/* step #2 font size
 ---------------------------------*/
 .grid td {
   vertical-align: top;
@@ -414,7 +414,7 @@ body {
   padding-top: 5px;
 }
 
-/* step2 custom sort grid centering - override bootstrap settings
+/* step #2 custom sort grid centering - override bootstrap settings
 -------------------------------------------------- */
 .step2ContAdj {
   margin: 0 auto;
@@ -437,7 +437,7 @@ border: 2px solid purple;
   margin: 0 auto;
 }
 
-/* step 2 feeder height
+/* step #2 feeder height
 ---------------------------------------------*/
 #step2 > div.row.sorted-statements {
   height: 150px;
@@ -450,6 +450,8 @@ border: 2px solid purple;
   overflow: hidden;
 }
 
+
+/* 
 .innerCard {
   /* display: flex;
   height: 100%;
@@ -457,11 +459,12 @@ border: 2px solid purple;
   margin: auto;
   text-align: center;
   justify-content: center;
-  /* align-items: center; */
+  align-items: center; 
 }
 
 .outerCard {
-  /* display: table-cell;
+  display: table-cell;
   vertical-align: middle;
-  overflow: hidden;  */
-}
+  overflow: hidden;  
+} 
+*/
