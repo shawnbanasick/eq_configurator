@@ -16,10 +16,11 @@ body {
   width: 300px;
   height: 200px;
   padding: 12px;
-  font-size: 1.5em;
+  font-size: 1em;
   box-shadow: 6px 6px 5px #888888;
   background-color: white;
   z-index: 999;
+  text-align: center;
 
   /* http://maettig.com/code/css/text-overflow-ellipsis.html */
   overflow: hidden; /* required for text-overflow */
@@ -69,6 +70,10 @@ li.draggable {
 .cell.small-font .draggable-small > div {
   font-size: 0.8em;
   line-height: 1em;
+}
+
+.heroCard {
+  font-size: 1.5em;
 }
 
 .droppable-active {
@@ -141,7 +146,7 @@ pre-sort stack at bottom of step #1 (see above for gray container)
 /* styles for disagree-neutral-agree pre-sort stack at bottom of sort page
    step #1 custom height
 -------------------------------------------------- */
-.step1 {
+#step1 {
   height: 700px;
 }
 
@@ -212,6 +217,14 @@ li.disagree {
 .sorted-statements .next-button {
   padding-top: 50px;
   padding-bottom: 50px;
+}
+
+.step3Feeder {
+  height: 150px;
+}
+
+#step3 {
+  padding-right: 10px;
 }
 
 #step4 div.comment-heading {
@@ -388,6 +401,7 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
+  height: 100%;
 }
 .footer {
   position: absolute;
@@ -422,7 +436,7 @@ body {
 
 .container {
 /* margin-left: 20px; */
-/* margin: 0 auto; */
+margin: 0 auto;
 /* border: 2px solid purple; */
 }
 

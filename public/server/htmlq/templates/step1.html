@@ -1,6 +1,6 @@
 <div id="step1" track-duration="duration[0]">
     <div id="statements" style="width: 300px; margin: 0 auto; overflow: visible;">
-        <div ng-repeat="statement in sortedStatements.list | filter:hasNoCategory | limitTo: 1" class="draggable" draggable-statement-first="statement" ng-class="{textright: textAlignRight}"> <span ng-bind-html="statement.__text"></span><span class="idNum">({{ statement._id }})</span></div>
+        <div ng-repeat="statement in sortedStatements.list | filter:hasNoCategory | limitTo: 1" class="draggable heroCard" draggable-statement-first="statement" ng-class="{textright: textAlignRight}"> <span ng-bind-html="statement.__text"></span><span class="idNum">({{ statement._id }})</span></div>
         <p class="card-counter" ng-show="sortedCards() < allCards()">{{ sortedCards() + 1 }}/{{ allCards() }}</p>
     </div>
 

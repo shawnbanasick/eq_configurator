@@ -405,7 +405,7 @@ angular
         viewHeight = viewHeight - 50;
       }
 
-      var viewWidth = window.innerWidth - 40;
+      var viewWidth = window.innerWidth - 60;
       if (viewWidth < 960) {
         viewWidth = 960;
       }
