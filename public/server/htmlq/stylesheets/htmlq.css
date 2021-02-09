@@ -319,7 +319,7 @@ li.disagree {
 .grid table {
   table-layout: fixed;
   /* width: 1260px; */
-  border: 2px solid red;
+  /* border: 2px solid red; */
   margin: 0 auto;
 }
 
@@ -423,7 +423,7 @@ body {
 .container {
 /* margin-left: 20px; */
 /* margin: 0 auto; */
-border: 2px solid purple;
+/* border: 2px solid purple; */
 }
 
 .step1Table {

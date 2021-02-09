@@ -394,9 +394,15 @@ angular
       $scope.configXml = configXml;
       $scope.duration = Duration;
 
+      var isFirefox = navigator.userAgent.toLowerCase().indexOf("firefox") > -1;
+      console.log("isFirefox: ", isFirefox);
+
       var viewHeight = window.innerHeight - 325;
       if (viewHeight < 760) {
         viewHeight = 760;
+      }
+      if (isFirefox) {
+        viewHeight = viewHeight - 50;
       }
 
       var viewWidth = window.innerWidth - 40;
