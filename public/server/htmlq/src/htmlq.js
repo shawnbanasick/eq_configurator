@@ -398,8 +398,8 @@ angular
       console.log("isFirefox: ", isFirefox);
 
       var viewHeight = window.innerHeight - 340;
-      if (viewHeight < 760) {
-        viewHeight = 760;
+      if (viewHeight < 420) {
+        viewHeight = 420;
       }
       if (isFirefox) {
         viewHeight = viewHeight - 80;

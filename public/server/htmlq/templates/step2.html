@@ -3,14 +3,17 @@
     <div class="row">
       <div class="grid" ng-style="{width: viewWidth}">
         <table ng-style="{width: viewWidth}">
-          <tr class="grid-heading">
-            <td ng-style="{width: viewWidth}" colspan="{{ map.column.length }}">
+          <tr>
+            <td ng-style="{width: viewWidth}" class="grid-heading"  colspan="{{ map.column.length }}">
               <span
                 style="float: left"
+                class="tableLabelText"
                 ng-bind-html="language.btnDisagreement"
               ></span>
+              <div class="tableLableCenterTextDiv"><span class="tableLableCenterText">Conditions of Instruction Hint</span></div>
               <span
                 style="float: right; text-align: right"
+                class="tableLabelText"
                 ng-bind-html="language.btnAgreement"
               ></span>
             </td>

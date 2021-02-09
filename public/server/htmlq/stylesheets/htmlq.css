@@ -112,7 +112,7 @@ p.card-counter {
 .sorted-statements p.heading {
   margin-bottom: 5px;
   text-align: center;
-  font-size: 1.5em;
+  font-size: 1.4em;
   font-weight: bolder;
 }
 
@@ -307,11 +307,6 @@ li.disagree {
   padding-top: 30px;
 }
 
-.grid-heading {
-  font-size: 1.7em;
-  color: gray;
-  font-weight: bold;
-}
 
 .grid .rating {
   text-align: center;
@@ -342,12 +337,40 @@ li.disagree {
   }
 } */
 
-/* step #2 font size
+/* step #2 and step #3 font size
 ---------------------------------*/
 .grid td {
   vertical-align: top;
   padding: 0;
-  font-size: 1.2em;
+  font-size: 1.2vh;
+}
+
+.grid-heading {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* "Disagree  Agree" text for table heading */
+.tableLabelText {
+  font-size: 1.7em !important;
+  color: gray;
+  font-weight: bold;
+}
+
+.tableLableCenterText {
+  margin: 0 auto;
+  font-size: 1.7em !important;
+  color: white;
+}
+/* Conditions of Instruction - editable from config.xml 
+--------------------------------------------------*/
+.tableLableCenterTextDiv {
+  background-color: black;
+  padding-right: 5px;
+  padding-left: 5px;
+  border-radius: 3px;
+  /* display: none; */
 }
 
 /* draggable helper */
