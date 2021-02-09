@@ -90,14 +90,17 @@ p.card-counter {
   font-size: 5em;
 }
 
-/* 3-column-view (disagree, agree, neutral) */
+/* step 1  -  3-column-view (disagree, agree, neutral) 
+----------------------------------------------------------*/
 .sorted-statements {
   background-color: #d8d8d8;
   padding-top: 2px;
   padding-bottom: 5px;
-  margin-left: 0px;
-  margin-right: 0px;
+  width: 960px;
+  margin: 0 auto;
+  height: 400px;
   min-height: 160px;
+  max-height: 600px;
   text-align: center;
 }
 
@@ -107,6 +110,7 @@ p.card-counter {
   font-size: 1.5em;
   font-weight: bolder;
 }
+
 
 .sortable .overlay {
   position: relative;
@@ -122,22 +126,23 @@ p.card-counter {
   display: block;
 }
 
-/* styles for disagree-neutral-agree pre-sort stack at bottom of sort page
+/* styles for disagree-neutral-agree containers 
+pre-sort stack at bottom of step #1 (see above for gray container)
 -------------------------------------------------- */
 .sorted-statements .sortable {
+  height: 325px;
   background-color: white;
   border: 1px solid;
   overflow-x: hidden;
   overflow-y: scroll;
   padding: 0;
-  height: 200px;
 }
 
 /* styles for disagree-neutral-agree pre-sort stack at bottom of sort page
    step 1 custom height
 -------------------------------------------------- */
 .step1 {
-  height: 35vh !important;
+  height: 700px;
 }
 
 .sorted-statements ul {
@@ -416,9 +421,9 @@ body {
 }
 
 .container {
-  /* width: 95vw;
-  min-width: 960px;
-  max-width: 1300px; */
+/* margin-left: 20px; */
+/* margin: 0 auto; */
+border: 2px solid purple;
 }
 
 .step1Table {
@@ -436,6 +441,8 @@ body {
 ---------------------------------------------*/
 #step2 > div.row.sorted-statements {
   height: 150px;
+  width: 960px;
+  margin: 0 auto;
 }
 
 .step2col {
