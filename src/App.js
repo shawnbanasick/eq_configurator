@@ -12,7 +12,7 @@ import Language from "./Sections/Language/Language";
 import Firebase from "./Sections/Firebase/Firebase";
 import Server from "./Sections/Server/Server";
 import Weblinks from "./Sections/Weblinks/Weblinks";
-import Survey from "./Sections/Survey/Survey";
+import Styles from "./Sections/Styles/Styles";
 import appState from "./GlobalState/appState";
 import ErrorBoundary from "./Utils/ErrorBoundary";
 import indicateDataButtonColor from "./Sections/Start/indicateDataButtonColor";
@@ -39,7 +39,7 @@ const App = (props) => {
     viewFirebase,
     viewServer,
     viewWeblinks,
-    viewSurvey,
+    viewStyles,
   } = appState;
 
   const { isDataButtonGreen, hasUnforcedBeenConfirmed } = appState;
@@ -127,19 +127,21 @@ const App = (props) => {
               <p className="title">{`5. ${t("Language")}`}</p>
             </FileButton>
             <FileButton
+              buttonColor={loadingsButtonColor}
+              active={viewStyles}
+              onClick={() => handleClick("viewStyles")}
+            >
+              <p className="title">{`6. ${t("Styles")}`}</p>
+            </FileButton>
+
+            <FileButton
               buttonColor={rotationButtonColor}
               active={viewFirebase}
               onClick={() => handleClick("viewFirebase")}
             >
-              <p className="title">{`6. ${t("Firebase")}`}</p>
+              <p className="title">{`7. ${t("Firebase")}`}</p>
             </FileButton>
-            <FileButton
-              buttonColor={loadingsButtonColor}
-              active={viewSurvey}
-              onClick={() => handleClick("viewSurvey")}
-            >
-              <p className="title">{`7. ${t("Survey")}`}</p>
-            </FileButton>
+
             <FileButton
               buttonColor={loadingsButtonColor}
               active={viewWeblinks}
@@ -151,12 +153,12 @@ const App = (props) => {
           <ActionWindow>
             {viewStart && <Start view={viewStart} />}
             {viewConfig && <Config view={viewConfig} />}
-            {viewSurvey && <Survey view={viewServer} />}
+            {viewServer && <Server view={viewServer} />}
             {viewStatements && <Statements view={viewStatements} />}
             {viewMap && <Map view={viewMap} />}
             {viewLanguage && <Language view={viewLanguage} />}
             {viewFirebase && <Firebase view={viewFirebase} />}
-            {viewServer && <Server view={viewSurvey} />}
+            {viewStyles && <Styles view={viewStyles} />}
             {viewWeblinks && <Weblinks view={viewWeblinks} />}
             {/*{viewProjectHistory && <ProjectHistory view={viewProjectHistory} />}
             {viewHelp && <Help view={viewHelp} />}
