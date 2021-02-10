@@ -5,6 +5,7 @@ import GlobalStyle from "../../Utils/GlobalStyle";
 import exportToXml from "../../Utils/exportToXml";
 import GeneralButton from "../../Utils/GeneralButton";
 import appState from "../../GlobalState/appState";
+import UserNumberInput from "../../Utils/UserNumberInput";
 
 const handleClick = () => {
   const userSelectedFilePath = `${appState.userSelectedFilePath}/settings/map.xml`;
@@ -20,13 +21,69 @@ const Map = () => {
   return (
     <MainContent>
       <GlobalStyle />
-      <Title>Map Settings</Title>
-      <h2>{numStatements} Statements</h2>
+      <Title>Styles</Title>
+      <SettingsDiv>
+        <UserNumberInput
+          label="1. Font size for extra small screens (screen height less than 800px - iPad, small laptops)"
+          step={1}
+          value={10}
+          upperLimit={100}
+          lowerLimit={1}
+          stateId="stylesXsFontSize"
+          sectionName="styles"
+        ></UserNumberInput>
+        <UserNumberInput
+          label="2. Font size for small screens (height between 800px and 899px)"
+          step={1}
+          value={12}
+          upperLimit={100}
+          lowerLimit={10}
+          stateId="stylesXsFontSize"
+          sectionName="styles"
+        ></UserNumberInput>
+        <UserNumberInput
+          label="3. Font size for medium  screens (height between 900px and 1079px)"
+          step={1}
+          value={14}
+          upperLimit={100}
+          lowerLimit={1}
+          stateId="stylesXsFontSize"
+          sectionName="styles"
+        ></UserNumberInput>
+        <UserNumberInput
+          label="4. Font size for large screens (height 1080px and 1199px)"
+          step={1}
+          value={16}
+          upperLimit={100}
+          lowerLimit={1}
+          stateId="stylesXsFontSize"
+          sectionName="styles"
+        ></UserNumberInput>
+        <UserNumberInput
+          label="5. Font size for very large screens (height 1200px and 1439px)"
+          step={1}
+          value={18}
+          upperLimit={100}
+          lowerLimit={1}
+          stateId="stylesXsFontSize"
+          sectionName="styles"
+        ></UserNumberInput>
+        <UserNumberInput
+          label="6. Font size for 4k screens (height greater than 1440px)"
+          step={1}
+          value={20}
+          upperLimit={100}
+          lowerLimit={1}
+          stateId="stylesXsFontSize"
+          sectionName="styles"
+        ></UserNumberInput>
+      </SettingsDiv>
+
       <DownloadMapButton
-        style={{ width: "500px" }}
+        style={{ width: "300px" }}
         onClick={() => handleClick()}
       >
-        Download Map.xml file
+        Save file to <b>stylesheets folder</b> and replace "htmlq.css"
       </DownloadMapButton>
     </MainContent>
   );
@@ -86,4 +143,8 @@ const Title = styled.h1`
 const DownloadMapButton = styled(GeneralButton)`
   width: 500px;
   /* border: 2px solid red; */
+`;
+
+const SettingsDiv = styled.div`
+  margin-bottom: 30px;
 `;
