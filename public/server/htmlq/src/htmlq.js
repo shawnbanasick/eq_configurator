@@ -397,12 +397,12 @@ angular
       var isFirefox = navigator.userAgent.toLowerCase().indexOf("firefox") > -1;
       console.log("isFirefox: ", isFirefox);
 
-      var viewHeight = window.innerHeight - 340;
+      var viewHeight = window.innerHeight - 300;
       if (viewHeight < 420) {
         viewHeight = 420;
       }
       if (isFirefox) {
-        viewHeight = viewHeight - 80;
+        viewHeight = viewHeight - 0;
       }
 
       var viewWidth = window.innerWidth - 60;
