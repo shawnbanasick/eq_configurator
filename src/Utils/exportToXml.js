@@ -4,7 +4,7 @@ const { dialog } = require("electron").remote;
 const { remote } = require("electron");
 const mainWindow = remote.getCurrentWindow();
 
-const exportToXml = async (fileName, data) => {
+const exportToXml = async (fileName, data, filetype) => {
   let userSelectedFilePath = appState.userSelectedFilePath;
   if (
     userSelectedFilePath.length < 3 ||
@@ -20,8 +20,8 @@ const exportToXml = async (fileName, data) => {
     defaultPath: userSelectedFilePath,
     filters: [
       {
-        name: "xml",
-        extensions: ["xml"],
+        name: filetype,
+        extensions: [filetype],
       },
     ],
   });

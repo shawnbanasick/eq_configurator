@@ -16,7 +16,7 @@ import appState from "../../GlobalState/appState";
 const handleClick = () => {
   const data = generateConfigXml();
 
-  exportToXml("config.xml", data);
+  exportToXml("config.xml", data, "xml");
 };
 
 const Config = () => {

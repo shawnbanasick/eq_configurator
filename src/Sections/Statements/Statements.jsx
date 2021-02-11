@@ -10,7 +10,7 @@ import GeneralButton from "../../Utils/GeneralButton";
 const handleClick = () => {
   const data = generateStatementsXml();
 
-  exportToXml("statements.xml", data);
+  exportToXml("statements.xml", data, "xml");
 };
 
 const Statements = () => {

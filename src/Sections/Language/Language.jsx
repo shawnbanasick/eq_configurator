@@ -14,7 +14,7 @@ const handleClick = () => {
   console.log(data);
   console.log(appState.langBtnClose);
 
-  exportToXml("language.xml", data);
+  exportToXml("language.xml", data, "xml");
 };
 
 const Language = () => {

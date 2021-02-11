@@ -13,7 +13,7 @@ const handleClick = () => {
   console.log(userSelectedFilePath);
   const data = generateMapXml();
 
-  exportToXml("map.xml", data);
+  exportToXml("map.xml", data, "xml");
 };
 
 const Map = () => {
