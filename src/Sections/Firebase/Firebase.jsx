@@ -9,7 +9,7 @@ import addFirebaseInfoToIndexHtml from "./addFirebaseInfoToIndexHtml";
 
 const handleClick = () => {
   const data = addFirebaseInfoToIndexHtml();
-  console.log(data);
+  // console.log(data);
   if (data !== undefined) {
     exportToXml("index.html", data, "html");
   }

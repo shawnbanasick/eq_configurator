@@ -233,7 +233,7 @@ const appState = store({
     "Please note: This is a demo project on iPad use in the classroom. {br}{br}Please click on the continue-button.",
   langUserCode: "User Code",
   langLogInText:
-    "Please enter your participant code. Please note, that in this demo any user code will be accepted.{br}{br}{i}Tip: This is an optional step and you can deactivate it in your own survey.{i}",
+    "Please enter your participant code. Please note, that in this demo any user code will be accepted.{br}{br}",
   langFormHeader: "User Code",
   langNoInput: "Please insert your participant code.",
   langUserCodeInvalid: "Participant code invalid",

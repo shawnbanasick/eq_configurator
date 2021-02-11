@@ -1782,16 +1782,31 @@ angular
             results[i] = "no_response";
           }
         }
-        rootRef.push(results, function (error) {
-          if (error) {
-            $stateParams.retry = 1;
-            $state.go("root.submit", {
-              retry: $stateParams.retry,
+
+        console.log(results);
+
+        firebase
+          .auth()
+          .signInAnonymously()
+          .then(() => {
+            // Signed in..
+            rootRef.push(results, function (error) {
+              if (error) {
+                $stateParams.retry = 1;
+                $state.go("root.submit", {
+                  retry: $stateParams.retry,
+                });
+              } else {
+                $state.go("root.thanks");
+              }
             });
-          } else {
-            $state.go("root.thanks");
-          }
-        });
+          })
+          .catch((error) => {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // ...
+            console.log(errorCode, errorMessage);
+          });
       }
 
       $scope.submitViaHttp = function () {

@@ -40,10 +40,16 @@ const addFirebaseInfoToInexHtml = () => {
     <script src="src/xml2json.min.js" type="text/javascript"></script>
     <script src="src/jsonpath.js" type="text/javascript"></script>
     <script src="src/underscore-min.js" type="text/javascript"></script>
-    <script src="src/htmlq.js" type="text/javascript"></script>
-
+    
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-auth.js"></script>
+    
     ${firebaseInfo}
     
+    <script src="src/htmlq.js" type="text/javascript"></script>
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
