@@ -19,8 +19,8 @@ const Statements = () => {
       <GlobalStyle />
       <Title>Statements Settings</Title>
       <StatementTextArea />
-      <GeneralButton style={{ width: "78vw" }} onClick={() => handleClick()}>
-        Download statements.xml file
+      <GeneralButton onClick={() => handleClick()}>
+        Save file to <b>settings folder</b> and replace "statements.xml" file
       </GeneralButton>
     </MainContent>
   );

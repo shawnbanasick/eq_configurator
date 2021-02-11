@@ -10,7 +10,7 @@ const Statements = () => {
   return (
     <MainContent>
       <GlobalStyle />
-      <Title>Web Links</Title>
+      <Title>Related Software</Title>
       <WebLinkRow>
         <h1>web links:</h1>
         <Rule />

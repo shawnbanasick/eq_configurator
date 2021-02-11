@@ -141,13 +141,14 @@ const App = (props) => {
             >
               <p className="title">{`7. ${t("Firebase")}`}</p>
             </FileButton>
-
+            <Spacer />
             <FileButton
               buttonColor={loadingsButtonColor}
+              style={{ textAlign: "center" }}
               active={viewWeblinks}
               onClick={() => handleClick("viewWeblinks")}
             >
-              <p className="title">{`8. ${t("Web Links")}`}</p>
+              <p className="title">{`${t("Related Software")}`}</p>
             </FileButton>
           </FilesWindow>
           <ActionWindow>
@@ -332,3 +333,7 @@ const StartButton = styled.button`
 //   text-align: left;
 //   transition: 0.3s ease all;
 // `;
+
+const Spacer = styled.div`
+  margin-top: 50px;
+`;

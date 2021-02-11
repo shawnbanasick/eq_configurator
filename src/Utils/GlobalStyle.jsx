@@ -13,6 +13,19 @@ const GlobalStyle = createGlobalStyle`
   h1 {
     font-family: 'Contrail';
   }
+
+  h2 {
+    font-family: 'Contrail';
+  }
+
+  h3 {
+      margin-top: 50px;
+      margin-bottom: 5px !important;
+      margin-left: 30px;
+      text-align: left;
+      font-family: 'Contrail';
+  }
+
 `;
 
 export default GlobalStyle;

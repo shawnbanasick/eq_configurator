@@ -6,9 +6,10 @@ import exportToXml from "../../Utils/exportToXml";
 import GeneralButton from "../../Utils/GeneralButton";
 import appState from "../../GlobalState/appState";
 import UserNumberInput from "../../Utils/UserNumberInput";
+import RadioButtons from "../../Utils/RadioButtons";
 
 const handleClick = () => {
-  const userSelectedFilePath = `${appState.userSelectedFilePath}/settings/map.xml`;
+  const userSelectedFilePath = `${appState.userSelectedFilePath}/stylesheets/htmlq.css`;
   console.log(userSelectedFilePath);
   // const data = generateMapXml();
 
@@ -16,13 +17,12 @@ const handleClick = () => {
 };
 
 const Map = () => {
-  const numStatements = appState.statements.length;
-
   return (
     <MainContent>
       <GlobalStyle />
       <Title>Styles</Title>
       <SettingsDiv>
+        <SectionHeader>Step #2 and Step #3 Sorting Grid Styles</SectionHeader>
         <UserNumberInput
           label="1. Font size for extra small screens (screen height less than 800px - iPad, small laptops)"
           step={1}
@@ -77,13 +77,29 @@ const Map = () => {
           stateId="stylesXsFontSize"
           sectionName="styles"
         ></UserNumberInput>
+        <SectionHeader>Statement Numbers</SectionHeader>
+        <RadioButtons
+          label="Display statement numbers:"
+          buttonIdArray={["true", "false"]}
+          stateId="stylesStatementNumberDisplay"
+          sectionName="styles"
+        />
+        <RadioButtons
+          label="Statement number size:"
+          buttonIdArray={["large", "medium", "small"]}
+          stateId="stylesStatementNumberSize"
+          sectionName="styles"
+        />
+        <RadioButtons
+          label="Statement number display:"
+          buttonIdArray={["bold", "normal", "faint"]}
+          stateId="stylesStatementNumberOpacity"
+          sectionName="styles"
+        />
       </SettingsDiv>
 
-      <DownloadMapButton
-        style={{ width: "300px" }}
-        onClick={() => handleClick()}
-      >
-        Save file to <b>stylesheets folder</b> and replace "htmlq.css"
+      <DownloadMapButton onClick={() => handleClick()}>
+        Save file to <b>STYLESHEETS folder</b> and replace "htmlq.css"
       </DownloadMapButton>
     </MainContent>
   );
@@ -141,10 +157,19 @@ const Title = styled.h1`
 `;
 
 const DownloadMapButton = styled(GeneralButton)`
-  width: 500px;
+  margin-top: 50px;
+  width: auto;
   /* border: 2px solid red; */
 `;
 
 const SettingsDiv = styled.div`
   margin-bottom: 30px;
+  text-align: left;
+  /* border: 2px solid red; */
+  padding-left: 20px;
+`;
+
+const SectionHeader = styled.h3`
+  margin-top: 50px;
+  text-align: left;
 `;

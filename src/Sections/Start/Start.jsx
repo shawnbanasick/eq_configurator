@@ -105,13 +105,17 @@ const Title = styled.h1`
 `;
 
 const BeginnerButton = styled(GeneralButton)`
-  height: 150px;
+  text-align: center;
+  padding-top: 50px;
+  height: 100px;
   width: 200px;
   font-size: 2em;
 `;
 
 const ProButton = styled(GeneralButton)`
-  height: 150px;
+  text-align: center;
+  padding-top: 50px;
+  height: 100px;
   width: 200px;
   font-size: 2em;
 `;

@@ -25,11 +25,8 @@ const Map = () => {
       <Title>Map Settings</Title>
       <h2>{numStatements} Statements</h2>
       <MapInputElement />
-      <DownloadMapButton
-        style={{ width: "500px" }}
-        onClick={() => handleClick()}
-      >
-        Download Map.xml file
+      <DownloadMapButton onClick={() => handleClick()}>
+        Save file to <b>settings folder</b> and replace "map.xml" file
       </DownloadMapButton>
     </MainContent>
   );
@@ -87,6 +84,6 @@ const Title = styled.h1`
 `;
 
 const DownloadMapButton = styled(GeneralButton)`
-  width: 500px;
+  width: auto;
   /* border: 2px solid red; */
 `;

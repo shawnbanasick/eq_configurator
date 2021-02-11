@@ -22,7 +22,7 @@ const Language = () => {
     <MainContent>
       <GlobalStyle />
       <Title>Language Settings</Title>
-      <SubTitles>Button Labels</SubTitles>
+      <h3>Button Labels</h3>
       <UserTextInput
         label="Continue..."
         stateId="langBtnContinue"
@@ -101,7 +101,7 @@ const Language = () => {
         left={0}
       />
       <ColorContainer>
-        <SubTitles>Navigation and Error Language</SubTitles>
+        <h3>Navigation and Error Language</h3>
         <UserTextInput
           label="Your answers will be lost."
           stateId="langExitWarning"
@@ -138,7 +138,7 @@ const Language = () => {
           left={0}
         />
       </ColorContainer>
-      <SubTitles>Welcome Screen</SubTitles>
+      <h3>Welcome Screen</h3>
       <UserTextInput
         label="Welcome!"
         stateId="langWelcome"
@@ -155,7 +155,7 @@ const Language = () => {
         left={0}
       />
       <ColorContainer>
-        <SubTitles>User Login Screen</SubTitles>
+        <h3>User Login Screen</h3>
         <UserTextInput
           label="User code"
           stateId="langUserCode"
@@ -196,11 +196,11 @@ const Language = () => {
           label="Connection to server failed. Please try again."
           stateId="langServerConnectFail"
           sectionName="lang"
-          width={35}
+          width={25}
           left={0}
         />
       </ColorContainer>
-      <SubTitles>Introduction (delete default text to skip popup)</SubTitles>
+      <h3>Introduction</h3>
       <UserTextInput
         label="Introduction"
         stateId="langIntroduction"
@@ -217,7 +217,7 @@ const Language = () => {
         left={0}
       />
       <ColorContainer>
-        <SubTitles>Step 1 (delete default text to skip popup)</SubTitles>
+        <h3>Step 1</h3>
         <UserTextInput
           label="Step 1 of 5"
           stateId="langStep1"
@@ -234,7 +234,7 @@ const Language = () => {
           left={0}
         />
       </ColorContainer>
-      <SubTitles>Step 2 (delete default text to skip popup)</SubTitles>
+      <h3>Step 2</h3>
       <UserTextInput
         label="Step 2 of 5"
         stateId="langStep2"
@@ -251,7 +251,7 @@ const Language = () => {
         left={0}
       />
       <ColorContainer>
-        <SubTitles>Step 3 (delete default text to skip popup)</SubTitles>
+        <h3>Step 3</h3>
         <UserTextInput
           label="Step 3 of 5"
           stateId="langStep3"
@@ -268,7 +268,7 @@ const Language = () => {
           left={0}
         />
       </ColorContainer>
-      <SubTitles>Step 4 (delete default text to skip popup)</SubTitles>
+      <h3>Step 4</h3>
       <UserTextInput
         label="Step 4 of 5"
         stateId="langStep4"
@@ -285,10 +285,7 @@ const Language = () => {
         left={0}
       />
       <ColorContainer>
-        <SubTitles>
-          Step 5 (only displayed if showStep5 is true in config.xml file -
-          delete default text to skip popup)
-        </SubTitles>
+        <h3>Step 5 (only displayed if showStep5 is true in config.xml file)</h3>
         <UserTextInput
           label="Step 5 of 5"
           stateId="langStep5"
@@ -305,7 +302,7 @@ const Language = () => {
           left={0}
         />
       </ColorContainer>
-      <SubTitles>Data Transfer</SubTitles>
+      <h3>Data Transfer</h3>
       <UserTextInput
         label="Submit Data"
         stateId="langTransferHead"
@@ -334,12 +331,9 @@ const Language = () => {
         width={60}
         left={0}
       />
-      <GeneralButton
-        style={{ width: "78vw", margin: "30px" }}
-        onClick={() => handleClick()}
-      >
-        Download statements.xml file
-      </GeneralButton>
+      <DownloadMapButton onClick={() => handleClick()}>
+        Save file to <b>stylesheets folder</b> and replace "htmlq.css"
+      </DownloadMapButton>
     </MainContent>
   );
 };
@@ -368,22 +362,23 @@ const fadeOut = keyframes`
 
 const MainContent = styled.div`
   box-sizing: border-box;
-  padding-bottom: 100px;
   display: flex;
   flex-direction: column;
+
+  justify-items: center;
+  align-items: left;
   background-color: white;
   visibility: ${(props) => (props.view ? "hidden" : "visible")};
   animation: ${(props) => (props.view ? fadeOut : fadeIn)} 0.5s linear;
   transition: visibility 0.5s linear;
   font-family: Helvetica, sans-serif;
-  /* font-size: 18px; */
+  font-size: 18px;
   width: calc(100vw - 140px);
   box-sizing: border-box;
   max-height: calc(100vh - 23px);
   overflow: auto;
   user-select: none;
 `;
-
 const Title = styled.h1`
   display: grid;
   grid-area: row1;
@@ -400,9 +395,18 @@ const ColorContainer = styled.div`
   padding-bottom: 20px;
 `;
 
-const SubTitles = styled.p`
-  font-size: 20px;
-  font-weight: bold;
-  padding-left: 15px;
-  margin-top: 30px;
+const DownloadMapButton = styled(GeneralButton)`
+  width: 500px;
+  height: auto;
+  align-self: center;
+  margin-top: 50px;
+
+  /* border: 2px solid red; */
 `;
+
+// const SubTitles = styled.p`
+//   font-size: 20px;
+//   font-weight: bold;
+//   padding-left: 15px;
+//   margin-top: 30px;
+// `;

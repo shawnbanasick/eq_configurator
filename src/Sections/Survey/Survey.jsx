@@ -371,9 +371,7 @@ const AddItemButton = styled(GeneralButton)`
   margin-left: 70px; // 68vw;
   margin-top: 50px; // 68vw;
   margin-bottom: 10px; // 68vw;
-  /* height: 30px; */
   width: 150px;
-  /* margin-bottom: 10px; */
 `;
 
 const ImageContainer = styled.div`

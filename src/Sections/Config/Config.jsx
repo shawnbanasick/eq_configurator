@@ -148,9 +148,9 @@ const Config = () => {
         />
       </QuestionContainer>
       {configShowStep5 && <Survey />}
-      <GeneralButton style={{ width: "78vw" }} onClick={() => handleClick()}>
-        Download Config.xml file
-      </GeneralButton>
+      <DownloadConfigButton onClick={() => handleClick()}>
+        Save file to <b>settings folder</b> and replace "config.xml" file
+      </DownloadConfigButton>
     </MainContent>
   );
 };
@@ -230,4 +230,10 @@ const Title2 = styled.h1`
   width: 70vw;
   /* align-items: center; */
   /* justify-content: center; */
+`;
+
+const DownloadConfigButton = styled(GeneralButton)`
+  width: auto;
+  align-self: center;
+  margin-bottom: 100px;
 `;

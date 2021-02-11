@@ -1,14 +1,17 @@
 import styled from "styled-components";
 
-const GeneralButton = styled.button`
-  display: grid;
+const GeneralButton = styled.div`
+  /* display: flex;
   align-items: center;
-  justify-items: center;
+  align-self: center;
+  justify-items: center; */
+  text-align: center;
   box-shadow: none;
-  min-height: 30px;
+  box-sizing: content-box;
+  min-height: 28px;
+  min-width: 50px;
   height: auto;
   width: auto;
-  text-align: center;
   font-size: 16px;
   font-family: Helvetica, sans-serif;
   font-weight: normal;
@@ -16,7 +19,8 @@ const GeneralButton = styled.button`
   border-radius: 4px;
   margin-right: 3px;
   margin-bottom: 3px;
-  padding: 5px;
+  /* padding: 5px; */
+  padding-top: 10px;
   padding-left: 10px;
   padding-right: 10px;
   cursor: pointer;

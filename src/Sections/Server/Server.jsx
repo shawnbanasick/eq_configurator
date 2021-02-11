@@ -79,7 +79,7 @@ const Server = () => {
     <MainContent>
       <StyledToastContainer />
       <GlobalStyle />
-      <Title>Server Startup</Title>
+      <Title>Testing Server Startup</Title>
       {displayMode && (
         <>
           <IntroText>
@@ -106,7 +106,7 @@ const Server = () => {
           </IntroText>
         </>
       )}
-      <FindServerButton style={{ width: "78vw" }} onClick={() => handleClick()}>
+      <FindServerButton onClick={() => handleClick()}>
         Navigate to the HTMLQ base files folder where "index.html" is located.
       </FindServerButton>
       <IntroText>
@@ -198,6 +198,7 @@ const FindServerButton = styled(GeneralButton)`
   margin-bottom: 20px;
   font-weight: bold;
   font-size: 1.2em;
+  padding-bottom: 10px;
 `;
 
 const ProjectLinkDiv = styled.div`
@@ -217,11 +218,10 @@ const LinkSpan = styled.span`
   /* border: 2px solid red; */
 `;
 const LinkCopyButton = styled(GeneralButton)`
-  align-self: center;
   height: 50px;
-  /* margin-left: 10px; */
   margin-top: 20px;
   margin-bottom: 20px;
+  line-height: 1.8em;
   font-weight: bold;
   font-size: 1.2em;
 `;

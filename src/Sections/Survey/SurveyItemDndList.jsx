@@ -127,6 +127,7 @@ const DragAndDropContainer = styled.div`
 const DeleteButton = styled(GeneralButton)`
   height: 20px !important;
   background: #b2b2b2;
+  padding-right: 10px;
 `;
 
 const DelDiv = styled.div`
