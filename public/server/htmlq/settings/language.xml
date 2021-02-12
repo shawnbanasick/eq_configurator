@@ -26,20 +26,20 @@
         <item id="errorWindowTooSmall">Please maximize your browser for using this application.</item>
 
         <!-- welcome screen (leave blank to skip screen) -->
-        <item id="welcomeHead">Welcome</item>
-        <item id="welcomeText">Please note: This is just a demo and no data will be stored. Thanks to Job van Exel, that we can use his survey as an example.{br}{br}Comments and bug reports are highly welcome.{br}{br}Please click on the continue-button.</item>
+        <item id="welcomeHead">Welcome!</item>
+        <item id="welcomeText">This is a demo project on iPad use in the classroom. {br}{br}Please click on the continue-button.</item>
 
         <!-- user login, only displayed if access is restricted (see config-file) -->
         <item id="loginHead">User Code</item>
-        <item id="loginText">Please enter your user code. Please note, that in this demo any user code will be accepted.{br}{br}{i}Tip: This is an optional step and you can deactivate it in your own survey.{i}</item>
+        <item id="loginText">Please enter your participant code. Please note, that in this demo any user code will be accepted.{br}{br}</item>
         <item id="loginFormHeader">User Code</item>
-        <item id="loginNoInput">Please insert your user code.</item>
-        <item id="loginInvalidInput">User code invalid</item>
+        <item id="loginNoInput">Please insert your participant code.</item>
+        <item id="loginInvalidInput">Participant code invalid</item>
         <item id="loginNoConnection">Connection to server failed. Please try again.</item>
 
         <!-- introduction (leave blank to skip popup) -->
         <item id="introHead">Introduction</item>
-        <item id="introText">This study is about travel behaviour. We are interested in your attitude towards car and public transport as travel alternatives for middle-distance trips.{br}{br}Please maximize your browser window and click on the continue-button to start the survey.</item>
+        <item id="introText">This study is about iPad use in the classroom. {br}{br}If necessary, please maximize your browser window, reload this web page, and click on the continue-button to start the survey.</item>
 
         <!-- step1: rough sorting into three piles (leave blank to skip popup)-->
         <item id="step1Head">Step 1 of 5</item>
@@ -47,19 +47,21 @@
 
         <!-- step2: sorting (leave blank to skip popup) -->
         <item id="step2Head">Step 2 of 5</item>
-        <item id="step2Text">Take the cards from the "AGREE"-pile and read them again. You can scroll through the statements by using the scroll bar. Next, select the two statements you most agree with and place them on right side of the score sheet below the "+2".{br}{br}Now read the cards in the "DISAGREE"-pile again. Just like before, select the two statements you most disagree with and place them on the left side of the score sheet below the "-2".{br}{br}Next, select the statements you second most agree/disagree with and place them under "+1"/"-1". Follow this procedure for all cards in the "AGREE"- and "DIAGREE"-pile.{br}{br}Finally, read the "NEUTRAL"-cards again and arange them in the remaining open boxes of the score sheet.</item>
-
+        <item id="step2Text">Take the cards from the "AGREE"-pile and arrange them on right side of the score sheet.{br}{br}Next, take the cards from the "DISAGREE"-pile and arrange them on the left side of the score sheet. Follow this procedure for all cards in the "AGREE"- and "DIAGREE"-pile.{br}{br}Finally, take the "NEUTRAL"-cards arange them in the remaining open boxes of the score sheet.</item>
+        <item id="step2CondOfInstruc">Give instructions to participants</item>
+        
         <!-- step3: check sorting, only displayed if showStep3== true (see config-file; leave blank to skip popup)-->
         <item id="step3Head">Step 3 of 5</item>
-        <item id="step3Text">Now you have placed all cards on the score sheet. Please go over your distribution once more and shift cards if you want to.{br}{br}{i}Tip: This is an optional step and you can deactivate it in your own survey.{i}</item>
+        <item id="step3Text">Now you have placed all cards on the score sheet. Please go over your distribution once more and shift cards if desired.</item>
+        <item id="step3CondOfInstruc">Give instructions to participants</item>
 
         <!-- step4: comments on best/worst rated statements, only displayed if showStep4== true (see config-file; leave blank to skip popup) -->
         <item id="step4Head">Step 4 of 5</item>
-        <item id="step4Text">Please explain why you agree most or disagree most with the following statements you have placed below "+2" or "-2".{br}{br}{i}Tip: This is a optional step and you can deactivate it in your own survey.{i}</item>
+        <item id="step4Text">Please explain why you agree most or disagree most with the following statements you have placed below "+4" or "-4".{br}{br}</item>
 
         <!-- step5: dditional questions, only displayed if showStep5== true (see config-file; leave blank to skip popup)-->
         <item id="step5Head">Step 5 of 5</item>
-        <item id="step5Text">Finally, please answer the following questions regarding your background.{br}{br}{i}Tip: This is a optional step and you can deactivate it in your own survey.{i}</item>
+        <item id="step5Text">Finally, please answer the following questions regarding your background.{br}{br}</item>
 
         <!-- data transfer, only displayed if submitUrl is not blank (see config-file) -->
         <item id="transferHead">Submit Data</item>

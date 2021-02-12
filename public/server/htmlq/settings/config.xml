@@ -3,7 +3,7 @@
    <config version="1.0" htmlParse="false">
 
      <!-- title of the study -->
-     <item id="studyTitle">title</item>
+     <item id="studyTitle">My Project Test</item>
 
      <!-- text-align property(left|right) -->
      <item id="textAlign">left</item>
@@ -20,13 +20,15 @@
      <!-- request mode (post|get) -->
      <item id="loginUrlMethod"></item>
 
+     <item id="step1FontSize">0.8</item>
+     <item id="step2FontSize">0.8</item>
      <!-- activate/deactivate optional steps (true|false) -->
      <item id="showStep3">true</item>
-     <item id="showStep4">false</item>
-     <item id="showStep5">false</item>
+     <item id="showStep4">true</item>
+     <item id="showStep5">true</item>
 
      <!-- HtmlQ only: disable the in-window back button -->
-     <item id="disableBackButton">false</item>
+     <item id="disableBackButton">undefined</item>
 
      <!-- define form elements for step5; only displayed if showStep5 is true (delete tags if not required) -->
      <!-- add label: <label>[STRING]</label> -->

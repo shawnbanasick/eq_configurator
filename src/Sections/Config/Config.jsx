@@ -53,6 +53,13 @@ const Config = () => {
           width={40}
           left={0}
         />
+        <UserTextInput
+          label="1b. Study version:"
+          stateId="configVersion"
+          sectionName="config"
+          width={5}
+          left={0}
+        />
         <RadioButtons
           label="2. Text align property:"
           buttonIdArray={["left", "right"]}

@@ -2,7 +2,7 @@
 import appState from "../../GlobalState/appState";
 
 const generateConfigXml = () => {
-  const data1 = `<?xml version="1.0" encoding="UTF-8"?>
+  const data1 = `<?xml version="${appState.configVersion}" encoding="UTF-8"?>
 
    <config version="1.0" htmlParse="false">
 

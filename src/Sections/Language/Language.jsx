@@ -130,13 +130,13 @@ const Language = () => {
           width={25}
           left={0}
         />
-        <UserTextInput
+        {/* <UserTextInput
           label={`Please maximize your browser for using this application.`}
           stateId="langMaxWindow"
           sectionName="lang"
           width={30}
           left={0}
-        />
+        /> */}
       </ColorContainer>
       <h3>Welcome Screen</h3>
       <UserTextInput
@@ -250,6 +250,13 @@ const Language = () => {
         height={100}
         left={0}
       />
+      <UserTextInput
+        label="Step 2 Cond. of Instruction"
+        stateId="langStep2CondOfInstruc"
+        sectionName="lang"
+        width={50}
+        left={0}
+      />
       <ColorContainer>
         <h3>Step 3</h3>
         <UserTextInput
@@ -265,6 +272,13 @@ const Language = () => {
           sectionName="lang"
           width={65}
           height={100}
+          left={0}
+        />
+        <UserTextInput
+          label="Step 3 Cond. of Instruction"
+          stateId="langStep3CondOfInstruc"
+          sectionName="lang"
+          width={50}
           left={0}
         />
       </ColorContainer>
@@ -332,7 +346,7 @@ const Language = () => {
         left={0}
       />
       <DownloadMapButton onClick={() => handleClick()}>
-        Save file to <b>stylesheets folder</b> and replace "htmlq.css"
+        Save file to <b>settings folder</b> and replace "language.xml"
       </DownloadMapButton>
     </MainContent>
   );

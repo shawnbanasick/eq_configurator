@@ -50,10 +50,12 @@ const generateLanguageXml = () => {
         <!-- step2: sorting (leave blank to skip popup) -->
         <item id="step2Head">${appState.langStep2}</item>
         <item id="step2Text">${appState.langStep2Text}</item>
-
+        <item id="step2CondOfInstruc">${appState.langStep2CondOfInstruc}</item>
+        
         <!-- step3: check sorting, only displayed if showStep3== true (see config-file; leave blank to skip popup)-->
         <item id="step3Head">${appState.langStep3}</item>
         <item id="step3Text">${appState.langStep3Text}</item>
+        <item id="step3CondOfInstruc">${appState.langStep3CondOfInstruc}</item>
 
         <!-- step4: comments on best/worst rated statements, only displayed if showStep4== true (see config-file; leave blank to skip popup) -->
         <item id="step4Head">${appState.langStep4}</item>

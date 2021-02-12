@@ -172,7 +172,7 @@ function createWindow() {
   // Dereference the window object, usually you would store windows
   // in an array if your app supports multi windows, this is the time
   // when you should delete the corresponding element.
-  mainWindow.on("closed", () => (mainWindow = null));
+  // mainWindow.on("closed", () => (mainWindow = null));
 
   // showMessageBox returns a promise
   mainWindow.on("close", function (e) {
@@ -187,6 +187,10 @@ function createWindow() {
 
     choice.then(function (result) {
       if (result.response === 0) {
+        // kill server child process if already active
+        if (ps !== undefined) {
+          ps.kill();
+        }
         mainWindow.destroy();
       }
     });

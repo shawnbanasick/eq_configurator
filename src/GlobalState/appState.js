@@ -15,6 +15,7 @@ const appState = store({
   config.xml default settings */
   showSurveytextImage: true,
 
+  configVersion: "1.0",
   configTextAlignleftActive: true,
   configTextAlign: "left",
   configshuffleCardstrueActive: true,
@@ -230,7 +231,7 @@ const appState = store({
   langMaxWindow: "Please maximize your browser for using this application.",
   langWelcome: "Welcome!",
   langWelcomeText:
-    "Please note: This is a demo project on iPad use in the classroom. {br}{br}Please click on the continue-button.",
+    "This is a demo project on iPad use in the classroom. {br}{br}Please click on the continue-button.",
   langUserCode: "User Code",
   langLogInText:
     "Please enter your participant code. Please note, that in this demo any user code will be accepted.{br}{br}",
@@ -255,6 +256,9 @@ const appState = store({
   langTransferFailed:
     "Data submission failed. Please try again or mail your results via email/post.",
   langTransferOk: `Thank you for using Easy HTMLQ. {br}{br}You can now close your browser window.`,
+
+  langStep2CondOfInstruc: "Give instructions to participants",
+  langStep3CondOfInstruc: "Give instructions to participants",
 
   /*
   firebase.xml settings */
