@@ -66,7 +66,7 @@ const MainContent = styled.div`
   box-sizing: border-box;
   max-height: calc(100vh - 23px);
   overflow: auto;
-  user-select: none;
+  /* user-select: none; */
 `;
 
 const Title = styled.h1`
