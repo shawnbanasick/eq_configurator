@@ -19,17 +19,18 @@ const handleClick = () => {
   exportToXml("config.xml", data, "xml");
 };
 
+const convertToFalse = (value) => {
+  if (value === false || value === "false") {
+    return false;
+  } else {
+    return true;
+  }
+};
+
 const Config = () => {
-  let configUseLogInScript = appState.configUseLogInScript;
-  console.log(configUseLogInScript);
-  if (configUseLogInScript === false || configUseLogInScript === "false") {
-    configUseLogInScript = false;
-  }
-  let configShowStep5 = appState.configShowStep5;
-  if (configShowStep5 === false || configShowStep5 === "false") {
-    configShowStep5 = false;
-  }
-  console.log(configShowStep5);
+  let configUseLogInScript = convertToFalse(appState.configUseLogInScript);
+  let configLogInRequired = convertToFalse(appState.configLogInRequired);
+  let configShowStep5 = convertToFalse(appState.configShowStep5);
 
   return (
     <MainContent>
@@ -41,11 +42,6 @@ const Config = () => {
         post-Q sort questionnaire.
       </IntroText>
       <Title2>Project Options</Title2>
-      {/* <UserSelectionSwitch
-        name="willIndicateDistinguishing"
-        value="willIndicateDistinguishing"
-        toggle
-      /> */}
       <QuestionContainer>
         <UserTextInput
           label="1. Project title:"
@@ -79,21 +75,23 @@ const Config = () => {
           stateId="configLogInRequired"
           sectionName="config"
         />
-        <LeftSpacer>
-          <UserTextInput
-            label="5b. Project Access Code:"
-            stateId="configLogInPassword"
-            sectionName="config"
-            width={30}
-            left={0}
-          />
-          <RadioButtons
-            label="5c. Require participant name or id number:"
-            buttonIdArray={["true", "false"]}
-            stateId="configPartNameRequired"
-            sectionName="config"
-          />
-        </LeftSpacer>
+        {configLogInRequired && (
+          <LeftSpacer>
+            <UserTextInput
+              label="5b. Project Access Code:"
+              stateId="configLogInPassword"
+              sectionName="config"
+              width={30}
+              left={0}
+            />
+            <RadioButtons
+              label="5c. Require participant name or id number:"
+              buttonIdArray={["true", "false"]}
+              stateId="configPartNameRequired"
+              sectionName="config"
+            />
+          </LeftSpacer>
+        )}
         <RadioButtons
           label="6a. Use Log In Script:"
           buttonIdArray={["true", "false"]}
@@ -196,7 +194,7 @@ const MainContent = styled.div`
 `;
 
 const IntroText = styled.span`
-  font-size: 2vw;
+  font-size: 20px;
   align-self: center;
   width: 70vw;
   padding: 15px;
