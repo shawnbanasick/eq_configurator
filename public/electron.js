@@ -243,10 +243,12 @@ app.on("ready", () => {
 menuFactoryService.buildMenu(app, mainWindow, i18n);
 
 app.on("window-all-closed", () => {
-  ps.kill();
-  app.quit();
-  // if (process.platform !== "darwin") {
-  // }
+  if (ps !== undefined) {
+    ps.kill();
+  }
+  if (process.platform !== "darwin") {
+    app.quit();
+  }
 });
 
 app.on("activate", function () {
