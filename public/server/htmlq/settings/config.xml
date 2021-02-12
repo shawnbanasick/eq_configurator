@@ -3,7 +3,7 @@
    <config version="1.0" htmlParse="false">
 
      <!-- title of the study -->
-     <item id="studyTitle">My Project Test</item>
+     <item id="studyTitle">undefined</item>
 
      <!-- text-align property(left|right) -->
      <item id="textAlign">left</item>
@@ -12,23 +12,21 @@
      <item id="shuffleCards">true</item>
 
      <!-- login required (true|false) -->
-     <item id="loginrequired">false</item>
+     <item id="loginrequired">undefined</item>
      <!-- login with common password (leave blank if not required) -->
-     <item id="loginPassword"></item>
+     <item id="loginPassword">test project one</item>
       <!-- URL to individual login script(leave blank if not required) -->
      <item id="loginUrl"></item>
      <!-- request mode (post|get) -->
      <item id="loginUrlMethod"></item>
 
-     <item id="step1FontSize">0.8</item>
-     <item id="step2FontSize">0.8</item>
      <!-- activate/deactivate optional steps (true|false) -->
      <item id="showStep3">true</item>
      <item id="showStep4">true</item>
      <item id="showStep5">true</item>
 
      <!-- HtmlQ only: disable the in-window back button -->
-     <item id="disableBackButton">undefined</item>
+     <item id="disableBackButton">true</item>
 
      <!-- define form elements for step5; only displayed if showStep5 is true (delete tags if not required) -->
      <!-- add label: <label>[STRING]</label> -->

@@ -4,11 +4,7 @@ import styled from "styled-components";
 import appState from "../../GlobalState/appState";
 
 const handleChange = (event) => {
-  //   console.log(event.target.value);
-
   let infoInput = event.target.value;
-
-  console.log(infoInput.length);
 
   if (infoInput === undefined || infoInput === null || infoInput.length === 0) {
     return;

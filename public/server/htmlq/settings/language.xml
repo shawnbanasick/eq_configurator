@@ -30,9 +30,9 @@
         <item id="welcomeText">This is a demo project on iPad use in the classroom. {br}{br}Please click on the continue-button.</item>
 
         <!-- user login, only displayed if access is restricted (see config-file) -->
-        <item id="loginHead">User Code</item>
-        <item id="loginText">Please enter your participant code. Please note, that in this demo any user code will be accepted.{br}{br}</item>
-        <item id="loginFormHeader">User Code</item>
+        <item id="loginHead">Access Code</item>
+        <item id="loginText">Please enter the access code for this survey. {br}{br}</item>
+        <item id="loginFormHeader">Access Code</item>
         <item id="loginNoInput">Please insert your participant code.</item>
         <item id="loginInvalidInput">Participant code invalid</item>
         <item id="loginNoConnection">Connection to server failed. Please try again.</item>

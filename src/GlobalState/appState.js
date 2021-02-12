@@ -230,12 +230,11 @@ const appState = store({
   langWelcome: "Welcome!",
   langWelcomeText:
     "This is a demo project on iPad use in the classroom. {br}{br}Please click on the continue-button.",
-  langUserCode: "User Code",
-  langLogInText:
-    "Please enter your participant code. Please note, that in this demo any user code will be accepted.{br}{br}",
-  langFormHeader: "User Code",
+  langUserCode: "Access Code",
+  langLogInText: "Please enter the access code for this survey. {br}{br}",
+  langFormHeader: "Access Code",
   langNoInput: "Please insert your participant code.",
-  langUserCodeInvalid: "Participant code invalid",
+  langUserCodeInvalid: "Access code invalid",
   langServerConnectFail: "Connection to server failed. Please try again.",
   langIntroduction: "Introduction",
   langIntroText: `This study is about iPad use in the classroom. {br}{br}If necessary, please maximize your browser window, reload this web page, and click on the continue-button to start the survey.`,

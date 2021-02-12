@@ -157,7 +157,7 @@ const Language = () => {
       <ColorContainer>
         <h3>User Login Screen</h3>
         <UserTextInput
-          label="User code"
+          label="Access code"
           stateId="langUserCode"
           sectionName="lang"
           width={25}
@@ -172,21 +172,21 @@ const Language = () => {
           left={0}
         />
         <UserTextInput
-          label="User Code"
+          label="Access Code"
           stateId="langFormHeader"
           sectionName="lang"
           width={25}
           left={0}
         />
         <UserTextInput
-          label="Please insert your user code."
+          label="Please insert your access code."
           stateId="langNoInput"
           sectionName="lang"
           width={25}
           left={0}
         />
         <UserTextInput
-          label="User code invalid"
+          label="Access code invalid"
           stateId="langUserCodeInvalid"
           sectionName="lang"
           width={25}
