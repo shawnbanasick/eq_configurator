@@ -7,7 +7,10 @@ const handleChange = (event) => {
   //   console.log(event.target.value);
 
   let infoInput = event.target.value;
-  if (infoInput === undefined || infoInput === null) {
+
+  console.log(infoInput.length);
+
+  if (infoInput === undefined || infoInput === null || infoInput.length === 0) {
     return;
   }
 
