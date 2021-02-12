@@ -7,7 +7,7 @@ import exportToXml from "../../Utils/exportToXml";
 // import UserSelectionSwitch from "../../Utils/UserSelectionSwitch";
 import RadioButtons from "../../Utils/RadioButtons";
 import UserTextInput from "../../Utils/UserTextInput";
-import UserNumberInput from "../../Utils/UserNumberInput";
+// import UserNumberInput from "../../Utils/UserNumberInput";
 import Survey from "../Survey/Survey";
 import generateConfigXml from "../Config/generateConfigXml";
 import appState from "../../GlobalState/appState";
@@ -21,6 +21,7 @@ const handleClick = () => {
 
 const Config = () => {
   let configUseLogInScript = appState.configUseLogInScript;
+  console.log(configUseLogInScript);
   if (configUseLogInScript === false || configUseLogInScript === "false") {
     configUseLogInScript = false;
   }
@@ -47,88 +48,96 @@ const Config = () => {
       /> */}
       <QuestionContainer>
         <UserTextInput
-          label="1. Title of study:"
+          label="1. Project title:"
           stateId="configTitle"
           sectionName="config"
           width={40}
           left={0}
         />
         <UserTextInput
-          label="1b. Study version:"
+          label="2. Project version:"
           stateId="configVersion"
           sectionName="config"
           width={5}
           left={0}
         />
         <RadioButtons
-          label="2. Text align property:"
+          label="3. Text align property:"
           buttonIdArray={["left", "right"]}
           stateId="configTextAlign"
           sectionName="config"
         />
         <RadioButtons
-          label="3. Shuffle cards:"
+          label="4. Shuffle cards:"
           buttonIdArray={["true", "false"]}
           stateId="configshuffleCards"
           sectionName="config"
         />
         <RadioButtons
-          label="4a. Project Access Code Required:"
+          label="5a. Project Access Code Required:"
           buttonIdArray={["true", "false"]}
           stateId="configLogInRequired"
           sectionName="config"
         />
-        <UserTextInput
-          label="4b. Project Access Code:"
-          stateId="configLogInPassword"
-          sectionName="config"
-          width={30}
-          left={0}
-        />
+        <LeftSpacer>
+          <UserTextInput
+            label="5b. Project Access Code:"
+            stateId="configLogInPassword"
+            sectionName="config"
+            width={30}
+            left={0}
+          />
+          <RadioButtons
+            label="5c. Require participant name or id number:"
+            buttonIdArray={["true", "false"]}
+            stateId="configPartNameRequired"
+            sectionName="config"
+          />
+        </LeftSpacer>
         <RadioButtons
-          label="5a. Use Log In Script:"
+          label="6a. Use Log In Script:"
           buttonIdArray={["true", "false"]}
           stateId="configUseLogInScript"
           sectionName="config"
         />
         {configUseLogInScript && (
-          <>
+          <LeftSpacer>
             <UserTextInput
-              label="5b. Log In Script URL:"
+              label="6b. Log In Script URL:"
               stateId="configLogInScriptURL"
               sectionName="config"
               width={40}
               left={0}
             />
             <RadioButtons
-              label="5c. Request mode:"
+              label="6c. Request mode:"
               buttonIdArray={["post", "get"]}
               stateId="configRequestMode"
               sectionName="config"
             />
-          </>
+          </LeftSpacer>
         )}
 
         <RadioButtons
-          label="6. Show Step 3 (card swapping grid):"
+          label="7. Show Step 3 (card swapping grid):"
           buttonIdArray={["true", "false"]}
           stateId="configShowStep3"
           sectionName="config"
         />
         <RadioButtons
-          label="7. Show Step 4 (individual card comments screen):"
+          label="8. Show Step 4 (individual card comments screen):"
           buttonIdArray={["true", "false"]}
           stateId="configShowStep4"
           sectionName="config"
         />
         <RadioButtons
-          label="8. Show Step 5 (questionnaire):"
+          label="9. Show Step 5 (questionnaire):"
           buttonIdArray={["true", "false"]}
           stateId="configShowStep5"
           sectionName="config"
         />
         <RadioButtons
-          label="9. Disable Back Button:"
+          label="10. Disable Back Button:"
           buttonIdArray={["true", "false"]}
           stateId="configDisableBackButton"
           sectionName="config"
@@ -223,4 +232,8 @@ const DownloadConfigButton = styled(GeneralButton)`
   width: auto;
   align-self: center;
   margin-bottom: 100px;
+`;
+
+const LeftSpacer = styled.div`
+  margin-left: 30px;
 `;

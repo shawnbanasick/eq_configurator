@@ -1152,6 +1152,12 @@ angular
     "$scope",
     "$state",
     function (config, language, UserCode, $http, $scope, $state) {
+      $scope.showNameInput = false;
+      $scope.user = {};
+
+      console.log($scope.nameInput);
+      console.log(config.nameInput);
+
       function getParameterByName(queryString, name) {
         name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
         var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
@@ -1205,6 +1211,7 @@ angular
       }
 
       $scope.login = function (code) {
+        console.log(code);
         if (!code || code.length === 0) {
           $scope.error = language.loginNoInput;
           return;
@@ -1220,11 +1227,10 @@ angular
             }
           });
         } else {
-          $scope.showNameInput = true;
-
           var correctPw = false;
           if (config.loginPassword && config.loginPassword.length > 0) {
             correctPw = config.loginPassword === code;
+            console.log($scope.user);
           } else {
             correctPw = true;
           }

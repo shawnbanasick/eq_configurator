@@ -21,13 +21,11 @@ const SelectionButtons = (props) => {
   const handleOnclick = (event) => {
     event.preventDefault();
     clearAllButtons();
-    const value = event.target.value;
-    const buttonActiveState = event.target.id;
-    console.log(buttonActiveState);
+    const value = event.target.id;
+    const buttonActiveState = event.target.dataset.value;
     const key = `${props.stateId}`; //
     appState[buttonActiveState] = true;
     appState[key] = value;
-    // console.log(JSON.stringify(appState, null, 2));
   };
 
   return (
@@ -36,13 +34,12 @@ const SelectionButtons = (props) => {
       {props.buttonIdArray.map((item) => (
         <SelcButtons
           tabindex="0"
-          as={GeneralButton}
           key={`buttonSelect${item}`}
-          value={item}
+          id={item}
           isActive={appState[`${props.stateId}${item}Active`]}
           // disabled={isRadioSelectDisabled}
           onClick={handleOnclick}
-          id={`${props.stateId}${item}Active`}
+          data-value={`${props.stateId}${item}Active`}
         >
           {item}
         </SelcButtons>
@@ -63,9 +60,8 @@ const ButtonsContainerDiv = styled.div`
   align-items: center;
 `;
 
-const SelcButtons = styled.div`
+const SelcButtons = styled(GeneralButton)`
   min-width: 50px;
-  height: 15px;
 `;
 
 const TitleSpan = styled.span`
