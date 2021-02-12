@@ -1,7 +1,6 @@
 import React from "react";
 import { view } from "@risingstack/react-easy-state";
 import styled, { keyframes } from "styled-components";
-// import "./anchorStyling.css";
 import GlobalStyle from "../../Utils/GlobalStyle";
 import GeneralButton from "../../Utils/GeneralButton";
 import appState from "../../GlobalState/appState";
