@@ -32,8 +32,6 @@ const appState = store({
   configShowStep5: "true",
   configDisableBackButtontrueActive: true,
   configDisableBackButton: true,
-  configStep1FontSize: 0.8,
-  configStep2FontSize: 0.8,
 
   stylesStatementNumberDisplayfalseActive: true,
   stylesStatementNumberDisplay: false,

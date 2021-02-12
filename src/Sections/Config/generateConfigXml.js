@@ -34,9 +34,6 @@ const generateConfigXml = () => {
     appState.configRequestMode || ""
   }</item>\n\n`;
 
-  const step1FontSize = `     <item id="step1FontSize">${appState.configStep1FontSize}</item>\n`;
-  const step2FontSize = `     <item id="step2FontSize">${appState.configStep2FontSize}</item>\n`;
-
   const showStep3String1 = `     <!-- activate/deactivate optional steps (true|false) -->\n`;
   const showStep3String2 = `     <item id="showStep3">${appState.configShowStep3}</item>\n`;
   const showStep4String2 = `     <item id="showStep4">${appState.configShowStep4}</item>\n`;
@@ -67,8 +64,6 @@ const generateConfigXml = () => {
     loginUrlString2,
     loginMethodString1,
     loginMethodString2,
-    step1FontSize,
-    step2FontSize,
     showStep3String1,
     showStep3String2,
     showStep4String2,

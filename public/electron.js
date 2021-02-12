@@ -9,6 +9,7 @@ const config = require("./configs/app.config");
 const i18n = require("i18next");
 const i18nextBackend = require("i18next-node-fs-backend");
 const menuFactoryService = require("./services/menuFactory");
+const contextMenu = require("electron-context-menu");
 const ipcMain = electron.ipcMain;
 const fs = require("fs");
 
@@ -19,6 +20,23 @@ const { fork } = require("child_process");
 let ps;
 
 let mainWindow;
+
+contextMenu({
+  prepend: (params, browserWindow) => [
+    {
+      role: "undo",
+    },
+    {
+      role: "redo",
+    },
+    {
+      role: "selectAll",
+    },
+    {
+      role: "delete",
+    },
+  ],
+});
 
 function windowStateKeeper(windowName) {
   let window, windowState;
