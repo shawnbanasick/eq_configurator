@@ -7,7 +7,8 @@ import GeneralButton from "../../Utils/GeneralButton";
 import appState from "../../GlobalState/appState";
 
 const setMode = (event) => {
-  if (event.target.value === "pro") {
+  console.log(event.target.id);
+  if (event.target.id === "pro") {
     appState.displayMode = "pro";
   } else {
     appState.displayMode = "beginner";
@@ -15,15 +16,13 @@ const setMode = (event) => {
 };
 
 const Start = () => {
-  let beginnerButtonActive;
-  let proButtonActive;
   const displayMode = appState.displayMode;
   if (displayMode === "pro") {
-    beginnerButtonActive = false;
-    proButtonActive = true;
+    appState.beginnerButtonActive = false;
+    appState.proButtonActive = true;
   } else {
-    beginnerButtonActive = true;
-    proButtonActive = false;
+    appState.beginnerButtonActive = true;
+    appState.proButtonActive = false;
   }
 
   return (
@@ -41,13 +40,17 @@ const Start = () => {
       <CustomH2>Select Configurator Display Mode:</CustomH2>
       <ButtonContainer>
         <BeginnerButton
-          value="beginner"
-          isActive={beginnerButtonActive}
+          id="beginner"
+          isActive={appState.beginnerButtonActive}
           onClick={setMode}
         >
-          Beginner
+          Novice
         </BeginnerButton>
-        <ProButton value="pro" isActive={proButtonActive} onClick={setMode}>
+        <ProButton
+          id="pro"
+          isActive={appState.proButtonActive}
+          onClick={setMode}
+        >
           Expert
         </ProButton>
       </ButtonContainer>

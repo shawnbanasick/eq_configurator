@@ -233,7 +233,7 @@ const appState = store({
   langUserCode: "Access Code",
   langLogInText: "Please enter the access code for this survey. {br}{br}",
   langFormHeader: "Access Code",
-  langNoInput: "Please insert your participant code.",
+  langNoInput: "Please insert the access code.",
   langUserCodeInvalid: "Access code invalid",
   langServerConnectFail: "Connection to server failed. Please try again.",
   langIntroduction: "Introduction",

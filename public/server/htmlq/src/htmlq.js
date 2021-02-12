@@ -1220,6 +1220,8 @@ angular
             }
           });
         } else {
+          $scope.showNameInput = true;
+
           var correctPw = false;
           if (config.loginPassword && config.loginPassword.length > 0) {
             correctPw = config.loginPassword === code;

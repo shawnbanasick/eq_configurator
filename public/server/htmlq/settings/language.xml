@@ -33,9 +33,10 @@
         <item id="loginHead">Access Code</item>
         <item id="loginText">Please enter the access code for this survey. {br}{br}</item>
         <item id="loginFormHeader">Access Code</item>
-        <item id="loginNoInput">Please insert your participant code.</item>
-        <item id="loginInvalidInput">Participant code invalid</item>
+        <item id="loginNoInput">Please insert the access code.</item>
+        <item id="loginInvalidInput">Access code invalid</item>
         <item id="loginNoConnection">Connection to server failed. Please try again.</item>
+        
 
         <!-- introduction (leave blank to skip popup) -->
         <item id="introHead">Introduction</item>
