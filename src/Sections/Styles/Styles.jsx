@@ -25,7 +25,7 @@ const Styles = () => {
       <SettingsDiv>
         <SectionHeader>Step #2 and Step #3 Sorting Grid Styles</SectionHeader>
         <UserNumberInput
-          label="1. Font size for extra small screens (screen height less than 800px - iPad, small laptops)"
+          label="1. Font size for extra small screens (screen height less than 720px)"
           step={1}
           value={10}
           upperLimit={100}
@@ -34,7 +34,7 @@ const Styles = () => {
           sectionName="styles"
         ></UserNumberInput>
         <UserNumberInput
-          label="2. Font size for small screens (height between 800px and 899px)"
+          label="2. Font size for small screens (height at least 720px)"
           step={1}
           value={12}
           upperLimit={100}
@@ -43,7 +43,7 @@ const Styles = () => {
           sectionName="styles"
         ></UserNumberInput>
         <UserNumberInput
-          label="3. Font size for medium  screens (height between 900px and 1079px)"
+          label="3. Font size for medium screens (height at least 900px)"
           step={1}
           value={14}
           upperLimit={100}
@@ -52,7 +52,7 @@ const Styles = () => {
           sectionName="styles"
         ></UserNumberInput>
         <UserNumberInput
-          label="4. Font size for large screens (height 1080px and 1199px)"
+          label="4. Font size for large screens (height at least 1080px)"
           step={1}
           value={16}
           upperLimit={100}
@@ -61,7 +61,7 @@ const Styles = () => {
           sectionName="styles"
         ></UserNumberInput>
         <UserNumberInput
-          label="5. Font size for very large screens (height 1200px and 1439px)"
+          label="5. Font size for very large screens (height at least 1440px)"
           step={1}
           value={18}
           upperLimit={100}
@@ -70,7 +70,7 @@ const Styles = () => {
           sectionName="styles"
         ></UserNumberInput>
         <UserNumberInput
-          label="6. Font size for 4k screens (height greater than 1440px)"
+          label="6. Font size for 4k screens (height at least 2160px)"
           step={1}
           value={20}
           upperLimit={100}

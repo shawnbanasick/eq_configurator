@@ -376,7 +376,7 @@ li.disagree {
 /* step #2 and step #3 font size
 ---------------------------------*/
 
-@media screen and (min-height: 220px), screen and (max-height: 863px) {
+@media screen and (min-height: 220px), screen and (max-height: 719px) {
   .grid td {
     vertical-align: top;
     padding: 0;
@@ -385,7 +385,7 @@ li.disagree {
   }
 }
 
-@media screen and (min-height: 864px) {
+@media screen and (min-height: 720px) {
   .grid td {
     vertical-align: top;
     padding: 0;
@@ -410,14 +410,14 @@ li.disagree {
     /* font-size: 1.2vh; */
   }
 }
-/* @media screen and (max-height: 720px) {
+/* @media screen and (min-height: 1440px) {
   .grid td {
     vertical-align: top;
     padding: 0;
     font-size: ${appState.stylesXlargeFontSize}px;
   }
 }
-@media screen and (max-height: 720px) {
+@media screen and (min-height: 2160px) {
   .grid td {
     vertical-align: top;
     padding: 0;
