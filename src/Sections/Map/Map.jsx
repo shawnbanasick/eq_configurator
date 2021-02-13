@@ -78,9 +78,10 @@ const Title = styled.h1`
   display: grid;
   grid-area: row1;
   font-size: 50px;
-  width: 80vw;
+  width: 600px;
   align-items: center;
   justify-content: center;
+  /* border: 2px solid red; */
 `;
 
 const DownloadMapButton = styled(GeneralButton)`

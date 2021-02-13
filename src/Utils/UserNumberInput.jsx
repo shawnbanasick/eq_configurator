@@ -101,6 +101,7 @@ const NumberWarningMessage = styled.div`
   color: black;
   height: 25px;
   width: auto;
+  font-size: 14px;
   /* width: 225px; */
 `;
 
@@ -108,10 +109,11 @@ const UserNumberContainer = styled.div`
   display: flex;
   margin-top: 25px;
   margin-left: 70px;
-  width: 900px;
+  width: 90%;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  border: 2px solid green;
 `;
 
 const TitleSpan = styled.span`

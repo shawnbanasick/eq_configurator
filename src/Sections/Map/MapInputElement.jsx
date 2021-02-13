@@ -275,13 +275,13 @@ const InputRow = styled.div`
 `;
 
 const DesignDiv = styled.div`
-  margin-left: 150px;
   margin-top: 10px;
   margin-bottom: 50px;
   display: flex;
   flex-direction: column;
   grid-column-start: 1;
   /* border: 2px solid red; */
+  width: 770px;
 `;
 
 const TextDiv = styled.div`
@@ -301,7 +301,6 @@ const TextDiv2 = styled.div`
   padding-left: 4px;
   width: 700px;
   height: 25px;
-  margin-left: 15px;
 `;
 
 const TitleDiv = styled.div`

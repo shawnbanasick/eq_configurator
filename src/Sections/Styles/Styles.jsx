@@ -23,9 +23,9 @@ const Styles = () => {
       <GlobalStyle />
       <Title>Styles</Title>
       <SettingsDiv>
-        <SectionHeader>Step #2 and Step #3 Sorting Grid Styles</SectionHeader>
+        <SectionHeader>Step #2 and Step #3 Sorting Font Sizes</SectionHeader>
         <UserNumberInput
-          label="1. Font size for extra small screens (screen height less than 720px)"
+          label="1. Extra small screens (height less than 720px)"
           step={1}
           value={10}
           upperLimit={100}
@@ -34,7 +34,7 @@ const Styles = () => {
           sectionName="styles"
         ></UserNumberInput>
         <UserNumberInput
-          label="2. Font size for small screens (height at least 720px)"
+          label="2. Small screens (height at least 720px)"
           step={1}
           value={12}
           upperLimit={100}
@@ -43,7 +43,7 @@ const Styles = () => {
           sectionName="styles"
         ></UserNumberInput>
         <UserNumberInput
-          label="3. Font size for medium screens (height at least 900px)"
+          label="3. Medium screens (height at least 900px)"
           step={1}
           value={14}
           upperLimit={100}
@@ -52,7 +52,7 @@ const Styles = () => {
           sectionName="styles"
         ></UserNumberInput>
         <UserNumberInput
-          label="4. Font size for large screens (height at least 1080px)"
+          label="4. Large screens (height at least 1080px)"
           step={1}
           value={16}
           upperLimit={100}
@@ -61,7 +61,7 @@ const Styles = () => {
           sectionName="styles"
         ></UserNumberInput>
         <UserNumberInput
-          label="5. Font size for very large screens (height at least 1440px)"
+          label="5. Very large screens (height at least 1440px)"
           step={1}
           value={18}
           upperLimit={100}
@@ -70,7 +70,7 @@ const Styles = () => {
           sectionName="styles"
         ></UserNumberInput>
         <UserNumberInput
-          label="6. Font size for 4k screens (height at least 2160px)"
+          label="6. 4k screens (height at least 2160px)"
           step={1}
           value={20}
           upperLimit={100}
@@ -166,8 +166,9 @@ const DownloadMapButton = styled(GeneralButton)`
 const SettingsDiv = styled.div`
   margin-bottom: 30px;
   text-align: left;
-  /* border: 2px solid red; */
+  border: 2px solid red;
   padding-left: 20px;
+  width: 90%;
 `;
 
 const SectionHeader = styled.h3`

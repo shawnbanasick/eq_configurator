@@ -30,13 +30,14 @@ const InputColumn = styled.div`
   height: 50px;
   border: 1px solid darkgray;
   background-color: #d6dbe0;
-  padding-right: 1px;
+  padding-right: 2px;
+  /* border: 2px solid red; */
 `;
 
 const StyledInput = styled.input`
   width: 26px;
   text-align: right;
-  margin-left: 2px;
+  margin-left: 3px;
 `;
 
 const StyledLabel = styled.label`
