@@ -61,7 +61,6 @@ const ButtonsContainerDiv = styled.div`
 `;
 
 const SelcButtons = styled(GeneralButton)`
-  height: 38px;
   min-width: 70px;
 `;
 

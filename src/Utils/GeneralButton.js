@@ -8,10 +8,6 @@ const GeneralButton = styled.div`
   text-align: center;
   box-shadow: none;
   box-sizing: content-box;
-  min-height: 28px;
-  min-width: 50px;
-  height: auto;
-  width: auto;
   font-size: 16px;
   font-family: Helvetica, sans-serif;
   font-weight: normal;
@@ -21,6 +17,7 @@ const GeneralButton = styled.div`
   margin-bottom: 3px;
   /* padding: 5px; */
   padding-top: 10px;
+  padding-bottom: 10px;
   padding-left: 10px;
   padding-right: 10px;
   cursor: pointer;

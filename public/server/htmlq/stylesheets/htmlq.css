@@ -338,8 +338,7 @@ li.disagree {
 /* step #2 and step #3 font size
 ---------------------------------*/
 
-@media screen and (min-height: 220px),
-       screen and (max-height: 863px) {
+@media screen and (min-height: 220px), screen and (max-height: 863px) {
   .grid td {
     vertical-align: top;
     padding: 0;
@@ -387,14 +386,6 @@ li.disagree {
     font-size: 0.8vh;
   }
 } */
-
-
-
-
-
-
-
-
 
 .grid-heading {
   display: flex;
@@ -460,12 +451,12 @@ li.disagree {
   display: block;
 }
 
-#wrap {
+/* #wrap {
   min-height: 100%;
   height: auto !important;
   height: 100%;
   margin: 0 auto -60px;
-}
+} */
 
 /* Sticky footer styles
 -------------------------------------------------- */
@@ -540,20 +531,7 @@ body {
   overflow: hidden;
 }
 
-/* 
-.innerCard {
-  /* display: flex;
-  height: 100%;
-  width: 100%;
-  margin: auto;
-  text-align: center;
-  justify-content: center;
-  align-items: center; 
+.userNameDiv {
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
-
-.outerCard {
-  display: table-cell;
-  vertical-align: middle;
-  overflow: hidden;  
-} 
-*/

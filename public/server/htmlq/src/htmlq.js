@@ -1152,11 +1152,10 @@ angular
     "$scope",
     "$state",
     function (config, language, UserCode, $http, $scope, $state) {
-      $scope.showNameInput = false;
-      $scope.user = {};
+      console.log(config.partNameRequired);
 
-      console.log($scope.nameInput);
-      console.log(config.nameInput);
+      $scope.showNameInput = config.partNameRequired;
+      $scope.user = {};
 
       function getParameterByName(queryString, name) {
         name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
@@ -1230,7 +1229,13 @@ angular
           var correctPw = false;
           if (config.loginPassword && config.loginPassword.length > 0) {
             correctPw = config.loginPassword === code;
+
+            config.partId = $scope.user.PartName;
+
+            console.log(config.partId);
+
             console.log($scope.user);
+            console.log(config.partId);
           } else {
             correctPw = true;
           }
@@ -1734,6 +1739,11 @@ angular
             return s.category === "disagree";
           }).length,
         };
+
+        if (config.partId === null || config.partId === undefined) {
+          config.partId = "";
+        }
+        ret.participantId = config.partId;
 
         if (UserCode.userCode && UserCode.userCode.length > 0) {
           ret.uid = UserCode.userCode;

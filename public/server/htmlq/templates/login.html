@@ -1,5 +1,5 @@
 <div id="login">
-  <div class="row" style="margin-top: 150px; margin-left: 150px">
+  <div class="row" style="margin-top: 100px; margin-left: 150px">
     <div class="col-xs-12">
       <h4 ng-bind-html="language.loginHead"></h4>
       <p ng-bind-html="language.loginText"></p>
@@ -24,21 +24,21 @@
             ng-model="usercode"
             autocomplete="off"
           />
-          <br />
-          <label
-            for="username"
-            ng-bind-html="language.loginFormHeader"
-            ng-if="showNameInput"
-          ></label>
-          <input
-            class="form-control"
-            id="username"
-            ng-model="user.PartName"
-            autocomplete="off"
-            ng-if="showNameInput"
-            required
-          />
-          <br />
+          <div class="userNameDiv">
+            <label
+              for="username"
+              ng-bind-html="language.loginPartIdText"
+              ng-if="showNameInput"
+            ></label>
+            <input
+              class="form-control"
+              id="username"
+              ng-model="user.PartName"
+              autocomplete="off"
+              ng-if="showNameInput"
+              required
+            />
+          </div>
 
           <button
             type="submit"

@@ -35,6 +35,7 @@ const generateLanguageXml = () => {
         <item id="loginHead">${appState.langUserCode}</item>
         <item id="loginText">${appState.langLogInText}</item>
         <item id="loginFormHeader">${appState.langFormHeader}</item>
+        <item id="loginPartIdText">${appState.langPartIdText}</item>
         <item id="loginNoInput">${appState.langNoInput}</item>
         <item id="loginInvalidInput">${appState.langUserCodeInvalid}</item>
         <item id="loginNoConnection">${appState.langServerConnectFail}</item>

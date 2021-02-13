@@ -3,7 +3,7 @@
    <config version="1.0" htmlParse="false">
 
      <!-- title of the study -->
-     <item id="studyTitle">undefined</item>
+     <item id="studyTitle">my study wow</item>
 
      <!-- text-align property(left|right) -->
      <item id="textAlign">left</item>
@@ -12,9 +12,10 @@
      <item id="shuffleCards">true</item>
 
      <!-- login required (true|false) -->
-     <item id="loginrequired">undefined</item>
+     <item id="loginrequired">true</item>
      <!-- login with common password (leave blank if not required) -->
-     <item id="loginPassword">test project one</item>
+     <item id="loginPassword">go</item>
+    <item id="partNameRequired">true</item>
       <!-- URL to individual login script(leave blank if not required) -->
      <item id="loginUrl"></item>
      <!-- request mode (post|get) -->

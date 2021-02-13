@@ -2,9 +2,9 @@
 import appState from "../../GlobalState/appState";
 
 const generateConfigXml = () => {
-  const data1 = `<?xml version="${appState.configVersion}" encoding="UTF-8"?>
+  const data1 = `<?xml version="1.0" encoding="UTF-8"?>
 
-   <config version="1.0" htmlParse="false">
+   <config version="${appState.configVersion}" htmlParse="false">
 
      <!-- title of the study -->\n`;
 
@@ -22,6 +22,9 @@ const generateConfigXml = () => {
   const loginPassString1 = `     <!-- login with common password (leave blank if not required) -->\n`;
   const loginPassString2 = `     <item id="loginPassword">${
     appState.configLogInPassword || ""
+  }</item>\n`;
+  const loginPassString3 = `    <item id="partNameRequired">${
+    appState.configPartNameRequired || "false"
   }</item>\n`;
 
   const loginUrlString1 = `      <!-- URL to individual login script(leave blank if not required) -->\n`;
@@ -60,6 +63,7 @@ const generateConfigXml = () => {
     loginString2,
     loginPassString1,
     loginPassString2,
+    loginPassString3,
     loginUrlString1,
     loginUrlString2,
     loginMethodString1,

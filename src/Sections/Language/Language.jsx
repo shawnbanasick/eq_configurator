@@ -72,20 +72,6 @@ const Language = () => {
         width={25}
         left={0}
       />
-      {/* <UserTextInput
-        label="Send via email"
-        stateId="langBtnEmail"
-        sectionName="lang"
-        width={25}
-        left={0}
-      />{" "}
-      <UserTextInput
-        label="Print data"
-        stateId="langBtnPrint"
-        sectionName="lang"
-        width={25}
-        left={0}
-      />{" "} */}
       <UserTextInput
         label="Exit"
         stateId="langBtnExit"
@@ -130,13 +116,6 @@ const Language = () => {
           width={25}
           left={0}
         />
-        {/* <UserTextInput
-          label={`Please maximize your browser for using this application.`}
-          stateId="langMaxWindow"
-          sectionName="lang"
-          width={30}
-          left={0}
-        /> */}
       </ColorContainer>
       <h3>Welcome Screen</h3>
       <UserTextInput
@@ -172,12 +151,20 @@ const Language = () => {
           left={0}
         />
         <UserTextInput
-          label="Access Code"
+          label="Access code"
           stateId="langFormHeader"
           sectionName="lang"
           width={25}
           left={0}
         />
+        <UserTextInput
+          label="Participant name or Id number"
+          stateId="langPartIdText"
+          sectionName="lang"
+          width={25}
+          left={0}
+        />
+
         <UserTextInput
           label="Please insert your access code."
           stateId="langNoInput"
