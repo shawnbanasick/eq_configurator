@@ -27,7 +27,7 @@
 
         <!-- welcome screen (leave blank to skip screen) -->
         <item id="welcomeHead">Welcome!</item>
-        <item id="welcomeText">This is a demo project on iPad use in the classroom. {br}{br}Please click on the continue-button.</item>
+        <item id="welcomeText">This is a demo project on iPad use in the classroom. {br}{br}Please {i}click{/i} on the continue-button.</item>
 
         <!-- user login, only displayed if access is restricted (see config-file) -->
         <item id="loginHead">Access Code</item>

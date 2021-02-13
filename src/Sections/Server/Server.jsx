@@ -197,8 +197,7 @@ const FindServerButton = styled(GeneralButton)`
   margin-top: 20px;
   margin-bottom: 20px;
   font-weight: bold;
-  font-size: 1.2em;
-  padding-bottom: 10px;
+  font-size: 25px;
 `;
 
 const ProjectLinkDiv = styled.div`
@@ -218,12 +217,10 @@ const LinkSpan = styled.span`
   /* border: 2px solid red; */
 `;
 const LinkCopyButton = styled(GeneralButton)`
-  height: 50px;
   margin-top: 20px;
   margin-bottom: 20px;
-  line-height: 1.8em;
   font-weight: bold;
-  font-size: 1.2em;
+  font-size: 25px;
 `;
 
 const StyledToastContainer = styled(ToastContainer).attrs({

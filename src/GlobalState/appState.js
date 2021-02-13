@@ -38,9 +38,16 @@ const appState = store({
   stylesStatementNumberDisplayfalseActive: true,
   stylesStatementNumberDisplay: false,
   stylesStatementNumberSizesmallActive: true,
-  stylesStatementNumberSizes: "small",
+  stylesStatementNumberSize: "small",
   stylesStatementNumberOpacityfaintActive: true,
   stylesStatementNumberOpacity: "faint",
+
+  stylesXsmallFontSize: 10,
+  stylesSmallFontSize: 12,
+  stylesMediumFontSize: 14,
+  stylesLargeFontSize: 16,
+  stylesXlargeFontSize: 18,
+  stylesHdFontSize: 20,
 
   surveyQuestionType: "text",
   activeWindow: "viewStart",

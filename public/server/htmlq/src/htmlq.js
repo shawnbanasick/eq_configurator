@@ -65,7 +65,7 @@ angular
       $stateProvider
         .state("error", {
           template:
-            '<div class="container"><div class="row" style="margin-top: 35px;"><div class="col-xs-8 col-xs-offset-2 alert alert-danger"><p>An error occured while opening your survey. If you tried to open index.html via the file:// protocol, please use Firefox or another browser that allows XML HTTP Requests to local files.</p></div></div></div>',
+            '<div class="container"><div class="row" style="margin-top: 35px;"><div class="col-xs-8 col-xs-offset-2 alert alert-danger"><p>An error occured while opening your survey. Due to improved browser security measures, it is no longer possible to view these files by double clicking on index.html. To view and test your file setup, please use Easy HTMLQ Configurator.</p></div></div></div>',
         })
         .state("root", {
           abstract: true,

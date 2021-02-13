@@ -9,7 +9,9 @@ import appState from "../GlobalState/appState";
 const UserNumberInput = (props) => {
   const { t } = useTranslation();
 
-  const [value, setValue] = useState(props.value);
+  const key = `${props.stateId}`; // ${props.sectionName}
+
+  // const [value, setValue] = useState(props.value);
   const [showWarning, setShowWarning] = useState(false);
 
   const handleChange = (e) => {
@@ -17,12 +19,15 @@ const UserNumberInput = (props) => {
     if (isNaN(value)) {
       return null;
     }
+
     const key = props.stateId;
     setShowWarning(false);
     const upperLimit = props.upperLimit;
     const lowerLimit = props.lowerLimit;
     const upperLimitValue = props.upperLimit + props.step;
     const lowerLimitValue = props.lowerLimit - props.step;
+
+    // limit according to props boundaries
     if (value <= lowerLimitValue || value >= upperLimitValue) {
       if (value < lowerLimit) {
         value = lowerLimit;
@@ -30,12 +35,13 @@ const UserNumberInput = (props) => {
       if (value > upperLimit) {
         value = upperLimit;
       }
-      setValue(value);
+      appState[key] = value; // setValue(value);
+      // appState[]
       setShowWarning(true);
     } else {
-      setValue(value);
-      // factorVizOptionsHolder[key] = value;
+      appState[key] = value; // setValue(value);
     }
+
     appState[key] = value;
   };
 
@@ -51,7 +57,7 @@ const UserNumberInput = (props) => {
         placeholder={props.placeholder}
         name={props.name}
         step={props.step}
-        value={value}
+        value={appState[key]}
         onChange={handleChange}
         className="optionsInput"
       />

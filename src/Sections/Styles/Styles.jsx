@@ -7,16 +7,17 @@ import GeneralButton from "../../Utils/GeneralButton";
 import appState from "../../GlobalState/appState";
 import UserNumberInput from "../../Utils/UserNumberInput";
 import RadioButtons from "../../Utils/RadioButtons";
+import generateStylesCss from "./generateStylesCss.js";
 
 const handleClick = () => {
   const userSelectedFilePath = `${appState.userSelectedFilePath}/stylesheets/htmlq.css`;
   console.log(userSelectedFilePath);
-  // const data = generateMapXml();
-
-  // exportToXml("htmlq.css", data, "css");
+  const data = generateStylesCss();
+  console.log(data);
+  exportToXml("htmlq.css", data, "css");
 };
 
-const Map = () => {
+const Styles = () => {
   return (
     <MainContent>
       <GlobalStyle />
@@ -29,7 +30,7 @@ const Map = () => {
           value={10}
           upperLimit={100}
           lowerLimit={1}
-          stateId="stylesXsFontSize"
+          stateId="stylesXsmallFontSize"
           sectionName="styles"
         ></UserNumberInput>
         <UserNumberInput
@@ -38,7 +39,7 @@ const Map = () => {
           value={12}
           upperLimit={100}
           lowerLimit={10}
-          stateId="stylesXsFontSize"
+          stateId="stylesSmallFontSize"
           sectionName="styles"
         ></UserNumberInput>
         <UserNumberInput
@@ -47,7 +48,7 @@ const Map = () => {
           value={14}
           upperLimit={100}
           lowerLimit={1}
-          stateId="stylesXsFontSize"
+          stateId="stylesMediumFontSize"
           sectionName="styles"
         ></UserNumberInput>
         <UserNumberInput
@@ -56,7 +57,7 @@ const Map = () => {
           value={16}
           upperLimit={100}
           lowerLimit={1}
-          stateId="stylesXsFontSize"
+          stateId="stylesLargeFontSize"
           sectionName="styles"
         ></UserNumberInput>
         <UserNumberInput
@@ -65,7 +66,7 @@ const Map = () => {
           value={18}
           upperLimit={100}
           lowerLimit={1}
-          stateId="stylesXsFontSize"
+          stateId="stylesXlargeFontSize"
           sectionName="styles"
         ></UserNumberInput>
         <UserNumberInput
@@ -74,7 +75,7 @@ const Map = () => {
           value={20}
           upperLimit={100}
           lowerLimit={1}
-          stateId="stylesXsFontSize"
+          stateId="stylesHdFontSize"
           sectionName="styles"
         ></UserNumberInput>
         <SectionHeader>Statement Numbers</SectionHeader>
@@ -91,7 +92,7 @@ const Map = () => {
           sectionName="styles"
         />
         <RadioButtons
-          label="Statement number display:"
+          label="Statement number font style:"
           buttonIdArray={["bold", "normal", "faint"]}
           stateId="stylesStatementNumberOpacity"
           sectionName="styles"
@@ -105,7 +106,7 @@ const Map = () => {
   );
 };
 
-export default view(Map);
+export default view(Styles);
 
 const fadeIn = keyframes`
   from {

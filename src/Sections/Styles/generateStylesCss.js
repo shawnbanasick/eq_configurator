@@ -1,4 +1,41 @@
+import appState from "../../GlobalState/appState";
 
+const generateCssXml = () => {
+  // show / hide statement numbers
+  let statementNumberDisplay = appState.stylesStatementNumberDisplay;
+  console.log(statementNumberDisplay);
+  if (statementNumberDisplay === true || statementNumberDisplay === "true") {
+    statementNumberDisplay = "";
+  } else {
+    statementNumberDisplay = `display: none;`;
+  }
+  console.log(statementNumberDisplay);
+
+  // set statement number font size
+  let statementNumberSize = appState.stylesStatementNumberSize;
+  console.log(statementNumberSize);
+  if (statementNumberSize === "large") {
+    statementNumberSize = `font-size: 100%;`;
+  } else if (statementNumberSize === "medium") {
+    statementNumberSize = `font-size: 85%;`;
+  } else {
+    statementNumberSize = `font-size: 70%;`;
+  }
+
+  // set Statement number opacity
+  let statementNumberOpacity = appState.stylesStatementNumberOpacity;
+  console.log(statementNumberOpacity);
+  if (statementNumberOpacity === "bold") {
+    statementNumberOpacity = `font-weight: bold;`;
+  } else if (statementNumberOpacity === "normal") {
+    statementNumberOpacity = "";
+  } else {
+    statementNumberOpacity = `opacity: 0.5;`;
+  }
+
+  // const
+
+  let data = `
   .col-centered {
   float: none;
   margin: 0 auto;
@@ -343,7 +380,7 @@ li.disagree {
   .grid td {
     vertical-align: top;
     padding: 0;
-    font-size: 15px;
+    font-size: ${appState.stylesXsmallFontSize}px;
     /* font-size: 0.8vh; */
   }
 }
@@ -352,7 +389,7 @@ li.disagree {
   .grid td {
     vertical-align: top;
     padding: 0;
-    font-size: 15px;
+    font-size: ${appState.stylesSmallFontSize}px;
     /* font-size: 1.4vh; */
   }
 }
@@ -360,7 +397,7 @@ li.disagree {
   .grid td {
     vertical-align: top;
     padding: 0;
-    font-size: 15px;
+    font-size: ${appState.stylesMediumFontSize}px;
     /* font-size: 1.4vh; */
   }
 }
@@ -369,7 +406,7 @@ li.disagree {
   .grid td {
     vertical-align: top;
     padding: 0;
-    font-size: 15px;
+    font-size: ${appState.stylesLargeFontSize}px;
     /* font-size: 1.2vh; */
   }
 }
@@ -377,14 +414,14 @@ li.disagree {
   .grid td {
     vertical-align: top;
     padding: 0;
-    font-size: 15px;
+    font-size: ${appState.stylesXlargeFontSize}px;
   }
 }
 @media screen and (max-height: 720px) {
   .grid td {
     vertical-align: top;
     padding: 0;
-    font-size: 15px;
+    font-size: ${appState.stylesHdFontSize}px;
   }
 } */
 
@@ -487,9 +524,9 @@ body {
 
 .idNum {
   margin-right: 5px;
-  font-size: 100%;
-  opacity: 0.5;
-  
+  ${statementNumberSize}
+  ${statementNumberOpacity}
+  ${statementNumberDisplay}
 }
 
 /* custom help button css - override bootstrap settings
@@ -541,4 +578,9 @@ body {
 
 
 
-  
+  `;
+
+  return data;
+};
+
+export default generateCssXml;

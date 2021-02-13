@@ -4,14 +4,12 @@ import styled, { keyframes } from "styled-components";
 import GlobalStyle from "../../Utils/GlobalStyle";
 import GeneralButton from "../../Utils/GeneralButton";
 import exportToXml from "../../Utils/exportToXml";
-// import UserSelectionSwitch from "../../Utils/UserSelectionSwitch";
 import RadioButtons from "../../Utils/RadioButtons";
 import UserTextInput from "../../Utils/UserTextInput";
-// import UserNumberInput from "../../Utils/UserNumberInput";
 import Survey from "../Survey/Survey";
 import generateConfigXml from "../Config/generateConfigXml";
 import appState from "../../GlobalState/appState";
-// import appState from "../../GlobalState/appState";
+import FadeIn from "./FadeIn";
 
 const handleClick = () => {
   const data = generateConfigXml();
@@ -141,7 +139,11 @@ const Config = () => {
           sectionName="config"
         />
       </QuestionContainer>
-      {configShowStep5 && <Survey />}
+      {configShowStep5 && (
+        <FadeIn delay={150} duration={1050}>
+          <Survey />
+        </FadeIn>
+      )}
       <DownloadConfigButton onClick={() => handleClick()}>
         Save file to <b>settings folder</b> and replace "config.xml" file
       </DownloadConfigButton>
