@@ -15,13 +15,19 @@ const setMode = (event) => {
 };
 
 const Start = () => {
+  let showDescriptionPro;
+  let showDescriptionBeginner;
   const displayMode = appState.displayMode;
   if (displayMode === "pro") {
     appState.beginnerButtonActive = false;
     appState.proButtonActive = true;
+    showDescriptionPro = true;
+    showDescriptionBeginner = false;
   } else {
     appState.beginnerButtonActive = true;
     appState.proButtonActive = false;
+    showDescriptionPro = false;
+    showDescriptionBeginner = true;
   }
 
   return (
@@ -53,6 +59,12 @@ const Start = () => {
           Expert
         </ProButton>
       </ButtonContainer>
+      <DescriptionDiv>
+        {showDescriptionPro && <IntroText>just the essentials</IntroText>}
+        {showDescriptionBeginner && (
+          <IntroText>in-depth descriptions and directions</IntroText>
+        )}
+      </DescriptionDiv>
     </MainContent>
   );
 };
@@ -90,9 +102,9 @@ const MainContent = styled.div`
   transition: visibility 0.5s linear;
   font-family: Helvetica, sans-serif;
   font-size: 18px;
-  width: calc(100vw - 140px);
+  width: calc(100vw - 137px);
   box-sizing: border-box;
-  max-height: calc(100vh - 23px);
+  min-height: calc(100vh - 3px);
   overflow: auto;
   user-select: none;
   /* border: 2px solid green; */
@@ -102,24 +114,25 @@ const Title = styled.h1`
   align-self: center;
   text-align: center;
   font-size: 5vw;
-  /* border: 2px solid red; */
-  width: 80vw;
+  width: 800px;
 `;
 
 const BeginnerButton = styled(GeneralButton)`
+  box-sizing: border-box;
   text-align: center;
-  padding-top: 50px;
+  vertical-align: center;
   height: 100px;
   width: 200px;
-  font-size: 2em;
+  font-size: 40px;
 `;
 
 const ProButton = styled(GeneralButton)`
+  box-sizing: border-box;
   text-align: center;
-  padding-top: 50px;
+  vertical-align: center;
   height: 100px;
   width: 200px;
-  font-size: 2em;
+  font-size: 40px;
 `;
 
 const ButtonContainer = styled.div`
@@ -128,20 +141,23 @@ const ButtonContainer = styled.div`
   flex-direction: row;
   justify-content: center;
   gap: 40px;
-  /* border: 2px solid red; */
+  width: 100%;
   /* max-width: 1200px; */
   margin-top: 10px;
 `;
 
 const IntroText = styled.span`
-  font-size: 2vw;
+  font-size: 22px;
   align-self: center;
-  width: 70vw;
+  width: 850px;
   padding: 30px;
-  /* padding-bottom: 0px; */
-  /* border: 2px solid red; */
 `;
 
 const CustomH2 = styled.h2`
   text-align: center;
+`;
+
+const DescriptionDiv = styled.div`
+  text-align: center;
+  margin-top: 20px;
 `;

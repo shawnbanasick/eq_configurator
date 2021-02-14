@@ -187,12 +187,10 @@ const MainContent = styled.div`
   font-size: 18px;
   width: calc(100vw - 140px);
   box-sizing: border-box;
-  max-height: calc(100vh - 23px);
-  padding-left: 50px;
+  max-height: calc(100vh - 3px);
+  padding-left: 25px;
   padding-right: 50px;
   overflow: auto;
-  /* user-select: none; */
-  /* border: 2px solid red; */
 `;
 
 const IntroText = styled.span`
@@ -200,7 +198,6 @@ const IntroText = styled.span`
   align-self: center;
   width: 70vw;
   padding: 15px;
-  /* border: 2px solid red; */
 `;
 
 const Title = styled.h1`
@@ -210,26 +207,20 @@ const Title = styled.h1`
   width: 78vw;
   align-items: center;
   justify-content: center;
-  /* border: 2px solid red; */
 `;
 
 const QuestionContainer = styled.div`
   margin-bottom: 25px;
   width: 78vw;
-  /* border: 2px solid purple; */
 `;
 
 const Title2 = styled.h1`
-  /* display: grid; */
-  /* grid-area: row1; */
   font-size: 35px;
   width: 70vw;
-  /* align-items: center; */
-  /* justify-content: center; */
 `;
 
 const DownloadConfigButton = styled(GeneralButton)`
-  width: auto;
+  width: 800px;
   align-self: center;
   margin-bottom: 100px;
 `;

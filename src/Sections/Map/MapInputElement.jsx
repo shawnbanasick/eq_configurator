@@ -279,9 +279,9 @@ const DesignDiv = styled.div`
   margin-bottom: 50px;
   display: flex;
   flex-direction: column;
-  grid-column-start: 1;
+  /* grid-column-start: 1; */
   /* border: 2px solid red; */
-  width: 770px;
+  width: 700px;
 `;
 
 const TextDiv = styled.div`
@@ -305,5 +305,6 @@ const TextDiv2 = styled.div`
 
 const TitleDiv = styled.div`
   display: flex;
-  width: 850px;
+  width: 700px;
+  /* border: 2px solid red; */
 `;

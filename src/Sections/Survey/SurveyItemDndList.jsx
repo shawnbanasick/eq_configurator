@@ -28,7 +28,7 @@ const SurveyItemDndList = () => {
   const getListStyle = (isDraggingOver) => ({
     background: isDraggingOver ? "lightgrey" : "lightblue",
     padding: grid,
-    width: "78vw",
+    width: "850px",
   });
 
   // a little function to help us with reordering the result
@@ -122,6 +122,7 @@ export default view(SurveyItemDndList);
 
 const DragAndDropContainer = styled.div`
   overflow: auto;
+  width: 850px;
 `;
 
 const DeleteButton = styled(GeneralButton)`
@@ -129,19 +130,18 @@ const DeleteButton = styled(GeneralButton)`
 `;
 
 const DelDiv = styled.div`
-  /* border: 2px solid red; */
   display: flex;
-  width: 6%;
+  width: 75px;
   align-items: center;
   justify-content: center;
 `;
 
 const UlDiv = styled.div`
-  width: 94%;
-  /* border: 2px solid blue; */
+  width: 750px;
 `;
 
 const Container = styled.div`
   display: flex;
   flex-direction: row;
+  width: 800px;
 `;

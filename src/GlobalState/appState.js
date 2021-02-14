@@ -229,7 +229,7 @@ const appState = store({
   langMaxWindow: "Please maximize your browser for using this application.",
   langWelcome: "Welcome!",
   langWelcomeText:
-    "This is a demo project on iPad use in the classroom.{br}{br}For this survey you will need as much screen space as possible!{br}{br}If necessary, please {b}MAXIMIZE{/b} the size of your browser window, {b}{i}reload{/i}{/b} this web page, and click on the continue-button to start the survey.",
+    "This is a demo project on iPad use in the classroom.{br}{br}{b}** Important Information **{/b}{br}For this survey you will need as much screen space as possible!{br}{br}If necessary, please {b}MAXIMIZE{/b} the size of your browser window, {b}{i}reload{/i}{/b} this web page, and click on the continue-button to start the survey.",
   langUserCode: "Access Code",
   langLogInText: "Please enter the access code for this survey. {br}{br}",
   langFormHeader: "Access Code",

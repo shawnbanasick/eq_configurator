@@ -170,7 +170,7 @@ const MainContent = styled.div`
   font-size: 18px;
   width: calc(100vw - 140px);
   box-sizing: border-box;
-  max-height: calc(100vh - 23px);
+  max-height: calc(100vh - 3px);
   overflow: auto;
   user-select: none;
 `;
