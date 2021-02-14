@@ -395,7 +395,6 @@ angular
       $scope.duration = Duration;
 
       var isFirefox = navigator.userAgent.toLowerCase().indexOf("firefox") > -1;
-      console.log("isFirefox: ", isFirefox);
 
       var viewHeight = window.innerHeight - 300;
       if (viewHeight < 420) {
@@ -409,8 +408,6 @@ angular
       if (viewWidth < 960) {
         viewWidth = 960;
       }
-
-      console.log("viewWidth: ", viewWidth);
 
       $scope.viewWidth = viewWidth;
 
@@ -1016,9 +1013,7 @@ angular
             var el = $compile(
               '<div swappable-statement="cell.statement" swappable-statement-cell="cell" swappable="false" class="swappable" ng-class="{textright: textAlignRight}" style="position: relative;"></div>'
             )(outerScope);
-            console.log("helperWidth: ", scope.helperWidth);
             var w = parseInt(scope.helperWidth, 10) - 8 + "px";
-            console.log("w is: ", w);
             $(el).css("width", w);
             $(element).append(el);
             if (reposition) {
@@ -1152,8 +1147,6 @@ angular
     "$scope",
     "$state",
     function (config, language, UserCode, $http, $scope, $state) {
-      console.log(config.partNameRequired);
-
       $scope.showNameInput = config.partNameRequired;
       $scope.user = {};
 
@@ -1210,7 +1203,6 @@ angular
       }
 
       $scope.login = function (code) {
-        console.log(code);
         if (!code || code.length === 0) {
           $scope.error = language.loginNoInput;
           return;
@@ -1229,13 +1221,7 @@ angular
           var correctPw = false;
           if (config.loginPassword && config.loginPassword.length > 0) {
             correctPw = config.loginPassword === code;
-
             config.partId = $scope.user.PartName;
-
-            console.log(config.partId);
-
-            console.log($scope.user);
-            console.log(config.partId);
           } else {
             correctPw = true;
           }
@@ -1800,8 +1786,6 @@ angular
             results[i] = "no_response";
           }
         }
-
-        console.log(results);
 
         firebase
           .auth()
