@@ -229,7 +229,7 @@ const appState = store({
   langMaxWindow: "Please maximize your browser for using this application.",
   langWelcome: "Welcome!",
   langWelcomeText:
-    "This is a demo project on iPad use in the classroom. {br}{br}Please click on the continue-button.",
+    "This is a demo project on iPad use in the classroom.{br}{br}For this survey you will need as much screen space as possible!{br}{br}If necessary, please {b}MAXIMIZE{/b} the size of your browser window, {b}{i}reload{/i}{/b} this web page, and click on the continue-button to start the survey.",
   langUserCode: "Access Code",
   langLogInText: "Please enter the access code for this survey. {br}{br}",
   langFormHeader: "Access Code",
@@ -238,25 +238,26 @@ const appState = store({
   langUserCodeInvalid: "Access code invalid",
   langServerConnectFail: "Connection to server failed. Please try again.",
   langIntroduction: "Introduction",
-  langIntroText: `This study is about iPad use in the classroom. {br}{br}If necessary, please maximize your browser window, reload this web page, and click on the continue-button to start the survey.`,
+  langIntroText: `This study is about iPad use in the classroom. {br}{br}`,
   langStep1: "Step 1 of 5",
-  langStep1Text: `Read the folowing statements carefully and split them up into three piles: a pile for statements you tend to disagree with, a pile for cards you tend to agree with, and a pile for the rest.{br}{br}You can either drag the cards into one of the three piles or press 1, 2, 3 on your keyboard. Changes can be made later.{br}{br}If you want to read this instruction a second time, press the help-button at the bottom left corner.`,
+  langStep1Text: `Read the folowing statements carefully and split them up into three piles: a pile for statements you tend to disagree with, a pile for cards you tend to agree with, and a pile for the rest.{br}{br}You can either drag the cards into one of the three piles or {b}press 1, 2, 3{/b} on your keyboard. Changes can be made later.{br}{br}If you want to read this instruction a second time, press the help-button at the bottom left corner.`,
   langStep2: "Step 2 of 5",
-  langStep2Text: `Take the cards from the "AGREE"-pile and arrange them on right side of the score sheet.{br}{br}Next, take the cards from the "DISAGREE"-pile and arrange them on the left side of the score sheet. Follow this procedure for all cards in the "AGREE"- and "DIAGREE"-pile.{br}{br}Finally, take the "NEUTRAL"-cards arange them in the remaining open boxes of the score sheet.`,
+  langStep2Text: `Take the cards from the "AGREE"-pile and arrange them on right side of the score sheet.{br}{br}Next, take the cards from the "DISAGREE"-pile and arrange them on the left side of the score sheet. Follow this procedure for all cards in the "AGREE"- and "DIAGREE"-piles.{br}{br}Finally, take the "NEUTRAL"-cards arange them in the remaining open boxes of the score sheet.`,
   langStep3: "Step 3 of 5",
-  langStep3Text: `Now you have placed all cards on the score sheet. Please go over your distribution once more and shift cards if desired.`,
+  langStep3Text: `Now you have placed all cards on the score sheet. Please go over your distribution once more and swap card positions cards if desired.`,
   langStep4: "Step 4 of 5",
   langStep4Text: `Please explain why you agree most or disagree most with the following statements you have placed below "+4" or "-4".{br}{br}`,
   langStep5: "Step 5 of 5",
   langStep5Text: `Finally, please answer the following questions regarding your background.{br}{br}`,
   langTransferHead: "Submit Data",
   langTransferText: "You've finished the survey. Please submit your data now.",
-  langTransferFailed:
-    "Data submission failed. Please try again or mail your results via email/post.",
-  langTransferOk: `Thank you for using Easy HTMLQ. {br}{br}You can now close your browser window.`,
+  langTransferFailed: "Data submission failed. Please try again.",
+  langTransferOk: `Thank you for using Easy HTMLQ!{br}{br}You can now close your browser window.`,
 
-  langStep2CondOfInstruc: "Give instructions to participants",
-  langStep3CondOfInstruc: "Give instructions to participants",
+  langStep2CondOfInstruc:
+    "Give condition of instruction summary to participants",
+  langStep3CondOfInstruc:
+    "Give condition of instruction summary to participants",
 
   /*
   firebase.xml settings */

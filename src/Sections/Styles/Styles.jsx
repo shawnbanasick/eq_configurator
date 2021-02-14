@@ -166,7 +166,7 @@ const DownloadMapButton = styled(GeneralButton)`
 const SettingsDiv = styled.div`
   margin-bottom: 30px;
   text-align: left;
-  border: 2px solid red;
+  /* border: 2px solid red; */
   padding-left: 20px;
   width: 90%;
 `;

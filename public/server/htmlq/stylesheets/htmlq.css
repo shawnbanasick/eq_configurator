@@ -352,7 +352,7 @@ li.disagree {
   .grid td {
     vertical-align: top;
     padding: 0;
-    font-size: 12px;
+    font-size: 11px;
     /* font-size: 1.4vh; */
   }
 }
@@ -488,8 +488,8 @@ body {
 .idNum {
   margin-right: 5px;
   font-size: 70%;
-  font-weight: bold;
-  
+  opacity: 0.5;
+  display: none;
 }
 
 /* custom help button css - override bootstrap settings

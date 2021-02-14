@@ -113,7 +113,7 @@ const UserNumberContainer = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  border: 2px solid green;
+  /* border: 2px solid green; */
 `;
 
 const TitleSpan = styled.span`

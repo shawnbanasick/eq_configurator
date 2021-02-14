@@ -4,15 +4,12 @@ import styled from "styled-components";
 import appState from "../../GlobalState/appState";
 
 const handleChange = (event) => {
-  //   console.log(event.target.value);
-
   let statementInput = event.target.value;
   appState.currentStatementInput = statementInput;
   let arr = statementInput.split(/\r\n|\r|\n/g);
   let filteredArray = arr.filter(function (el) {
     return el;
   });
-  console.log(JSON.stringify(filteredArray, null, 2));
   appState.statements = filteredArray;
 };
 
