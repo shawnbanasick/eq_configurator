@@ -28,7 +28,7 @@ const SurveyItemDndList = () => {
   const getListStyle = (isDraggingOver) => ({
     background: isDraggingOver ? "lightgrey" : "lightblue",
     padding: grid,
-    width: "850px",
+    width: "840px",
   });
 
   // a little function to help us with reordering the result

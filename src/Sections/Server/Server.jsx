@@ -122,12 +122,12 @@ const Server = () => {
         <IntroText>
           The default Easy HTMLQ demo project will now load in your browser. The
           project is not on the internet - it is being hosted from your
-          computer, and you are accessing it from the browser on your machine.
+          computer, and you're accessing it from the browser on your machine.
           However, after you set up your Firebase file, this demo project will
-          save completed sort data to Firebase. So you can use this to test your
-          complete setup - including data upload. It is important to remember to
-          delete any testing data from your Firebase location before you begin
-          your actual project.
+          save completed Q sort data to the Firebase realtime database. So, you
+          can use this to test your complete setup - including data upload
+          (however, it is important to remember to delete any testing data from
+          your Firebase location before you begin your actual project).
         </IntroText>
       )}
     </MainContent>
@@ -168,7 +168,7 @@ const MainContent = styled.div`
   transition: visibility 0.5s linear;
   font-family: Helvetica, sans-serif;
   font-size: 18px;
-  width: calc(100vw - 140px);
+  width: calc(100vw - 137px);
   box-sizing: border-box;
   max-height: calc(100vh - 3px);
   overflow: auto;

@@ -375,25 +375,32 @@ li.disagree {
 
 /* step #2 and step #3 font size
 ---------------------------------*/
-
-@media screen and (min-height: 220px), screen and (max-height: 719px) {
+@media (min-height: 2160px) {
   .grid td {
     vertical-align: top;
     padding: 0;
-    font-size: ${appState.stylesXsmallFontSize}px;
-    /* font-size: 0.8vh; */
+    font-size: ${appState.stylesHdFontSize}px;
   }
 }
 
-@media screen and (min-height: 720px) {
+@media (min-height: 1440px) and (max-height: 2159px) {
   .grid td {
     vertical-align: top;
     padding: 0;
-    font-size: ${appState.stylesSmallFontSize}px;
-    /* font-size: 1.4vh; */
+    font-size: ${appState.stylesXlargeFontSize}px;
   }
 }
-@media screen and (min-height: 900px) {
+
+@media (min-height: 1080px) and (max-height: 1439px) {
+  .grid td {
+    vertical-align: top;
+    padding: 0;
+    font-size: ${appState.stylesLargeFontSize}px;
+    /* font-size: 1.2vh; */
+  }
+}
+
+@media (min-height: 900px) and (max-height: 1079px) {
   .grid td {
     vertical-align: top;
     padding: 0;
@@ -402,28 +409,23 @@ li.disagree {
   }
 }
 
-@media screen and (min-height: 1080px) {
+@media (min-height: 720px) and (max-height: 899px) {
   .grid td {
     vertical-align: top;
     padding: 0;
-    font-size: ${appState.stylesLargeFontSize}px;
-    /* font-size: 1.2vh; */
+    font-size: ${appState.stylesSmallFontSize}px;
+    /* font-size: 1.4vh; */
   }
 }
-/* @media screen and (min-height: 1440px) {
+
+@media (min-height: 220px) and (max-height: 719px) {
   .grid td {
     vertical-align: top;
     padding: 0;
-    font-size: ${appState.stylesXlargeFontSize}px;
+    font-size: ${appState.stylesXsmallFontSize}px;
+    /* font-size: 0.8vh; */
   }
 }
-@media screen and (min-height: 2160px) {
-  .grid td {
-    vertical-align: top;
-    padding: 0;
-    font-size: ${appState.stylesHdFontSize}px;
-  }
-} */
 
 .grid-heading {
   display: flex;
@@ -575,9 +577,6 @@ body {
   margin-top: 25px;
   margin-bottom: 25px;
 }
-
-
-
   `;
 
   return data;

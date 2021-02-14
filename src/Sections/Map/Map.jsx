@@ -22,7 +22,7 @@ const Map = () => {
   return (
     <MainContent>
       <GlobalStyle />
-      <Title>Map Settings</Title>
+      <Title>Q sort Grid Settings</Title>
       <h2>{numStatements} Statements</h2>
       <MapInputElement />
       <DownloadMapButton onClick={() => handleClick()}>
@@ -67,11 +67,12 @@ const MainContent = styled.div`
   transition: visibility 0.5s linear;
   font-family: Helvetica, sans-serif;
   font-size: 18px;
-  width: calc(100vw - 140px);
+  width: calc(100vw - 137px);
   box-sizing: border-box;
-  min-height: calc(100vh - 23px);
+  min-height: calc(100vh - 3px);
   overflow: auto;
   user-select: none;
+  padding-bottom: 30px;
 `;
 
 const Title = styled.h1`

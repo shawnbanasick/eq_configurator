@@ -35,9 +35,9 @@ const Config = () => {
       <GlobalStyle />
       <Title>Config.xml</Title>
       <IntroText>
-        This file has two parts. The first part sets up the overall structure of
-        your project. The second part is a question generator for the (optional)
-        post-Q sort questionnaire.
+        This file has two sections. The first part sets up the overall structure
+        of your project. The second section is a question generator for the
+        (optional) post-Q sort questionnaire.
       </IntroText>
       <Title2>Project Options</Title2>
       <QuestionContainer>
@@ -45,7 +45,7 @@ const Config = () => {
           label="1. Project title:"
           stateId="configTitle"
           sectionName="config"
-          width={40}
+          width={30}
           left={0}
         />
         <UserTextInput
@@ -177,27 +177,26 @@ const MainContent = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-items: left;
-  align-items: left;
+  justify-items: center;
+  align-items: center;
   background-color: white;
   visibility: ${(props) => (props.view ? "hidden" : "visible")};
   animation: ${(props) => (props.view ? fadeOut : fadeIn)} 0.5s linear;
   transition: visibility 0.5s linear;
   font-family: Helvetica, sans-serif;
   font-size: 18px;
-  width: calc(100vw - 140px);
+  width: calc(100vw - 137px);
   box-sizing: border-box;
   max-height: calc(100vh - 3px);
-  padding-left: 25px;
-  padding-right: 50px;
   overflow: auto;
+  user-select: none;
 `;
 
 const IntroText = styled.span`
-  font-size: 20px;
   align-self: center;
-  width: 70vw;
   padding: 15px;
+  width: 70vw;
+  font-size: 2vw;
 `;
 
 const Title = styled.h1`

@@ -36,11 +36,10 @@ const Start = () => {
       <Title>Easy HTMLQ Configurator</Title>
       <IntroText>
         Easy HTMLQ Configurator reduces the effort needed to set-up and test an
-        online Q sort.　Anyone can do it. You don't need any special programming
-        skills. If you can copy / paste / point / click - you can easily and
-        quickly setup a basic online Q sort for your project. It creates a
-        simple way to edit files, and immediately see those changes in a web
-        broswer.
+        online Q sort project.　It provides simplified editing of the HTMLQ
+        configuration files and increased control over the appearance of the
+        HTMLQ Q-sort. It also includes a local web server to immediately test
+        changes made to the configuration files on any installed web browser.
       </IntroText>
       <CustomH2>Select Configurator Display Mode:</CustomH2>
       <ButtonContainer>
@@ -114,7 +113,7 @@ const Title = styled.h1`
   align-self: center;
   text-align: center;
   font-size: 5vw;
-  width: 800px;
+  width: 70vw;
 `;
 
 const BeginnerButton = styled(GeneralButton)`
@@ -124,6 +123,7 @@ const BeginnerButton = styled(GeneralButton)`
   height: 100px;
   width: 200px;
   font-size: 40px;
+  font-weight: bold;
 `;
 
 const ProButton = styled(GeneralButton)`
@@ -132,6 +132,7 @@ const ProButton = styled(GeneralButton)`
   vertical-align: center;
   height: 100px;
   width: 200px;
+  font-weight: bold;
   font-size: 40px;
 `;
 
@@ -143,14 +144,15 @@ const ButtonContainer = styled.div`
   gap: 40px;
   width: 100%;
   /* max-width: 1200px; */
-  margin-top: 10px;
+  margin-top: 0px;
 `;
 
 const IntroText = styled.span`
-  font-size: 22px;
+  /* font-size: 22px; */
   align-self: center;
-  width: 850px;
   padding: 30px;
+  width: 70vw;
+  font-size: 2vw;
 `;
 
 const CustomH2 = styled.h2`
@@ -159,5 +161,5 @@ const CustomH2 = styled.h2`
 
 const DescriptionDiv = styled.div`
   text-align: center;
-  margin-top: 20px;
+  margin-top: 25px;
 `;

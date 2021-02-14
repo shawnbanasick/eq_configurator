@@ -11,40 +11,40 @@ module.exports = (app, mainWindow, i18n) => {
             submenu: [
               {
                 label: i18n.t("About KADE"),
-                role: "about"
+                role: "about",
               },
               {
-                type: "separator"
+                type: "separator",
               },
               {
-                role: "services"
+                role: "services",
               },
               { type: "separator" },
               {
                 label: i18n.t("Hide App"),
-                role: "hide"
+                role: "hide",
               },
               {
-                role: "hideothers"
+                role: "hideothers",
               },
               {
-                role: "unhide"
+                role: "unhide",
               },
               { type: "separator" },
               {
                 label: i18n.t("Quit"),
-                role: "quit"
-              }
-            ]
-          }
+                role: "quit",
+              },
+            ],
+          },
         ]
       : []),
     // { role: 'fileMenu' }
     {
       label: i18n.t("Home"),
       submenu: [
-        isMac ? { role: "close" } : { label: i18n.t("Quit"), role: "quit" }
-      ]
+        isMac ? { role: "close" } : { label: i18n.t("Quit"), role: "quit" },
+      ],
     },
     // { role: 'editMenu' }
     {
@@ -55,20 +55,20 @@ module.exports = (app, mainWindow, i18n) => {
         { type: "separator" },
         {
           label: i18n.t("Cut"),
-          role: "cut"
+          role: "cut",
         },
         {
           label: i18n.t("Copy"),
-          role: "copy"
+          role: "copy",
         },
         {
           label: i18n.t("Paste"),
-          role: "paste"
+          role: "paste",
         },
         { type: "separator" },
         { label: i18n.t("Delete"), role: "delete" },
-        { label: i18n.t("Select All"), role: "selectAll" }
-      ]
+        { label: i18n.t("Select All"), role: "selectAll" },
+      ],
     },
     // { role: 'viewMenu' }
     {
@@ -81,33 +81,32 @@ module.exports = (app, mainWindow, i18n) => {
         { label: i18n.t("Zoom In"), role: "zoomin" },
         { label: i18n.t("Zoom Out"), role: "zoomout" },
         { type: "separator" },
-        { label: i18n.t("Toggle Full Screen"), role: "togglefullscreen" }
-      ]
+        { label: i18n.t("Toggle Full Screen"), role: "togglefullscreen" },
+      ],
     },
     // { role: 'windowMenu' }
     {
       label: i18n.t("Window"),
       submenu: [
         { label: i18n.t("Minimize"), role: "minimize" },
-        { label: i18n.t("Close"), role: "close" }
-      ]
+        { label: i18n.t("Close"), role: "close" },
+      ],
     },
     {
       label: i18n.t("Help"),
       submenu: [
         {
           label: i18n.t("About App"),
-          click: function(item, focusedWindow) {
+          click: function (item, focusedWindow) {
             if (focusedWindow) {
             }
-          }
-        }
-      ]
-    } 
+          },
+        },
+      ],
+    },
   ];
 
-
-  const languageMenu = config.languages.map(languageCode => {
+  const languageMenu = config.languages.map((languageCode) => {
     return {
       label: i18n.t(languageCode),
       type: "radio",
@@ -118,14 +117,14 @@ module.exports = (app, mainWindow, i18n) => {
           // t('key'); // -> same as i18next.t
         });
         console.log("called from other menu");
-      }
+      },
     };
   });
 
-  menu.push({
-    label: i18n.t("Language"),
-    submenu: languageMenu
-  });
+  // menu.push({
+  //   label: i18n.t("Language"),
+  //   submenu: languageMenu
+  // });
 
   return menu;
 };

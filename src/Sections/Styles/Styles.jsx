@@ -141,9 +141,9 @@ const MainContent = styled.div`
   transition: visibility 0.5s linear;
   font-family: Helvetica, sans-serif;
   font-size: 18px;
-  width: calc(100vw - 140px);
+  width: calc(100vw - 137px);
   box-sizing: border-box;
-  max-height: calc(100vh - 23px);
+  max-height: calc(100vh - 3px);
   overflow: auto;
   user-select: none;
 `;
@@ -158,7 +158,8 @@ const Title = styled.h1`
 `;
 
 const DownloadMapButton = styled(GeneralButton)`
-  margin-top: 50px;
+  margin-top: 20px;
+  margin-bottom: 50px;
   width: auto;
   /* border: 2px solid red; */
 `;
