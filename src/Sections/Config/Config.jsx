@@ -30,6 +30,13 @@ const Config = () => {
   let configLogInRequired = convertToFalse(appState.configLogInRequired);
   let configShowStep5 = convertToFalse(appState.configShowStep5);
 
+  let displayMode = appState.displayMode;
+  if (displayMode === "beginner") {
+    displayMode = true;
+  } else {
+    displayMode = false;
+  }
+
   return (
     <MainContent>
       <GlobalStyle />
@@ -61,12 +68,23 @@ const Config = () => {
           stateId="configTextAlign"
           sectionName="config"
         />
+
         <RadioButtons
           label="4. Shuffle cards:"
           buttonIdArray={["true", "false"]}
           stateId="configshuffleCards"
           sectionName="config"
         />
+
+        {displayMode && (
+          <DisplayModeText>
+            The project access code is the same for all participants. The code
+            can be a phrase instead of just a single word, and is
+            case-sensitive. The use of an access code increases the security of
+            the project and is recommended.
+          </DisplayModeText>
+        )}
+
         <RadioButtons
           label="5a. Project Access Code Required:"
           buttonIdArray={["true", "false"]}
@@ -90,6 +108,14 @@ const Config = () => {
             />
           </LeftSpacer>
         )}
+        {displayMode && (
+          <DisplayModeText>
+            The Log In Script is a legacy option from FlashQ. It allows the use
+            of a custom software to log participants into the project from
+            outside the Easy HTMLQ software.
+          </DisplayModeText>
+        )}
+
         <RadioButtons
           label="6a. Use Log In Script:"
           buttonIdArray={["true", "false"]}
@@ -145,7 +171,7 @@ const Config = () => {
         </FadeIn>
       )}
       <DownloadConfigButton onClick={() => handleClick()}>
-        Save file to <b>settings folder</b> and replace "config.xml" file
+        Save file to <b>SETTINGS</b> folder and replace the "config.xml" file
       </DownloadConfigButton>
     </MainContent>
   );
@@ -226,4 +252,13 @@ const DownloadConfigButton = styled(GeneralButton)`
 
 const LeftSpacer = styled.div`
   margin-left: 30px;
+`;
+
+const DisplayModeText = styled.div`
+  align-self: center;
+  margin-top: 40px;
+  width: 900px;
+  font-size: 20px;
+  padding: 0 10px 0 10px;
+  border: 2px solid black;
 `;

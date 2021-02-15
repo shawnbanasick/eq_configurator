@@ -100,7 +100,7 @@ const Styles = () => {
       </SettingsDiv>
 
       <DownloadMapButton onClick={() => handleClick()}>
-        Save file to <b>STYLESHEETS folder</b> and replace "htmlq.css"
+        Save to the <b>STYLESHEETS</b> folder and replace the "htmlq.css" file
       </DownloadMapButton>
     </MainContent>
   );

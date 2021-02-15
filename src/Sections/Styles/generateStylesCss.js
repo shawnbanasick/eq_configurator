@@ -375,7 +375,8 @@ li.disagree {
 
 /* step #2 and step #3 font size
 ---------------------------------*/
-@media (min-height: 2160px) {
+/* for 2160px */
+@media (min-height: 1908px) {
   .grid td {
     vertical-align: top;
     padding: 0;
@@ -383,7 +384,8 @@ li.disagree {
   }
 }
 
-@media (min-height: 1440px) and (max-height: 2159px) {
+/* for 1440px */
+@media (min-height: 1188px) and (max-height: 1907px) {
   .grid td {
     vertical-align: top;
     padding: 0;
@@ -391,7 +393,8 @@ li.disagree {
   }
 }
 
-@media (min-height: 1080px) and (max-height: 1439px) {
+/* for 1080 */
+@media (min-height: 828px) and (max-height: 1187px) {
   .grid td {
     vertical-align: top;
     padding: 0;
@@ -400,7 +403,8 @@ li.disagree {
   }
 }
 
-@media (min-height: 900px) and (max-height: 1079px) {
+/* for 900px */
+@media (min-height: 818px) and (max-height: 827px) {
   .grid td {
     vertical-align: top;
     padding: 0;
@@ -409,7 +413,8 @@ li.disagree {
   }
 }
 
-@media (min-height: 720px) and (max-height: 899px) {
+/* for 720 */
+@media (min-height: 655px) and (max-height: 817px) {
   .grid td {
     vertical-align: top;
     padding: 0;
@@ -418,7 +423,8 @@ li.disagree {
   }
 }
 
-@media (min-height: 220px) and (max-height: 719px) {
+/* for lowest */
+@media (min-height: 120px) and (max-height: 654px) {
   .grid td {
     vertical-align: top;
     padding: 0;

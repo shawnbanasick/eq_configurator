@@ -18,10 +18,33 @@ const handleClick = () => {
 };
 
 const Language = () => {
+  let displayMode = appState.displayMode;
+  if (displayMode === "beginner") {
+    displayMode = true;
+  } else {
+    displayMode = false;
+  }
+
   return (
     <MainContent>
       <GlobalStyle />
       <Title>Language Settings</Title>
+      {displayMode && (
+        <DisplayModeText>
+          {`Language formatting is available here by using tags before and after the text to be modified. Options include bold {b} {/b}, italics {i} {/i}, and underline {u} {/u}.`}{" "}
+          <br />
+          <br />
+          {`A new line can be inserted using a single break tag {br}, and an open line between text can be created by using two break tags {br}{br}.`}
+          <br />
+          <br />
+          {`A web link can be inserted by using this pattern:`}
+          <br />
+          {`{a href="https://qmethod.org/" target="_blank"}{u}qmethod.org{/u}{/a}.`}
+          <br />
+          <br />
+          {`See the default text below for examples.`}
+        </DisplayModeText>
+      )}
       <h3>Button Labels</h3>
       <UserTextInput
         label="Continue..."
@@ -333,7 +356,7 @@ const Language = () => {
         left={0}
       />
       <DownloadMapButton onClick={() => handleClick()}>
-        Save file to <b>settings folder</b> and replace "language.xml"
+        Save to the <b>SETTINGS</b> folder and replace the "language.xml" file
       </DownloadMapButton>
     </MainContent>
   );
@@ -382,10 +405,11 @@ const MainContent = styled.div`
   padding-bottom: 30px;
 `;
 const Title = styled.h1`
+  align-self: center;
   display: grid;
   grid-area: row1;
   font-size: 50px;
-  width: 80vw;
+  width: 900px;
   align-items: center;
   justify-content: center;
 `;
@@ -399,11 +423,8 @@ const ColorContainer = styled.div`
 
 const DownloadMapButton = styled(GeneralButton)`
   width: 500px;
-  height: auto;
   align-self: center;
   margin-top: 50px;
-
-  /* border: 2px solid red; */
 `;
 
 // const SubTitles = styled.p`
@@ -412,3 +433,13 @@ const DownloadMapButton = styled(GeneralButton)`
 //   padding-left: 15px;
 //   margin-top: 30px;
 // `;
+
+const DisplayModeText = styled.div`
+  align-self: center;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  width: 900px;
+  font-size: 20px;
+  padding: 0 10px 0 10px;
+  border: 2px solid black;
+`;

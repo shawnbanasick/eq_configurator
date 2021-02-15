@@ -20,7 +20,8 @@ const Statements = () => {
       <Title>Statements Settings</Title>
       <StatementTextArea />
       <GeneralButton onClick={() => handleClick()}>
-        Save file to <b>settings folder</b> and replace "statements.xml" file
+        Save file to <b>SETTINGS</b> folder and replace the "statements.xml"
+        file
       </GeneralButton>
     </MainContent>
   );
