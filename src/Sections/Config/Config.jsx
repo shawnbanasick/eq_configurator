@@ -78,8 +78,8 @@ const Config = () => {
 
         {displayMode && (
           <DisplayModeText>
-            The project access code is the same for all participants. The code
-            can be a phrase instead of just a single word, and is
+            5a. The project access code is the same for all participants. The
+            code can be a phrase instead of just a single word, and is
             case-sensitive. The use of an access code increases the security of
             the project and is recommended.
           </DisplayModeText>
@@ -110,8 +110,8 @@ const Config = () => {
         )}
         {displayMode && (
           <DisplayModeText>
-            The Log In Script is a legacy option from FlashQ. It allows the use
-            of a custom software to log participants into the project from
+            6a. The Log In Script is a legacy option from FlashQ. It allows the
+            use of a custom software to log participants into the project from
             outside the Easy HTMLQ software.
           </DisplayModeText>
         )}

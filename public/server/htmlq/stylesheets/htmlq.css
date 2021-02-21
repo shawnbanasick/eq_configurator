@@ -1,5 +1,4 @@
-
-  .col-centered {
+.col-centered {
   float: none;
   margin: 0 auto;
 }
@@ -396,6 +395,26 @@ li.disagree {
   }
 }
 
+@media only screen and (min-width: 1024px) and (max-height: 1366px) and (-webkit-min-device-pixel-ratio: 1.5) and (hover: none) {
+  .grid td {
+    vertical-align: top;
+    padding: 0;
+    line-height: 1.1;
+    font-size: 12px;
+    /* font-size: 0.8vh; */
+  }
+}
+
+@media only screen and (hover: none) and (device-width: 1024px) and (device-height: 768px) and (orientation: landscape) {
+  .grid td {
+    vertical-align: top;
+    padding: 0;
+    line-height: 1;
+    font-size: 9px;
+    /* font-size: 0.8vh; */
+  }
+}
+
 .grid-heading {
   display: flex;
   justify-content: space-between;
@@ -546,4 +565,3 @@ body {
   margin-top: 25px;
   margin-bottom: 25px;
 }
-  

@@ -78,6 +78,24 @@ const Styles = () => {
           stateId="stylesHdFontSize"
           sectionName="styles"
         ></UserNumberInput>
+        <UserNumberInput
+          label="7. iPad - 9.7 inch"
+          step={1}
+          value={20}
+          upperLimit={100}
+          lowerLimit={1}
+          stateId="stylesIpadSmallFontSize"
+          sectionName="styles"
+        ></UserNumberInput>
+        <UserNumberInput
+          label="8. iPad Pro - 12.9 inch"
+          step={1}
+          value={20}
+          upperLimit={100}
+          lowerLimit={1}
+          stateId="stylesIpadLargeFontSize"
+          sectionName="styles"
+        ></UserNumberInput>
         <SectionHeader>Statement Numbers</SectionHeader>
         <RadioButtons
           label="Display statement numbers:"

@@ -433,6 +433,33 @@ li.disagree {
   }
 }
 
+
+@media all and (min-width: 1024px) and (max-height: 1366px) and (-webkit-min-device-pixel-ratio: 1.5) and (hover: none) {
+  .grid td {
+    vertical-align: top;
+    padding: 0;
+    line-height: 1.1;
+    font-size: ${appState.stylesIpadLargeFontSize}px;
+    /* font-size: 0.8vh; */
+  }
+}
+
+
+@media all and (hover: none) and (device-width: 1024px) and (device-height: 768px) and (orientation:landscape) {
+  .grid td {
+    vertical-align: top;
+    padding: 0;
+    line-height: 1;
+    font-size: ${appState.stylesIpadSmallFontSize}px;
+    /* font-size: 0.8vh; */
+  }
+}
+
+
+
+
+
+
 .grid-heading {
   display: flex;
   justify-content: space-between;

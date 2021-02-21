@@ -42,12 +42,14 @@ const appState = store({
   stylesStatementNumberOpacityfaintActive: true,
   stylesStatementNumberOpacity: "faint",
 
-  stylesXsmallFontSize: 11,
-  stylesSmallFontSize: 12,
+  stylesXsmallFontSize: 10,
+  stylesSmallFontSize: 11,
   stylesMediumFontSize: 13,
   stylesLargeFontSize: 14,
   stylesXlargeFontSize: 16,
   stylesHdFontSize: 18,
+  stylesIpadSmallFontSize: 10,
+  stylesIpadLargeFontSize: 14,
 
   surveyQuestionType: "text",
   activeWindow: "viewStart",
