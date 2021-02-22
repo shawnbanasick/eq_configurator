@@ -6,6 +6,17 @@ import FirebaseTextArea from "./FirebaseTextArea";
 import exportToXml from "../../Utils/exportToXml";
 import GeneralButton from "../../Utils/GeneralButton";
 import addFirebaseInfoToIndexHtml from "./addFirebaseInfoToIndexHtml";
+import { toast } from "react-toastify";
+import { ToastContainer, Slide } from "react-toastify";
+
+const text = `
+    {
+      "rules": {
+      ".read": false,
+      ".write": "auth.uid !== null"
+      }
+    }
+    `;
 
 const handleClick = () => {
   const data = addFirebaseInfoToIndexHtml();
@@ -15,15 +26,54 @@ const handleClick = () => {
   }
 };
 
+const notifySuccess = () => {
+  toast.success("Rules Copied", {
+    position: toast.POSITION.BOTTOM_CENTER,
+    transition: Slide,
+  });
+};
+
+const notifyError = () => {
+  toast.error("Error", {
+    position: toast.POSITION.BOTTOM_CENTER,
+    transition: Slide,
+  });
+};
+
+const copyToClipboard = (value) => {
+  var tempInput = document.createElement("input");
+  tempInput.value = value;
+  document.body.appendChild(tempInput);
+  tempInput.select();
+  document.execCommand("copy");
+  document.body.removeChild(tempInput);
+};
+
+const copyText = () => {
+  try {
+    copyToClipboard(text);
+    notifySuccess();
+  } catch (e) {
+    notifyError();
+  }
+};
+
 const FirebaseInfo = () => {
   return (
     <MainContent>
+      <StyledToastContainer />
       <GlobalStyle />
       <Title>Firebase Settings</Title>
       <FirebaseTextArea />
       <GeneralButton onClick={() => handleClick()}>
         Save file to <b>Easy HTMLQ folder</b> and replace "index.html" file
       </GeneralButton>
+      <FirebaseRulesLink>
+        <pre>{text}</pre>
+      </FirebaseRulesLink>
+      <LinkCopyButton onClick={copyText}>
+        Copy Rules to Clipboard
+      </LinkCopyButton>
     </MainContent>
   );
 };
@@ -77,4 +127,30 @@ const Title = styled.h1`
   width: 80vw;
   align-items: center;
   justify-content: center;
+`;
+
+const FirebaseRulesLink = styled.div`
+  background-color: white;
+  width: 500px;
+  height: 380px;
+  margin-top: 80px;
+  margin-bottom: 10px;
+  border: 3px solid black;
+`;
+
+const LinkCopyButton = styled(GeneralButton)`
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 20px;
+`;
+
+const StyledToastContainer = styled(ToastContainer).attrs({
+  // custom props
+})`
+  .Toastify__toast--success {
+    padding-left: 40px;
+    background-color: var(--main-theme-color);
+    width: 200px;
+  }
 `;
