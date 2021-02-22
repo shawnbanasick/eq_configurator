@@ -1,37 +1,23 @@
 {
-  "name": "my-app",
+  "name": "EQ-Configurator",
   "description": "Electron + Create React App + Electron Builder",
   "version": "0.1.0",
   "private": true,
   "author": {
-    "name": "Your Name",
-    "email": "your.email@domain.com",
+    "name": "Shawn Banasick",
+    "email": "ken.q.tools@gmail.com",
     "url": "https://your-website.com"
   },
   "build": {
     "appId": "com.my-website.my-app",
-    "productName": "MyApp",
-    "copyright": "Copyright © 2019 ${author}",
+    "productName": "EQ-Configurator",
+    "copyright": "Copyright © 2021 ${author}",
     "linux": {
       "category": "Science",
-      "description": "My app",
+      "description": "Configurator",
       "synopsis": "app",
       "icon": "../build/icons/icon.icns",
       "target": [
-        {
-          "target": "deb",
-          "arch": [
-            "ia32",
-            "x64"
-          ]
-        },
-        {
-          "target": "rpm",
-          "arch": [
-            "ia32",
-            "x64"
-          ]
-        },
         {
           "target": "AppImage",
           "arch": [
@@ -41,13 +27,6 @@
         {
           "target": "snap",
           "arch": [
-            "x64"
-          ]
-        },
-        {
-          "target": "tar.gz",
-          "arch": [
-            "ia32",
             "x64"
           ]
         }
