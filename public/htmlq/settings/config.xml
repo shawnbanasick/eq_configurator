@@ -21,6 +21,10 @@
      <!-- request mode (post|get) -->
      <item id="loginUrlMethod"></item>
 
+     <item id="setConstantCardHeight">false</item>
+     <item id="constantCardHeight">150</item>
+     <item id="setConstantCardWidth">false</item>
+     <item id="constantCardWidth">200</item>
      <!-- activate/deactivate optional steps (true|false) -->
      <item id="showStep3">true</item>
      <item id="showStep4">true</item>

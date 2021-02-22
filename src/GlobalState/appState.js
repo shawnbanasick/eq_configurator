@@ -262,6 +262,13 @@ const appState = store({
   langStep3CondOfInstruc:
     "Give condition of instruction summary to participants",
 
+  cardsStep2ConstantHeight: false,
+  cardsStep2ConstantHeightfalseActive: true,
+  cardsStep2CardHeight: 150,
+  cardsStep2ConstantWidth: false,
+  cardsStep2ConstantWidthfalseActive: true,
+  cardsStep2CardWidth: 200,
+
   /*
   firebase.xml settings */
 });

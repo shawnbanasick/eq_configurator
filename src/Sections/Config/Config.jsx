@@ -10,6 +10,7 @@ import Survey from "../Survey/Survey";
 import generateConfigXml from "../Config/generateConfigXml";
 import appState from "../../GlobalState/appState";
 import FadeIn from "./FadeIn";
+import UserNumberInput from "../../Utils/UserNumberInput";
 
 const handleClick = () => {
   const data = generateConfigXml();
@@ -164,6 +165,53 @@ const Config = () => {
           stateId="configDisableBackButton"
           sectionName="config"
         />
+        {displayMode && (
+          <DisplayModeText>
+            The default mode for Easy HTMLQ is for a responsive Q-sort card
+            size. In other words, the size of the cards will change according to
+            the size of the participant's browser on the initial web page load
+            of Easy HTMLQ. All of the cards will be visible on the screen and no
+            page scrolling is needed.
+            <br />
+            <br />
+            If you want to specify a constant size for the Q-sort cards across
+            all browsers and screen sizes, you need to set a fixed height and
+            width here. In this case, the participants will need to scroll to
+            view all of the Q-sort cards. You should also set an appropriate
+            constant font size for all screen sizes in the "Styles" section.
+          </DisplayModeText>
+        )}
+        <RadioButtons
+          label="11a. Set constant card height:"
+          buttonIdArray={["true", "false"]}
+          stateId="cardsStep2ConstantHeight"
+          sectionName="cards"
+        />
+        <UserNumberInput
+          label="11b. Q-sort card height (pixels):"
+          step={1}
+          value={20}
+          upperLimit={500}
+          lowerLimit={10}
+          stateId="cardsStep2CardHeight"
+          sectionName="cards"
+        ></UserNumberInput>
+        <RadioButtons
+          label="12a. Set constant card width:"
+          buttonIdArray={["true", "false"]}
+          stateId="cardsStep2ConstantWidth"
+          sectionName="cards"
+        />
+
+        <UserNumberInput
+          label="12b. Set Q-sort card width (pixels):"
+          step={1}
+          value={20}
+          upperLimit={500}
+          lowerLimit={10}
+          stateId="cardsStep2CardWidth"
+          sectionName="cards"
+        ></UserNumberInput>
       </QuestionContainer>
       {configShowStep5 && (
         <FadeIn delay={150} duration={1050}>

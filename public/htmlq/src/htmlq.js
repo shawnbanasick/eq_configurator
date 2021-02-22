@@ -409,7 +409,13 @@ angular
         viewWidth = 960;
       }
 
-      $scope.viewWidth = viewWidth;
+      var setConstantCardWidth = config.setConstantCardWidth;
+      if (setConstantCardWidth === true || setConstantCardWidth === "true") {
+        var constantCardWidth = config.constantCardWidth;
+        $scope.viewWidth = constantCardWidth * map.column.length;
+      } else {
+        $scope.viewWidth = viewWidth;
+      }
 
       var longestColumn = _.last(
         _.sortBy(map.column, function (column) {
@@ -417,7 +423,13 @@ angular
         })
       );
 
-      $scope.cellHeight = viewHeight / parseInt(longestColumn.__text, 10);
+      var setConstantCardHeight = config.setConstantCardHeight;
+      if (setConstantCardHeight === true || setConstantCardHeight === "true") {
+        var constantCardHeight = config.constantCardHeight;
+        $scope.cellHeight = constantCardHeight;
+      } else {
+        $scope.cellHeight = viewHeight / parseInt(longestColumn.__text, 10);
+      }
 
       $scope.textAlignRight = config.textAlign === "right";
 

@@ -45,6 +45,11 @@ const generateConfigXml = () => {
   const disableBackString1 = `     <!-- HtmlQ only: disable the in-window back button -->\n`;
   const disableBackString2 = `     <item id="disableBackButton">${appState.configDisableBackButton}</item>\n`;
 
+  const setConstantCardHeight = `     <item id="setConstantCardHeight">${appState.cardsStep2ConstantHeight}</item>\n`;
+  const constantCardHeight = `     <item id="constantCardHeight">${appState.cardsStep2CardHeight}</item>\n`;
+  const setConstantCardWidth = `     <item id="setConstantCardWidth">${appState.cardsStep2ConstantWidth}</item>\n`;
+  const constantCardWidth = `     <item id="constantCardWidth">${appState.cardsStep2CardWidth}</item>\n`;
+
   const surveyDescription = `
      <!-- define form elements for step5; only displayed if showStep5 is true (delete tags if not required) -->
      <!-- add label: <label>[STRING]</label> -->
@@ -68,6 +73,10 @@ const generateConfigXml = () => {
     loginUrlString2,
     loginMethodString1,
     loginMethodString2,
+    setConstantCardHeight,
+    constantCardHeight,
+    setConstantCardWidth,
+    constantCardWidth,
     showStep3String1,
     showStep3String2,
     showStep4String2,
