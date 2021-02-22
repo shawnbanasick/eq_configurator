@@ -134,7 +134,7 @@ const FirebaseRulesLink = styled.div`
   width: 500px;
   height: 380px;
   margin-top: 80px;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   border: 3px solid black;
 `;
 

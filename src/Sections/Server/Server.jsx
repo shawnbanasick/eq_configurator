@@ -216,6 +216,7 @@ const LinkSpan = styled.span`
   /* margin-right: 10px; */
   /* border: 2px solid red; */
 `;
+
 const LinkCopyButton = styled(GeneralButton)`
   margin-top: 20px;
   margin-bottom: 20px;
