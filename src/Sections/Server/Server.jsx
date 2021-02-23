@@ -83,16 +83,15 @@ const Server = () => {
       {displayMode && (
         <>
           <IntroText>
-            The first step is to <strong>download</strong> the base files for
-            Easy HTMLQ (available{" "}
+            The first step is to <strong>download</strong> the base files for{" "}
             <a
               target="_blank"
               rel="noopener noreferrer"
               href="https://github.com/shawnbanasick/easy-htmlq"
             >
-              here
-            </a>
-            ) and save them to an easily accessible place on your computer (for
+              Easy HTMLQ
+            </a>{" "}
+            and save them to an easily accessible place on your computer (for
             example, to the "Desktop" folder). The files are in a compressed
             format (*.zip), so don't forget to uncompress them.
           </IntroText>
@@ -190,6 +189,21 @@ const IntroText = styled.span`
   width: 70vw;
   padding: 15px;
   /* border: 2px solid red; */
+
+  a {
+    padding-bottom: 1px;
+    text-decoration: none;
+    color: #000;
+    box-shadow: inset 0 -4px 0 rgba(13, 190, 152, 0.7);
+    transition: background-color 0.25s ease-out;
+    margin-left: 5px;
+  }
+
+  a:hover {
+    background-color: rgba(13, 190, 152, 0.7);
+    padding-top: 2px;
+    box-shadow: none;
+  }
 `;
 
 const FindServerButton = styled(GeneralButton)`
