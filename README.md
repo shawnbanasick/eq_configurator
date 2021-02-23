@@ -1,1 +1,1 @@
-# htmlq_configurator
+# EQ Configurator
