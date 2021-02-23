@@ -14,10 +14,16 @@
     "copyright": "Copyright © 2021 ${author}",
     "linux": {
       "category": "Science",
-      "description": "Configurator",
-      "synopsis": "app",
+      "description": "EQ-Configurator",
+      "synopsis": "Use EQ-Configurator to setup an Easy HTMLQ project for online Q sorting",
       "icon": "../build/icons/icon.icns",
       "target": [
+        {
+          "target": "deb",
+          "arch": [
+            "x64"
+          ]
+        },
         {
           "target": "AppImage",
           "arch": [
