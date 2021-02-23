@@ -299,7 +299,7 @@ const StartButton = styled.button`
   padding: 5px;
   padding-right: 25px;
   width: 100%;
-  background-color: var(--main-theme-color);
+  background-color: var(--second-theme-color);
   border: none;
   text-align: center;
   transition: 0.3s ease all;

@@ -1,5 +1,6 @@
 :root {
   --main-theme-color: #a5d6a7;
+  --second-theme-color: rgba(32, 156, 238, 0.6);
 }
 
 .Toastify__toast--success {

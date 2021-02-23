@@ -34,7 +34,7 @@ a.after:after {
   height: 5px;
   height: 0.35rem;
   width: 0;
-  background: var(--main-theme-color);
+  background: var(--second-theme-color);
 }
 
 a.third:after,

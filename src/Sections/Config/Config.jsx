@@ -288,6 +288,7 @@ const QuestionContainer = styled.div`
 `;
 
 const Title2 = styled.h1`
+  margin-left: 10px;
   font-size: 35px;
   width: 70vw;
 `;

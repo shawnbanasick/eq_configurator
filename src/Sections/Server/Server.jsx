@@ -194,13 +194,13 @@ const IntroText = styled.span`
     padding-bottom: 1px;
     text-decoration: none;
     color: #000;
-    box-shadow: inset 0 -4px 0 var(--main-theme-color);
+    box-shadow: inset 0 -4px 0 var(--second-theme-color);
     transition: background-color 0.25s ease-out;
     margin-left: 5px;
   }
 
   a:hover {
-    background-color: var(--main-theme-color);
+    background-color: var(--second-theme-color);
     padding-top: 2px;
     box-shadow: none;
   }
