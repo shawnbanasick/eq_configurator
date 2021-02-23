@@ -434,7 +434,7 @@ li.disagree {
 }
 
 
-@media all and (min-width: 1024px) and (max-height: 1366px) and (-webkit-min-device-pixel-ratio: 1.5) and (hover: none) {
+@media (hover: none) and (min-width: 1366px) {
   .grid td {
     vertical-align: top;
     padding: 0;
@@ -445,7 +445,7 @@ li.disagree {
 }
 
 
-@media all and (hover: none) and (device-width: 1024px) and (device-height: 768px) and (orientation:landscape) {
+@media (hover: none) and (max-width: 1024px) {
   .grid td {
     vertical-align: top;
     padding: 0;
