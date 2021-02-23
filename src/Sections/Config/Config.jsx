@@ -252,7 +252,7 @@ const MainContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-items: center;
-  align-items: center;
+  align-items: left;
   background-color: white;
   visibility: ${(props) => (props.view ? "hidden" : "visible")};
   animation: ${(props) => (props.view ? fadeOut : fadeIn)} 0.5s linear;
@@ -293,7 +293,7 @@ const Title2 = styled.h1`
 `;
 
 const DownloadConfigButton = styled(GeneralButton)`
-  width: 800px;
+  width: 600px;
   align-self: center;
   margin-bottom: 100px;
 `;
@@ -304,8 +304,10 @@ const LeftSpacer = styled.div`
 
 const DisplayModeText = styled.div`
   align-self: center;
+  margin-left: 10px;
   margin-top: 40px;
-  width: 900px;
+  width: 98%;
+  max-width: 1200px;
   font-size: 20px;
   padding: 0 10px 0 10px;
   border: 2px solid black;

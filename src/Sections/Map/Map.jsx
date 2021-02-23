@@ -109,7 +109,8 @@ const DisplayModeText = styled.div`
   align-self: center;
   margin-top: 40px;
   margin-bottom: 40px;
-  width: 900px;
+  width: 98%;
+
   font-size: 20px;
   padding: 0 10px 0 10px;
   border: 2px solid black;

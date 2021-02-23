@@ -32,36 +32,6 @@ const Statements = () => {
           </a>
         </p>
       </WebLinkDiv1>
-      {/* <WebLinkDiv1>
-        <StyledAnchor
-          className="sixth before after"
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://github.com/shawnbanasick/kade/wiki"
-        >
-          User Manual
-        </StyledAnchor>
-      </WebLinkDiv1>
-      <WebLinkDiv1>
-        <StyledAnchor
-          className="sixth before after"
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://shawnBanasick.github.io/ken-q-analysis/index.html"
-        >
-          Ken-Q Analysis <br /> Web Application
-        </StyledAnchor>
-      </WebLinkDiv1>
-      <WebLinkDiv1>
-        <StyledAnchor
-          className="sixth before after"
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://shawnbanasick.github.io/ken-q-data/index.html"
-        >
-          Ken-Q Data
-        </StyledAnchor>
-      </WebLinkDiv1> */}
     </MainContent>
   );
 };
@@ -103,8 +73,6 @@ const MainContent = styled.div`
   user-select: none;
 `;
 
-const StyledAnchor = styled.a``;
-
 const WebLinkDiv1 = styled.div`
   display: flex;
   flex-direction: column;
@@ -138,60 +106,6 @@ const WebLinkDiv1 = styled.div`
   }
 `;
 
-const WebLinkDiv2 = styled.div`
-  display: flex;
-  /* grid-area: linkboxRow2; */
-  height: 100px;
-  width: 480px;
-  /* display: grid;
-  align-items: center;
-  justify-content: left; */
-  font-size: 22px;
-  margin-right: 3px;
-  margin-bottom: 3px;
-  text-align: center;
-  user-select: none;
-  line-height: 1.2;
-`;
-
-const WebLinkDiv3 = styled.div`
-  display: flex;
-  /* grid-area: linkboxRow3; */
-  height: 100px;
-  width: 480px;
-  /* display: grid;
-  align-items: center;
-  justify-content: right; */
-  font-size: 22px;
-  margin-right: 3px;
-  margin-bottom: 3px;
-  text-align: center;
-  user-select: none;
-  line-height: 1.2;
-`;
-
-const WebLinkDiv4 = styled.div`
-  display: flex;
-  /* grid-area: linkboxRow4; */
-  height: 50px;
-  width: 480px;
-  /* display: grid;
-  align-items: center;
-  justify-content: left; */
-  font-size: 22px;
-  margin-right: 3px;
-  margin-bottom: 3px;
-  text-align: center;
-  user-select: none;
-  line-height: 1.2;
-`;
-
-const WebLinkRow = styled.div`
-  align-items: center;
-  grid-area: weblinkRow;
-  /* width: 900px; */
-`;
-
 const Title = styled.h1`
   display: grid;
   grid-area: row1;
@@ -213,7 +127,3 @@ const Title = styled.h1`
 //   justify-content: center;
 //   width: 600px;
 // `;
-
-const Rule = styled.hr`
-  grid-area: rule;
-`;

@@ -338,7 +338,7 @@ const Title = styled.h1`
 
 const SurveyContainer = styled.div`
   margin-bottom: 25px;
-  /* width: 100%; */
+  padding-left: 10px;
 
   /* border: 2px solid green; */
 `;
