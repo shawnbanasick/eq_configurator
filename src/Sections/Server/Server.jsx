@@ -197,7 +197,7 @@ const FindServerButton = styled(GeneralButton)`
   margin-top: 20px;
   margin-bottom: 20px;
   font-weight: bold;
-  font-size: 25px;
+  font-size: 22px;
 `;
 
 const ProjectLinkDiv = styled.div`
@@ -221,7 +221,7 @@ const LinkCopyButton = styled(GeneralButton)`
   margin-top: 20px;
   margin-bottom: 20px;
   font-weight: bold;
-  font-size: 25px;
+  font-size: 22px;
 `;
 
 const StyledToastContainer = styled(ToastContainer).attrs({
