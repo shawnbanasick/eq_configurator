@@ -94,13 +94,13 @@ const WebLinkDiv1 = styled.div`
     padding-bottom: 1px;
     text-decoration: none;
     color: #000;
-    box-shadow: inset 0 -4px 0 rgba(13, 190, 152, 0.7);
+    box-shadow: inset 0 -4px 0 var(--main-theme-color);
     transition: background-color 0.25s ease-out;
     margin-left: 5px;
   }
 
   .link4 a:hover {
-    background-color: rgba(13, 190, 152, 0.7);
+    background-color: var(--main-theme-color);
     padding-top: 2px;
     box-shadow: none;
   }

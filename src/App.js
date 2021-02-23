@@ -11,6 +11,7 @@ import Map from "./Sections/Map/Map";
 import Language from "./Sections/Language/Language";
 import Firebase from "./Sections/Firebase/Firebase";
 import Server from "./Sections/Server/Server";
+import Github from "./Sections/Github/Github";
 import Weblinks from "./Sections/Weblinks/Weblinks";
 import Styles from "./Sections/Styles/Styles";
 import appState from "./GlobalState/appState";
@@ -40,6 +41,7 @@ const App = (props) => {
     viewServer,
     viewWeblinks,
     viewStyles,
+    viewGithub,
   } = appState;
 
   const { isDataButtonGreen, hasUnforcedBeenConfirmed } = appState;
@@ -141,12 +143,19 @@ const App = (props) => {
             >
               <p className="title">{`7. ${t("Firebase")}`}</p>
             </FileButton>
+            <FileButton
+              buttonColor={rotationButtonColor}
+              active={viewGithub}
+              onClick={() => handleClick("viewGithub")}
+            >
+              <p className="title">{`8. ${t("Github")}`}</p>
+            </FileButton>
             <Spacer />
             <FileButton
               buttonColor={loadingsButtonColor}
               style={{ textAlign: "center" }}
               active={viewWeblinks}
-              onClick={() => handleClick("viewWeblinks")}
+              onClick={() => handleClick("viewGithub")}
             >
               <p className="title">{`${t("Related Software")}`}</p>
             </FileButton>
@@ -160,6 +169,7 @@ const App = (props) => {
             {viewLanguage && <Language view={viewLanguage} />}
             {viewFirebase && <Firebase view={viewFirebase} />}
             {viewStyles && <Styles view={viewStyles} />}
+            {viewGithub && <Github view={viewGithub} />}
             {viewWeblinks && <Weblinks view={viewWeblinks} />}
             {/*{viewProjectHistory && <ProjectHistory view={viewProjectHistory} />}
             {viewHelp && <Help view={viewHelp} />}
