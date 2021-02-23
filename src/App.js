@@ -148,7 +148,7 @@ const App = (props) => {
               active={viewGithub}
               onClick={() => handleClick("viewGithub")}
             >
-              <p className="title">{`8. ${t("Github")}`}</p>
+              <p className="title">{`8. ${t("Upload")}`}</p>
             </FileButton>
             <Spacer />
             <FileButton
