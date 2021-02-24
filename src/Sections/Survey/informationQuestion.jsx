@@ -14,5 +14,5 @@ const InformationImage = () => {
 export default view(InformationImage);
 
 const Image = styled.img`
-  width: clamp(500px, 75vw, 1300px);
+  width: clamp(500px, 75vw, 1175px);
 `;

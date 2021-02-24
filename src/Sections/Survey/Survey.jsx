@@ -344,12 +344,14 @@ const SurveyContainer = styled.div`
 `;
 
 const ExampleContainer = styled.div`
+  box-sizing: border-box;
   border: 3px solid black;
-  background: #cde7f0;
+  background: var(--second-theme-color);
   margin-top: 20px;
   margin-bottom: 0px;
   padding-left: 10px;
-  width: 78vw;
+  width: 77vw;
+  max-width: 1200px;
   height: auto;
   transition: opacity 3s ease-in-out;
 `;
@@ -363,7 +365,8 @@ const SettingsContainer = styled.div`
   margin-bottom: 5px;
   padding-left: 10px;
   padding-bottom: 5px;
-  width: 78vw;
+  width: 77vw;
+  max-width: 1200px;
   height: auto;
 `;
 
@@ -376,7 +379,7 @@ const AddItemButton = styled(GeneralButton)`
 
 const ImageContainer = styled.div`
   box-sizing: border-box;
-  width: clamp(500px, 75vw, 1300px);
+  width: clamp(500px, 75vw, 1175px);
 `;
 
 const StyledToastContainer = styled(ToastContainer).attrs({

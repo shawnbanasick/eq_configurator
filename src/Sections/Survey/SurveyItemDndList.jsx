@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import GeneralButton from "../../Utils/GeneralButton";
 import appState from "../../GlobalState/appState";
+import radioQuestion from "./radioQuestion";
 
 const clone = require("rfdc/default");
 
@@ -26,9 +27,12 @@ const SurveyItemDndList = () => {
   });
 
   const getListStyle = (isDraggingOver) => ({
-    background: isDraggingOver ? "lightgrey" : "lightblue",
+    background: isDraggingOver
+      ? "var(--second-theme-color)"
+      : "var(--second-theme-color)",
     padding: grid,
     width: "740px",
+    cornerRadius: "3px",
   });
 
   // a little function to help us with reordering the result

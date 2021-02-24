@@ -14,5 +14,5 @@ const CheckboxQuestion = () => {
 export default view(CheckboxQuestion);
 
 const Image = styled.img`
-  width: clamp(400px, 75vw, 1300px);
+  width: clamp(400px, 75vw, 1175px);
 `;
