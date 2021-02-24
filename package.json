@@ -46,11 +46,13 @@
       ]
     },
     "mac": {
+      "icon": "../build/icons/icon.icns",
       "target": [
         "dmg"
       ]
     },
     "files": [
+      "build/icon.*",
       "build/**/*",
       "node_modules/**/*"
     ],
