@@ -45,7 +45,10 @@ const Config = () => {
       <DisplayModeText>
         This file has two sections. The first section sets up the overall
         structure of your project. The second section is a question generator
-        for the (optional) Step 5 questionnaire.
+        for the (optional) Step 5 questionnaire. <br />
+        <br />
+        Here you can also specify a constant size for the Q-sort cards. See the
+        description for question 11a for more details.
       </DisplayModeText>
       <QuestionContainer>
         <Title2>Project Options</Title2>

@@ -8,6 +8,8 @@ import GeneralButton from "../../Utils/GeneralButton";
 import addFirebaseInfoToIndexHtml from "./addFirebaseInfoToIndexHtml";
 import { toast } from "react-toastify";
 import { ToastContainer, Slide } from "react-toastify";
+import addProject from "../../assets/images/firebase_add_project.png";
+import realtimeDatabase from "../../assets/images/firebase-realtime-database.png";
 
 const text = `
     {
@@ -64,6 +66,9 @@ const FirebaseInfo = () => {
       <StyledToastContainer />
       <GlobalStyle />
       <Title>Firebase Settings</Title>
+
+      <img src={addProject} alt="add a project to firebase" />
+
       <FirebaseTextArea />
       <GeneralButton onClick={() => handleClick()}>
         Save file to <b>Easy HTMLQ folder</b> and replace "index.html" file
