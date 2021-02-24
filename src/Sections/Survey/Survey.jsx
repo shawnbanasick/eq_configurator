@@ -347,6 +347,8 @@ const SurveyContainer = styled.div`
 const ExampleContainer = styled.div`
   box-sizing: border-box;
   border: 3px solid black;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
   background: var(--second-theme-color);
   margin-top: 20px;
   margin-bottom: 0px;
@@ -363,6 +365,8 @@ const SettingsContainer = styled.div`
   flex-direction: column;
   border: 3px solid black;
   border-top: 0px solid black;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
   margin-top: 0px;
   margin-bottom: 5px;
   padding-left: 10px;

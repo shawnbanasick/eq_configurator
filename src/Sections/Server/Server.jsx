@@ -82,7 +82,7 @@ const Server = () => {
       <Title>Testing Server Startup</Title>
       {displayMode && (
         <>
-          <IntroText>
+          <DisplayModeText>
             The first step is to <strong>download</strong> the base files for{" "}
             <a
               target="_blank"
@@ -93,18 +93,18 @@ const Server = () => {
             </a>{" "}
             and save them to an easily accessible place on your computer (for
             example, to the "Desktop" folder). The files are in a compressed
-            format (*.zip), so don't forget to uncompress them.
-          </IntroText>
-          <IntroText>
-            The configurator has a built-in server. This will allow you to
-            immediately see the changes you make to your files as you make them.
+            format (*.zip), so don't forget to uncompress them. The configurator
+            has a built-in server. This will allow you to immediately see the
+            changes you make to your files as you make them. <br />
+            <br />
             To start the server, all you need to do is
             <strong> find the uncompressed folder </strong>with the Easy HTMLQ
             base files. You dont't need to select a specific file - you just
             want to find the folder and then click "open".
-          </IntroText>
+          </DisplayModeText>
         </>
       )}
+      <SpacerDiv />
       <FindServerButton onClick={() => handleClick()}>
         Navigate to the HTMLQ base files folder where "index.html" is located.
       </FindServerButton>
@@ -118,7 +118,7 @@ const Server = () => {
         <LinkCopyButton onClick={copyText}>Copy to Clipboard</LinkCopyButton>
       </ProjectLinkDiv>
       {displayMode && (
-        <IntroText>
+        <DisplayModeText>
           The default Easy HTMLQ demo project will now load in your browser. The
           project is not on the internet - it is being hosted from your
           computer, and you're accessing it from the browser on your machine.
@@ -127,8 +127,9 @@ const Server = () => {
           can use this to test your complete setup - including data upload
           (however, it is important to remember to delete any testing data from
           your Firebase location before you begin your actual project).
-        </IntroText>
+        </DisplayModeText>
       )}
+      <SpacerDiv />
     </MainContent>
   );
 };
@@ -246,4 +247,19 @@ const StyledToastContainer = styled(ToastContainer).attrs({
     background-color: var(--main-theme-color);
     width: 200px;
   }
+`;
+
+const DisplayModeText = styled.div`
+  align-self: left;
+  margin-left: 10px;
+  margin-top: 40px;
+  width: 98%;
+  max-width: 1200px;
+  font-size: 20px;
+  padding: 0 10px 0 10px;
+  border: 2px solid black;
+`;
+
+const SpacerDiv = styled.div`
+  margin-bottom: 50px;
 `;

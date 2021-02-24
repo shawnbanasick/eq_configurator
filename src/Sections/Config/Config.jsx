@@ -42,11 +42,11 @@ const Config = () => {
     <MainContent>
       <GlobalStyle />
       <Title>General Configuration Options</Title>
-      <IntroText>
-        This file has two sections. The first part sets up the overall structure
-        of your project. The second section is a question generator for the
-        (optional) post-Q sort questionnaire.
-      </IntroText>
+      <DisplayModeText>
+        This file has two sections. The first section sets up the overall
+        structure of your project. The second section is a question generator
+        for the (optional) Step 5 questionnaire.
+      </DisplayModeText>
       <QuestionContainer>
         <Title2>Project Options</Title2>
         <UserTextInput
@@ -266,12 +266,12 @@ const MainContent = styled.div`
   user-select: none;
 `;
 
-const IntroText = styled.span`
-  align-self: center;
-  padding: 15px;
-  width: 70vw;
-  font-size: 2vw;
-`;
+// const IntroText = styled.span`
+//   align-self: center;
+//   padding: 15px;
+//   width: 70vw;
+//   font-size: 2vw;
+// `;
 
 const Title = styled.h1`
   display: grid;

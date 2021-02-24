@@ -32,7 +32,7 @@ const SurveyItemDndList = () => {
       : "var(--second-theme-color)",
     padding: grid,
     width: "740px",
-    cornerRadius: "3px",
+    borderRadius: "3px",
   });
 
   // a little function to help us with reordering the result
