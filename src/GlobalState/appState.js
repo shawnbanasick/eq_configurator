@@ -257,10 +257,8 @@ const appState = store({
   langTransferFailed: "Data submission failed. Please try again.",
   langTransferOk: `Thank you for using Easy HTMLQ!{br}{br}You can now close your browser window.`,
 
-  langStep2CondOfInstruc:
-    "Give condition of instruction summary to participants",
-  langStep3CondOfInstruc:
-    "Give condition of instruction summary to participants",
+  langStep2CondOfInstruc: "Give condition of instruction here",
+  langStep3CondOfInstruc: "Give condition of instruction here",
 
   cardsStep2ConstantHeight: false,
   cardsStep2ConstantHeightfalseActive: true,

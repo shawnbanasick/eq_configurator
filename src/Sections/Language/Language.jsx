@@ -359,6 +359,8 @@ const Language = () => {
           width={60}
           left={0}
         />
+        <TenPxSpacer></TenPxSpacer>
+        <TenPxSpacer></TenPxSpacer>
       </SectionContainer>
       <DownloadMapButton onClick={() => handleClick()}>
         Save to the <b>SETTINGS</b> folder and replace the "language.xml" file
@@ -393,7 +395,6 @@ const MainContent = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-
   justify-items: center;
   align-items: center;
   background-color: white;
@@ -403,10 +404,8 @@ const MainContent = styled.div`
   font-family: Helvetica, sans-serif;
   font-size: 18px;
   width: calc(100vw - 137px);
-  box-sizing: border-box;
   max-height: calc(100vh - 3px);
   overflow: auto;
-  user-select: none;
   padding-bottom: 30px;
 `;
 const Title = styled.h1`
@@ -424,6 +423,8 @@ const ColorContainer = styled.div`
   padding-left: 10px;
   margin-top: 20px;
   padding-bottom: 20px;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
 `;
 
 const DownloadMapButton = styled(GeneralButton)`
@@ -442,16 +443,22 @@ const DownloadMapButton = styled(GeneralButton)`
 const DisplayModeText = styled.div`
   align-self: center;
   margin-top: 40px;
-  margin-bottom: 10px;
+  margin-bottom: 50px;
   width: 96%;
   max-width: 1200px;
   font-size: 20px;
   padding: 0 10px 0 10px;
-  border: 2px solid black;
+  border: 3px solid black;
 `;
 
 const SectionContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: left;
+  border: 1px solid black;
+  /* border-radius: 3px; */
+`;
+
+const TenPxSpacer = styled.div`
+  height: 10px;
 `;

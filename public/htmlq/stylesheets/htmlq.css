@@ -397,23 +397,23 @@ li.disagree {
 }
 
 
-@media all and (min-width: 1024px) and (max-height: 1366px) and (-webkit-min-device-pixel-ratio: 1.5) and (hover: none) {
+@media (hover: none) and (min-width: 1366px) {
   .grid td {
     vertical-align: top;
     padding: 0;
     line-height: 1.1;
-    font-size: 12px;
+    font-size: 14px;
     /* font-size: 0.8vh; */
   }
 }
 
 
-@media all and (hover: none) and (device-width: 1024px) and (device-height: 768px) and (orientation:landscape) {
+@media (hover: none) and (max-width: 1024px) {
   .grid td {
     vertical-align: top;
     padding: 0;
     line-height: 1;
-    font-size: 9px;
+    font-size: 10px;
     /* font-size: 0.8vh; */
   }
 }
