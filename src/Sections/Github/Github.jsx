@@ -2,70 +2,8 @@ import React from "react";
 import { view } from "@risingstack/react-easy-state";
 import styled, { keyframes } from "styled-components";
 import GlobalStyle from "../../Utils/GlobalStyle";
-import GeneralButton from "../../Utils/GeneralButton";
+// import GeneralButton from "../../Utils/GeneralButton";
 import appState from "../../GlobalState/appState";
-import { toast } from "react-toastify";
-import { ToastContainer, Slide } from "react-toastify";
-const electron = window.require("electron");
-const ipcRenderer = electron.ipcRenderer;
-const { dialog } = require("electron").remote;
-const { remote } = require("electron");
-const mainWindow = remote.getCurrentWindow();
-
-const copyToClipboard = (value) => {
-  var tempInput = document.createElement("input");
-  tempInput.value = value;
-  document.body.appendChild(tempInput);
-  tempInput.select();
-  document.execCommand("copy");
-  document.body.removeChild(tempInput);
-};
-
-const notifySuccess = () => {
-  toast.success("Address Copied", {
-    position: toast.POSITION.BOTTOM_CENTER,
-    transition: Slide,
-  });
-};
-
-const notifyError = () => {
-  toast.error("Error", {
-    position: toast.POSITION.BOTTOM_CENTER,
-    transition: Slide,
-  });
-};
-
-const copyText = () => {
-  try {
-    copyToClipboard("http://localhost:9990");
-    notifySuccess();
-  } catch (e) {
-    notifyError();
-  }
-};
-
-const handleClick = async () => {
-  // console.log("clicked");
-
-  const data = await dialog
-    .showOpenDialog(mainWindow, {
-      properties: ["openDirectory"],
-    })
-    .then((result) => {
-      console.log(result.canceled);
-      console.log(result.filePaths);
-      if (result.canceled === false) {
-        appState.userSelectedFilePath = result.filePaths;
-        return result.filePaths;
-      }
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-
-  console.log(data);
-  ipcRenderer.send("get-file-path", data);
-};
 
 const Server = () => {
   let displayMode = appState.displayMode;
@@ -77,7 +15,6 @@ const Server = () => {
 
   return (
     <MainContent>
-      <StyledToastContainer />
       <GlobalStyle />
       <Title>Upload Your Files to the Web</Title>
 
@@ -97,11 +34,15 @@ const Server = () => {
         </a>
         .
       </IntroText>
+      <SpacerDiv />
+      <SpacerDiv />
       <IntroText>
         <a target="_blank" rel="noopener noreferrer" href="https://github.com/">
           Detailed instructions for uploading to Github
         </a>{" "}
       </IntroText>
+      <SpacerDiv />
+      <SpacerDiv />
       <IntroText>
         <a target="_blank" rel="noopener noreferrer" href="https://github.com/">
           Detailed instructions for uploading to Netlify
@@ -184,44 +125,6 @@ const IntroText = styled.span`
   }
 `;
 
-const FindServerButton = styled(GeneralButton)`
-  height: 50px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  font-weight: bold;
-  font-size: 22px;
-`;
-
-const ProjectLinkDiv = styled.div`
-  display: inline-flex;
-  /* flex-direction: row; */
-  justify-content: center;
-  gap: 10px;
-`;
-
-const LinkSpan = styled.span`
-  font-size: 2vw;
-  align-self: center;
-  width: auto;
-  font-weight: bold;
-  padding: 15px;
-  /* margin-right: 10px; */
-  /* border: 2px solid red; */
-`;
-
-const LinkCopyButton = styled(GeneralButton)`
-  margin-top: 20px;
-  margin-bottom: 20px;
-  font-weight: bold;
-  font-size: 22px;
-`;
-
-const StyledToastContainer = styled(ToastContainer).attrs({
-  // custom props
-})`
-  .Toastify__toast--success {
-    padding-left: 40px;
-    background-color: var(--main-theme-color);
-    width: 200px;
-  }
+const SpacerDiv = styled.div`
+  height: 10px;
 `;
