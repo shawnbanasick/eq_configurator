@@ -47,8 +47,8 @@ const Config = () => {
         of your project. The second section is a question generator for the
         (optional) post-Q sort questionnaire.
       </IntroText>
-      <Title2>Project Options</Title2>
       <QuestionContainer>
+        <Title2>Project Options</Title2>
         <UserTextInput
           label="1. Project title:"
           stateId="configTitle"
@@ -252,7 +252,7 @@ const MainContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-items: center;
-  align-items: left;
+  align-items: center;
   background-color: white;
   visibility: ${(props) => (props.view ? "hidden" : "visible")};
   animation: ${(props) => (props.view ? fadeOut : fadeIn)} 0.5s linear;
@@ -283,6 +283,9 @@ const Title = styled.h1`
 `;
 
 const QuestionContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: left;
   margin-bottom: 25px;
   width: 78vw;
 `;
@@ -304,7 +307,7 @@ const LeftSpacer = styled.div`
 `;
 
 const DisplayModeText = styled.div`
-  align-self: center;
+  align-self: left;
   margin-left: 10px;
   margin-top: 40px;
   width: 98%;
