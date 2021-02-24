@@ -41,7 +41,7 @@ const Config = () => {
   return (
     <MainContent>
       <GlobalStyle />
-      <Title>Config.xml</Title>
+      <Title>General Configuration Options</Title>
       <IntroText>
         This file has two sections. The first part sets up the overall structure
         of your project. The second section is a question generator for the

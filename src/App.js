@@ -155,7 +155,7 @@ const App = (props) => {
               buttonColor={loadingsButtonColor}
               style={{ textAlign: "center" }}
               active={viewWeblinks}
-              onClick={() => handleClick("viewGithub")}
+              onClick={() => handleClick("viewWeblinks")}
             >
               <p className="title">{`${t("Related Software")}`}</p>
             </FileButton>

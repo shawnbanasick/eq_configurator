@@ -21,7 +21,7 @@ const Styles = () => {
   return (
     <MainContent>
       <GlobalStyle />
-      <Title>Styles</Title>
+      <Title>Font Styles and Statement Numbers</Title>
       <SettingsDiv>
         <SectionHeader>Step #2 and Step #3 Sorting Font Sizes</SectionHeader>
         <UserNumberInput
