@@ -45,316 +45,321 @@ const Language = () => {
           {`See the default text below for examples.`}
         </DisplayModeText>
       )}
-      <h3>Button Labels</h3>
-      <UserTextInput
-        label="Continue..."
-        stateId="langBtnContinue"
-        sectionName="lang"
-        width={25}
-        left={0}
-      />
-      <UserTextInput
-        label="Close"
-        stateId="langBtnClose"
-        sectionName="lang"
-        width={25}
-        left={0}
-      />
-      <UserTextInput
-        label="Help me!"
-        stateId="langBtnHelp"
-        sectionName="lang"
-        width={25}
-        left={0}
-      />
-      <UserTextInput
-        label="Agree"
-        stateId="langBtnAgree"
-        sectionName="lang"
-        width={25}
-        left={0}
-      />
-      <UserTextInput
-        label="Neutral"
-        stateId="langBtnNeutral"
-        sectionName="lang"
-        width={25}
-        left={0}
-      />
-      <UserTextInput
-        label="Disagree"
-        stateId="langBtnDisagree"
-        sectionName="lang"
-        width={25}
-        left={0}
-      />
-      <UserTextInput
-        label="Submit data"
-        stateId="langBtnSubmit"
-        sectionName="lang"
-        width={25}
-        left={0}
-      />
-      <UserTextInput
-        label="Exit"
-        stateId="langBtnExit"
-        sectionName="lang"
-        width={25}
-        left={0}
-      />
-      <UserTextInput
-        label="Please select..."
-        stateId="langBtnSelect"
-        sectionName="lang"
-        width={25}
-        left={0}
-      />
-      <ColorContainer>
-        <h3>Navigation and Error Language</h3>
+
+      <SectionContainer>
+        <h3>Button Labels</h3>
         <UserTextInput
-          label="Your answers will be lost."
-          stateId="langExitWarning"
+          label="Continue..."
+          stateId="langBtnContinue"
           sectionName="lang"
           width={25}
           left={0}
         />
         <UserTextInput
-          label="Back"
-          stateId="langBack"
+          label="Close"
+          stateId="langBtnClose"
           sectionName="lang"
           width={25}
           left={0}
         />
         <UserTextInput
-          label="Please fill in all required fields"
-          stateId="langReqFields"
+          label="Help me!"
+          stateId="langBtnHelp"
           sectionName="lang"
           width={25}
           left={0}
         />
         <UserTextInput
-          label="Error"
-          stateId="langError"
+          label="Agree"
+          stateId="langBtnAgree"
           sectionName="lang"
           width={25}
           left={0}
         />
-      </ColorContainer>
-      <h3>Welcome Screen</h3>
-      <UserTextInput
-        label="Welcome!"
-        stateId="langWelcome"
-        sectionName="lang"
-        width={25}
-        left={0}
-      />
-      <UserTextAreaInput
-        label="Welcome Text"
-        stateId="langWelcomeText"
-        sectionName="lang"
-        width={65}
-        height={100}
-        left={0}
-      />
-      <ColorContainer>
-        <h3>User Login Screen</h3>
         <UserTextInput
-          label="Access code"
-          stateId="langUserCode"
+          label="Neutral"
+          stateId="langBtnNeutral"
+          sectionName="lang"
+          width={25}
+          left={0}
+        />
+        <UserTextInput
+          label="Disagree"
+          stateId="langBtnDisagree"
+          sectionName="lang"
+          width={25}
+          left={0}
+        />
+        <UserTextInput
+          label="Submit data"
+          stateId="langBtnSubmit"
+          sectionName="lang"
+          width={25}
+          left={0}
+        />
+        <UserTextInput
+          label="Exit"
+          stateId="langBtnExit"
+          sectionName="lang"
+          width={25}
+          left={0}
+        />
+        <UserTextInput
+          label="Please select..."
+          stateId="langBtnSelect"
+          sectionName="lang"
+          width={25}
+          left={0}
+        />
+        <ColorContainer>
+          <h3>Navigation and Error Language</h3>
+          <UserTextInput
+            label="Your answers will be lost."
+            stateId="langExitWarning"
+            sectionName="lang"
+            width={25}
+            left={0}
+          />
+          <UserTextInput
+            label="Back"
+            stateId="langBack"
+            sectionName="lang"
+            width={25}
+            left={0}
+          />
+          <UserTextInput
+            label="Please fill in all required fields"
+            stateId="langReqFields"
+            sectionName="lang"
+            width={25}
+            left={0}
+          />
+          <UserTextInput
+            label="Error"
+            stateId="langError"
+            sectionName="lang"
+            width={25}
+            left={0}
+          />
+        </ColorContainer>
+        <h3>Welcome Screen</h3>
+        <UserTextInput
+          label="Welcome!"
+          stateId="langWelcome"
           sectionName="lang"
           width={25}
           left={0}
         />
         <UserTextAreaInput
-          label="Log in Text"
-          stateId="langLogInText"
+          label="Welcome Text"
+          stateId="langWelcomeText"
           sectionName="lang"
           width={65}
           height={100}
           left={0}
         />
-        <UserTextInput
-          label="Access code"
-          stateId="langFormHeader"
-          sectionName="lang"
-          width={25}
-          left={0}
-        />
-        <UserTextInput
-          label="Participant name or Id number"
-          stateId="langPartIdText"
-          sectionName="lang"
-          width={25}
-          left={0}
-        />
+        <ColorContainer>
+          <h3>User Login Screen</h3>
+          <UserTextInput
+            label="Access code"
+            stateId="langUserCode"
+            sectionName="lang"
+            width={25}
+            left={0}
+          />
+          <UserTextAreaInput
+            label="Log in Text"
+            stateId="langLogInText"
+            sectionName="lang"
+            width={65}
+            height={100}
+            left={0}
+          />
+          <UserTextInput
+            label="Access code"
+            stateId="langFormHeader"
+            sectionName="lang"
+            width={25}
+            left={0}
+          />
+          <UserTextInput
+            label="Participant name or Id number"
+            stateId="langPartIdText"
+            sectionName="lang"
+            width={25}
+            left={0}
+          />
 
+          <UserTextInput
+            label="Please insert your access code."
+            stateId="langNoInput"
+            sectionName="lang"
+            width={25}
+            left={0}
+          />
+          <UserTextInput
+            label="Access code invalid"
+            stateId="langUserCodeInvalid"
+            sectionName="lang"
+            width={25}
+            left={0}
+          />
+          <UserTextInput
+            label="Connection to server failed. Please try again."
+            stateId="langServerConnectFail"
+            sectionName="lang"
+            width={25}
+            left={0}
+          />
+        </ColorContainer>
+        <h3>Introduction</h3>
         <UserTextInput
-          label="Please insert your access code."
-          stateId="langNoInput"
-          sectionName="lang"
-          width={25}
-          left={0}
-        />
-        <UserTextInput
-          label="Access code invalid"
-          stateId="langUserCodeInvalid"
-          sectionName="lang"
-          width={25}
-          left={0}
-        />
-        <UserTextInput
-          label="Connection to server failed. Please try again."
-          stateId="langServerConnectFail"
-          sectionName="lang"
-          width={25}
-          left={0}
-        />
-      </ColorContainer>
-      <h3>Introduction</h3>
-      <UserTextInput
-        label="Introduction"
-        stateId="langIntroduction"
-        sectionName="lang"
-        width={25}
-        left={0}
-      />
-      <UserTextAreaInput
-        label="Step 1 Text"
-        stateId="langIntroText"
-        sectionName="lang"
-        width={65}
-        height={100}
-        left={0}
-      />
-      <ColorContainer>
-        <h3>Step 1</h3>
-        <UserTextInput
-          label="Step 1 of 5"
-          stateId="langStep1"
+          label="Introduction"
+          stateId="langIntroduction"
           sectionName="lang"
           width={25}
           left={0}
         />
         <UserTextAreaInput
           label="Step 1 Text"
-          stateId="langStep1Text"
+          stateId="langIntroText"
           sectionName="lang"
           width={65}
           height={100}
           left={0}
         />
-      </ColorContainer>
-      <h3>Step 2</h3>
-      <UserTextInput
-        label="Step 2 of 5"
-        stateId="langStep2"
-        sectionName="lang"
-        width={25}
-        left={0}
-      />
-      <UserTextAreaInput
-        label="Step 2 Text"
-        stateId="langStep2Text"
-        sectionName="lang"
-        width={65}
-        height={100}
-        left={0}
-      />
-      <UserTextInput
-        label="Step 2 Cond. of Instruction"
-        stateId="langStep2CondOfInstruc"
-        sectionName="lang"
-        width={50}
-        left={0}
-      />
-      <ColorContainer>
-        <h3>Step 3</h3>
+        <ColorContainer>
+          <h3>Step 1</h3>
+          <UserTextInput
+            label="Step 1 of 5"
+            stateId="langStep1"
+            sectionName="lang"
+            width={25}
+            left={0}
+          />
+          <UserTextAreaInput
+            label="Step 1 Text"
+            stateId="langStep1Text"
+            sectionName="lang"
+            width={65}
+            height={100}
+            left={0}
+          />
+        </ColorContainer>
+        <h3>Step 2</h3>
         <UserTextInput
-          label="Step 3 of 5"
-          stateId="langStep3"
+          label="Step 2 of 5"
+          stateId="langStep2"
           sectionName="lang"
           width={25}
           left={0}
         />
         <UserTextAreaInput
-          label="Step 3 Text"
-          stateId="langStep3Text"
+          label="Step 2 Text"
+          stateId="langStep2Text"
           sectionName="lang"
           width={65}
           height={100}
           left={0}
         />
         <UserTextInput
-          label="Step 3 Cond. of Instruction"
-          stateId="langStep3CondOfInstruc"
+          label="Step 2 Cond. of Instruction"
+          stateId="langStep2CondOfInstruc"
           sectionName="lang"
           width={50}
           left={0}
         />
-      </ColorContainer>
-      <h3>Step 4</h3>
-      <UserTextInput
-        label="Step 4 of 5"
-        stateId="langStep4"
-        sectionName="lang"
-        width={25}
-        left={0}
-      />
-      <UserTextAreaInput
-        label="Step 4 Text"
-        stateId="langStep4Text"
-        sectionName="lang"
-        width={65}
-        height={100}
-        left={0}
-      />
-      <ColorContainer>
-        <h3>Step 5 (only displayed if showStep5 is true in config.xml file)</h3>
+        <ColorContainer>
+          <h3>Step 3</h3>
+          <UserTextInput
+            label="Step 3 of 5"
+            stateId="langStep3"
+            sectionName="lang"
+            width={25}
+            left={0}
+          />
+          <UserTextAreaInput
+            label="Step 3 Text"
+            stateId="langStep3Text"
+            sectionName="lang"
+            width={65}
+            height={100}
+            left={0}
+          />
+          <UserTextInput
+            label="Step 3 Cond. of Instruction"
+            stateId="langStep3CondOfInstruc"
+            sectionName="lang"
+            width={50}
+            left={0}
+          />
+        </ColorContainer>
+        <h3>Step 4</h3>
         <UserTextInput
-          label="Step 5 of 5"
-          stateId="langStep5"
+          label="Step 4 of 5"
+          stateId="langStep4"
           sectionName="lang"
           width={25}
           left={0}
         />
         <UserTextAreaInput
-          label="Step 5 Text"
-          stateId="langStep5Text"
+          label="Step 4 Text"
+          stateId="langStep4Text"
           sectionName="lang"
           width={65}
           height={100}
           left={0}
         />
-      </ColorContainer>
-      <h3>Data Transfer</h3>
-      <UserTextInput
-        label="Submit Data"
-        stateId="langTransferHead"
-        sectionName="lang"
-        width={25}
-        left={0}
-      />
-      <UserTextInput
-        label="Data transfer text"
-        stateId="langTransferText"
-        sectionName="lang"
-        width={25}
-        left={0}
-      />
-      <UserTextInput
-        label="Data transfer failed"
-        stateId="langTransferFailed"
-        sectionName="lang"
-        width={25}
-        left={0}
-      />
-      <UserTextAreaInput
-        label="Data transfer OK"
-        stateId="langTransferOk"
-        sectionName="lang"
-        width={60}
-        left={0}
-      />
+        <ColorContainer>
+          <h3>
+            Step 5 (only displayed if showStep5 is true in config.xml file)
+          </h3>
+          <UserTextInput
+            label="Step 5 of 5"
+            stateId="langStep5"
+            sectionName="lang"
+            width={25}
+            left={0}
+          />
+          <UserTextAreaInput
+            label="Step 5 Text"
+            stateId="langStep5Text"
+            sectionName="lang"
+            width={65}
+            height={100}
+            left={0}
+          />
+        </ColorContainer>
+        <h3>Data Transfer</h3>
+        <UserTextInput
+          label="Submit Data"
+          stateId="langTransferHead"
+          sectionName="lang"
+          width={25}
+          left={0}
+        />
+        <UserTextInput
+          label="Data transfer text"
+          stateId="langTransferText"
+          sectionName="lang"
+          width={25}
+          left={0}
+        />
+        <UserTextInput
+          label="Data transfer failed"
+          stateId="langTransferFailed"
+          sectionName="lang"
+          width={25}
+          left={0}
+        />
+        <UserTextAreaInput
+          label="Data transfer OK"
+          stateId="langTransferOk"
+          sectionName="lang"
+          width={60}
+          left={0}
+        />
+      </SectionContainer>
       <DownloadMapButton onClick={() => handleClick()}>
         Save to the <b>SETTINGS</b> folder and replace the "language.xml" file
       </DownloadMapButton>
@@ -390,7 +395,7 @@ const MainContent = styled.div`
   flex-direction: column;
 
   justify-items: center;
-  align-items: left;
+  align-items: center;
   background-color: white;
   visibility: ${(props) => (props.view ? "hidden" : "visible")};
   animation: ${(props) => (props.view ? fadeOut : fadeIn)} 0.5s linear;
@@ -443,4 +448,10 @@ const DisplayModeText = styled.div`
   font-size: 20px;
   padding: 0 10px 0 10px;
   border: 2px solid black;
+`;
+
+const SectionContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: left;
 `;

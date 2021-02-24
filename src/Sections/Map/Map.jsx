@@ -24,19 +24,22 @@ const Map = () => {
     displayMode = false;
   }
 
-  const numStatements = appState.statements.length;
+  let numStatements = appState.statements.length;
+  if (numStatements === 0) {
+    numStatements = "No";
+  }
 
   return (
     <MainContent>
       <GlobalStyle />
       <Title>Q sort Grid Settings</Title>
-      <h2>{numStatements} Statements</h2>
+      <h2>{numStatements} Statements Loaded</h2>
       {displayMode && (
         <DisplayModeText>
           Make sure to enter your statements first. Then, enter the number of
-          cards in each column here. The background color of the "Q Sort
-          Pattern" text will change to green when all of the statements have
-          been allocated.
+          cards in each column of the Q-sort grid here. The background color of
+          the "Q Sort Pattern" text will change to green when all of the
+          statements have been allocated.
         </DisplayModeText>
       )}
       <MapInputElement />
