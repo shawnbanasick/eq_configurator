@@ -253,7 +253,7 @@ const Survey = () => {
               label="Scale:"
               stateId="surveyQuestionScale"
               sectionName="survey"
-              width={65}
+              width={60}
               left={0}
             />
           )}
@@ -332,6 +332,7 @@ const Title = styled.h1`
   /* grid-area: row1; */
   font-size: 35px;
   width: 70vw;
+  margin-left: 10px;
   /* align-items: center; */
   /* justify-content: center; */
 `;
@@ -361,6 +362,7 @@ const SettingsContainer = styled.div`
   display: flex;
   flex-direction: column;
   border: 3px solid black;
+  border-top: 0px solid black;
   margin-top: 0px;
   margin-bottom: 5px;
   padding-left: 10px;
