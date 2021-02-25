@@ -255,13 +255,13 @@ const FirebaseInfo = () => {
       </LinkCopyButton>
       <DisplayModeText>
         <b>3i.</b>
-        <br /> Select all of the old rules and delete them. Paste the new rules
-        into the text area.
+        <br /> Go back to Firebase. Select all of the old rules and delete them.
+        Paste the new rules into the text area.
       </DisplayModeText>
       <img src={newRules} alt="s" />
       <DisplayModeText>
         <b>3j.</b>
-        <br /> Click "Publish" to active the new rules. Firebase setup is now
+        <br /> Click "Publish" to activate the new rules. Firebase setup is now
         complete. Use the local server to test submission of your project's
         data.
       </DisplayModeText>
@@ -277,13 +277,22 @@ const FirebaseInfo = () => {
       <Title2>Exporting Data for Analysis</Title2>
       <DisplayModeText>
         <b></b>
-        <br /> In the navigation panel, click on "Realtime Database". Then click
-        on the three dots on the top right.
+        <br /> After you have finished your Q study, you need to access the
+        data. In your project's navigation panel, click on "Realtime Database".
+        Then click on the three dots on the top right.
       </DisplayModeText>
       <img src={databaseData} alt="s" />
       <DisplayModeText>
         <b></b>
-        <br /> Click on "Export JSON". You can use{" "}
+        <br /> The data is in JSON (
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://en.wikipedia.org/wiki/JSON"
+        >
+          JavaScript Object Notation
+        </a>
+        ) format. Click on "Export JSON". You can use{" "}
         <a
           target="_blank"
           rel="noopener noreferrer"
@@ -403,7 +412,7 @@ const DisplayModeText = styled.div`
   align-self: left;
   margin-left: 10px;
   margin-top: 40px;
-  width: 98%;
+  width: 78vw;
   max-width: 1200px;
   font-size: 20px;
   padding: 0 10px 0 10px;
