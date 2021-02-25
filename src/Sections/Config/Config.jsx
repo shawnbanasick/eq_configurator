@@ -41,7 +41,7 @@ const Config = () => {
   return (
     <MainContent>
       <GlobalStyle />
-      <Title>General Configuration Options</Title>
+      <Title>General Configuration</Title>
       <DisplayModeText>
         This file has two sections. The first section sets up the overall
         structure of your project. The second section is a question generator
@@ -280,7 +280,7 @@ const Title = styled.h1`
   display: grid;
   grid-area: row1;
   font-size: 50px;
-  width: 78vw;
+  width: 70vw;
   align-items: center;
   justify-content: center;
 `;
