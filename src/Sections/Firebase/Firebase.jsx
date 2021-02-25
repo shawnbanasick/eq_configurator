@@ -13,7 +13,7 @@ import realtimeDatabase from "../../assets/images/firebase-realtime-database.png
 import authentication from "../../assets/images/firebase-authentication.png";
 import authenticationSignInMethod from "../../assets/images/firebase-authentication-sign-in-method.png";
 import authenticationEnableAnonymous from "../../assets/images/firebase-authentication-enable-anonymous.png";
-import projectSettingsGear from "../../assets/images/firebase-project-settings-gear.png";
+// import projectSettingsGear from "../../assets/images/firebase-project-settings-gear.png";
 
 import anonEnableSwitch from "../../assets/images/firebase-anon-enable-switch.png";
 import anonSelect from "../../assets/images/firebase-anon-select.png";
@@ -97,16 +97,12 @@ const FirebaseInfo = () => {
         <br /> <br />
         Information on how to export the Firebase data for analysis is at the
         bottom of this page. <br /> <br />
-        There are four things needed to link a database to Easy HTMLQ: setup a
-        new Firebase project, initialize the realtime database, allow anonymous
-        log-ins, and set the database rules.
-      </DisplayModeText>
-      <DisplayModeText>
-        <b>1a.</b>
-        <br /> I
+        There are three things needed to link a database to Easy HTMLQ: setup a
+        new Firebase project, allow anonymous log-ins, and set the database
+        rules, and initialize the realtime database.
       </DisplayModeText>
       <SpacerDiv />
-      <Title2>Step 1 of 4 - Add a New Project</Title2>
+      <Title2>Step 1 of 3 - Add a New Project</Title2>
 
       <DisplayModeText>
         <b>1a.</b>
@@ -173,35 +169,133 @@ const FirebaseInfo = () => {
         file
       </GeneralButton>
       <SpacerDiv />
-      <Title2>Step 3 of 4 - Allow Anonymous Log-in</Title2>
-      <img src={authentication} alt="a" />
-      <img src={authenticationSignInMethod} alt="a" />
-      <img src={authenticationEnableAnonymous} alt="ad" />
-      <img src={anonEnableSwitch} alt="a" />
-      <img src={anonSelect} alt="ae" />
-
       <SpacerDiv />
-      <Title2>Step 4 of 4 - Set Realtime Database Access Rules</Title2>
+      <SpacerDiv />
+
+      <Title2>Step 2 of 3 - Allow Anonymous Log-in</Title2>
+      <DisplayModeText>
+        <b>2a.</b>
+        <br /> Go back to Firebase and click on "Authentication" in the
+        navigation panel on the left side of the page.
+      </DisplayModeText>
+      <img src={authentication} alt="a" />
+      <DisplayModeText>
+        <b>2b.</b>
+        <br /> Click on "Sign-in method"
+      </DisplayModeText>
+      <img src={authenticationSignInMethod} alt="a" />
+      <DisplayModeText>
+        <b>2c.</b>
+        <br /> Scroll down the page to find "Anonymous" and click it.
+      </DisplayModeText>
+      <img src={anonSelect} alt="ae" />
+      <DisplayModeText>
+        <b>2d.</b>
+        <br /> Click the slider in the top right to enable anonymous sign-in,
+        and then click "<b>Save</b>".
+      </DisplayModeText>
+      <img src={anonEnableSwitch} alt="a" />
+      <DisplayModeText>
+        <b>2e.</b>
+        <br /> Anonymous mode should now indicate "Enabled".
+      </DisplayModeText>
+      <img src={authenticationEnableAnonymous} alt="ad" />
+      <SpacerDiv />
+      <SpacerDiv />
+      <SpacerDiv />
+      <Title2>Step 3 of 3 - Set Realtime Database Access Rules</Title2>
+      <DisplayModeText>
+        <b>3a.</b>
+        <br /> In the navigation panel on the left side, click on "Realtime
+        Datebase".
+      </DisplayModeText>
       <img src={realtimeDatabase} alt="database" />
-
-      <Title2>Exporting Data for Analysis</Title2>
-      <img src={exportJson} alt="s" />
-
+      <DisplayModeText>
+        <b>3b.</b>
+        <br />
+        Click on "Create Database".
+      </DisplayModeText>
       <img src={createDatabase} alt="s" />
+      <DisplayModeText>
+        <b>3c.</b>
+        <br /> Select location and then click "Next".
+      </DisplayModeText>
       <img src={databaseLocation} alt="s" />
+      <DisplayModeText>
+        <b>3d.</b>
+        <br /> Select "Start in locked mode", then click "Enable".
+      </DisplayModeText>
       <img src={defaultRules} alt="s" />
+      <DisplayModeText>
+        <b>3e.</b>
+        <br /> You should now be able to see your database.
+      </DisplayModeText>
       <img src={initialDatabase} alt="s" />
+      <DisplayModeText>
+        <b>3f.</b>
+        <br />
+        Click on "Rules".
+      </DisplayModeText>
       <img src={clickRules} alt="s" />
+      <DisplayModeText>
+        <b>3g.</b>
+        <br /> Click on "Edit Rules"
+      </DisplayModeText>
       <img src={editRules} alt="s" />
-      <img src={newRules} alt="s" />
-      <img src={publishRules} alt="s" />
-      <img src={databaseData} alt="s" />
+      <DisplayModeText>
+        <b>3h.</b>
+        <br /> Click the gray button below to copy the new rules to your
+        clipboard.
+      </DisplayModeText>
       <FirebaseRulesLink>
         <pre>{text}</pre>
       </FirebaseRulesLink>
       <LinkCopyButton onClick={copyText}>
         Copy Rules to Clipboard
       </LinkCopyButton>
+      <DisplayModeText>
+        <b>3i.</b>
+        <br /> Select all of the old rules and delete them. Paste the new rules
+        into the text area.
+      </DisplayModeText>
+      <img src={newRules} alt="s" />
+      <DisplayModeText>
+        <b>3j.</b>
+        <br /> Click "Publish" to active the new rules. Firebase setup is now
+        complete. Use the local server to test submission of your project's
+        data.
+      </DisplayModeText>
+      <img src={publishRules} alt="s" />
+      <DisplayModeText>
+        <b>3k.</b>
+        <br /> Firebase setup is now complete. Use the local server to test the
+        submission of your project's data.
+      </DisplayModeText>
+      <SpacerDiv />
+      <SpacerDiv />
+      <SpacerDiv />
+      <Title2>Exporting Data for Analysis</Title2>
+      <DisplayModeText>
+        <b></b>
+        <br /> In the navigation panel, click on "Realtime Database". Then click
+        on the three dots on the top right.
+      </DisplayModeText>
+      <img src={databaseData} alt="s" />
+      <DisplayModeText>
+        <b></b>
+        <br /> Click on "Export JSON". You can use{" "}
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/shawnbanasick/kade"
+        >
+          KADE
+        </a>{" "}
+        or another program to analyze the data.
+      </DisplayModeText>
+      <img src={exportJson} alt="s" />
+      <SpacerDiv />
+      <SpacerDiv />
     </MainContent>
   );
 };
