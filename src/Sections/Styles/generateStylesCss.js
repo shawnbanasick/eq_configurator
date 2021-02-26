@@ -614,8 +614,8 @@ body {
 
 /* Prevent bootstrap-caused page shifting on modal open
 ---------------------------------------------*/
-.modal-open {
-  margin-right: 15px;
+body.modal-open {
+  overflow: auto;
 }
   `;
 
