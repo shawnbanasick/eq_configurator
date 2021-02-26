@@ -170,7 +170,7 @@ const Config = () => {
         />
         {displayMode && (
           <DisplayModeText>
-            The default mode for Easy HTMLQ is for a responsive Q-sort card
+            11a. The default mode for Easy HTMLQ is for a responsive Q-sort card
             size. In other words, the size of the cards will change according to
             the size of the participant's browser on the initial web page load
             of Easy HTMLQ. All of the cards will be visible on the screen and no

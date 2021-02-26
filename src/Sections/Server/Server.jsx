@@ -173,6 +173,21 @@ const MainContent = styled.div`
   max-height: calc(100vh - 3px);
   overflow: auto;
   user-select: none;
+
+  a {
+    padding-bottom: 1px;
+    text-decoration: none;
+    color: #000;
+    box-shadow: inset 0 -4px 0 var(--second-theme-color);
+    transition: background-color 0.25s ease-out;
+    margin-left: 5px;
+  }
+
+  a:hover {
+    background-color: var(--second-theme-color);
+    padding-top: 2px;
+    box-shadow: none;
+  }
 `;
 
 const Title = styled.h1`
@@ -190,21 +205,6 @@ const IntroText = styled.span`
   width: 70vw;
   padding: 15px;
   /* border: 2px solid red; */
-
-  a {
-    padding-bottom: 1px;
-    text-decoration: none;
-    color: #000;
-    box-shadow: inset 0 -4px 0 var(--second-theme-color);
-    transition: background-color 0.25s ease-out;
-    margin-left: 5px;
-  }
-
-  a:hover {
-    background-color: var(--second-theme-color);
-    padding-top: 2px;
-    box-shadow: none;
-  }
 `;
 
 const FindServerButton = styled(GeneralButton)`
