@@ -1,5 +1,4 @@
-
-  .col-centered {
+.col-centered {
   float: none;
   margin: 0 auto;
 }
@@ -396,7 +395,6 @@ li.disagree {
   }
 }
 
-
 @media (hover: none) and (min-width: 1366px) {
   .grid td {
     vertical-align: top;
@@ -407,7 +405,6 @@ li.disagree {
   }
 }
 
-
 @media (hover: none) and (max-width: 1024px) {
   .grid td {
     vertical-align: top;
@@ -417,11 +414,6 @@ li.disagree {
     /* font-size: 0.8vh; */
   }
 }
-
-
-
-
-
 
 .grid-heading {
   display: flex;
@@ -573,4 +565,9 @@ body {
   margin-top: 25px;
   margin-bottom: 25px;
 }
-  
+
+/* Prevent bootstrap-caused page shifting on modal open
+---------------------------------------------*/
+.modal-open {
+  margin-right: 15px;
+}
