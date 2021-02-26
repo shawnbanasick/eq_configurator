@@ -15,6 +15,7 @@ const appState = store({
   config.xml default settings */
   showSurveytextImage: true,
 
+  configTitle: "My_Q_project",
   configVersion: "1.0",
   configTextAlignleftActive: true,
   configTextAlign: "left",

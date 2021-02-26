@@ -50,6 +50,7 @@ const Config = () => {
         Here you can also specify a constant size for the Q-sort cards. See the
         description for question 11a for more details.
       </DisplayModeText>
+
       <QuestionContainer>
         <Title2>Project Options</Title2>
         <UserTextInput
@@ -170,18 +171,22 @@ const Config = () => {
         />
         {displayMode && (
           <DisplayModeText>
-            11a. The default mode for Easy HTMLQ is for a responsive Q-sort card
-            size. In other words, the size of the cards will change according to
-            the size of the participant's browser on the initial web page load
-            of Easy HTMLQ. All of the cards will be visible on the screen and no
-            page scrolling is needed.
+            11a. By default, Easy HTMLQ has responsive Q-sort card and text font
+            sizes. In other words, the size of the cards and text will change
+            according to the size of the participant's browser on the{" "}
+            <b>
+              <i>initial</i>
+            </b>{" "}
+            web page load of Easy HTMLQ. All of the cards will be visible on the
+            screen and no page scrolling is needed.
             <br />
             <br />
-            If you want to specify a constant size for the Q-sort cards across
-            all browsers and screen sizes, you need to set a fixed height and
-            width here. In this case, the participants will need to scroll to
-            view all of the Q-sort cards. You should also set an appropriate
-            constant font size for all screen sizes in the "Styles" section.
+            If you want to specify a constant size for the Q-sort cards for all
+            screen sizes, you need to set a fixed height and width for the
+            Q-sort cards here. In this case, the participants will need to
+            scroll to view all of the Q-sort cards. You should also set an
+            appropriate constant font size for all screen sizes in the "Styles"
+            section.
           </DisplayModeText>
         )}
         <RadioButtons

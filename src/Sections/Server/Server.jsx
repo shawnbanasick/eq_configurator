@@ -6,6 +6,9 @@ import GeneralButton from "../../Utils/GeneralButton";
 import appState from "../../GlobalState/appState";
 import { toast } from "react-toastify";
 import { ToastContainer, Slide } from "react-toastify";
+import eqClickSaveFiles from "../../assets/images/eq-click-save-files.png";
+import eqDownloadZip from "../../assets/images/eq-download-zip.png";
+
 const electron = window.require("electron");
 const ipcRenderer = electron.ipcRenderer;
 const { dialog } = require("electron").remote;
@@ -92,19 +95,35 @@ const Server = () => {
               Easy HTMLQ
             </a>{" "}
             and save them to an easily accessible place on your computer (for
-            example, to the "Desktop" folder). The files are in a compressed
-            format (*.zip), so don't forget to uncompress them. The configurator
-            has a built-in server. This will allow you to immediately see the
-            changes you make to your files as you make them. <br />
+            example, to the "Desktop" folder). Go to the Easy HTMLQ home page
+            and click the green "Code" button.
+          </DisplayModeText>
+          <SpacerDiv />
+          <img src={eqClickSaveFiles} width="90%" maxWidth="1000" alt="a" />
+          <DisplayModeText>
+            Click on "Download ZIP". The files will be in a compressed format
+            (*.zip), so don't forget to{" "}
+            <b>
+              <i>decompress</i>
+            </b>{" "}
+            them.
+          </DisplayModeText>
+          <img src={eqDownloadZip} alt="a" />
+          <DisplayModeText>
+            This configurator has a built-in local web server. This will allow
+            you to immediately see the changes you make to your files on your
+            computer as you make them.
+            <br />
             <br />
             To start the server, all you need to do is
             <strong> find the uncompressed folder </strong>with the Easy HTMLQ
             base files. You dont't need to select a specific file - you just
-            want to find the folder and then click "open".
+            want to find the folder.
           </DisplayModeText>
+          <SpacerDiv />
         </>
       )}
-      <SpacerDiv />
+
       <FindServerButton onClick={() => handleClick()}>
         Navigate to the HTMLQ base files folder where "index.html" is located.
       </FindServerButton>
@@ -124,9 +143,10 @@ const Server = () => {
           computer, and you're accessing it from the browser on your machine.
           However, after you set up your Firebase file, this demo project will
           save completed Q sort data to the Firebase realtime database. So, you
-          can use this to test your complete setup - including data upload
-          (however, it is important to remember to delete any testing data from
-          your Firebase location before you begin your actual project).
+          can use this local server to test your complete setup - including data
+          upload (however, it is important to remember to delete any testing
+          data from your Firebase location before you begin your actual
+          project).
         </DisplayModeText>
       )}
       <SpacerDiv />
@@ -173,6 +193,10 @@ const MainContent = styled.div`
   max-height: calc(100vh - 3px);
   overflow: auto;
   user-select: none;
+
+  img {
+    max-width: 1000px;
+  }
 
   a {
     padding-bottom: 1px;
