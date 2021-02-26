@@ -513,7 +513,7 @@ li.disagree {
   position: absolute;
   top: 0;
   left: 0;
-  font-size: 0.6em;
+  font-size: 3.0em;
   font-weight: bolder;
   text-align: center;
   background-color: rgb(200, 200, 200);
