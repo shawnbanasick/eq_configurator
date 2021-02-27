@@ -4,8 +4,8 @@ import values from "lodash/values";
 const clone = require("rfdc/default");
 
 const generateStep2html = () => {
-  const useConstantHeight = appState.cardsStep2ConstantHeight;
-  const useConstantWidth = appState.cardsStep2ConstantWidth;
+  const useConstantHeight = appState.configStep2ConstantHeight;
+  const useConstantWidth = appState.configStep2ConstantWidth;
 
   const widthValue = appState.cardsStep2CardWidth;
   const heightValue = appState.cardsStep2CardHeight;

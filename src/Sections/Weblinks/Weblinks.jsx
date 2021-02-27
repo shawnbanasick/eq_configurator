@@ -28,7 +28,7 @@ const Statements = () => {
             rel="noopener noreferrer"
             href="https://github.com/shawnbanasick/easy-htmlq"
           >
-            Easy HTMLQ Base Files
+            Easy HTMLQ
           </a>
         </p>
         <p class="link4">

@@ -192,8 +192,8 @@ const Config = () => {
         <RadioButtons
           label="11a. Set constant card height:"
           buttonIdArray={["true", "false"]}
-          stateId="cardsStep2ConstantHeight"
-          sectionName="cards"
+          stateId="configStep2ConstantHeight"
+          sectionName="config"
         />
         <UserNumberInput
           label="11b. Q-sort card height (pixels):"
@@ -201,14 +201,14 @@ const Config = () => {
           value={20}
           upperLimit={500}
           lowerLimit={10}
-          stateId="cardsStep2CardHeight"
-          sectionName="cards"
+          stateId="configStep2CardHeight"
+          sectionName="config"
         ></UserNumberInput>
         <RadioButtons
           label="12a. Set constant card width:"
           buttonIdArray={["true", "false"]}
-          stateId="cardsStep2ConstantWidth"
-          sectionName="cards"
+          stateId="configStep2ConstantWidth"
+          sectionName="config"
         />
 
         <UserNumberInput
@@ -217,8 +217,8 @@ const Config = () => {
           value={20}
           upperLimit={500}
           lowerLimit={10}
-          stateId="cardsStep2CardWidth"
-          sectionName="cards"
+          stateId="configStep2CardWidth"
+          sectionName="config"
         ></UserNumberInput>
       </QuestionContainer>
       {configShowStep5 && (

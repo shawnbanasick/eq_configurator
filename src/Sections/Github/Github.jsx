@@ -333,7 +333,6 @@ const fadeOut = keyframes`
 `;
 
 const MainContent = styled.div`
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-items: center;
@@ -342,13 +341,7 @@ const MainContent = styled.div`
   visibility: ${(props) => (props.view ? "hidden" : "visible")};
   animation: ${(props) => (props.view ? fadeOut : fadeIn)} 0.5s linear;
   transition: visibility 0.5s linear;
-  font-family: Helvetica, sans-serif;
   font-size: 18px;
-  width: calc(100vw - 137px);
-  box-sizing: border-box;
-  max-height: calc(100vh - 3px);
-  overflow: auto;
-  user-select: none;
 
   a {
     padding-bottom: 1px;
@@ -366,26 +359,19 @@ const MainContent = styled.div`
   }
 
   img {
+    /* width: 150px; */
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(5px 5px 5px #222);
+    margin-bottom: 20px;
     max-width: 1000px;
   }
 `;
 
 const Title = styled.h1`
-  display: grid;
-  grid-area: row1;
-  font-size: 5vw;
   width: 80vw;
-  align-items: center;
-  justify-content: center;
+  max-width: 700px;
+  align-self: center;
 `;
-
-// const IntroText = styled.span`
-//   font-size: 2vw;
-//   align-self: center;
-//   width: 70vw;
-//   padding: 15px;
-//   /* border: 2px solid red; */
-// `;
 
 const SpacerDiv20 = styled.div`
   margin-bottom: 20px;
@@ -409,5 +395,6 @@ const DisplayModeText = styled.div`
 `;
 
 const SpacerDiv50 = styled.div`
-  margin-bottom: 50px;
+  height: 10px;
+  margin-bottom: 40px;
 `;

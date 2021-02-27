@@ -96,7 +96,7 @@ const Styles = () => {
           stateId="stylesIpadLargeFontSize"
           sectionName="styles"
         ></UserNumberInput>
-        <SectionHeader>Statement Numbers</SectionHeader>
+        <SectionHeader2>Statement Numbers</SectionHeader2>
         <RadioButtons
           label="Display statement numbers:"
           buttonIdArray={["true", "false"]}
@@ -148,32 +148,19 @@ const fadeOut = keyframes`
 
 const MainContent = styled.div`
   display: flex;
-  box-sizing: border-box;
   flex-direction: column;
-
-  justify-items: center;
   align-items: center;
   background-color: white;
   visibility: ${(props) => (props.view ? "hidden" : "visible")};
   animation: ${(props) => (props.view ? fadeOut : fadeIn)} 0.5s linear;
   transition: visibility 0.5s linear;
-  font-family: Helvetica, sans-serif;
   font-size: 18px;
-  width: calc(100vw - 137px);
-  box-sizing: border-box;
-  max-height: calc(100vh - 3px);
-  overflow: auto;
   user-select: none;
 `;
 
 const Title = styled.h1`
-  display: grid;
-  grid-area: row1;
-  font-size: 50px;
-  width: 75vw;
-  max-width: 800px;
-  align-items: center;
-  justify-content: center;
+  font-size: 5vw;
+  align-self: center;
 `;
 
 const DownloadMapButton = styled(GeneralButton)`
@@ -189,10 +176,14 @@ const SettingsDiv = styled.div`
   text-align: left;
   /* border: 2px solid red; */
   padding-left: 20px;
-  width: 90%;
 `;
 
 const SectionHeader = styled.h3`
+  margin-top: 10px;
+  text-align: left;
+`;
+
+const SectionHeader2 = styled.h3`
   margin-top: 50px;
   text-align: left;
 `;

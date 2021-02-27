@@ -35,6 +35,12 @@ const appState = store({
   configDisableBackButtontrueActive: true,
   configPartNameRequired: true,
   configPartNameRequiredtrueActive: true,
+  configStep2ConstantHeight: false,
+  configStep2ConstantHeightfalseActive: true,
+  configStep2CardHeight: 150,
+  configStep2ConstantWidth: false,
+  configStep2ConstantWidthfalseActive: true,
+  configStep2CardWidth: 200,
 
   stylesStatementNumberDisplayfalseActive: true,
   stylesStatementNumberDisplay: false,

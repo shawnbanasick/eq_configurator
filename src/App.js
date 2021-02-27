@@ -177,44 +177,14 @@ const App = (props) => {
 
 export default view(App);
 
-const Header = styled.header`
-  box-sizing: border-box;
-  display: grid;
-  background-color: black;
-  font-family: Helvetica;
-  color: #d6dbe0;
-  font-size: 1rem;
-  height: 23px;
-  align-items: center;
-  text-align: center;
-  position: fixed;
-  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 10;
-  -webkit-app-region: drag;
-  user-select: none;
-`;
-
 const AppWrap = styled.div`
   display: grid;
   grid-template-columns: 135px 1fr;
-  /* box-sizing: border-box; */
   font-family: Helvetica;
+  box-sizing: border-box;
   height: 100vh;
   width: 100vw;
-  /* ${({ active }) =>
-    active &&
-    css`
-      margin-top: 23px;
-    `}; */
 `;
-
-// const Split = styled.div`
-//   /* box-sizing: border-box; */
-//   display: flex;
-// `;
 
 const FilesWindow = styled.div`
   box-sizing: border-box;
@@ -228,21 +198,14 @@ const FilesWindow = styled.div`
 `;
 
 const ActionWindow = styled.div`
-  /* box-sizing: border-box; */
+  box-sizing: border-box;
   border-bottom: 1px solid black;
   border-right: 1px solid black;
   background-color: white;
-  /* height: 99.85vh; */
-
+  width: calc(100vw - 135px);
   overflow: auto;
 `;
 
-// background: #191324;
-
-// hover -> border-left: solid 8px #d6dbe0;
-// active -> border-left: solid 8px #d6dbe0;
-// border-bottom: solid 1px #302b3a;
-// border-bottom: solid 1px gray;
 const FileButton = styled.button`
   box-sizing: border-box;
   padding: 10px;
