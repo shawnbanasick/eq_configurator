@@ -1,9 +1,9 @@
 import appState from "../../GlobalState/appState";
 
 const clearAddItemForm = () => {
-  appState.surveyAnswerRequired = undefined;
+  appState.surveyAnswerRequired = false;
   appState.surveyAnswerRequiredtrueActive = false;
-  appState.surveyAnswerRequiredfalseActive = false;
+  appState.surveyAnswerRequiredfalseActive = true;
   appState.surveyQuestionLabel = "";
   appState.surveyQuestionNote = "";
   appState.surveyAnswerLenIsLimited = undefined;

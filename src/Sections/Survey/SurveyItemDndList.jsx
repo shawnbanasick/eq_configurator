@@ -56,6 +56,7 @@ const SurveyItemDndList = () => {
     );
 
     testItems = [...items];
+    appState.surveyQuestionsArray = testItems;
   };
 
   const callDelete = (e) => {
