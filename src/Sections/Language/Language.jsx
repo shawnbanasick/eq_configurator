@@ -154,7 +154,7 @@ const Language = () => {
           label="Welcome Text"
           stateId="langWelcomeText"
           sectionName="lang"
-          width={55}
+          width={45}
           height={130}
           left={0}
         />
@@ -266,7 +266,7 @@ const Language = () => {
           label="Step 2 Cond. of Instruction"
           stateId="langStep2CondOfInstruc"
           sectionName="lang"
-          width={45}
+          width={43}
           left={0}
         />
         <ColorContainer>
@@ -290,7 +290,7 @@ const Language = () => {
             label="Step 3 Cond. of Instruction"
             stateId="langStep3CondOfInstruc"
             sectionName="lang"
-            width={45}
+            width={43}
             left={0}
           />
         </ColorContainer>
@@ -393,29 +393,19 @@ const fadeOut = keyframes`
 `;
 
 const MainContent = styled.div`
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-items: center;
   align-items: center;
   background-color: white;
   visibility: ${(props) => (props.view ? "hidden" : "visible")};
   animation: ${(props) => (props.view ? fadeOut : fadeIn)} 0.5s linear;
   transition: visibility 0.5s linear;
-  font-family: Helvetica, sans-serif;
   font-size: 18px;
-  width: calc(100vw - 137px);
-  max-height: calc(100vh - 3px);
-  overflow: auto;
   padding-bottom: 30px;
 `;
 const Title = styled.h1`
-  display: grid;
-  grid-area: row1;
   font-size: 5vw;
-  width: 70vw;
-  align-items: center;
-  justify-content: center;
+  align-self: center;
 `;
 
 const ColorContainer = styled.div`
@@ -425,7 +415,6 @@ const ColorContainer = styled.div`
   padding-bottom: 20px;
   border-top: 2px solid black;
   border-bottom: 2px solid black;
-  width: 100%;
 `;
 
 const DownloadMapButton = styled(GeneralButton)`

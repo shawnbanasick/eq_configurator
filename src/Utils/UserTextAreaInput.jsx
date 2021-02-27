@@ -40,7 +40,7 @@ const UserTextInput = (props) => {
 export default view(UserTextInput);
 
 const UserText = styled.textarea((props) => ({
-  width: `${props.width}vw`,
+  width: `${props.width + 26}%`,
   height: `${props.height}px`,
   marginLeft: `${props.left}px`,
   marginTop: `25px`,
