@@ -80,7 +80,7 @@ const App = (props) => {
 
   return (
     <AppWrap active={showTopBar}>
-      {showTopBar ? <Header>KADE</Header> : null}
+      {showTopBar ? <Header>EQ Configurator</Header> : null}
       <ErrorBoundary>
         <Split>
           <FilesWindow>
@@ -171,10 +171,6 @@ const App = (props) => {
             {viewStyles && <Styles view={viewStyles} />}
             {viewGithub && <Github view={viewGithub} />}
             {viewWeblinks && <Weblinks view={viewWeblinks} />}
-            {/*{viewProjectHistory && <ProjectHistory view={viewProjectHistory} />}
-            {viewHelp && <Help view={viewHelp} />}
-            {viewLicense && <License view={viewLicense} />}
-            {viewClearProject && <ClearProject view={viewClearProject} />} */}
           </ActionWindow>
         </Split>
       </ErrorBoundary>
@@ -205,7 +201,7 @@ const Header = styled.header`
 `;
 
 const AppWrap = styled.div`
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   font-family: Helvetica;
   height: 100vh;
   width: 100vw;
@@ -217,7 +213,7 @@ const AppWrap = styled.div`
 `;
 
 const Split = styled.div`
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   display: flex;
 `;
 
@@ -233,13 +229,14 @@ const FilesWindow = styled.div`
 `;
 
 const ActionWindow = styled.div`
+  /* box-sizing: border-box; */
   border-bottom: 1px solid black;
   border-right: 1px solid black;
   background-color: white;
   height: 99.85vh;
   flex: 1;
   html {
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
   }
   *,
   *:before,

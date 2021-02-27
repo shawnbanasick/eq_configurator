@@ -13,8 +13,6 @@ import realtimeDatabase from "../../assets/images/firebase-realtime-database.png
 import authentication from "../../assets/images/firebase-authentication.png";
 import authenticationSignInMethod from "../../assets/images/firebase-authentication-sign-in-method.png";
 import authenticationEnableAnonymous from "../../assets/images/firebase-authentication-enable-anonymous.png";
-// import projectSettingsGear from "../../assets/images/firebase-project-settings-gear.png";
-
 import anonEnableSwitch from "../../assets/images/firebase-anon-enable-switch.png";
 import anonSelect from "../../assets/images/firebase-anon-select.png";
 import addProjectName from "../../assets/images/firebase-add-project-name.png";
@@ -448,7 +446,6 @@ const Title2 = styled.h1`
 `;
 
 const SpacerDiv = styled.div`
-  box-sizing: border-box;
   height: 10px;
   margin-top: 10px;
   margin-bottom: 10px;

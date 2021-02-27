@@ -154,8 +154,8 @@ const Language = () => {
           label="Welcome Text"
           stateId="langWelcomeText"
           sectionName="lang"
-          width={65}
-          height={100}
+          width={55}
+          height={130}
           left={0}
         />
         <ColorContainer>
@@ -171,7 +171,7 @@ const Language = () => {
             label="Log in Text"
             stateId="langLogInText"
             sectionName="lang"
-            width={65}
+            width={56}
             height={100}
             left={0}
           />
@@ -221,11 +221,11 @@ const Language = () => {
           left={0}
         />
         <UserTextAreaInput
-          label="Step 1 Text"
+          label="Intro Text"
           stateId="langIntroText"
           sectionName="lang"
-          width={65}
-          height={100}
+          width={55}
+          height={130}
           left={0}
         />
         <ColorContainer>
@@ -241,8 +241,8 @@ const Language = () => {
             label="Step 1 Text"
             stateId="langStep1Text"
             sectionName="lang"
-            width={65}
-            height={100}
+            width={55}
+            height={160}
             left={0}
           />
         </ColorContainer>
@@ -258,15 +258,15 @@ const Language = () => {
           label="Step 2 Text"
           stateId="langStep2Text"
           sectionName="lang"
-          width={65}
-          height={100}
+          width={55}
+          height={160}
           left={0}
         />
         <UserTextInput
           label="Step 2 Cond. of Instruction"
           stateId="langStep2CondOfInstruc"
           sectionName="lang"
-          width={50}
+          width={45}
           left={0}
         />
         <ColorContainer>
@@ -282,15 +282,15 @@ const Language = () => {
             label="Step 3 Text"
             stateId="langStep3Text"
             sectionName="lang"
-            width={65}
-            height={100}
+            width={55}
+            height={150}
             left={0}
           />
           <UserTextInput
             label="Step 3 Cond. of Instruction"
             stateId="langStep3CondOfInstruc"
             sectionName="lang"
-            width={50}
+            width={45}
             left={0}
           />
         </ColorContainer>
@@ -306,13 +306,13 @@ const Language = () => {
           label="Step 4 Text"
           stateId="langStep4Text"
           sectionName="lang"
-          width={65}
-          height={100}
+          width={55}
+          height={150}
           left={0}
         />
         <ColorContainer>
           <h3>
-            Step 5 (only displayed if showStep5 is true in config.xml file)
+            Step 5 (only displayed if "Show Step 5" is true in the Config file)
           </h3>
           <UserTextInput
             label="Step 5 of 5"
@@ -325,8 +325,8 @@ const Language = () => {
             label="Step 5 Text"
             stateId="langStep5Text"
             sectionName="lang"
-            width={65}
-            height={100}
+            width={55}
+            height={150}
             left={0}
           />
         </ColorContainer>
@@ -342,21 +342,22 @@ const Language = () => {
           label="Data transfer text"
           stateId="langTransferText"
           sectionName="lang"
-          width={25}
+          width={45}
           left={0}
         />
         <UserTextInput
           label="Data transfer failed"
           stateId="langTransferFailed"
           sectionName="lang"
-          width={25}
+          width={45}
           left={0}
         />
         <UserTextAreaInput
           label="Data transfer OK"
           stateId="langTransferOk"
           sectionName="lang"
-          width={60}
+          width={50}
+          height={100}
           left={0}
         />
         <TenPxSpacer></TenPxSpacer>
@@ -409,11 +410,10 @@ const MainContent = styled.div`
   padding-bottom: 30px;
 `;
 const Title = styled.h1`
-  align-self: center;
   display: grid;
   grid-area: row1;
-  font-size: 50px;
-  width: 900px;
+  font-size: 5vw;
+  width: 70vw;
   align-items: center;
   justify-content: center;
 `;
@@ -425,10 +425,12 @@ const ColorContainer = styled.div`
   padding-bottom: 20px;
   border-top: 2px solid black;
   border-bottom: 2px solid black;
+  width: 100%;
 `;
 
 const DownloadMapButton = styled(GeneralButton)`
-  width: 500px;
+  width: 70%;
+  max-width: 500px;
   align-self: center;
   margin-top: 50px;
 `;
@@ -444,7 +446,7 @@ const DisplayModeText = styled.div`
   align-self: center;
   margin-top: 40px;
   margin-bottom: 50px;
-  width: 96%;
+  width: 92%;
   max-width: 1200px;
   font-size: 20px;
   padding: 0 10px 0 10px;
@@ -456,6 +458,8 @@ const SectionContainer = styled.div`
   flex-direction: column;
   align-items: left;
   border: 1px solid black;
+  width: 92%;
+  max-width: 1000px;
   /* border-radius: 3px; */
 `;
 

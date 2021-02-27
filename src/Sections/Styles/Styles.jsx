@@ -34,7 +34,7 @@ const Styles = () => {
           sectionName="styles"
         ></UserNumberInput>
         <UserNumberInput
-          label="2. Small screens (height at least 720px)"
+          label="2. Small screens (screen height at least 720px)"
           step={1}
           value={12}
           upperLimit={100}
@@ -43,7 +43,7 @@ const Styles = () => {
           sectionName="styles"
         ></UserNumberInput>
         <UserNumberInput
-          label="3. Medium screens (height at least 900px)"
+          label="3. Medium screens (screen height at least 900px)"
           step={1}
           value={14}
           upperLimit={100}
@@ -52,7 +52,7 @@ const Styles = () => {
           sectionName="styles"
         ></UserNumberInput>
         <UserNumberInput
-          label="4. Large screens (height at least 1080px)"
+          label="4. Large screens (screen height at least 1080px)"
           step={1}
           value={16}
           upperLimit={100}
@@ -61,7 +61,7 @@ const Styles = () => {
           sectionName="styles"
         ></UserNumberInput>
         <UserNumberInput
-          label="5. Very large screens (height at least 1440px)"
+          label="5. Very large screens (screen height at least 1440px)"
           step={1}
           value={18}
           upperLimit={100}
@@ -70,7 +70,7 @@ const Styles = () => {
           sectionName="styles"
         ></UserNumberInput>
         <UserNumberInput
-          label="6. 4k screens (height at least 2160px)"
+          label="6. 4k screens (screen height at least 2160px)"
           step={1}
           value={20}
           upperLimit={100}
@@ -147,8 +147,8 @@ const fadeOut = keyframes`
 `;
 
 const MainContent = styled.div`
-  box-sizing: border-box;
   display: flex;
+  box-sizing: border-box;
   flex-direction: column;
 
   justify-items: center;
@@ -170,7 +170,8 @@ const Title = styled.h1`
   display: grid;
   grid-area: row1;
   font-size: 50px;
-  width: 80vw;
+  width: 75vw;
+  max-width: 800px;
   align-items: center;
   justify-content: center;
 `;
@@ -178,7 +179,8 @@ const Title = styled.h1`
 const DownloadMapButton = styled(GeneralButton)`
   margin-top: 20px;
   margin-bottom: 50px;
-  width: auto;
+  width: 70%;
+  max-width: 500px;
   /* border: 2px solid red; */
 `;
 
