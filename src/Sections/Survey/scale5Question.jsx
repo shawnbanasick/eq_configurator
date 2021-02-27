@@ -14,5 +14,5 @@ const Scale5Question = () => {
 export default view(Scale5Question);
 
 const Image = styled.img`
-  width: clamp(500px, 75vw, 1175px);
+  width: 100%;
 `;

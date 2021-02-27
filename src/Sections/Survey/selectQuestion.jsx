@@ -14,5 +14,5 @@ const SelectQuestion = () => {
 export default view(SelectQuestion);
 
 const Image = styled.img`
-  width: clamp(500px, 75vw, 1175px);
+  width: 100%;
 `;

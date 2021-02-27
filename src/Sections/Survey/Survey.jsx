@@ -61,14 +61,9 @@ const Survey = () => {
   let showSurveyrating10Image = appState.showSurveyrating10Image;
   let showSurveyinformationImage = appState.showSurveyinformationImage;
 
-  // for development only
-  // showSurvey = true;
-
   const surveyQuestionType = appState.surveyQuestionType;
   const displayBoolean2 = shouldDisplayObject();
-  // console.log(surveyQuestionType);
   const displayBoolean = displayBoolean2[surveyQuestionType];
-  // console.log(JSON.stringify(displayBoolean));
 
   const addItem = () => {
     try {
@@ -253,7 +248,7 @@ const Survey = () => {
               label="Scale:"
               stateId="surveyQuestionScale"
               sectionName="survey"
-              width={60}
+              width={55}
               left={0}
             />
           )}
@@ -270,7 +265,7 @@ const Survey = () => {
               label="Options:"
               stateId="surveyQuestionOptions"
               sectionName="survey"
-              width={60}
+              width={55}
               left={0}
             />
           )}
@@ -285,67 +280,18 @@ const Survey = () => {
 
 export default view(Survey);
 
-// const fadeIn = keyframes`
-//   from {
-//     opacity: 0;
-//   }
-
-//   to {
-//     opacity: 1;
-//   }
-// `;
-
-// const fadeOut = keyframes`
-//   from {
-//     opacity: 1;
-//   }
-
-//   to {
-//     opacity: 0;
-//   }
-// `;
-
-// const MainContent = styled.div`
-//   box-sizing: border-box;
-//   display: flex;
-//   flex-direction: column;
-//   justify-items: left;
-//   align-items: left;
-//   background-color: white;
-//   visibility: ${(props) => (props.view ? "hidden" : "visible")};
-//   animation: ${(props) => (props.view ? fadeOut : fadeIn)} 0.5s linear;
-//   transition: visibility 0.5s linear;
-//   font-family: Helvetica, sans-serif;
-//   font-size: 18px;
-//   width: 100%; // calc(100vw - 160px);
-//   /* max-height: calc(100vh - 23px); */
-//   padding-left: 50px;
-//   padding-right: 50px;
-//   /* margin: 0 auto; */
-//   overflow: auto;
-//   user-select: none;
-//   /* border: 2px solid red; */
-// `;
-
 const Title = styled.h1`
-  /* display: grid; */
-  /* grid-area: row1; */
   font-size: 35px;
   width: 70vw;
   margin-left: 10px;
-  /* align-items: center; */
-  /* justify-content: center; */
 `;
 
 const SurveyContainer = styled.div`
   margin-bottom: 25px;
   padding-left: 10px;
-
-  /* border: 2px solid green; */
 `;
 
 const ExampleContainer = styled.div`
-  box-sizing: border-box;
   border: 3px solid black;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
@@ -353,14 +299,13 @@ const ExampleContainer = styled.div`
   margin-top: 20px;
   margin-bottom: 0px;
   padding-left: 10px;
-  width: 77vw;
+  width: 75vw;
   max-width: 1200px;
   height: auto;
   transition: opacity 3s ease-in-out;
 `;
 
 const SettingsContainer = styled.div`
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   border: 3px solid black;
@@ -369,11 +314,11 @@ const SettingsContainer = styled.div`
   border-bottom-right-radius: 5px;
   margin-top: 0px;
   margin-bottom: 5px;
+  padding-top: 10px;
   padding-left: 10px;
   padding-bottom: 5px;
-  width: 77vw;
+  width: 75vw;
   max-width: 1200px;
-  height: auto;
 `;
 
 const AddItemButton = styled(GeneralButton)`
@@ -384,8 +329,7 @@ const AddItemButton = styled(GeneralButton)`
 `;
 
 const ImageContainer = styled.div`
-  box-sizing: border-box;
-  width: clamp(500px, 75vw, 1175px);
+  width: clamp(300px, 74vw, 1175px);
 `;
 
 const StyledToastContainer = styled(ToastContainer).attrs({

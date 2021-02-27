@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import GeneralButton from "../../Utils/GeneralButton";
 import appState from "../../GlobalState/appState";
-import radioQuestion from "./radioQuestion";
 
 const clone = require("rfdc/default");
 
@@ -57,13 +56,11 @@ const SurveyItemDndList = () => {
     );
 
     testItems = [...items];
-    // console.log(JSON.stringify(testItems));
   };
 
   const callDelete = (e) => {
     const item = e.target.value;
     testItems.splice(item, 1);
-    // console.log(JSON.stringify(testItems, null, 2));
     appState.surveyQuestionsArray = testItems;
   };
 
@@ -125,7 +122,6 @@ const SurveyItemDndList = () => {
 export default view(SurveyItemDndList);
 
 const DragAndDropContainer = styled.div`
-  overflow: auto;
   width: 750px;
 `;
 
@@ -147,5 +143,5 @@ const UlDiv = styled.div`
 const Container = styled.div`
   display: flex;
   flex-direction: row;
-  width: 700px;
+  width: 715px;
 `;

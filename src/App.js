@@ -79,102 +79,99 @@ const App = (props) => {
   // }
 
   return (
-    <AppWrap active={showTopBar}>
-      {showTopBar ? <Header>EQ Configurator</Header> : null}
-      <ErrorBoundary>
-        <Split>
-          <FilesWindow>
-            <StartButton
-              active={viewStart}
-              onClick={() => handleClick("viewStart")}
-            >
-              <p className="title">Start</p>
-            </StartButton>
-            <FileButton
-              buttonColor={inputButtonColor}
-              active={viewServer}
-              onClick={() => handleClick("viewServer")}
-            >
-              <p className="title">{`1. ${t("Server")}`}</p>
-            </FileButton>
-            <FileButton
-              buttonColor={inputButtonColor}
-              active={viewConfig}
-              onClick={() => handleClick("viewConfig")}
-            >
-              <p className="title">{`2. ${t("Config")}`}</p>
-            </FileButton>
-            <FileButton
-              buttonColor={indicateDataButtonColor(
-                isDataButtonGreen,
-                hasUnforcedBeenConfirmed
-              )}
-              active={viewStatements}
-              onClick={() => handleClick("viewStatements")}
-            >
-              <p className="title">{`3. ${t("Statements")}`}</p>
-            </FileButton>
-            <FileButton
-              buttonColor={correlationsButtonColor}
-              active={viewMap}
-              onClick={() => handleClick("viewMap")}
-            >
-              <p className="title">{`4. ${t("Map")}`}</p>
-            </FileButton>
-            <FileButton
-              buttonColor={factorsButtonColor}
-              active={viewLanguage}
-              onClick={() => handleClick("viewLanguage")}
-            >
-              <p className="title">{`5. ${t("Language")}`}</p>
-            </FileButton>
-            <FileButton
-              buttonColor={loadingsButtonColor}
-              active={viewStyles}
-              onClick={() => handleClick("viewStyles")}
-            >
-              <p className="title">{`6. ${t("Styles")}`}</p>
-            </FileButton>
+    <ErrorBoundary>
+      <AppWrap>
+        <FilesWindow>
+          <StartButton
+            active={viewStart}
+            onClick={() => handleClick("viewStart")}
+          >
+            <p className="title">Start</p>
+          </StartButton>
+          <FileButton
+            buttonColor={inputButtonColor}
+            active={viewServer}
+            onClick={() => handleClick("viewServer")}
+          >
+            <p className="title">{`1. ${t("Server")}`}</p>
+          </FileButton>
+          <FileButton
+            buttonColor={inputButtonColor}
+            active={viewConfig}
+            onClick={() => handleClick("viewConfig")}
+          >
+            <p className="title">{`2. ${t("Config")}`}</p>
+          </FileButton>
+          <FileButton
+            buttonColor={indicateDataButtonColor(
+              isDataButtonGreen,
+              hasUnforcedBeenConfirmed
+            )}
+            active={viewStatements}
+            onClick={() => handleClick("viewStatements")}
+          >
+            <p className="title">{`3. ${t("Statements")}`}</p>
+          </FileButton>
+          <FileButton
+            buttonColor={correlationsButtonColor}
+            active={viewMap}
+            onClick={() => handleClick("viewMap")}
+          >
+            <p className="title">{`4. ${t("Map")}`}</p>
+          </FileButton>
+          <FileButton
+            buttonColor={factorsButtonColor}
+            active={viewLanguage}
+            onClick={() => handleClick("viewLanguage")}
+          >
+            <p className="title">{`5. ${t("Language")}`}</p>
+          </FileButton>
+          <FileButton
+            buttonColor={loadingsButtonColor}
+            active={viewStyles}
+            onClick={() => handleClick("viewStyles")}
+          >
+            <p className="title">{`6. ${t("Styles")}`}</p>
+          </FileButton>
 
-            <FileButton
-              buttonColor={rotationButtonColor}
-              active={viewFirebase}
-              onClick={() => handleClick("viewFirebase")}
-            >
-              <p className="title">{`7. ${t("Firebase")}`}</p>
-            </FileButton>
-            <FileButton
-              buttonColor={rotationButtonColor}
-              active={viewGithub}
-              onClick={() => handleClick("viewGithub")}
-            >
-              <p className="title">{`8. ${t("Upload")}`}</p>
-            </FileButton>
-            <Spacer />
-            <FileButton
-              buttonColor={loadingsButtonColor}
-              style={{ textAlign: "center" }}
-              active={viewWeblinks}
-              onClick={() => handleClick("viewWeblinks")}
-            >
-              <p className="title">{`${t("Related Software")}`}</p>
-            </FileButton>
-          </FilesWindow>
-          <ActionWindow>
-            {viewStart && <Start view={viewStart} />}
-            {viewConfig && <Config view={viewConfig} />}
-            {viewServer && <Server view={viewServer} />}
-            {viewStatements && <Statements view={viewStatements} />}
-            {viewMap && <Map view={viewMap} />}
-            {viewLanguage && <Language view={viewLanguage} />}
-            {viewFirebase && <Firebase view={viewFirebase} />}
-            {viewStyles && <Styles view={viewStyles} />}
-            {viewGithub && <Github view={viewGithub} />}
-            {viewWeblinks && <Weblinks view={viewWeblinks} />}
-          </ActionWindow>
-        </Split>
-      </ErrorBoundary>
-    </AppWrap>
+          <FileButton
+            buttonColor={rotationButtonColor}
+            active={viewFirebase}
+            onClick={() => handleClick("viewFirebase")}
+          >
+            <p className="title">{`7. ${t("Firebase")}`}</p>
+          </FileButton>
+          <FileButton
+            buttonColor={rotationButtonColor}
+            active={viewGithub}
+            onClick={() => handleClick("viewGithub")}
+          >
+            <p className="title">{`8. ${t("Upload")}`}</p>
+          </FileButton>
+          <Spacer />
+          <FileButton
+            buttonColor={loadingsButtonColor}
+            style={{ textAlign: "center" }}
+            active={viewWeblinks}
+            onClick={() => handleClick("viewWeblinks")}
+          >
+            <p className="title">{`${t("Related Software")}`}</p>
+          </FileButton>
+        </FilesWindow>
+        <ActionWindow>
+          {viewStart && <Start view={viewStart} />}
+          {viewConfig && <Config view={viewConfig} />}
+          {viewServer && <Server view={viewServer} />}
+          {viewStatements && <Statements view={viewStatements} />}
+          {viewMap && <Map view={viewMap} />}
+          {viewLanguage && <Language view={viewLanguage} />}
+          {viewFirebase && <Firebase view={viewFirebase} />}
+          {viewStyles && <Styles view={viewStyles} />}
+          {viewGithub && <Github view={viewGithub} />}
+          {viewWeblinks && <Weblinks view={viewWeblinks} />}
+        </ActionWindow>
+      </AppWrap>
+    </ErrorBoundary>
   );
 };
 
@@ -201,21 +198,23 @@ const Header = styled.header`
 `;
 
 const AppWrap = styled.div`
+  display: grid;
+  grid-template-columns: 135px 1fr;
   /* box-sizing: border-box; */
   font-family: Helvetica;
   height: 100vh;
   width: 100vw;
-  ${({ active }) =>
+  /* ${({ active }) =>
     active &&
     css`
       margin-top: 23px;
-    `};
+    `}; */
 `;
 
-const Split = styled.div`
-  /* box-sizing: border-box; */
-  display: flex;
-`;
+// const Split = styled.div`
+//   /* box-sizing: border-box; */
+//   display: flex;
+// `;
 
 const FilesWindow = styled.div`
   box-sizing: border-box;
@@ -233,16 +232,8 @@ const ActionWindow = styled.div`
   border-bottom: 1px solid black;
   border-right: 1px solid black;
   background-color: white;
-  height: 99.85vh;
-  flex: 1;
-  html {
-    /* box-sizing: border-box; */
-  }
-  *,
-  *:before,
-  *:after {
-    box-sizing: inherit;
-  }
+  /* height: 99.85vh; */
+
   overflow: auto;
 `;
 

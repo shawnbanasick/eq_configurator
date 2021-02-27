@@ -256,7 +256,6 @@ const fadeOut = keyframes`
 `;
 
 const MainContent = styled.div`
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-items: center;
@@ -267,19 +266,8 @@ const MainContent = styled.div`
   transition: visibility 0.5s linear;
   font-family: Helvetica, sans-serif;
   font-size: 18px;
-  width: calc(100vw - 137px);
-  box-sizing: border-box;
-  max-height: calc(100vh - 3px);
-  overflow: auto;
   user-select: none;
 `;
-
-// const IntroText = styled.span`
-//   align-self: center;
-//   padding: 15px;
-//   width: 70vw;
-//   font-size: 2vw;
-// `;
 
 const Title = styled.h1`
   display: grid;
@@ -291,6 +279,7 @@ const Title = styled.h1`
 `;
 
 const QuestionContainer = styled.div`
+  align-self: center;
   display: flex;
   flex-direction: column;
   align-items: left;
@@ -318,8 +307,8 @@ const DisplayModeText = styled.div`
   align-self: left;
   margin-left: 10px;
   margin-top: 40px;
-  width: 78vw;
-  max-width: 1200px;
+  width: 75vw;
+  max-width: 1000px;
   font-size: 20px;
   padding: 0 10px 0 10px;
   border: 2px solid black;
