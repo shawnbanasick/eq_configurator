@@ -51,8 +51,8 @@ const Server = () => {
       <Title>Upload Your Files to the Web</Title>
 
       <DisplayModeText>
-        The next step is to <strong>upload</strong> your files to a web server.
-        There are a number of choices. Here I recommend either
+        The next step is to <strong>upload</strong> your Easy HTMLQ files to a
+        web server. I recommend either
         <a
           target="_blank"
           rel="noopener noreferrer"
@@ -64,10 +64,11 @@ const Server = () => {
         <a target="_blank" rel="noopener noreferrer" href="https://github.com/">
           Github
         </a>
-        . Both options are free to use. Netlify is quicker and easier. With
-        Github it is easier to make small changes to your project after you have
-        uploaded it. If you use Github your user account name becomes part of
-        the url for your project.
+        . Both options are free to use for small, non-commercial projects.
+        Netlify is quicker and easier to setup. With Github it is easier to make
+        small changes to your project after you have uploaded it. Note that if
+        you use Github your user account name becomes part of the url for your
+        project.
       </DisplayModeText>
       <RadioButtons
         label="Display instructions for:"
@@ -91,7 +92,7 @@ const Server = () => {
             >
               Netlify
             </a>{" "}
-            and make one. Once you are in the main Netlify page, click on
+            and make one first. Once you are in the main Netlify page, click on
             "Sites"
           </DisplayModeText>
           <SpacerDiv20 />
@@ -101,7 +102,7 @@ const Server = () => {
           <DisplayModeText>
             <b>1b.</b>
             <br />
-            Drag the <b>Easy HTMLQ folder</b> to the Netlify page and drop it
+            Drag the Easy HTMLQ <b>folder</b> to the Netlify page and drop it
             into the box.
           </DisplayModeText>
           <SpacerDiv20 />
@@ -176,8 +177,8 @@ const Server = () => {
             >
               Github
             </a>{" "}
-            and make one. <b>**Important**</b> - the name of your account will
-            be in the url of your project, so choose your account name
+            and make one first. <b>**Important**</b> - the name of your account
+            will be in the url of your project, so choose your account name
             carefully.
             <br />
             <br />
@@ -225,8 +226,8 @@ const Server = () => {
           <DisplayModeText>
             <b>2f.</b>
             <br />
-            Drag-and-drop or choose your configured Easy HTMLQ files. You can
-            see the upload progress below the drop zone.
+            Drag-and-drop or choose your configured Easy HTMLQ <b>files</b>. You
+            can see the upload progress below the drop zone.
           </DisplayModeText>
           <img src={githubFileUploading} width="90%" alt="a" />
           <SpacerDiv20 />
@@ -279,8 +280,8 @@ const Server = () => {
             <br />
             If you click on your project url immediately you will get a 404
             error. This is because it takes some time for the Github servers to
-            put your site on the web. Wait about 30 minutes - 1 hour and check
-            again and your page should be live on the web.
+            put your site on the web. Wait about 30 minutes and check again and
+            your page should be live on the web.
           </DisplayModeText>
           <SpacerDiv20 />
           <img src={github404} alt="a" />
@@ -289,7 +290,7 @@ const Server = () => {
             <b>How to Delete a Github Page</b>
             <br />
             In the main Github page for your site, click on "Settings". Scroll
-            to the bottome of the page and click "Delete this repository"
+            to the bottom of the page and click "Delete this repository"
           </DisplayModeText>
           <SpacerDiv20 />
           <img src={githubDeleteSection} width="90%" alt="a" />

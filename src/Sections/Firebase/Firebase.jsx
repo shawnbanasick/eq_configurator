@@ -93,19 +93,22 @@ const FirebaseInfo = () => {
       <GlobalStyle />
       <Title>Firebase Settings</Title>
       <DisplayModeText>
-        Firebase is a Database-as-a-Service company owned by Google. It provides
-        a convenient way to store the participants' response data. If you don't
-        have a Google account, make one before you begin the setup process.
+        Firebase is a database company owned by Google. It provides a convenient
+        way to store the participants' response data. If you don't have a Google
+        account, make one before you begin the setup process.
         <br /> <br />
         Information on how to export the Firebase data for analysis and how to
         delete individual data entries is at the bottom of this page. <br />{" "}
         <br />
-        There are three things needed to link a database to Easy HTMLQ: setup a
-        new Firebase project, allow anonymous log-ins, and set the database
-        rules, and initialize the realtime database.
+        There are three steps needed to provide a database for Easy HTMLQ:
+        <br /> &nbsp;&nbsp;&nbsp;1&#41; create a new Firebase project;
+        <br /> &nbsp;&nbsp;&nbsp;2&#41; set the database to allow anonymous
+        log-ins;
+        <br /> &nbsp;&nbsp;&nbsp;3&#41; initialize the database and set the
+        access rules.
       </DisplayModeText>
       <SpacerDiv />
-      <Title2>Step 1 of 3 - Add a New Project</Title2>
+      <Title2>Step 1 of 3 - Create a New Project</Title2>
 
       <DisplayModeText>
         <b>1a.</b>
@@ -138,7 +141,8 @@ const FirebaseInfo = () => {
       <img src={createProject} width="90%" alt="s" />
       <DisplayModeText>
         <b>1e.</b>
-        <br /> You will get confirmation. Then click "Continue".
+        <br /> You will get confirmation that the project is ready. Then click
+        "Continue".
       </DisplayModeText>
       <img src={projectCreated} alt="s" />
       <DisplayModeText>
@@ -175,7 +179,7 @@ const FirebaseInfo = () => {
       <SpacerDiv />
       <SpacerDiv />
 
-      <Title2>Step 2 of 3 - Allow Anonymous Log-in</Title2>
+      <Title2>Step 2 of 3 - Allow Anonymous Log-ins</Title2>
       <DisplayModeText>
         <b>2a.</b>
         <br /> Go back to Firebase and click on "Authentication" in the
@@ -206,7 +210,7 @@ const FirebaseInfo = () => {
       <SpacerDiv />
       <SpacerDiv />
       <SpacerDiv />
-      <Title2>Step 3 of 3 - Set Realtime Database Access Rules</Title2>
+      <Title2>Step 3 of 3 - Initialize and Set Access Rules</Title2>
       <DisplayModeText>
         <b>3a.</b>
         <br /> In the navigation panel on the left side, click on "Realtime
@@ -231,7 +235,8 @@ const FirebaseInfo = () => {
       <img src={defaultRules} width="90%" alt="s" />
       <DisplayModeText>
         <b>3e.</b>
-        <br /> You should now be able to see your database.
+        <br /> You should now be able to see your database (written in yellow in
+        the image below).
       </DisplayModeText>
       <img src={initialDatabase} width="90%" alt="s" />
       <DisplayModeText>
@@ -264,15 +269,15 @@ const FirebaseInfo = () => {
       <img src={newRules} width="90%" alt="s" />
       <DisplayModeText>
         <b>3j.</b>
-        <br /> Click "Publish" to activate the new rules. Firebase setup is now
-        complete. Use the local server to test submission of your project's
-        data.
+        <br /> Click "Publish" to activate the new rules.
       </DisplayModeText>
       <img src={publishRules} width="90%" alt="s" />
       <DisplayModeText>
         <b>3k.</b>
         <br /> Firebase setup is now complete. Use the local server to test the
-        submission of your project's data.
+        submission of your project's data. Remember to delete the test data
+        before you begin the survey (See the information below on how to delete
+        test data from the database).
       </DisplayModeText>
       <SpacerDiv />
       <SpacerDiv />
@@ -311,7 +316,7 @@ const FirebaseInfo = () => {
       <Title2>Deleting Data for Individual Participants</Title2>
       <DisplayModeText>
         <b></b>
-        <br /> To delete an individual participant's data, click on "Realtime
+        <br /> To delete an individual participant's data, open the "Realtime
         database" and then click the "X" to the right side of the participant's
         data that you want to delete.
       </DisplayModeText>
