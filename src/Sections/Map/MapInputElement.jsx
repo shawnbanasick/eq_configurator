@@ -280,8 +280,7 @@ const DesignDiv = styled.div`
   display: flex;
   flex-direction: column;
   /* grid-column-start: 1; */
-  /* border: 2px solid red; */
-  width: 700px;
+  width: auto;
 `;
 
 const TextDiv = styled.div`

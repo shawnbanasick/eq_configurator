@@ -264,18 +264,13 @@ const MainContent = styled.div`
   visibility: ${(props) => (props.view ? "hidden" : "visible")};
   animation: ${(props) => (props.view ? fadeOut : fadeIn)} 0.5s linear;
   transition: visibility 0.5s linear;
-  font-family: Helvetica, sans-serif;
   font-size: 18px;
   user-select: none;
 `;
 
 const Title = styled.h1`
-  display: grid;
-  grid-area: row1;
+  align-self: center;
   font-size: 50px;
-  width: 70vw;
-  align-items: center;
-  justify-content: center;
 `;
 
 const QuestionContainer = styled.div`

@@ -73,22 +73,15 @@ const fadeOut = keyframes`
 `;
 
 const MainContent = styled.div`
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-
   justify-items: center;
   align-items: center;
   background-color: white;
   visibility: ${(props) => (props.view ? "hidden" : "visible")};
   animation: ${(props) => (props.view ? fadeOut : fadeIn)} 0.5s linear;
   transition: visibility 0.5s linear;
-  font-family: Helvetica, sans-serif;
   font-size: 18px;
-  width: calc(100vw - 137px);
-  box-sizing: border-box;
-  min-height: calc(100vh - 3px);
-  overflow: auto;
   user-select: none;
   padding-bottom: 30px;
 `;
@@ -100,12 +93,10 @@ const Title = styled.h1`
   width: 600px;
   align-items: center;
   justify-content: center;
-  /* border: 2px solid red; */
 `;
 
 const DownloadMapButton = styled(GeneralButton)`
   width: 600px;
-  /* border: 2px solid red; */
 `;
 
 const DisplayModeText = styled.div`
