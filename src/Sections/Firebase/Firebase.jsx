@@ -5,7 +5,7 @@ import GlobalStyle from "../../Utils/GlobalStyle";
 import FirebaseTextArea from "./FirebaseTextArea";
 import exportToXml from "../../Utils/exportToXml";
 import GeneralButton from "../../Utils/GeneralButton";
-import addFirebaseInfoToIndexHtml from "./addFirebaseInfoToIndexHtml";
+import generateHtmlWithFirebase from "./generateHtmlWithFirebase";
 import { toast } from "react-toastify";
 import { ToastContainer, Slide } from "react-toastify";
 import addProject from "../../assets/images/firebase_add_project.png";
@@ -34,6 +34,8 @@ import publishRules from "../../assets/images/firebase-publish-rules.png";
 import databaseData from "../../assets/images/firebase-database-data.png";
 import exportJson from "../../assets/images/firebase-export-json.png";
 import gotoConsole from "../../assets/images/firebase-goto-console.png";
+import firebaseDeleteParticipant from "../../assets/images/firebase-delete-participant.png";
+import firebaseDeleteConfirm from "../../assets/images/firebase-delete-confirm.png";
 
 const text = `
     {
@@ -45,7 +47,7 @@ const text = `
     `;
 
 const handleClick = () => {
-  const data = addFirebaseInfoToIndexHtml();
+  const data = generateHtmlWithFirebase();
   // console.log(data);
   if (data !== undefined) {
     exportToXml("index.html", data, "html");
@@ -95,8 +97,9 @@ const FirebaseInfo = () => {
         a convenient way to store the participants' response data. If you don't
         have a Google account, make one before you begin the setup process.
         <br /> <br />
-        Information on how to export the Firebase data for analysis is at the
-        bottom of this page. <br /> <br />
+        Information on how to export the Firebase data for analysis and how to
+        delete individual data entries is at the bottom of this page. <br />{" "}
+        <br />
         There are three things needed to link a database to Easy HTMLQ: setup a
         new Firebase project, allow anonymous log-ins, and set the database
         rules, and initialize the realtime database.
@@ -132,7 +135,7 @@ const FirebaseInfo = () => {
         <b>1d.</b>
         <br /> Disable Google Analytics and then click "Create Project"
       </DisplayModeText>
-      <img src={createProject} alt="s" />
+      <img src={createProject} width="90%" alt="s" />
       <DisplayModeText>
         <b>1e.</b>
         <br /> You will get confirmation. Then click "Continue".
@@ -154,7 +157,7 @@ const FirebaseInfo = () => {
         <br /> Copy the Firebase SDK information by clicking on the icon in the
         bottom right corner. Then click "Continue to console".
       </DisplayModeText>
-      <img src={copyApiInfo} alt="s" />
+      <img src={copyApiInfo} width="90%" alt="s" />
       <DisplayModeText>
         <b>1i.</b>
         <br /> Paste the Firebase Javascript SDK inforamtion into the text area
@@ -220,23 +223,23 @@ const FirebaseInfo = () => {
         <b>3c.</b>
         <br /> Select location and then click "Next".
       </DisplayModeText>
-      <img src={databaseLocation} alt="s" />
+      <img src={databaseLocation} width="90%" alt="s" />
       <DisplayModeText>
         <b>3d.</b>
         <br /> Select "Start in locked mode", then click "Enable".
       </DisplayModeText>
-      <img src={defaultRules} alt="s" />
+      <img src={defaultRules} width="90%" alt="s" />
       <DisplayModeText>
         <b>3e.</b>
         <br /> You should now be able to see your database.
       </DisplayModeText>
-      <img src={initialDatabase} alt="s" />
+      <img src={initialDatabase} width="90%" alt="s" />
       <DisplayModeText>
         <b>3f.</b>
         <br />
         Click on "Rules".
       </DisplayModeText>
-      <img src={clickRules} alt="s" />
+      <img src={clickRules} width="90%" alt="s" />
       <DisplayModeText>
         <b>3g.</b>
         <br /> Click on "Edit Rules"
@@ -258,14 +261,14 @@ const FirebaseInfo = () => {
         <br /> Go back to Firebase. Select all of the old rules and delete them.
         Paste the new rules into the text area.
       </DisplayModeText>
-      <img src={newRules} alt="s" />
+      <img src={newRules} width="90%" alt="s" />
       <DisplayModeText>
         <b>3j.</b>
         <br /> Click "Publish" to activate the new rules. Firebase setup is now
         complete. Use the local server to test submission of your project's
         data.
       </DisplayModeText>
-      <img src={publishRules} alt="s" />
+      <img src={publishRules} width="90%" alt="s" />
       <DisplayModeText>
         <b>3k.</b>
         <br /> Firebase setup is now complete. Use the local server to test the
@@ -281,7 +284,7 @@ const FirebaseInfo = () => {
         data. In your project's navigation panel, click on "Realtime Database".
         Then click on the three dots on the top right.
       </DisplayModeText>
-      <img src={databaseData} alt="s" />
+      <img src={databaseData} width="90%" alt="s" />
       <DisplayModeText>
         <b></b>
         <br /> The data is in JSON (
@@ -302,9 +305,22 @@ const FirebaseInfo = () => {
         </a>{" "}
         or another program to analyze the data.
       </DisplayModeText>
-      <img src={exportJson} alt="s" />
+      <img src={exportJson} width="90%" alt="s" />
       <SpacerDiv />
       <SpacerDiv />
+      <Title2>Deleting Data for Individual Participants</Title2>
+      <DisplayModeText>
+        <b></b>
+        <br /> To delete an individual participant's data, click on "Realtime
+        database" and then click the "X" to the right side of the participant's
+        data that you want to delete.
+      </DisplayModeText>
+      <img src={firebaseDeleteParticipant} alt="s" />
+      <DisplayModeText>
+        <b></b>
+        <br /> Click the red "Delete" button.
+      </DisplayModeText>
+      <img src={firebaseDeleteConfirm} alt="s" />
     </MainContent>
   );
 };
@@ -355,6 +371,7 @@ const MainContent = styled.div`
     filter: drop-shadow(5px 5px 5px #222);
     margin-top: 20px;
     margin-bottom: 20px;
+    max-width: 1000px;
   }
 
   a {
