@@ -48,8 +48,6 @@ const copyText = () => {
 };
 
 const handleClick = async () => {
-  // console.log("clicked");
-
   const data = await dialog
     .showOpenDialog(mainWindow, {
       properties: ["openDirectory"],
@@ -57,9 +55,11 @@ const handleClick = async () => {
     .then((result) => {
       console.log(result.canceled);
       console.log(result.filePaths);
+
       if (result.canceled === false) {
         appState.userSelectedFilePath = result.filePaths;
-        return result.filePaths;
+        ipcRenderer.send("get-file-path", result.filePaths);
+        return;
       }
     })
     .catch((err) => {
@@ -67,7 +67,6 @@ const handleClick = async () => {
     });
 
   console.log(data);
-  ipcRenderer.send("get-file-path", data);
 };
 
 const Server = () => {
@@ -99,7 +98,7 @@ const Server = () => {
             and click the green "Code" button.
           </DisplayModeText>
           <SpacerDiv />
-          <img src={eqClickSaveFiles} width="90%" maxWidth="1000" alt="a" />
+          <img src={eqClickSaveFiles} width="90%" alt="a" />
           <DisplayModeText>
             Click on "Download ZIP". The files will be in a compressed format
             (*.zip), so don't forget to{" "}

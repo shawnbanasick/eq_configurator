@@ -230,8 +230,12 @@ ipcMain.on("get-file-path", (event, data) => {
     stdio: ["pipe", "pipe", "pipe", "ipc"],
   });
 
-  // start server with file location data
-  ps.send(data);
+  console.log(data);
+
+  if (data !== undefined) {
+    // start server with file location data
+    ps.send(data);
+  }
 });
 
 ipcMain.on("get-initial-translations", (event, arg) => {
