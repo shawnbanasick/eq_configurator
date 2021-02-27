@@ -17,7 +17,6 @@ import githubPagesUrl from "../../assets/images/github-pages-url.png";
 import github404 from "../../assets/images/github-404.png";
 import githubDeleteSection from "../../assets/images/github-delete-section.png";
 import githubDeleteSection2 from "../../assets/images/github-delete-section2.png";
-
 import netMain from "../../assets/images/net-main.png";
 import netDropFiles from "../../assets/images/net-drop-files.png";
 import netSiteSettings from "../../assets/images/net-site-settings.png";
@@ -26,6 +25,7 @@ import netInputName from "../../assets/images/net-input-name.png";
 import netFinished from "../../assets/images/net-finished.png";
 import netDeleteSite from "../../assets/images/net-delete-site.png";
 import netDeleteName from "../../assets/images/net-delete-name.png";
+import RadioButtons from "../../Utils/RadioButtons";
 
 const Server = () => {
   let displayMode = appState.displayMode;
@@ -35,6 +35,16 @@ const Server = () => {
     displayMode = false;
   }
 
+  let displayNetlify = false;
+  let displayGithub = false;
+  let uploadService = appState.uploadService;
+  if (uploadService === "Netlify") {
+    displayNetlify = true;
+  }
+  if (uploadService === "Github") {
+    displayGithub = true;
+  }
+
   return (
     <MainContent>
       <GlobalStyle />
@@ -42,235 +52,258 @@ const Server = () => {
 
       <DisplayModeText>
         The next step is to <strong>upload</strong> your files to a web server.
-        There are a number of choices. Here I recommend either{" "}
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/">
-          Github
+        There are a number of choices. Here I recommend either
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.netlify.com/"
+        >
+          Netlify
         </a>{" "}
         or{" "}
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.netlify.com/"
-        >
-          Netlify
-        </a>
-        .
-      </DisplayModeText>
-      <SpacerDiv50 />
-      <Title2>Option 1 - Upload to Netlify</Title2>
-      <DisplayModeText>
-        <b>1a.</b>
-        <br />
-        You will need a user account, so to to{" "}
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.netlify.com/"
-        >
-          Netlify
-        </a>{" "}
-        and make one. Once you are in the main Netlify page, click on "Sites"
-      </DisplayModeText>
-      <SpacerDiv20 />
-      <img src={netMain} width="90%" alt="a" />
-      <SpacerDiv20 />
-
-      <DisplayModeText>
-        <b>1b.</b>
-        <br />
-        Drag the <b>Easy HTMLQ folder</b> to the Netlify page and drop it into
-        the box.
-      </DisplayModeText>
-      <SpacerDiv20 />
-      <img src={netDropFiles} width="90%" alt="a" />
-      <SpacerDiv20 />
-      <DisplayModeText>
-        <b>1c.</b>
-        <br />
-        Netlify will upload your files to the web and generate a random name for
-        your site. To change the name, click on "Site settings".
-      </DisplayModeText>
-      <SpacerDiv20 />
-      <img src={netSiteSettings} width="90%" alt="a" />
-      <SpacerDiv20 />
-      <DisplayModeText>
-        <b>1d.</b>
-        <br />
-        Click on "Change site name"
-      </DisplayModeText>
-      <SpacerDiv20 />
-      <img src={netChangeName} width="90%" alt="a" />
-      <SpacerDiv20 />
-      <DisplayModeText>
-        <b>1e.</b>
-        <br />
-        Input your new site name. Then click "Save".
-      </DisplayModeText>
-      <SpacerDiv20 />
-      <img src={netInputName} alt="a" />
-      <SpacerDiv20 />
-      <DisplayModeText>
-        <b>1f.</b>
-        <br />
-        Your project site is now ready. The link is listed at the top of the
-        Settings page.
-      </DisplayModeText>
-      <SpacerDiv20 />
-      <img src={netFinished} alt="a" />
-      <SpacerDiv20 />
-      <DisplayModeText>
-        <b>How to Delete a Netlify Site - 1</b>
-        <br />
-        To delete a Netlify site, got to the Netlify Settings page for the site.
-        Scroll to the bottom of the page, and click "Delete this site".
-      </DisplayModeText>
-      <SpacerDiv20 />
-      <img src={netDeleteSite} alt="a" />
-      <SpacerDiv20 />
-      <DisplayModeText>
-        <b>How to Delete a Netlify Site - 2</b>
-        <br />
-        Type in the name of the site, and click "Delete".
-      </DisplayModeText>
-      <SpacerDiv20 />
-      <img src={netDeleteName} alt="a" />
-      <SpacerDiv20 />
-
-      <SpacerDiv20 />
-      <SpacerDiv20 />
-      <Title2>Option 2 - Upload to Github</Title2>
-      <DisplayModeText>
-        <b>2a.</b>
-        <br />
-        You will need a Github user account, so to to{" "}
         <a target="_blank" rel="noopener noreferrer" href="https://github.com/">
           Github
-        </a>{" "}
-        and make one. <b>**Important**</b> - the name of your account will be in
-        the url of your project, so choose your account name carefully.
-        <br />
-        <br />
-        Navigate to your main Github account page and click "Repositories" and
-        "New".
+        </a>
+        . Both options are free to use. Netlify is quicker and easier. With
+        Github it is easier to make small changes to your project after you have
+        uploaded it. If you use Github your user account name becomes part of
+        the url for your project.
       </DisplayModeText>
-      <SpacerDiv20 />
-      <img src={githubNewRepo} width="90%" alt="a" />
-      <SpacerDiv20 />
-      <DisplayModeText>
-        <b>2b.</b>
-        <br />
-        Input a name for your project.
-      </DisplayModeText>
+      <RadioButtons
+        label="Display instructions for:"
+        buttonIdArray={["Netlify", "Github"]}
+        stateId="uploadService"
+        sectionName="upload"
+      />
       <SpacerDiv50 />
-      <img src={githubRepoName} width="90%" alt="a" />
-      <SpacerDiv20 />
-      <DisplayModeText>
-        <b>2c.</b>
-        <br />
-        Click "Add a Readme file", and then click the green "Create repository"
-        button.
-      </DisplayModeText>
-      <SpacerDiv20 />
-      <img src={githubAddReadme} width="90%" alt="a" />
-      <SpacerDiv20 />
-      <DisplayModeText>
-        <b>2d.</b>
-        <br />
-        You will now have a new empty repository that looks like this image.
-      </DisplayModeText>
-      <SpacerDiv20 />
-      <img src={githubNewRepoView} width="90%" alt="a" />
-      <SpacerDiv20 />
-      <DisplayModeText>
-        <b>2e.</b>
-        <br />
-        The next step is to upload your files to the repository. Click on "Add
-        file", and "Upload files".
-      </DisplayModeText>
-      <SpacerDiv20 />
-      <SpacerDiv20 />
-      <img src={githubAddFile} alt="a" />
-      <SpacerDiv20 />
-      <DisplayModeText>
-        <b>2f.</b>
-        <br />
-        Drag-and-drop or choose your configured Easy HTMLQ files. You can see
-        the upload progress below the drop zone.
-      </DisplayModeText>
-      <img src={githubFileUploading} width="90%" alt="a" />
-      <SpacerDiv20 />
-      <DisplayModeText>
-        <b>2g.</b>
-        <br />
-        Once all the files have uploaded, scroll to the bottom of the page and
-        click the "Commit changes" button.
-      </DisplayModeText>
-      <SpacerDiv20 />
-      <img src={githubCommitUploads} width="90%" alt="a" />
-      <SpacerDiv20 />
-      <DisplayModeText>
-        <b>2h.</b>
-        <br />
-        Back on the main page of your repository, click "Settings".
-      </DisplayModeText>
-      <SpacerDiv20 />
-      <img src={githubSettings} width="90%" alt="a" />
-      <SpacerDiv20 />
-      <SpacerDiv20 />
-      <DisplayModeText>
-        <b>2i.</b>
-        <br />
-        Scroll down the page to find the "Github Pages" section. Click "None"
-        and "Main".
-      </DisplayModeText>
-      <img src={githubSetPages} width="90%" alt="a" />
-      <SpacerDiv20 />
-      <SpacerDiv20 />
-      <DisplayModeText>
-        <b>2j.</b>
-        <br />
-        Click "Save".
-      </DisplayModeText>
-      <SpacerDiv20 />
-      <img src={githubSavePagesSettings} width="90%" alt="a" />
-      <SpacerDiv20 />
-      <DisplayModeText>
-        <b>2k.</b>
-        <br />
-        The page will reload. Scroll down the page to find the "Github Pages"
-        section again. The url for your project will be listed there.
-      </DisplayModeText>
-      <SpacerDiv20 />
-      <img src={githubPagesUrl} width="90%" alt="a" />
-      <SpacerDiv20 />
-      <DisplayModeText>
-        <b>2l.</b>
-        <br />
-        If you click on your project url immediately you will get a 404 error.
-        This is because it takes some time for the Github servers to put your
-        site on the web. Wait about 30 minutes - 1 hour and check again and your
-        page should be live on the web.
-      </DisplayModeText>
-      <SpacerDiv20 />
-      <img src={github404} alt="a" />
-      <SpacerDiv20 />
-      <DisplayModeText>
-        <b>How to Delete a Github Page</b>
-        <br />
-        In the main Github page for your site, click on "Settings". Scroll to
-        the bottome of the page and click "Delete this repository"
-      </DisplayModeText>
-      <SpacerDiv20 />
-      <img src={githubDeleteSection} width="90%" alt="a" />
-      <SpacerDiv20 />
-      <DisplayModeText>
-        <b>How to Delete a Github Page - 2</b>
-        <br />
-        Type the name of the repository, then click "I understand the
-        consequences, delete this repository"
-      </DisplayModeText>
-      <SpacerDiv20 />
-      <img src={githubDeleteSection2} alt="a" />
+
+      {displayNetlify && (
+        <>
+          <Title2>Option 1 - Upload to Netlify</Title2>
+          <DisplayModeText>
+            <b>1a.</b>
+            <br />
+            You will need a user account, so go to{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.netlify.com/"
+            >
+              Netlify
+            </a>{" "}
+            and make one. Once you are in the main Netlify page, click on
+            "Sites"
+          </DisplayModeText>
+          <SpacerDiv20 />
+          <img src={netMain} width="90%" alt="a" />
+          <SpacerDiv20 />
+
+          <DisplayModeText>
+            <b>1b.</b>
+            <br />
+            Drag the <b>Easy HTMLQ folder</b> to the Netlify page and drop it
+            into the box.
+          </DisplayModeText>
+          <SpacerDiv20 />
+          <img src={netDropFiles} width="90%" alt="a" />
+          <SpacerDiv20 />
+          <DisplayModeText>
+            <b>1c.</b>
+            <br />
+            Netlify will upload your files to the web and generate a random name
+            for your site. To change the name, click on "Site settings".
+          </DisplayModeText>
+          <SpacerDiv20 />
+          <img src={netSiteSettings} width="90%" alt="a" />
+          <SpacerDiv20 />
+          <DisplayModeText>
+            <b>1d.</b>
+            <br />
+            Click on "Change site name"
+          </DisplayModeText>
+          <SpacerDiv20 />
+          <img src={netChangeName} width="90%" alt="a" />
+          <SpacerDiv20 />
+          <DisplayModeText>
+            <b>1e.</b>
+            <br />
+            Input your new site name. Then click "Save".
+          </DisplayModeText>
+          <SpacerDiv20 />
+          <img src={netInputName} alt="a" />
+          <SpacerDiv20 />
+          <DisplayModeText>
+            <b>1f.</b>
+            <br />
+            Your project site is now ready. The link is listed at the top of the
+            Settings page.
+          </DisplayModeText>
+          <SpacerDiv20 />
+          <img src={netFinished} alt="a" />
+          <SpacerDiv20 />
+          <DisplayModeText>
+            <b>How to Delete a Netlify Site - 1</b>
+            <br />
+            To delete a Netlify site, got to the Netlify Settings page for the
+            site. Scroll to the bottom of the page, and click "Delete this
+            site".
+          </DisplayModeText>
+          <SpacerDiv20 />
+          <img src={netDeleteSite} alt="a" />
+          <SpacerDiv20 />
+          <DisplayModeText>
+            <b>How to Delete a Netlify Site - 2</b>
+            <br />
+            Type in the name of the site, and click "Delete".
+          </DisplayModeText>
+          <SpacerDiv20 />
+          <img src={netDeleteName} alt="a" />
+          <SpacerDiv20 />
+        </>
+      )}
+
+      {displayGithub && (
+        <>
+          <Title2>Option 2 - Upload to Github</Title2>
+          <DisplayModeText>
+            <b>2a.</b>
+            <br />
+            You will need a Github user account, so to to{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/"
+            >
+              Github
+            </a>{" "}
+            and make one. <b>**Important**</b> - the name of your account will
+            be in the url of your project, so choose your account name
+            carefully.
+            <br />
+            <br />
+            Navigate to your main Github account page and click "Repositories"
+            and "New".
+          </DisplayModeText>
+          <SpacerDiv20 />
+          <img src={githubNewRepo} width="90%" alt="a" />
+          <SpacerDiv20 />
+          <DisplayModeText>
+            <b>2b.</b>
+            <br />
+            Input a name for your project.
+          </DisplayModeText>
+          <SpacerDiv50 />
+          <img src={githubRepoName} width="90%" alt="a" />
+          <SpacerDiv20 />
+          <DisplayModeText>
+            <b>2c.</b>
+            <br />
+            Click "Add a Readme file", and then click the green "Create
+            repository" button.
+          </DisplayModeText>
+          <SpacerDiv20 />
+          <img src={githubAddReadme} width="90%" alt="a" />
+          <SpacerDiv20 />
+          <DisplayModeText>
+            <b>2d.</b>
+            <br />
+            You will now have a new empty repository that looks like this image.
+          </DisplayModeText>
+          <SpacerDiv20 />
+          <img src={githubNewRepoView} width="90%" alt="a" />
+          <SpacerDiv20 />
+          <DisplayModeText>
+            <b>2e.</b>
+            <br />
+            The next step is to upload your files to the repository. Click on
+            "Add file", and "Upload files".
+          </DisplayModeText>
+          <SpacerDiv20 />
+          <SpacerDiv20 />
+          <img src={githubAddFile} alt="a" />
+          <SpacerDiv20 />
+          <DisplayModeText>
+            <b>2f.</b>
+            <br />
+            Drag-and-drop or choose your configured Easy HTMLQ files. You can
+            see the upload progress below the drop zone.
+          </DisplayModeText>
+          <img src={githubFileUploading} width="90%" alt="a" />
+          <SpacerDiv20 />
+          <DisplayModeText>
+            <b>2g.</b>
+            <br />
+            Once all the files have uploaded, scroll to the bottom of the page
+            and click the "Commit changes" button.
+          </DisplayModeText>
+          <SpacerDiv20 />
+          <img src={githubCommitUploads} width="90%" alt="a" />
+          <SpacerDiv20 />
+          <DisplayModeText>
+            <b>2h.</b>
+            <br />
+            Back on the main page of your repository, click "Settings".
+          </DisplayModeText>
+          <SpacerDiv20 />
+          <img src={githubSettings} width="90%" alt="a" />
+          <SpacerDiv20 />
+          <SpacerDiv20 />
+          <DisplayModeText>
+            <b>2i.</b>
+            <br />
+            Scroll down the page to find the "Github Pages" section. Click
+            "None" and "Main".
+          </DisplayModeText>
+          <img src={githubSetPages} width="90%" alt="a" />
+          <SpacerDiv20 />
+          <SpacerDiv20 />
+          <DisplayModeText>
+            <b>2j.</b>
+            <br />
+            Click "Save".
+          </DisplayModeText>
+          <SpacerDiv20 />
+          <img src={githubSavePagesSettings} width="90%" alt="a" />
+          <SpacerDiv20 />
+          <DisplayModeText>
+            <b>2k.</b>
+            <br />
+            The page will reload. Scroll down the page to find the "Github
+            Pages" section again. The url for your project will be listed there.
+          </DisplayModeText>
+          <SpacerDiv20 />
+          <img src={githubPagesUrl} width="90%" alt="a" />
+          <SpacerDiv20 />
+          <DisplayModeText>
+            <b>2l.</b>
+            <br />
+            If you click on your project url immediately you will get a 404
+            error. This is because it takes some time for the Github servers to
+            put your site on the web. Wait about 30 minutes - 1 hour and check
+            again and your page should be live on the web.
+          </DisplayModeText>
+          <SpacerDiv20 />
+          <img src={github404} alt="a" />
+          <SpacerDiv20 />
+          <DisplayModeText>
+            <b>How to Delete a Github Page</b>
+            <br />
+            In the main Github page for your site, click on "Settings". Scroll
+            to the bottome of the page and click "Delete this repository"
+          </DisplayModeText>
+          <SpacerDiv20 />
+          <img src={githubDeleteSection} width="90%" alt="a" />
+          <SpacerDiv20 />
+          <DisplayModeText>
+            <b>How to Delete a Github Page - 2</b>
+            <br />
+            Type the name of the repository, then click "I understand the
+            consequences, delete this repository"
+          </DisplayModeText>
+          <SpacerDiv20 />
+          <img src={githubDeleteSection2} alt="a" />
+        </>
+      )}
       <SpacerDiv50 />
     </MainContent>
   );

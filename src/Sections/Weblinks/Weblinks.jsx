@@ -10,9 +10,18 @@ const Statements = () => {
   return (
     <MainContent>
       <GlobalStyle />
-      <Title>Related Software</Title>
+      <Title>Links and Related Software</Title>
 
       <WebLinkDiv1>
+        <p class="link4">
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/shawnbanasick/eq_configurator"
+          >
+            EQ Configurator Home Page
+          </a>
+        </p>
         <p class="link4">
           <a
             target="_blank"

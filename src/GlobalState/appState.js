@@ -261,13 +261,8 @@ const appState = store({
   langStep2CondOfInstruc: "Give condition of instruction here",
   langStep3CondOfInstruc: "Give condition of instruction here",
 
-  cardsStep2ConstantHeight: false,
-  cardsStep2ConstantHeightfalseActive: true,
-  cardsStep2CardHeight: 150,
-  cardsStep2ConstantWidth: false,
-  cardsStep2ConstantWidthfalseActive: true,
-  cardsStep2CardWidth: 200,
-
+  uploadService: "Netlify",
+  uploadServiceNetlifyActive: true,
   /*
   firebase.xml settings */
 });
