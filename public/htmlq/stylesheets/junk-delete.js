@@ -35,7 +35,8 @@ const generateCssXml = () => {
 
   // const
 
-  let data = `.col-centered {
+  let data = `
+  .col-centered {
   float: none;
   margin: 0 auto;
 }
@@ -310,13 +311,6 @@ li.disagree {
 }
 
 #step5 div.question-note {
-  background-color: #ede04d;
-  font-size: 1.2em;
-  margin-bottom: 5px;
-  padding: 10px 25px;
-}
-
-#step5 div.question-note-bg {
   background-color: #fafafa;
   font-size: 1.2em;
   margin-bottom: 5px;
@@ -344,10 +338,6 @@ li.disagree {
 
 #step5 div.question-input textarea {
   width: 100%;
-}
-
-#step5 .step5SubmitButton {
-  margin-top: 25px;
 }
 
 #submit {
@@ -391,7 +381,6 @@ li.disagree {
     vertical-align: top;
     padding: 0;
     font-size: ${appState.stylesHdFontSize}px;
-    line-height: 1.2em;
   }
 }
 
@@ -400,7 +389,6 @@ li.disagree {
   .grid td {
     vertical-align: top;
     padding: 0;
-    line-height: 1.2em;
     font-size: ${appState.stylesXlargeFontSize}px;
   }
 }
@@ -410,7 +398,6 @@ li.disagree {
   .grid td {
     vertical-align: top;
     padding: 0;
-    line-height: 1.2em;
     font-size: ${appState.stylesLargeFontSize}px;
     /* font-size: 1.2vh; */
   }
@@ -421,7 +408,6 @@ li.disagree {
   .grid td {
     vertical-align: top;
     padding: 0;
-    line-height: 1.2em;
     font-size: ${appState.stylesMediumFontSize}px;
     /* font-size: 1.4vh; */
   }
@@ -432,7 +418,6 @@ li.disagree {
   .grid td {
     vertical-align: top;
     padding: 0;
-    line-height: 1.2em;
     font-size: ${appState.stylesSmallFontSize}px;
     /* font-size: 1.4vh; */
   }
@@ -443,11 +428,11 @@ li.disagree {
   .grid td {
     vertical-align: top;
     padding: 0;
-    line-height: 1.2em;
     font-size: ${appState.stylesXsmallFontSize}px;
     /* font-size: 0.8vh; */
   }
 }
+
 
 @media (hover: none) and (min-width: 1366px) {
   .grid td {
@@ -459,6 +444,7 @@ li.disagree {
   }
 }
 
+
 @media (hover: none) and (max-width: 1024px) {
   .grid td {
     vertical-align: top;
@@ -469,6 +455,11 @@ li.disagree {
   }
 }
 
+
+
+
+
+
 .grid-heading {
   display: flex;
   justify-content: space-between;
@@ -477,15 +468,14 @@ li.disagree {
 
 /* "Disagree  Agree" text for table heading */
 .tableLabelText {
-  font-size: 1.4em !important;
+  font-size: 1.5em !important;
   color: gray;
   font-weight: bold;
 }
 
 .tableLableCenterText {
   margin: 0 auto;
-  font-size: 1.4em !important;
-  line-height: 1.2em;
+  font-size: 1.5em !important;
   color: white;
 }
 /* Conditions of Instruction - editable from config.xml 
@@ -523,7 +513,7 @@ li.disagree {
   position: absolute;
   top: 0;
   left: 0;
-  font-size: 3em;
+  font-size: 3.0em;
   font-weight: bolder;
   text-align: center;
   background-color: rgb(200, 200, 200);
@@ -620,6 +610,7 @@ body {
   margin-top: 25px;
   margin-bottom: 25px;
 }
+
 
 /* Prevent bootstrap-caused page shifting on modal open
 ---------------------------------------------*/
