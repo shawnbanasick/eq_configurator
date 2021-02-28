@@ -27,14 +27,12 @@ const exportSurveyObject = () => {
       "item type: rating5",
       "answer required (true/false): false",
       "label text: Please answer the following questions.",
-      "scale: 1;2;3;4;5",
       "options: How would you rate the use of iPads in this class?;How would you rate this class overall?",
     ],
     rating10: [
       "item type: rating10",
       "answer required (true/false): false",
       "label text: Please answer the following questions.",
-      "scale: 1;2;3;4;5;6;7;8;9;10;",
       "options: How would you rate the use of the Socrative website in this class?;How would you rate the use of the Quizlet website in this class?",
     ],
     checkbox: [
