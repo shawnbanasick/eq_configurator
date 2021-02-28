@@ -85,8 +85,7 @@ const Config = () => {
           <DisplayModeText>
             5a. The project access code is the same for all participants. The
             code can be a phrase instead of just a single word, and is
-            case-sensitive. The use of an access code increases the security of
-            the project and is recommended.
+            case-sensitive.
           </DisplayModeText>
         )}
 
