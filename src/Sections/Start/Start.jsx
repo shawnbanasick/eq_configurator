@@ -34,11 +34,11 @@ const Start = () => {
       <GlobalStyle />
       <Title>Easy HTMLQ Configurator</Title>
       <IntroText>
-        Easy HTMLQ Configurator reduces the effort needed to set-up and test an
-        online Q sort project.　It provides simplified editing of the HTMLQ
-        configuration files and increased control over the appearance of the
-        HTMLQ Q-sort. It also includes a local web server to immediately test
-        changes made to the configuration files on any installed web browser.
+        Easy HTMLQ Configurator simplifies the set-up and testing of an online Q
+        sort project. It provides simplified editing of the HTMLQ configuration
+        files and offers increased control over the appearance of the HTMLQ
+        Q-sort. It also includes a local web server to immediately test the
+        setup on any installed web browser.
       </IntroText>
       <CustomH2>Select Configurator Display Mode:</CustomH2>
       <ButtonContainer>

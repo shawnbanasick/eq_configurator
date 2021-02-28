@@ -85,7 +85,9 @@ const Server = () => {
       {displayMode && (
         <>
           <DisplayModeText>
-            The first step is to <strong>download</strong> the base files for{" "}
+            The first step is to download the base files for Easy HTMLQ and save
+            them to an accessible place on your computer (for example, to the
+            "Desktop" folder). To download, go to the{" "}
             <a
               target="_blank"
               rel="noopener noreferrer"
@@ -93,9 +95,7 @@ const Server = () => {
             >
               Easy HTMLQ
             </a>{" "}
-            and save them to an easily accessible place on your computer (for
-            example, to the "Desktop" folder). Go to the Easy HTMLQ home page
-            and click the green "Code" button.
+            home page and click the green "Code" button.
           </DisplayModeText>
           <SpacerDiv />
           <img src={eqClickSaveFiles} width="90%" alt="a" />
@@ -109,15 +109,10 @@ const Server = () => {
           </DisplayModeText>
           <img src={eqDownloadZip} alt="a" />
           <DisplayModeText>
-            This configurator has a built-in local web server. This will allow
-            you to immediately see the changes you make to your files on your
-            computer as you make them.
-            <br />
-            <br />
-            To start the server, all you need to do is
+            To start the local web server, all you need to do is
             <strong> find the uncompressed folder </strong>with the Easy HTMLQ
             base files. You dont't need to select a specific file - you just
-            want to find the folder.
+            need to find the folder.
           </DisplayModeText>
           <SpacerDiv />
         </>
@@ -143,9 +138,8 @@ const Server = () => {
           However, after you set up your Firebase file, this demo project will
           save completed Q sort data to the Firebase realtime database. So, you
           can use this local server to test your complete setup - including data
-          upload (however, it is important to remember to delete any testing
-          data from your Firebase location before you begin your actual
-          project).
+          upload (however, don't forget to delete any testing data from your
+          Firebase location before you begin your actual project).
         </DisplayModeText>
       )}
       <SpacerDiv />

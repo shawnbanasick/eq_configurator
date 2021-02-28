@@ -833,7 +833,7 @@ const generateStep2html = () => {
          link: function (scope, element, attrs) {
            $(element).droppable({
              hoverClass: "active",
-             tolerance: "pointer",
+             tolerance: "intersect",
              drop: function (event, ui) {
                var dragElement = angular
                  .element(ui.draggable.get())

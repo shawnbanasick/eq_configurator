@@ -47,8 +47,10 @@ const Config = () => {
         structure of your project. The second section is a question generator
         for the (optional) Step 5 questionnaire. <br />
         <br />
-        Here you can also specify a constant size for the Q-sort cards. See the
-        description for question 11a for more details.
+        By default Easy HTMLQ changes the Q sort card size and font size
+        according to the size of the participant's screen. If you want to change
+        this behavior, you can specify a constant size for the Q-sort cards
+        here. See the description for question 11a for more details.
       </DisplayModeText>
 
       <QuestionContainer>
@@ -171,8 +173,8 @@ const Config = () => {
         {displayMode && (
           <DisplayModeText>
             11a. By default, Easy HTMLQ has responsive Q-sort card and text font
-            sizes. In other words, the size of the cards and text will change
-            according to the size of the participant's browser on the{" "}
+            sizes, so the size of the cards and text will change according to
+            the size of the participant's browser on the{" "}
             <b>
               <i>initial</i>
             </b>{" "}

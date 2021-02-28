@@ -1056,9 +1056,18 @@ angular
                 return;
               }
 
+              console.log(event);
+
               var dragElement = angular
                 .element(ui.draggable.get())
                 .isolateScope();
+
+              // to prevent error when 2 drop zones highlighted during drop
+              if (dragElement === undefined) {
+                ui.draggable.remove();
+                $log.info("cancelled");
+                return;
+              }
 
               // we're empty, add dragged statement to cell
               scope.$apply(function () {
