@@ -3,17 +3,14 @@ import appState from "../../GlobalState/appState";
 const generateCssXml = () => {
   // show / hide statement numbers
   let statementNumberDisplay = appState.stylesStatementNumberDisplay;
-  console.log(statementNumberDisplay);
   if (statementNumberDisplay === true || statementNumberDisplay === "true") {
     statementNumberDisplay = "";
   } else {
     statementNumberDisplay = `display: none;`;
   }
-  console.log(statementNumberDisplay);
 
   // set statement number font size
   let statementNumberSize = appState.stylesStatementNumberSize;
-  console.log(statementNumberSize);
   if (statementNumberSize === "large") {
     statementNumberSize = `font-size: 100%;`;
   } else if (statementNumberSize === "medium") {
@@ -24,7 +21,6 @@ const generateCssXml = () => {
 
   // set Statement number opacity
   let statementNumberOpacity = appState.stylesStatementNumberOpacity;
-  console.log(statementNumberOpacity);
   if (statementNumberOpacity === "bold") {
     statementNumberOpacity = `font-weight: bold;`;
   } else if (statementNumberOpacity === "normal") {

@@ -45,7 +45,6 @@ const Statements = () => {
             <li>React Easy State (MIT license)</li>
             <li>React Toastify (MIT license)</li>
             <li>Styled Components (MIT license)</li>
-            <li>Filesaver.js (MIT license)</li>
             <li>Lodash (MIT license)</li>
           </ul>
 

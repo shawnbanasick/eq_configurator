@@ -13,7 +13,7 @@ const Statements = () => {
       <Title>Links and Related Software</Title>
 
       <WebLinkDiv1>
-        <p class="link4">
+        <p>
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -22,7 +22,7 @@ const Statements = () => {
             EQ Configurator Home Page
           </a>
         </p>
-        <p class="link4">
+        <p>
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -31,7 +31,7 @@ const Statements = () => {
             Easy HTMLQ
           </a>
         </p>
-        <p class="link4">
+        <p>
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -99,7 +99,7 @@ const WebLinkDiv1 = styled.div`
   user-select: none;
   line-height: 1.2;
 
-  .link4 a {
+  a {
     padding-bottom: 1px;
     text-decoration: none;
     color: #000;
@@ -108,7 +108,7 @@ const WebLinkDiv1 = styled.div`
     margin-left: 5px;
   }
 
-  .link4 a:hover {
+  a:hover {
     background-color: var(--second-theme-color);
     padding-top: 2px;
     box-shadow: none;

@@ -3,7 +3,7 @@ import React from "react";
 import "./App.css";
 import { useTranslation } from "react-i18next";
 import { view } from "@risingstack/react-easy-state";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import Start from "./Sections/Start/Start";
 import Config from "./Sections/Config/Config";
 import Statements from "./Sections/Statements/Statements";

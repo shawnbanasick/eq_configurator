@@ -193,7 +193,6 @@ const generateConfigXml = () => {
 
     // for INFORMATION items
     if (itemObject.surveyQuestionType === "information") {
-      console.log(JSON.stringify(itemObject, null, 2));
       const note = `        <note bg="${itemObject.bg}">${itemObject.options}</note>\n\n`;
       item = accumulatorString.concat(note);
     }

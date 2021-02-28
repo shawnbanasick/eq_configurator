@@ -9,8 +9,7 @@ import GeneralButton from "../../Utils/GeneralButton";
 import appState from "../../GlobalState/appState";
 
 const handleClick = () => {
-  const userSelectedFilePath = `${appState.userSelectedFilePath}/settings/map.xml`;
-  console.log(userSelectedFilePath);
+  // const userSelectedFilePath = `${appState.userSelectedFilePath}/settings/map.xml`;
   const data = generateMapXml();
 
   exportToXml("map.xml", data, "xml");

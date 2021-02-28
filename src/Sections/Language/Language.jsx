@@ -11,9 +11,6 @@ import generateLanguageXml from "../Language/generateLanguageXml";
 
 const handleClick = () => {
   const data = generateLanguageXml();
-  console.log(data);
-  console.log(appState.langBtnClose);
-
   exportToXml("language.xml", data, "xml");
 };
 

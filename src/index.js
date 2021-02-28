@@ -19,7 +19,7 @@ ipcRenderer.on("language-changed", (event, message) => {
       message.resource
     );
   }
-  console.log("called from index.js");
+  // console.log("called from index.js");
   i18n.changeLanguage(message.language);
 });
 

@@ -4,16 +4,14 @@ import styled, { keyframes } from "styled-components";
 import GlobalStyle from "../../Utils/GlobalStyle";
 import exportToXml from "../../Utils/exportToXml";
 import GeneralButton from "../../Utils/GeneralButton";
-import appState from "../../GlobalState/appState";
+// import appState from "../../GlobalState/appState";
 import UserNumberInput from "../../Utils/UserNumberInput";
 import RadioButtons from "../../Utils/RadioButtons";
 import generateStylesCss from "./generateStylesCss.js";
 
 const handleClick = () => {
-  const userSelectedFilePath = `${appState.userSelectedFilePath}/stylesheets/htmlq.css`;
-  console.log(userSelectedFilePath);
+  // const userSelectedFilePath = `${appState.userSelectedFilePath}/stylesheets/htmlq.css`;
   const data = generateStylesCss();
-  console.log(data);
   exportToXml("htmlq.css", data, "css");
 };
 

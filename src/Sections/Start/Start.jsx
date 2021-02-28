@@ -6,7 +6,6 @@ import GeneralButton from "../../Utils/GeneralButton";
 import appState from "../../GlobalState/appState";
 
 const setMode = (event) => {
-  console.log(event.target.id);
   if (event.target.id === "pro") {
     appState.displayMode = "pro";
   } else {
