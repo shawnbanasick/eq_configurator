@@ -32,6 +32,7 @@ const SurveyItemDndList = () => {
     padding: grid,
     width: "740px",
     borderRadius: "3px",
+    minHeight: "125px",
   });
 
   // a little function to help us with reordering the result
@@ -67,7 +68,10 @@ const SurveyItemDndList = () => {
 
   return (
     <DragAndDropContainer>
-      <h2 style={{ marginBottom: 5, marginTop: 5 }}>Question List:</h2>
+      <h2 style={{ marginBottom: 5, marginTop: 25 }}>
+        Question List &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Drag to
+        change question order)
+      </h2>
       <DragDropContext style={{ display: "flex" }} onDragEnd={onDragEnd}>
         <Droppable droppableId="droppable">
           {(provided, snapshot) => (

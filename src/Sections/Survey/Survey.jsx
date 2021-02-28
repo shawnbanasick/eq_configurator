@@ -254,7 +254,7 @@ const Survey = () => {
           )}
           {displayBoolean.bg && (
             <RadioButtons
-              label="Display background:"
+              label="Use yellow background:"
               buttonIdArray={["true", "false"]}
               stateId="surveyBackgroundDisplay"
               sectionName="survey"

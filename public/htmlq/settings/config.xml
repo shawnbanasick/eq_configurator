@@ -12,9 +12,9 @@
      <item id="shuffleCards">true</item>
 
      <!-- login required (true|false) -->
-     <item id="loginrequired">true</item>
+     <item id="loginrequired">false</item>
      <!-- login with common password (leave blank if not required) -->
-     <item id="loginPassword">yes</item>
+     <item id="loginPassword"></item>
     <item id="partNameRequired">true</item>
       <!-- URL to individual login script(leave blank if not required) -->
      <item id="loginUrl"></item>
@@ -44,6 +44,7 @@
         <note>Please enter your year of birth (YYYY, eg. 1980).</note>
         <input type="text" required="true" maxlength="4" restricted="0-9"></input>
 
+        <note bg="true">All fields marked with an * are mandatory</note>
         <label>Describe your experience using the iPads in this class*</label>
         <input type="textarea" required="true"></input>
 

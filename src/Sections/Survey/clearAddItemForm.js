@@ -4,21 +4,23 @@ const clearAddItemForm = () => {
   appState.surveyAnswerRequired = false;
   appState.surveyAnswerRequiredtrueActive = false;
   appState.surveyAnswerRequiredfalseActive = true;
+
   appState.surveyQuestionLabel = "";
   appState.surveyQuestionNote = "";
-  appState.surveyAnswerLenIsLimited = undefined;
+  appState.surveyAnswerLenIsLimited = false;
   appState.surveyAnswerLenIsLimitedtrueActive = false;
   appState.surveyAnswerLenIsLimitedfalseActive = false;
-  appState.surveyAnswerLenMax = undefined;
+  appState.surveyAnswerLenMax = 100000;
   appState.surveyAnswerLenMaxtrueActive = false;
   appState.surveyAnswerLenMaxfalseActive = false;
-  appState.surveyAnswerRestricted = undefined;
+  appState.surveyAnswerRestricted = false;
   appState.surveyAnswerRestrictedtrueActive = false;
   appState.surveyAnswerRestrictedfalseActive = false;
   appState.surveyQuestionScale = "";
   appState.surveyQuestionOptions = "";
-  appState.surveyBackgroundDisplay = undefined;
-  appState.surveyBackgroundDisplaytrueActive = false;
+
+  appState.surveyBackgroundDisplay = true;
+  appState.surveyBackgroundDisplaytrueActive = true;
   appState.surveyBackgroundDisplayfalseActive = false;
   return null;
 };
