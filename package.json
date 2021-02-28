@@ -1,26 +1,33 @@
 {
   "name": "EQ-Configurator",
-  "description": "Electron + Create React App + Electron Builder",
-  "version": "0.1.0",
+  "description": "Configurator for online Q sorting",
+  "version": "1.0.0",
   "private": true,
   "author": {
     "name": "Shawn Banasick",
     "email": "ken.q.tools@gmail.com",
-    "url": "https://your-website.com"
+    "url": "https://github.com/shawnbanasick/eq_configurator"
   },
   "build": {
-    "appId": "com.my-website.my-app",
+    "appId": "com.banasick.EQ_Configurator",
     "productName": "EQ-Configurator",
     "copyright": "Copyright © 2021 ${author}",
     "linux": {
       "category": "Science",
-      "description": "EQ-Configurator",
+      "description": "Open source Q methodology app",
       "synopsis": "Use EQ-Configurator to setup an Easy HTMLQ project for online Q sorting",
       "icon": "../build/icons/icon.icns",
       "target": [
         {
           "target": "deb",
           "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "rpm",
+          "arch": [
+            "ia32",
             "x64"
           ]
         },
@@ -33,6 +40,13 @@
         {
           "target": "snap",
           "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "tar.gz",
+          "arch": [
+            "ia32",
             "x64"
           ]
         }
