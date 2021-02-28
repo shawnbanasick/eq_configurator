@@ -1056,8 +1056,6 @@ angular
                 return;
               }
 
-              console.log(event);
-
               var dragElement = angular
                 .element(ui.draggable.get())
                 .isolateScope();

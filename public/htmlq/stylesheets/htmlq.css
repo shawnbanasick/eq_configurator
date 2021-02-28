@@ -364,7 +364,7 @@ li.disagree {
     vertical-align: top;
     padding: 0;
     line-height: 1.2em;
-    font-size: 20px;
+    font-size: 16px;
   }
 }
 
@@ -532,9 +532,9 @@ body {
 
 .idNum {
   margin-right: 5px;
-  font-size: 70%;
-  opacity: 0.5;
-  display: none;
+  font-size: 100%;
+  font-weight: bold;
+  
 }
 
 /* custom help button css - override bootstrap settings
@@ -589,3 +589,4 @@ body {
 body.modal-open {
   overflow: auto;
 }
+  
