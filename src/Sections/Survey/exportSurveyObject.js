@@ -49,7 +49,7 @@ const exportSurveyObject = () => {
     ],
     information: [
       "item type: information",
-      "background: false",
+      "background: true",
       "option text: All fields marked with an * are mandatory",
     ],
   };

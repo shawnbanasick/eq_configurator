@@ -39,12 +39,12 @@
      <!-- add input-field: <input type="[text|textarea|radio|select|checkbox|rating2|rating5|rating10]">[VALUE]</input> -->
      <!-- optional attributes: bg, id, maxlength, restricted, required, scale  -->
      <item id="form">
-        <note bg="false">All fields marked with an * are mandatory</note>
+        <note bg="true">All fields marked with an * are mandatory</note>
+
         <label>Age*</label>
         <note>Please enter your year of birth (YYYY, eg. 1980).</note>
         <input type="text" required="true" maxlength="4" restricted="0-9"></input>
 
-        <note bg="true">All fields marked with an * are mandatory</note>
         <label>Describe your experience using the iPads in this class*</label>
         <input type="textarea" required="true"></input>
 

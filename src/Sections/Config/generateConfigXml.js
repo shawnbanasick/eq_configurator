@@ -176,7 +176,7 @@ const generateConfigXml = () => {
       } else {
         label = `        <label>${itemObject.label}</label>\n`;
       }
-      const input = `        <input type="rating5" required="${itemObject.required}" scale="${itemObject.scale}">${itemObject.options}</input>\n\n`;
+      const input = `        <input type="rating5" required="${itemObject.required}">${itemObject.options}</input>\n\n`;
       item = accumulatorString.concat(label, input);
     }
 
@@ -187,7 +187,7 @@ const generateConfigXml = () => {
       } else {
         label = `        <label>${itemObject.label}</label>\n`;
       }
-      const input = `        <input type="rating10" required="${itemObject.required}" scale="${itemObject.scale}">${itemObject.options}</input>\n\n`;
+      const input = `        <input type="rating10" required="${itemObject.required}">${itemObject.options}</input>\n\n`;
       item = accumulatorString.concat(label, input);
     }
 
