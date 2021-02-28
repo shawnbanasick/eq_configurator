@@ -10,6 +10,7 @@ import Statements from "./Sections/Statements/Statements";
 import Map from "./Sections/Map/Map";
 import Language from "./Sections/Language/Language";
 import Firebase from "./Sections/Firebase/Firebase";
+import License from "./Sections/License/License";
 import Server from "./Sections/Server/Server";
 import Github from "./Sections/Github/Github";
 import Weblinks from "./Sections/Weblinks/Weblinks";
@@ -42,16 +43,10 @@ const App = (props) => {
     viewWeblinks,
     viewStyles,
     viewGithub,
+    viewLicense,
   } = appState;
 
   const { isDataButtonGreen, hasUnforcedBeenConfirmed } = appState;
-
-  // const isForcedQsortPattern = inputState;
-
-  // let showUpdateModal = appState.showUpdateModal;
-
-  // const installedVersion = appState.version;
-  // const updateVersion = appState.updateVersion;
 
   // getState
   const inputButtonColor = appState.isInputButtonGreen
@@ -69,14 +64,6 @@ const App = (props) => {
   const loadingsButtonColor = appState.isLoadingsButtonGreen
     ? "var(--main-theme-color)"
     : "#d6dbe0";
-  // const outputButtonColor = appState.isOutputButtonGreen
-  //   ? "var(--main-theme-color)"
-  //   : "#d6dbe0";
-
-  let showTopBar = false;
-  // if (process.platform === "darwin") {
-  //   showTopBar = true;
-  // }
 
   return (
     <ErrorBoundary>
@@ -157,6 +144,15 @@ const App = (props) => {
           >
             <p className="title">{`${t("Related Software")}`}</p>
           </FileButton>
+
+          <FileButton
+            buttonColor={loadingsButtonColor}
+            style={{ textAlign: "center" }}
+            active={viewLicense}
+            onClick={() => handleClick("viewLicense")}
+          >
+            <p className="title">{`${t("Licenses")}`}</p>
+          </FileButton>
         </FilesWindow>
         <ActionWindow>
           {viewStart && <Start view={viewStart} />}
@@ -169,6 +165,7 @@ const App = (props) => {
           {viewStyles && <Styles view={viewStyles} />}
           {viewGithub && <Github view={viewGithub} />}
           {viewWeblinks && <Weblinks view={viewWeblinks} />}
+          {viewLicense && <License view={viewLicense} />}
         </ActionWindow>
       </AppWrap>
     </ErrorBoundary>
