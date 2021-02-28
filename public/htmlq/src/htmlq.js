@@ -1847,7 +1847,7 @@ angular
         } else if (config["submitUrlMethod"].toLowerCase() === "post") {
           promise = submitViaPost();
         } else {
-          debounce(submitViaFirebase(), 2000, true);
+          debounce(submitViaFirebase(), 3000, true);
           return;
         }
 
