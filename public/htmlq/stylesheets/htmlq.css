@@ -273,6 +273,13 @@ li.disagree {
 }
 
 #step5 div.question-note {
+  background-color: #ede04d;
+  font-size: 1.2em;
+  margin-bottom: 5px;
+  padding: 10px 25px;
+}
+
+#step5 div.question-note-bg {
   background-color: #fafafa;
   font-size: 1.2em;
   margin-bottom: 5px;
@@ -300,6 +307,10 @@ li.disagree {
 
 #step5 div.question-input textarea {
   width: 100%;
+}
+
+#step5 .step5SubmitButton {
+  margin-top: 25px;
 }
 
 #submit {
