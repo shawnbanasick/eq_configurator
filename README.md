@@ -44,7 +44,7 @@ EQ Configurator simplifies the set-up and testing of an online Q sort project. I
 &nbsp;&nbsp;&nbsp;3. Click "Run Anyway"
 <br/>
 <p align="center">
-<img src="https://github.com/shawnbanasick/kade/blob/master/gifs/winOpen.PNG" width="350">
+<img src="https://github.com/shawnbanasick/eq_configurator/raw/main/readme_assets/windows-warning-for-eq-config.PNG" width="350">
 </p>
 <br/>
 <br/>
