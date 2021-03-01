@@ -47,7 +47,7 @@
 
 &nbsp;&nbsp;&nbsp;2. Click and drag the EQ-Configurator.app icon into the applications folder.
 
-#### Version 1.2.0 is code signed and notarized by Apple, so there will be only one warning on the first startup after installation.
+#### The app is code signed and notarized by Apple, so there will be only one warning on the first startup after installation.
 
 <p align="center">
 <img src="https://github.com/shawnbanasick/kade/blob/master/gifs/macOS warning.png" width="350">
