@@ -37,8 +37,11 @@
 #### EQ Configurator can be installed following the normal process for macOS.
 
 <p align="center">
-<img src="https://github.com/shawnbanasick/eq_configurator/blob/master/readme_assets/configurator_mac_install.png" width="350" />
+<img src="https://github.com/shawnbanasick/eq_configurator/raw/main/readme_assets/configurator_mac_install.png" width="350" />
 </p>
+
+
+
 
 &nbsp;&nbsp;&nbsp;1. Double click the downloaded file.
 
