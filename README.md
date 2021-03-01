@@ -2,8 +2,8 @@
 
 <strong>Download Links:</strong> &nbsp;
 [macOS](https://github.com/shawnbanasick/eq_configurator/releases/download/v1.0.0/EQ-Configurator-1.0.0.dmg) &nbsp;||&nbsp;
-[Windows-installer](https://github.com) &nbsp;||&nbsp;
-[Windows-portable](https://github.com) &nbsp;||&nbsp;
+[Windows-installer](https://github.com/shawnbanasick/eq_configurator/releases/download/v1.0.0/EQ-Configurator.Setup.1.0.0.exe) &nbsp;||&nbsp;
+[Windows-portable](https://github.com/shawnbanasick/eq_configurator/releases/download/v1.0.0/EQ-Configurator.1.0.0.exe) &nbsp;||&nbsp;
 [Linux](https://github.com/shawnbanasick/kade/releases) <br/>
 
 # EQ Configurator
