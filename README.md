@@ -7,6 +7,23 @@
 [Linux](https://github.com/shawnbanasick/kade/releases) <br/>
 
 # EQ Configurator
+EQ Configurator simplifies the set-up and testing of an online Q sort project. It includes a local web server to preview the project set-up on any installed web browser. It also has a guided editing process for the project settings files, and complete guides to attach a database and upload the project to a web host.
+
+#### A Built-in Local Web Server
+<p align="center">
+<img src="https://github.com/shawnbanasick/eq_configurator/blob/main/readme_assets/configurator%20Screenshot.png" width="500" />
+</p>
+
+#### A Survey Question Generator
+<p align="center">
+<img src="https://github.com/shawnbanasick/eq_configurator/raw/main/readme_assets/configurator%20survey%20question%20Screenshot.png" width="500" />
+</p>
+
+#### Complete Guides to Install a Database and Upload to a Web Host
+<p align="center">
+<img src="https://github.com/shawnbanasick/eq_configurator/raw/main/readme_assets/configurator%20firebase%20Screenshot.png" width="500" />
+</p>
+
 
 <br/>
 <br/>
