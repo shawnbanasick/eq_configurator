@@ -1,11 +1,10 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-<strong>Download Links:</strong> &nbsp; 
+<strong>Download Links:</strong> &nbsp;
 [macOS](https://github.com/shawnbanasick/eq_configurator/releases/download/v1.0.0/EQ-Configurator-1.0.0.dmg) &nbsp;||&nbsp;
 [Windows-installer](https://github.com) &nbsp;||&nbsp;
 [Windows-portable](https://github.com) &nbsp;||&nbsp;
 [Linux](https://github.com/shawnbanasick/kade/releases) <br/>
-
 
 # EQ Configurator
 
@@ -13,11 +12,14 @@
 <br/>
 
 ## Installation Instructions - Microsoft Windows
+
 #### I haven't certified the application with Microsoft, so it will give a warning on first start-up.
+
 &nbsp;&nbsp;&nbsp;1. Double click the downloaded file.
 
 &nbsp;&nbsp;&nbsp;2. In the Windows warning box, click the "More info" link in the text at the top of the warning box.
 <br/>
+
 <p align="center">
 <img src="https://github.com/shawnbanasick/kade/blob/master/gifs/winWarn.PNG" width="350" />
 </p> 
@@ -31,30 +33,33 @@
 <br/>
 
 ## Installation Instructions - Apple macOS
+
 #### EQ Configurator can be installed following the normal process for macOS.
 
 <p align="center">
-<img src="https://github.com/shawnbanasick/kade/blob/master/gifs/iconDrag.png" width="350" />
+<img src="https://github.com/shawnbanasick/eq_configurator/blob/master/readme_assets/configurator_mac_install.png" width="350" />
 </p>
 
 &nbsp;&nbsp;&nbsp;1. Double click the downloaded file.
 
 &nbsp;&nbsp;&nbsp;2. Click and drag the EQ-Configurator.app icon into the applications folder.
 
-
 #### Version 1.2.0 is code signed and notarized by Apple, so there will be only one warning on the first startup after installation.
+
 <p align="center">
 <img src="https://github.com/shawnbanasick/kade/blob/master/gifs/macOS warning.png" width="350">
 <br/>
 </p>
 
 #### If you have changed your default settings, you may get this warning:
+
 <p align="center">
 <img src="https://github.com/shawnbanasick/kade/blob/master/gifs/macos-catalina-alert-not-app-store.jpg" width="350">
 <br/>
 </p>
 
 #### In this case, to open EQ Configurator you will need to reset your security settings to the defaults:
+
 &nbsp;&nbsp;&nbsp;1. Open "System Preferences"
 
 &nbsp;&nbsp;&nbsp;2. Click "Security & Privacy"
@@ -73,10 +78,12 @@
 <br/>
 
 ## Installation Instructions - Linux
-The application is packaged as an "AppImage" so it can be installed on most of the major distributions (Ubuntu, Mint, MXLinux, Debian, openSUSE, RHEL, CentOS, Fedora, etc.) On some distributions it will offer to install the software. 
+
+The application is packaged as an "AppImage" so it can be installed on most of the major distributions (Ubuntu, Mint, MXLinux, Debian, openSUSE, RHEL, CentOS, Fedora, etc.) On some distributions it will offer to install the software.
 <br/>
 
 #### After downloading, you will need to change the file permissions of the downloaded file.
+
 1. Right click on the downloaded file.
 2. Select "Properties".
 3. Select "Permissions". (Example image from debian-based "MXLinux")
@@ -89,17 +96,19 @@ The application is packaged as an "AppImage" so it can be installed on most of t
 <br/>
 
 ## Updates
+
 I have not integrated automatic updating functions into the application. To update you need to uninstall the old version, then download and install the new version.
 
 ## Uninstallation Instructions
-* In Windows, click the "Start" button, then click "Settings", "Apps", "EQ Configurator", and select "uninstall"
-* In macOS, use Finder to go to the "applications" folder and delete the EQ Configurator application
-* In Linux, locate the AppImage file of the old version and delete it.
+
+- In Windows, click the "Start" button, then click "Settings", "Apps", "EQ Configurator", and select "uninstall"
+- In macOS, use Finder to go to the "applications" folder and delete the EQ Configurator application
+- In Linux, locate the AppImage file of the old version and delete it.
 
 ## Contributions and Problems
+
 If you discover a problem with the software or want to make a feature request, please describe it on the issue tracker - https://github.com/shawnbanasick/eq_configurator/issues or email to ken.q.tools@gmail.com. Contributions are welcome. Make a pull request.
 
-
 ## License
-License: GPL-3
 
+License: GPL-3
