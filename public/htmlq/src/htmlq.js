@@ -454,6 +454,26 @@ angular
         }
       }
 
+      // insert text font size control functions
+      angular.element(document).ready(function () {
+        // Increase Font Size
+        $(".increase").click(function () {
+          var currentSize = $(".fontAdjust").css("font-size");
+          currentSize = parseFloat(currentSize) * 1.2;
+          $(".fontAdjust").css("font-size", currentSize);
+          return false;
+        });
+
+        // Decrease Font Size
+        $(".decrease").click(function () {
+          // var currentFontSize = $(".fontAdjust").css("font-size");
+          var currentSize = $(".fontAjust").css("font-size");
+          currentSize = parseFloat(currentSize) * 0.8;
+          $(".fontAdjust").css("font-size", currentSize);
+          return false;
+        });
+      });
+
       // initialize survey
       var doc = $.parseXML(configXml);
       var form = null;
@@ -1055,6 +1075,17 @@ angular
                 $log.info("cancelled");
                 return;
               }
+
+              // to prevent error when 2 drop zones highlighted during drop
+              var previousTimeStamp = localStorage.getItem("previousTimeStamp");
+              if (Math.trunc(event.timeStamp) === +previousTimeStamp) {
+                $log.info("cancelled");
+                return;
+              }
+              localStorage.setItem(
+                "previousTimeStamp",
+                Math.trunc(event.timeStamp)
+              );
 
               var dragElement = angular
                 .element(ui.draggable.get())

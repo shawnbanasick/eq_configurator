@@ -3,6 +3,7 @@
     <div class="row">
       <div class="grid" ng-style="{width: viewWidth}">
         <table ng-style="{width: viewWidth}">
+          <!-- Agree - Conditions of Instruction Disagree Row -->
           <tr>
             <td
               ng-style="{width: viewWidth}"
@@ -28,6 +29,8 @@
             </td>
           </tr>
           <tr>
+          <!-- Column Id Numbers Row -->
+            
             <td
               class="col-xs-1 rating"
               ng-repeat="col in map.column"
@@ -37,6 +40,7 @@
             </td>
           </tr>
           <tr>
+          <!-- Cards in Column Row -->
             <td
               class="col-xs-1"
               ng-repeat="col in sortedStatements.grid"
@@ -48,7 +52,7 @@
                 on-received-statement-from-categories="removeStatement($statement)"
                 dynamically-create-initial-statement="true"
                 ng-repeat="cell in col"
-                class="cell"
+                class="cell fontAdjust"
                 helper-width="{{ viewWidth/map.column.length }}"
                 ng-style="{height: cellHeight}"
                 ng-class="{'small-font': (config.smallFont === 'true')}"
@@ -60,6 +64,7 @@
     </div>
 
     <div class="row sorted-statements">
+          <!-- Sort Feeders Row -->
       <div ng-show="!done()">
         <div class="col-xs-4 step2col">
           <p class="heading" ng-bind-html="language.btnDisagreement"></p>
