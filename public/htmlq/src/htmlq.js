@@ -457,19 +457,24 @@ angular
       // insert text font size control functions
       angular.element(document).ready(function () {
         // Increase Font Size
+        // reset to original size
+
         $(".increase").click(function () {
           var currentSize = $(".fontAdjust").css("font-size");
-          currentSize = parseFloat(currentSize) * 1.2;
-          $(".fontAdjust").css("font-size", currentSize);
+          var newSize = parseFloat(currentSize) + 1;
+          $(".fontAdjust").css("font-size", newSize);
           return false;
         });
 
         // Decrease Font Size
         $(".decrease").click(function () {
           // var currentFontSize = $(".fontAdjust").css("font-size");
-          var currentSize = $(".fontAjust").css("font-size");
-          currentSize = parseFloat(currentSize) * 0.8;
-          $(".fontAdjust").css("font-size", currentSize);
+          var currentSize = $(".fontAdjust").css("font-size");
+          var newSize = parseFloat(currentSize) - 1;
+          if (newSize < 5) {
+            newSize = 5;
+          }
+          $(".fontAdjust").css("font-size", newSize);
           return false;
         });
       });
