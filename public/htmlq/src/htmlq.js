@@ -456,9 +456,43 @@ angular
 
       // insert text font size control functions
       angular.element(document).ready(function () {
-        // Increase Font Size
-        // reset to original size
+        $(window).resize(function () {
+          // console.log("resized");
 
+          let newViewWidth = window.innerWidth - 60;
+          let newCardWidth = Math.trunc(newViewWidth / map.column.length);
+          console.log(newCardWidth);
+
+          var newViewHeight = window.innerHeight - 300;
+          if (newViewHeight < 420) {
+            newViewHeight = 420;
+          }
+
+          var newCellHeight =
+            newViewHeight / parseInt(longestColumn.__text, 10);
+
+          $(".grid-heading").css("width", newViewWidth);
+          $(".grid").css("width", newViewWidth);
+          $(".tableClass").css("width", newViewWidth);
+          $(".containerWidth").css("width", newViewWidth);
+
+          // new card widths
+          $(".idNumRow").css("width", newCardWidth);
+          $(".cardsInCol").css("width", newCardWidth);
+          $(".cell").css("width", newCardWidth);
+          $(".dropCardInside").css("width", newCardWidth - 8);
+          $(".dropCards").css("width", newCardWidth - 10);
+
+          // new heights
+          $(".cell").css("height", newCellHeight);
+          $(".dropCards").css("height", newCellHeight - 10);
+          $(".dropCardInside").css("height", newCellHeight - 8);
+
+          var currentSize = $(".idNumRow").css("width");
+          console.log(currentSize);
+        });
+
+        // Increase Font Size
         $(".increase").click(function () {
           var currentSize = $(".fontAdjust").css("font-size");
           var newSize = parseFloat(currentSize) + 1;
@@ -468,11 +502,10 @@ angular
 
         // Decrease Font Size
         $(".decrease").click(function () {
-          // var currentFontSize = $(".fontAdjust").css("font-size");
           var currentSize = $(".fontAdjust").css("font-size");
           var newSize = parseFloat(currentSize) - 1;
-          if (newSize < 5) {
-            newSize = 5;
+          if (newSize < 6) {
+            newSize = 6;
           }
           $(".fontAdjust").css("font-size", newSize);
           return false;
@@ -1048,7 +1081,7 @@ angular
 
           function addStatementDiv(outerScope, reposition) {
             var el = $compile(
-              '<div swappable-statement="cell.statement" swappable-statement-cell="cell" swappable="false" class="swappable" ng-class="{textright: textAlignRight}" style="position: relative;"></div>'
+              '<div swappable-statement="cell.statement" swappable-statement-cell="cell" swappable="false" class="swappable dropCardInside" ng-class="{textright: textAlignRight}" style="position: relative;"></div>'
             )(outerScope);
             var w = parseInt(scope.helperWidth, 10) - 8 + "px";
             $(el).css("width", w);
@@ -1177,6 +1210,7 @@ angular
                   ) {
                     el.addClass("small-font");
                   }
+                  el.addClass("droppedCard");
                   $(el).appendTo("#step2");
                   $(el).offset(ui.helper.offset());
                   scope.onDrop({

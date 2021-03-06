@@ -2,7 +2,7 @@
   <div id="step2" droppable-background="" on-drop="removeStatement($statement)">
     <div class="row">
       <div class="grid" ng-style="{width: viewWidth}">
-        <table ng-style="{width: viewWidth}">
+        <table class="tableClass" ng-style="{width: viewWidth}">
           <!-- Agree - Conditions of Instruction Disagree Row -->
           <tr>
             <td
@@ -32,7 +32,7 @@
           <!-- Column Id Numbers Row -->
             
             <td
-              class="col-xs-1 rating"
+              class="col-xs-1 rating idNumRow"
               ng-repeat="col in map.column"
               ng-style="{'background-color': '#' + col._colour, width: viewWidth/map.column.length}"
             >
@@ -42,7 +42,7 @@
           <tr>
           <!-- Cards in Column Row -->
             <td
-              class="col-xs-1"
+              class="col-xs-1 cardsInCol"
               ng-repeat="col in sortedStatements.grid"
               ng-style="{width: viewWidth/map.column.length}"
             >
