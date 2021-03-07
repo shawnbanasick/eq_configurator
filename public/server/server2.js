@@ -1,5 +1,5 @@
 var static2 = require("node-static");
-var http = require("http");
+// var http = require("http");
 
 process.on("message", (data) => {
   let string = data[0];
@@ -10,8 +10,7 @@ process.on("message", (data) => {
     cache: 0,
   });
 
-  http
-    .createServer(function (request, response) {
+  require('http').createServer(function (request, response) {
       request.addListener("end", function () {
         file.serve(request, response, function (err, result) {
           if (err) {
@@ -23,14 +22,7 @@ process.on("message", (data) => {
             response.end();
           }
         });
-      });
-    })
-    .listen(9990);
+      }).resume();
+  }).listen(9990);
 
-  // http.createServer(function (request, response) {
-  //   request.addListener("end", function () {
-  //     file.serve(request, response);
-  //   });
-  // })
-  // .listen(9990);
 });
