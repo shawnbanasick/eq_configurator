@@ -22,7 +22,7 @@ process.on("message", (data) => {
             response.end();
           }
         });
-      }).resume();
+      });
   }).listen(9990);
 
 });
