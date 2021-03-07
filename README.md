@@ -1,11 +1,5 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-<strong>Download Links:</strong> &nbsp;
-[macOS](https://github.com/shawnbanasick/eq_configurator/releases/download/v1.0.0/EQ-Configurator-1.0.0.dmg) &nbsp;||&nbsp;
-[Windows-installer](https://github.com/shawnbanasick/eq_configurator/releases/download/v1.0.0/EQ-Configurator.Setup.1.0.0.exe) &nbsp;||&nbsp;
-[Windows-portable](https://github.com/shawnbanasick/eq_configurator/releases/download/v1.0.0/EQ-Configurator.1.0.0.exe) &nbsp;||&nbsp;
-[Linux](https://github.com/shawnbanasick/eq_configurator/releases) <br/>
-
 # EQ Configurator
 EQ Configurator simplifies the set-up and testing of an online Q sort project. It includes a local web server to preview the project set-up on any installed web browser. It also has a guided editing process for the project settings files, and complete guides to attach a database and upload the project to a web host.
 
