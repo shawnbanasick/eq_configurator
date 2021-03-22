@@ -107,7 +107,9 @@ const Start = () => {
       </ButtonContainer>
       <DescriptionDiv>
         {showDescriptionMobile && (
-          <IntroText>mobile Q sort data collection</IntroText>
+          <IntroText>
+            mobile offline Q sorts on an iPad or laptop computer
+          </IntroText>
         )}
         {showDescriptionHtmlq && <IntroText>online Q sorts</IntroText>}
       </DescriptionDiv>
