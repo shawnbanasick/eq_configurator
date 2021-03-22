@@ -5,6 +5,7 @@ const appState = store({
   DEFAULT settings */
   userSelectedFilePath: "",
   displayMode: "beginner",
+  configurationTarget: "easyHtmlq",
 
   /*
   DEFAULT page opening */
