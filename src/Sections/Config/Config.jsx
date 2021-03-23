@@ -39,6 +39,8 @@ const Config = () => {
   appState.configPartNameRequiredfalseDisabled = false;
   if (configurationTarget !== "easyHtmlq") {
     appState.configLogInRequired = true;
+    appState.configLogInRequiredtrueActive = true;
+    appState.configLogInRequiredfalseActive = false;
     appState.configLogInRequiredtrueDisabled = true;
     appState.configLogInRequiredfalseDisabled = true;
     appState.configPartNameRequiredtrueDisabled = true;
@@ -103,8 +105,8 @@ const Config = () => {
             code can be a phrase instead of just a single word, and is
             case-sensitive. <br />
             <br /> On <b>EQ Mobile</b>, the Project Access Code and participant
-            names or id are required, so options 5a and 5c are set to "true" and
-            disabled.{" "}
+            names or id are always required, so options 5a and 5c are set to
+            "true" and disabled.{" "}
             <b>
               Please enter the Project Access Code for your EQ Mobile project in
               option 5b.
