@@ -31,6 +31,21 @@ const Config = () => {
   let configLogInRequired = convertToFalse(appState.configLogInRequired);
   let configShowStep5 = convertToFalse(appState.configShowStep5);
 
+  // for use with EQ mobile
+  let disableHtmlqOptions = false;
+  const configurationTarget = appState.configurationTarget;
+  appState.configLogInRequiredtrueDisabled = false;
+  appState.configLogInRequiredfalseDisabled = false;
+  appState.configPartNameRequiredtrueDisabled = false;
+  appState.configPartNameRequiredfalseDisabled = false;
+  if (configurationTarget !== "easyHtmlq") {
+    appState.configLogInRequired = true;
+    appState.configLogInRequiredtrueDisabled = true;
+    appState.configLogInRequiredfalseDisabled = true;
+    appState.configPartNameRequiredtrueDisabled = true;
+    appState.configPartNameRequiredfalseDisabled = true;
+  }
+
   let displayMode = appState.displayMode;
   if (displayMode === "beginner") {
     displayMode = true;
@@ -87,7 +102,14 @@ const Config = () => {
           <DisplayModeText>
             5a. The project access code is the same for all participants. The
             code can be a phrase instead of just a single word, and is
-            case-sensitive.
+            case-sensitive. <br />
+            <br /> On <b>EQ Mobile</b>, the Project Access Code and participant
+            names or id are required, so options 5a and 5c are set to "true" and
+            disabled.{" "}
+            <b>
+              Please enter the Project Access Code for your EQ Mobile project in
+              option 5b.
+            </b>
           </DisplayModeText>
         )}
 
@@ -118,7 +140,8 @@ const Config = () => {
           <DisplayModeText>
             6a. The Log In Script is a legacy option from FlashQ. It allows the
             use of a custom software to log participants into the project from
-            outside the Easy HTMLQ software.
+            outside the Easy HTMLQ software. Most projects won't need this
+            option.
           </DisplayModeText>
         )}
 
