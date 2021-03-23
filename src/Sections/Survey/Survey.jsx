@@ -40,8 +40,8 @@ const notifySuccess = () => {
   });
 };
 
-const notifyError = () => {
-  toast.error("Error - Item Not Added", {
+const notifyError = (errorMessage) => {
+  toast.error(errorMessage, {
     position: toast.POSITION.BOTTOM_CENTER,
     transition: Slide,
   });
@@ -78,12 +78,22 @@ const Survey = () => {
         );
       }
       if (displayBoolean.label === true) {
-        newItemObj.label = appState.surveyQuestionLabel;
-        newItemArray.push(`label text: ${appState.surveyQuestionLabel}`);
+        let questionLabel = appState.surveyQuestionLabel;
+        // to prevent "missing node" error in EQ
+        if (questionLabel === "") {
+          throw new Error("label is missing");
+        }
+        newItemObj.label = questionLabel;
+        newItemArray.push(`label text: ${questionLabel}`);
       }
       if (displayBoolean.note === true) {
-        newItemObj.note = appState.surveyQuestionNote;
-        newItemArray.push(`question note: ${appState.surveyQuestionNote}`);
+        let questionNote = appState.surveyQuestionNote;
+        // to prevent "missing node" error in EQ
+        if (questionNote === "") {
+          throw new Error("note is missing");
+        }
+        newItemObj.note = questionNote;
+        newItemArray.push(`question note: ${questionNote}`);
       }
       if (displayBoolean.maxlength === true) {
         newItemObj.maxlength = appState.surveyAnswerLenMax;
@@ -96,12 +106,22 @@ const Survey = () => {
         );
       }
       if (displayBoolean.scale === true) {
-        newItemObj.scale = appState.surveyQuestionScale;
-        newItemArray.push(`scale: ${appState.surveyQuestionScale}`);
+        let questionScale = appState.surveyQuestionScale;
+        // to prevent "missing node" error in EQ
+        if (questionScale === "") {
+          throw new Error("scale is missing");
+        }
+        newItemObj.scale = questionScale;
+        newItemArray.push(`scale: ${questionScale}`);
       }
       if (displayBoolean.options === true) {
-        newItemObj.options = appState.surveyQuestionOptions;
-        newItemArray.push(`options: ${appState.surveyQuestionOptions}`);
+        let questionOptions = appState.surveyQuestionOptions;
+        // to prevent "missing node" error in EQ
+        if (questionOptions === "") {
+          throw new Error("options are missing");
+        }
+        newItemObj.options = questionOptions;
+        newItemArray.push(`options: ${questionOptions}`);
       }
       if (displayBoolean.bg === true) {
         newItemObj.bg = appState.surveyBackgroundDisplay;
@@ -115,9 +135,8 @@ const Survey = () => {
       appState.surveyQuestionsArray = surveyQuestionsArray;
       notifySuccess();
       clearAddItemForm();
-      // console.log(JSON.stringify(appState, null, 2));
     } catch (error) {
-      notifyError();
+      notifyError(error.message);
       console.log(error);
     }
   };
