@@ -32,7 +32,6 @@ const Config = () => {
   let configShowStep5 = convertToFalse(appState.configShowStep5);
 
   // for use with EQ mobile
-  let disableHtmlqOptions = false;
   const configurationTarget = appState.configurationTarget;
   appState.configLogInRequiredtrueDisabled = false;
   appState.configLogInRequiredfalseDisabled = false;
