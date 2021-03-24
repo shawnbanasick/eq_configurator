@@ -266,6 +266,13 @@ const Language = () => {
           width={43}
           left={0}
         />
+        <UserTextInput
+          label="Step 2 Text Size Label"
+          stateId="langStep2TextSizeLabel"
+          sectionName="lang"
+          width={33}
+          left={0}
+        />
         <ColorContainer>
           <h3>Step 3</h3>
           <UserTextInput
