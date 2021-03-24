@@ -11,11 +11,25 @@ import generateConfigXml from "../Config/generateConfigXml";
 import appState from "../../GlobalState/appState";
 import FadeIn from "./FadeIn";
 import UserNumberInput from "../../Utils/UserNumberInput";
+import { toast } from "react-toastify";
+import { ToastContainer, Slide } from "react-toastify";
 
 const handleClick = () => {
-  const data = generateConfigXml();
-
-  exportToXml("config.xml", data, "xml");
+  try {
+    const configLogInPassword = appState.configLogInPassword;
+    let configLogInRequired = appState.configLogInRequired;
+    if (configLogInRequired === "true") {
+      configLogInRequired = true;
+    }
+    if (configLogInPassword.length === 0 && configLogInRequired === true) {
+      throw new Error("5b. Project Access Code is required");
+    }
+    const data = generateConfigXml();
+    exportToXml("config.xml", data, "xml");
+  } catch (error) {
+    notifyError(error.message);
+    console.log(error);
+  }
 };
 
 const convertToFalse = (value) => {
@@ -24,6 +38,13 @@ const convertToFalse = (value) => {
   } else {
     return true;
   }
+};
+
+const notifyError = (errorMessage) => {
+  toast.error(errorMessage, {
+    position: toast.POSITION.BOTTOM_CENTER,
+    transition: Slide,
+  });
 };
 
 const Config = () => {
@@ -62,6 +83,7 @@ const Config = () => {
 
   return (
     <MainContent>
+      <StyledToastContainer />
       <GlobalStyle />
       <Title>General Configuration</Title>
       <DisplayModeText>
@@ -338,4 +360,14 @@ const DisplayModeText = styled.div`
   font-size: 20px;
   padding: 0 10px 0 10px;
   border: 2px solid black;
+`;
+
+const StyledToastContainer = styled(ToastContainer).attrs({
+  // custom props
+})`
+  .Toastify__toast--success {
+    padding-left: 40px;
+    background-color: var(--main-theme-color);
+    width: 200px;
+  }
 `;
