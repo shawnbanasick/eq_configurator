@@ -52,7 +52,9 @@ const generateLanguageXml = () => {
         <item id="step2Head">${appState.langStep2}</item>
         <item id="step2Text">${appState.langStep2Text}</item>
         <item id="step2CondOfInstruc">${appState.langStep2CondOfInstruc}</item>
+        <item id="step2TextSizeLabel">${appState.langStep2TextSizeLabel}</item>
         
+
         <!-- step3: check sorting, only displayed if showStep3== true (see config-file; leave blank to skip popup)-->
         <item id="step3Head">${appState.langStep3}</item>
         <item id="step3Text">${appState.langStep3Text}</item>

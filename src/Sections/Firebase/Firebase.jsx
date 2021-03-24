@@ -34,6 +34,8 @@ import exportJson from "../../assets/images/firebase-export-json.png";
 import gotoConsole from "../../assets/images/firebase-goto-console.png";
 import firebaseDeleteParticipant from "../../assets/images/firebase-delete-participant.png";
 import firebaseDeleteConfirm from "../../assets/images/firebase-delete-confirm.png";
+import generateEqmobileWithFirebase from "./generateEqmobileWithFirebase";
+import appState from "../../GlobalState/appState";
 
 const text = `
     {
@@ -45,7 +47,14 @@ const text = `
     `;
 
 const handleClick = () => {
-  const data = generateHtmlWithFirebase();
+  let data;
+  let configurationTarget = appState.configurationTarget;
+  if (configurationTarget === "easyHtmlq") {
+    data = generateHtmlWithFirebase();
+  } else {
+    data = generateEqmobileWithFirebase();
+  }
+
   // console.log(data);
   if (data !== undefined) {
     exportToXml("index.html", data, "html");
@@ -91,14 +100,15 @@ const FirebaseInfo = () => {
       <GlobalStyle />
       <Title>Firebase Settings</Title>
       <DisplayModeText>
-        Firebase is a database company owned by Google. It provides a convenient
-        way to store the participants' response data. If you don't have a Google
-        account, make one before you begin the setup process.
+        <b>Firebase</b> is a database company owned by Google. It provides a
+        convenient way to store the participants' response data. If you don't
+        have a Google account, make one before you begin the setup process.
         <br /> <br />
-        Information on how to export the Firebase data for analysis and how to
-        delete individual data entries is at the bottom of this page. <br />{" "}
-        <br />
-        There are three steps needed to provide a database for Easy HTMLQ:
+        Information on <b>how to export the Firebase data</b> for analysis and
+        <b> how to delete individual data entries</b> is at the bottom of this
+        page. <br /> <br />
+        There are <b>three steps</b> needed to provide a database for Easy
+        HTMLQ:
         <br /> &nbsp;&nbsp;&nbsp;1&#41; create a new Firebase project;
         <br /> &nbsp;&nbsp;&nbsp;2&#41; set the database to allow anonymous
         log-ins;
@@ -306,7 +316,7 @@ const FirebaseInfo = () => {
         >
           KADE
         </a>{" "}
-        or another program to analyze the data.
+        or the "qmethod" R package to analyze the data.
       </DisplayModeText>
       <img src={exportJson} width="90%" alt="s" />
       <SpacerDiv />
@@ -315,8 +325,9 @@ const FirebaseInfo = () => {
       <DisplayModeText>
         <b></b>
         <br /> To delete an individual participant's data, open the "Realtime
-        database" and then click the "X" to the right side of the participant's
-        data that you want to delete.
+        database" and then hover the mouse pointer over the data you want to
+        delete. Click the "X" to the right side of the participant's id number.
+        This will permanently delete the data, so be careful.
       </DisplayModeText>
       <img src={firebaseDeleteParticipant} alt="s" />
       <DisplayModeText>
