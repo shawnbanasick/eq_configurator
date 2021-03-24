@@ -16,7 +16,8 @@ import { ToastContainer, Slide } from "react-toastify";
 
 const handleClick = () => {
   try {
-    const configLogInPassword = appState.configLogInPassword;
+    let configLogInPassword = appState.configLogInPassword;
+    configLogInPassword = configLogInPassword.trim();
     let configLogInRequired = appState.configLogInRequired;
     if (configLogInRequired === "true") {
       configLogInRequired = true;
