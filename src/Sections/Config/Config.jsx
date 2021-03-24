@@ -38,9 +38,15 @@ const Config = () => {
   appState.configPartNameRequiredtrueDisabled = false;
   appState.configPartNameRequiredfalseDisabled = false;
   if (configurationTarget !== "easyHtmlq") {
+    // set memory values of 5a and 5c to true (required)
     appState.configLogInRequired = true;
+    appState.configPartNameRequired = true;
+    // set 5a and 5c active button colors
     appState.configLogInRequiredtrueActive = true;
     appState.configLogInRequiredfalseActive = false;
+    appState.configPartNameRequiredtrueActive = true;
+    appState.configPartNameRequiredfalseActive = false;
+    // disable all 5a and 5c buttons
     appState.configLogInRequiredtrueDisabled = true;
     appState.configLogInRequiredfalseDisabled = true;
     appState.configPartNameRequiredtrueDisabled = true;
