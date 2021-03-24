@@ -188,7 +188,7 @@ const Language = () => {
           />
 
           <UserTextInput
-            label="Please insert your access code."
+            label="Please enter your access code."
             stateId="langNoInput"
             sectionName="lang"
             width={25}

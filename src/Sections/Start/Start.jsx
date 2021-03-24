@@ -46,7 +46,9 @@ const Start = () => {
     appState.mobileButtonActive = false;
     showDescriptionHtmlq = true;
     showDescriptionMobile = false;
+    appState.langPartIdText = "Your name or survey id number";
   } else {
+    appState.langPartIdText = "Participant name or survey id number";
     appState.htmlqButtonActive = false;
     appState.mobileButtonActive = true;
     showDescriptionHtmlq = false;
