@@ -8,6 +8,7 @@ import UserTextInput from "../../Utils/UserTextInput";
 import UserTextAreaInput from "../../Utils/UserTextAreaInput";
 import appState from "../../GlobalState/appState";
 import generateLanguageXml from "../Language/generateLanguageXml";
+import LangTextInput from "../../Utils/LangTextInput";
 
 const handleClick = () => {
   const data = generateLanguageXml();
@@ -45,7 +46,7 @@ const Language = () => {
 
       <SectionContainer>
         <h3>Button Labels</h3>
-        <UserTextInput
+        <LangTextInput
           label="Continue..."
           stateId="langBtnContinue"
           sectionName="lang"
