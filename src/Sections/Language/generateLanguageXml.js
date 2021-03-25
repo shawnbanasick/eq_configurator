@@ -1,12 +1,24 @@
 import appState from "../../GlobalState/appState";
 
+const checkEmptyString = (key) => {
+  let item = appState[key];
+  let length = item.length;
+  if (length === 0) {
+    console.log(item.length);
+    appState[key] = " ";
+  }
+  console.log(appState[key]);
+  return appState[key];
+};
+// checkEmptyString("langBtnContinue");
+
 const generateLanguageXml = () => {
   let data = `<?xml version="1.0" encoding="UTF-8"?>
 
    <language version="1.0" htmlParse="true">\n;
 
         <!-- misc -->
-        <item id="btnContinue">${appState.langBtnContinue}</item>
+        <item id="btnContinue">${checkEmptyString("langBtnContinue")}</item>
         <item id="btnclose">${appState.langBtnClose}</item>
         <item id="btnHelp">${appState.langBtnHelp}</item>
         <item id="btnAgreement">${appState.langBtnAgree}</item>

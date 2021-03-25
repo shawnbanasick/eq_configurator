@@ -55,10 +55,13 @@ const Start = () => {
     showDescriptionMobile = true;
   }
 
+  const version = appState.appVersion;
+
   return (
     <MainContent>
       <GlobalStyle />
       <Title>Easy HTMLQ Configurator</Title>
+      <CustomH3>version {version}</CustomH3>
       <IntroText>
         Easy HTMLQ Configurator simplifies the set-up and testing of an online Q
         sort project. It provides guided editing of the HTMLQ configuration
@@ -109,11 +112,31 @@ const Start = () => {
       </ButtonContainer>
       <DescriptionDiv>
         {showDescriptionMobile && (
-          <IntroText>
-            mobile offline Q sorts on an iPad or laptop computer
-          </IntroText>
+          <div>
+            <IntroText>
+              mobile offline Q sorts on an iPad or laptop computer:
+            </IntroText>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/shawnbanasick/eq-mobile"
+            >
+              Home Page
+            </a>
+          </div>
         )}
-        {showDescriptionHtmlq && <IntroText>online Q sorts</IntroText>}
+        {showDescriptionHtmlq && (
+          <div>
+            <IntroText>online Q sorts:</IntroText>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/shawnbanasick/easy-htmlq"
+            >
+              Home Page
+            </a>
+          </div>
+        )}
       </DescriptionDiv>
     </MainContent>
   );
@@ -158,6 +181,22 @@ const MainContent = styled.div`
   overflow: auto;
   user-select: none;
   /* border: 2px solid green; */
+
+  a {
+    padding-bottom: 1px;
+    text-decoration: none;
+    color: #000;
+    box-shadow: inset 0 -4px 0 var(--second-theme-color);
+    transition: background-color 0.25s ease-out;
+    margin-left: 5px;
+    font-size: 2vw;
+  }
+
+  a:hover {
+    background-color: var(--second-theme-color);
+    padding-top: 2px;
+    box-shadow: none;
+  }
 `;
 
 const Title = styled.h1`
@@ -242,4 +281,12 @@ const DescriptionDiv = styled.div`
 const SpacerDiv = styled.div`
   width: 20px;
   height: 50px;
+`;
+
+const CustomH3 = styled.span`
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+  margin-top: 10px;
+  margin-bottom: 20px;
 `;
