@@ -6,9 +6,11 @@ import appState from "../GlobalState/appState";
 
 // const clone = require("rfdc")();
 
-const UserTextInput = (props) => {
+const LangTextInput = (props) => {
   // props = label, stateId, sectionName, width, left
   const { t } = useTranslation();
+
+  let backgroundCol = "white";
 
   const key = `${props.stateId}`; // ${props.sectionName}
 
@@ -16,7 +18,11 @@ const UserTextInput = (props) => {
     event.preventDefault();
     const value = event.target.value;
     appState[key] = value;
-    console.log("clicked");
+    if (value.length === 0) {
+      backgroundCol = "pink";
+      console.log("length is zero");
+    }
+    console.log(value.length);
   };
 
   return (
@@ -32,17 +38,19 @@ const UserTextInput = (props) => {
         value={appState[key] || ""}
         onChange={handleChange}
         className="optionsInput"
+        backCol={backgroundCol}
       />
     </InputContainerDiv>
   );
 };
 
-export default view(UserTextInput);
+export default view(LangTextInput);
 
 const UserText = styled.input((props) => ({
   width: `${props.width}vw`,
   marginLeft: `${props.left}px`,
   paddingLeft: `10px`,
+  backgroundColor: `${props.backCol}`,
 }));
 
 const InputContainerDiv = styled.div`

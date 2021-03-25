@@ -1,6 +1,31 @@
 import appState from "../../GlobalState/appState";
 
-const checkEmptyString = (key) => {
+const testArray = [
+  ["langBtnContinue", "Button Lables"],
+  ["langBtnClose", "Button Lables"],
+  ["langBtnHelp", "Button Lables"],
+  ["langBtnAgree", "Button Lables"],
+  ["langBtnNeutral", "Button Lables"],
+  ["langBtnDisagree", "Button Lables"],
+  ["langBtnSubmit", "Button Lables"],
+  ["langBtnExit", "Button Lables"],
+  ["langBtnSelect", "Button Lables"],
+  ["langExitWarning", "Navigation and Error Language"],
+  ["langBack", "Navigation and Error Language"],
+  ["langReqFields", "Navigation and Error Language"],
+  ["langError", "Navigation and Error Language"],
+  ["langWelcome", "Welcome Screen"],
+  ["langWelcomeText", "Welcome Screen"],
+  ["langUserCode", "User Login Screen"],
+  ["langLogInText", "User Login Screen"],
+  ["langFormHeader", "User Login Screen"],
+  ["langPartIdText", "User Login Screen"],
+  ["langNoInput", "User Login Screen"],
+  ["langUserCodeInvalid", "User Login Screen"],
+  ["langServerConnectFail", "User Login Screen"],
+];
+
+const str0 = (key) => {
   let item = appState[key];
   let length = item.length;
   if (length === 0) {
@@ -10,7 +35,6 @@ const checkEmptyString = (key) => {
   console.log(appState[key]);
   return appState[key];
 };
-// checkEmptyString("langBtnContinue");
 
 const generateLanguageXml = () => {
   let data = `<?xml version="1.0" encoding="UTF-8"?>
@@ -18,7 +42,7 @@ const generateLanguageXml = () => {
    <language version="1.0" htmlParse="true">\n;
 
         <!-- misc -->
-        <item id="btnContinue">${checkEmptyString("langBtnContinue")}</item>
+        <item id="btnContinue">${appState.langBtnContinue}</item>
         <item id="btnclose">${appState.langBtnClose}</item>
         <item id="btnHelp">${appState.langBtnHelp}</item>
         <item id="btnAgreement">${appState.langBtnAgree}</item>
