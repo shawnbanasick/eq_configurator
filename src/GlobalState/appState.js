@@ -7,6 +7,7 @@ const appState = store({
   displayMode: "beginner",
   configurationTarget: "easyHtmlq",
   appVersion: "1.0.1",
+  inputColor: "white",
 
   /*
   DEFAULT page opening */
