@@ -26,11 +26,13 @@ import clearAddItemForm from "./clearAddItemForm";
 const clone = require("rfdc/default");
 
 const defaultArray = [
-  "required (true/false): true",
-  "label text: Age",
-  "note: Please enter your year of birth (YYYY, eg. 1980).",
-  "maxlength: 4",
-  `restricted: "0-9"`,
+  "Text question type",
+  "Answer mandatory (true/false): true",
+  "Label: Age",
+  "Question note: Please enter your year of birth (YYYY, eg. 1980).",
+  "Limit answer length: true",
+  "Answer maximum length: 4",
+  `Answer restricted to numbers "0-9": true`,
 ];
 
 const notifySuccess = () => {
@@ -69,63 +71,65 @@ const Survey = () => {
     try {
       const newItemObj = {};
       newItemObj.surveyQuestionType = surveyQuestionType;
-      const newItemArray = [`item type: ${surveyQuestionType}`];
+      const newItemArray = [`Question type: ${surveyQuestionType}`];
 
       if (displayBoolean.required === true) {
         newItemObj.required = appState.surveyAnswerRequired;
         newItemArray.push(
-          `answer required (true/false): ${appState.surveyAnswerRequired}`
+          `Answer mandatory (true/false): ${appState.surveyAnswerRequired}`
         );
       }
       if (displayBoolean.label === true) {
         let questionLabel = appState.surveyQuestionLabel;
         // to prevent "missing node" error in EQ
         if (questionLabel === "") {
-          throw new Error("label is missing");
+          throw new Error("Label is missing");
         }
         newItemObj.label = questionLabel;
-        newItemArray.push(`label text: ${questionLabel}`);
+        newItemArray.push(`Label: ${questionLabel}`);
       }
       if (displayBoolean.note === true) {
         let questionNote = appState.surveyQuestionNote;
         // to prevent "missing node" error in EQ
         if (questionNote === "") {
-          throw new Error("note is missing");
+          throw new Error("Note is missing");
         }
         newItemObj.note = questionNote;
-        newItemArray.push(`question note: ${questionNote}`);
+        newItemArray.push(`Question note: ${questionNote}`);
       }
       if (displayBoolean.maxlength === true) {
         newItemObj.maxlength = appState.surveyAnswerLenMax;
-        newItemArray.push(`max length: ${appState.surveyAnswerLenMax}`);
+        newItemArray.push(`Answer max length: ${appState.surveyAnswerLenMax}`);
       }
       if (displayBoolean.restricted === true) {
         newItemObj.restricted = appState.surveyAnswerRestricted;
         newItemArray.push(
-          `answer restricted to numbers "0-9" (true/false): ${appState.surveyAnswerRestricted}`
+          `Answer restricted to numbers "0-9" (true/false): ${appState.surveyAnswerRestricted}`
         );
       }
       if (displayBoolean.scale === true) {
         let questionScale = appState.surveyQuestionScale;
         // to prevent "missing node" error in EQ
         if (questionScale === "") {
-          throw new Error("scale is missing");
+          throw new Error("Scale is missing");
         }
         newItemObj.scale = questionScale;
-        newItemArray.push(`scale: ${questionScale}`);
+        newItemArray.push(`Scale: ${questionScale}`);
       }
       if (displayBoolean.options === true) {
         let questionOptions = appState.surveyQuestionOptions;
         // to prevent "missing node" error in EQ
         if (questionOptions === "") {
-          throw new Error("options are missing");
+          throw new Error("Options are missing");
         }
         newItemObj.options = questionOptions;
-        newItemArray.push(`options: ${questionOptions}`);
+        newItemArray.push(`Options: ${questionOptions}`);
       }
       if (displayBoolean.bg === true) {
         newItemObj.bg = appState.surveyBackgroundDisplay;
-        newItemArray.push(`background: ${appState.surveyBackgroundDisplay}`);
+        newItemArray.push(
+          `Use yellow background: ${appState.surveyBackgroundDisplay}`
+        );
       }
       const val = Math.floor(1000 + Math.random() * 9000);
       newItemObj.id = `item-${val}`;
@@ -213,7 +217,7 @@ const Survey = () => {
           <UserDropdown />
           {displayBoolean.required && (
             <RadioButtons
-              label="Answer required:"
+              label="Answer mandatory:"
               buttonIdArray={["true", "false"]}
               stateId="surveyAnswerRequired"
               sectionName="survey"
