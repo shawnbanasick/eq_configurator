@@ -82,7 +82,7 @@ const Survey = () => {
       if (displayBoolean.label === true) {
         let questionLabel = appState.surveyQuestionLabel;
         // to prevent "missing node" error in EQ
-        if (questionLabel === "") {
+        if (questionLabel.trim() === "") {
           throw new Error("Label is missing");
         }
         newItemObj.label = questionLabel;
@@ -91,7 +91,7 @@ const Survey = () => {
       if (displayBoolean.note === true) {
         let questionNote = appState.surveyQuestionNote;
         // to prevent "missing node" error in EQ
-        if (questionNote === "") {
+        if (questionNote.trim() === "") {
           throw new Error("Note is missing");
         }
         newItemObj.note = questionNote;
@@ -110,7 +110,7 @@ const Survey = () => {
       if (displayBoolean.scale === true) {
         let questionScale = appState.surveyQuestionScale;
         // to prevent "missing node" error in EQ
-        if (questionScale === "") {
+        if (questionScale.trim() === "") {
           throw new Error("Scale is missing");
         }
         newItemObj.scale = questionScale;
@@ -119,7 +119,7 @@ const Survey = () => {
       if (displayBoolean.options === true) {
         let questionOptions = appState.surveyQuestionOptions;
         // to prevent "missing node" error in EQ
-        if (questionOptions === "") {
+        if (questionOptions.trim() === "") {
           throw new Error("Options are missing");
         }
         newItemObj.options = questionOptions;
