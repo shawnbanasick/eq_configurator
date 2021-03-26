@@ -4,15 +4,28 @@ import styled, { keyframes } from "styled-components";
 import GlobalStyle from "../../Utils/GlobalStyle";
 import GeneralButton from "../../Utils/GeneralButton";
 import exportToXml from "../../Utils/exportToXml";
-import UserTextInput from "../../Utils/UserTextInput";
+// import UserTextInput from "../../Utils/UserTextInput";
 import UserTextAreaInput from "../../Utils/UserTextAreaInput";
 import appState from "../../GlobalState/appState";
 import generateLanguageXml from "../Language/generateLanguageXml";
 import LangTextInput from "../../Utils/LangTextInput";
+import { toast } from "react-toastify";
+import { ToastContainer, Slide } from "react-toastify";
 
 const handleClick = () => {
   const data = generateLanguageXml();
-  exportToXml("language.xml", data, "xml");
+  if (data.includes(`"></item>`)) {
+    notifyError("There is missing language input");
+  } else {
+    exportToXml("language.xml", data, "xml");
+  }
+};
+
+const notifyError = (errorMessage) => {
+  toast.error(errorMessage, {
+    position: toast.POSITION.BOTTOM_CENTER,
+    transition: Slide,
+  });
 };
 
 const Language = () => {
@@ -25,6 +38,7 @@ const Language = () => {
 
   return (
     <MainContent>
+      <StyledToastContainer />
       <GlobalStyle />
       <Title>Language Settings</Title>
       {displayMode && (
@@ -459,4 +473,14 @@ const SectionContainer = styled.div`
 
 const TenPxSpacer = styled.div`
   height: 10px;
+`;
+
+const StyledToastContainer = styled(ToastContainer).attrs({
+  // custom props
+})`
+  .Toastify__toast--success {
+    padding-left: 40px;
+    background-color: var(--main-theme-color);
+    width: 200px;
+  }
 `;
