@@ -153,64 +153,67 @@ const Survey = () => {
       {/* {showSurvey === "true" && ( */}
       <SurveyContainer>
         <ExampleContainer>
-          <h3>Example Item:</h3>
-          <ImageContainer>
-            {showSurveytextImage && (
-              <FadeIn delay={150} duration={450}>
-                <TextImage />
-              </FadeIn>
+          <div></div>
+          <div>
+            <h3>Example Item:</h3>
+            <ImageContainer>
+              {showSurveytextImage && (
+                <FadeIn delay={150} duration={450}>
+                  <TextImage />
+                </FadeIn>
+              )}
+              {showSurveytextareaImage && (
+                <FadeIn delay={150} duration={450}>
+                  <TextAreaImage />
+                </FadeIn>
+              )}
+              {showSurveyradioImage && (
+                <FadeIn delay={150} duration={450}>
+                  <RadioImage />
+                </FadeIn>
+              )}
+              {showSurveyselectImage && (
+                <FadeIn delay={150} duration={450}>
+                  <SelectImage />
+                </FadeIn>
+              )}
+              {showSurveycheckboxImage && (
+                <FadeIn delay={150} duration={450}>
+                  <CheckboxImage />
+                </FadeIn>
+              )}
+              {showSurveyrating2Image && (
+                <FadeIn delay={150} duration={450}>
+                  <Scale2Image />
+                </FadeIn>
+              )}
+              {showSurveyrating5Image && (
+                <FadeIn delay={150} duration={450}>
+                  <Scale5Image />
+                </FadeIn>
+              )}
+              {showSurveyrating10Image && (
+                <FadeIn delay={150} duration={450}>
+                  <Scale10Image />
+                </FadeIn>
+              )}
+              {showSurveyinformationImage && (
+                <FadeIn delay={150} duration={450}>
+                  <InformationImage />
+                </FadeIn>
+              )}
+            </ImageContainer>
+            <p>
+              <strong>Settings:</strong>
+            </p>
+            {detailsArray && (
+              <ul>
+                {detailsArray.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
             )}
-            {showSurveytextareaImage && (
-              <FadeIn delay={150} duration={450}>
-                <TextAreaImage />
-              </FadeIn>
-            )}
-            {showSurveyradioImage && (
-              <FadeIn delay={150} duration={450}>
-                <RadioImage />
-              </FadeIn>
-            )}
-            {showSurveyselectImage && (
-              <FadeIn delay={150} duration={450}>
-                <SelectImage />
-              </FadeIn>
-            )}
-            {showSurveycheckboxImage && (
-              <FadeIn delay={150} duration={450}>
-                <CheckboxImage />
-              </FadeIn>
-            )}
-            {showSurveyrating2Image && (
-              <FadeIn delay={150} duration={450}>
-                <Scale2Image />
-              </FadeIn>
-            )}
-            {showSurveyrating5Image && (
-              <FadeIn delay={150} duration={450}>
-                <Scale5Image />
-              </FadeIn>
-            )}
-            {showSurveyrating10Image && (
-              <FadeIn delay={150} duration={450}>
-                <Scale10Image />
-              </FadeIn>
-            )}
-            {showSurveyinformationImage && (
-              <FadeIn delay={150} duration={450}>
-                <InformationImage />
-              </FadeIn>
-            )}
-          </ImageContainer>
-          <p>
-            <strong>Settings:</strong>
-          </p>
-          {detailsArray && (
-            <ul>
-              {detailsArray.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          )}
+          </div>
         </ExampleContainer>
         <SettingsContainer>
           <h3 style={{ marginBottom: 5, marginTop: 5 }}>New Item Settings:</h3>
@@ -315,6 +318,9 @@ const SurveyContainer = styled.div`
 `;
 
 const ExampleContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   border: 3px solid black;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
@@ -324,8 +330,8 @@ const ExampleContainer = styled.div`
   padding-left: 10px;
   width: 75vw;
   max-width: 1200px;
-  height: auto;
-  transition: opacity 3s ease-in-out;
+  // height: 620px;
+  transition: all 2s ease-in-out;
 `;
 
 const SettingsContainer = styled.div`
@@ -342,6 +348,7 @@ const SettingsContainer = styled.div`
   padding-bottom: 5px;
   width: 75vw;
   max-width: 1200px;
+  transition: all 1s ease-out;
 `;
 
 const AddItemButton = styled(GeneralButton)`
@@ -353,6 +360,7 @@ const AddItemButton = styled(GeneralButton)`
 
 const ImageContainer = styled.div`
   width: clamp(300px, 74vw, 1175px);
+  transition: all 1s ease-out;
 `;
 
 const StyledToastContainer = styled(ToastContainer).attrs({
