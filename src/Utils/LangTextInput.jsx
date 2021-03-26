@@ -10,7 +10,8 @@ const LangTextInput = (props) => {
   // props = label, stateId, sectionName, width, left
   const { t } = useTranslation();
 
-  let backgroundCol = "white";
+  const newMemoryKey = `inputColor${props.stateId}`;
+  let backgroundCol = appState[newMemoryKey] || "white";
 
   const key = `${props.stateId}`; // ${props.sectionName}
 
@@ -19,10 +20,10 @@ const LangTextInput = (props) => {
     const value = event.target.value;
     appState[key] = value;
     if (value.length === 0) {
-      backgroundCol = "pink";
-      console.log("length is zero");
+      appState[newMemoryKey] = "lightpink";
+    } else {
+      appState[newMemoryKey] = "white";
     }
-    console.log(value.length);
   };
 
   return (
@@ -46,12 +47,31 @@ const LangTextInput = (props) => {
 
 export default view(LangTextInput);
 
+const UserText = styled.input`
+  width: ${(props) => props.width}vw;
+  margin-left: ${(props) => props.left}px;
+  padding-left: 10px;
+  background-color: ${(props) => props.backCol};
+  border: 1px solid rgb(118, 118, 118);
+  border-radius: 2px;
+  &:focus {
+    outline: none !important;
+    border: 3px solid var(--second-theme-color);
+    box-shadow: 0 0 5px var(--second-theme-color);
+    box-sizing: border-box;
+  }
+`;
+
+/*
 const UserText = styled.input((props) => ({
   width: `${props.width}vw`,
   marginLeft: `${props.left}px`,
   paddingLeft: `10px`,
   backgroundColor: `${props.backCol}`,
+  border: `1px solid rgb(118,118,118)`,
+  borderRadius: `2px`,
 }));
+*/
 
 const InputContainerDiv = styled.div`
   display: flex;

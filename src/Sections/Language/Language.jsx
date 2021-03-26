@@ -53,56 +53,56 @@ const Language = () => {
           width={25}
           left={0}
         />
-        <UserTextInput
+        <LangTextInput
           label="Close"
           stateId="langBtnClose"
           sectionName="lang"
           width={25}
           left={0}
         />
-        <UserTextInput
+        <LangTextInput
           label="Help me!"
           stateId="langBtnHelp"
           sectionName="lang"
           width={25}
           left={0}
         />
-        <UserTextInput
+        <LangTextInput
           label="Agree"
           stateId="langBtnAgree"
           sectionName="lang"
           width={25}
           left={0}
         />
-        <UserTextInput
+        <LangTextInput
           label="Neutral"
           stateId="langBtnNeutral"
           sectionName="lang"
           width={25}
           left={0}
         />
-        <UserTextInput
+        <LangTextInput
           label="Disagree"
           stateId="langBtnDisagree"
           sectionName="lang"
           width={25}
           left={0}
         />
-        <UserTextInput
+        <LangTextInput
           label="Submit data"
           stateId="langBtnSubmit"
           sectionName="lang"
           width={25}
           left={0}
         />
-        <UserTextInput
+        <LangTextInput
           label="Exit"
           stateId="langBtnExit"
           sectionName="lang"
           width={25}
           left={0}
         />
-        <UserTextInput
+        <LangTextInput
           label="Please select..."
           stateId="langBtnSelect"
           sectionName="lang"
@@ -111,28 +111,28 @@ const Language = () => {
         />
         <ColorContainer>
           <h3>Navigation and Error Language</h3>
-          <UserTextInput
+          <LangTextInput
             label="Your answers will be lost."
             stateId="langExitWarning"
             sectionName="lang"
             width={25}
             left={0}
           />
-          <UserTextInput
+          <LangTextInput
             label="Back"
             stateId="langBack"
             sectionName="lang"
             width={25}
             left={0}
           />
-          <UserTextInput
+          <LangTextInput
             label="Please fill in all required fields"
             stateId="langReqFields"
             sectionName="lang"
             width={25}
             left={0}
           />
-          <UserTextInput
+          <LangTextInput
             label="Error"
             stateId="langError"
             sectionName="lang"
@@ -141,7 +141,7 @@ const Language = () => {
           />
         </ColorContainer>
         <h3>Welcome Screen</h3>
-        <UserTextInput
+        <LangTextInput
           label="Welcome!"
           stateId="langWelcome"
           sectionName="lang"
@@ -158,7 +158,7 @@ const Language = () => {
         />
         <ColorContainer>
           <h3>User Login Screen</h3>
-          <UserTextInput
+          <LangTextInput
             label="Access code"
             stateId="langUserCode"
             sectionName="lang"
@@ -173,14 +173,14 @@ const Language = () => {
             height={100}
             left={0}
           />
-          <UserTextInput
+          <LangTextInput
             label="Access code"
             stateId="langFormHeader"
             sectionName="lang"
             width={25}
             left={0}
           />
-          <UserTextInput
+          <LangTextInput
             label="Participant name or Id number"
             stateId="langPartIdText"
             sectionName="lang"
@@ -188,21 +188,21 @@ const Language = () => {
             left={0}
           />
 
-          <UserTextInput
+          <LangTextInput
             label="Please enter your access code."
             stateId="langNoInput"
             sectionName="lang"
             width={25}
             left={0}
           />
-          <UserTextInput
+          <LangTextInput
             label="Access code invalid"
             stateId="langUserCodeInvalid"
             sectionName="lang"
             width={25}
             left={0}
           />
-          <UserTextInput
+          <LangTextInput
             label="Connection to server failed. Please try again."
             stateId="langServerConnectFail"
             sectionName="lang"
@@ -211,7 +211,7 @@ const Language = () => {
           />
         </ColorContainer>
         <h3>Introduction</h3>
-        <UserTextInput
+        <LangTextInput
           label="Introduction"
           stateId="langIntroduction"
           sectionName="lang"
@@ -228,7 +228,7 @@ const Language = () => {
         />
         <ColorContainer>
           <h3>Step 1</h3>
-          <UserTextInput
+          <LangTextInput
             label="Step 1 of 5"
             stateId="langStep1"
             sectionName="lang"
@@ -245,7 +245,7 @@ const Language = () => {
           />
         </ColorContainer>
         <h3>Step 2</h3>
-        <UserTextInput
+        <LangTextInput
           label="Step 2 of 5"
           stateId="langStep2"
           sectionName="lang"
@@ -260,14 +260,14 @@ const Language = () => {
           height={160}
           left={0}
         />
-        <UserTextInput
+        <LangTextInput
           label="Step 2 Cond. of Instruction"
           stateId="langStep2CondOfInstruc"
           sectionName="lang"
           width={43}
           left={0}
         />
-        <UserTextInput
+        <LangTextInput
           label="Step 2 Text Size Label"
           stateId="langStep2TextSizeLabel"
           sectionName="lang"
@@ -276,7 +276,7 @@ const Language = () => {
         />
         <ColorContainer>
           <h3>Step 3</h3>
-          <UserTextInput
+          <LangTextInput
             label="Step 3 of 5"
             stateId="langStep3"
             sectionName="lang"
@@ -291,7 +291,7 @@ const Language = () => {
             height={150}
             left={0}
           />
-          <UserTextInput
+          <LangTextInput
             label="Step 3 Cond. of Instruction"
             stateId="langStep3CondOfInstruc"
             sectionName="lang"
@@ -300,7 +300,7 @@ const Language = () => {
           />
         </ColorContainer>
         <h3>Step 4</h3>
-        <UserTextInput
+        <LangTextInput
           label="Step 4 of 5"
           stateId="langStep4"
           sectionName="lang"
@@ -319,7 +319,7 @@ const Language = () => {
           <h3>
             Step 5 (only displayed if "Show Step 5" is true in the Config file)
           </h3>
-          <UserTextInput
+          <LangTextInput
             label="Step 5 of 5"
             stateId="langStep5"
             sectionName="lang"
@@ -336,21 +336,21 @@ const Language = () => {
           />
         </ColorContainer>
         <h3>Data Transfer</h3>
-        <UserTextInput
+        <LangTextInput
           label="Submit Data"
           stateId="langTransferHead"
           sectionName="lang"
           width={25}
           left={0}
         />
-        <UserTextInput
+        <LangTextInput
           label="Data transfer text"
           stateId="langTransferText"
           sectionName="lang"
           width={45}
           left={0}
         />
-        <UserTextInput
+        <LangTextInput
           label="Data transfer failed"
           stateId="langTransferFailed"
           sectionName="lang"
