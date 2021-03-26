@@ -113,6 +113,9 @@ const Survey = () => {
         if (questionScale.trim() === "") {
           throw new Error("Scale is missing");
         }
+        if (questionScale.indexOf(";") === -1) {
+          throw new Error("Separate scale options using a semicolon ;");
+        }
         newItemObj.scale = questionScale;
         newItemArray.push(`Scale: ${questionScale}`);
       }
@@ -121,6 +124,9 @@ const Survey = () => {
         // to prevent "missing node" error in EQ
         if (questionOptions.trim() === "") {
           throw new Error("Options are missing");
+        }
+        if (questionOptions.indexOf(";") === -1) {
+          throw new Error("Separate options using a semicolon ;");
         }
         newItemObj.options = questionOptions;
         newItemArray.push(`Options: ${questionOptions}`);
