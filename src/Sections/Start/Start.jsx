@@ -121,7 +121,7 @@ const Start = () => {
               rel="noopener noreferrer"
               href="https://github.com/shawnbanasick/eq-mobile"
             >
-              Home Page
+              Download Page
             </a>
           </div>
         )}
@@ -133,7 +133,7 @@ const Start = () => {
               rel="noopener noreferrer"
               href="https://github.com/shawnbanasick/easy-htmlq"
             >
-              Home Page
+              Download Page
             </a>
           </div>
         )}

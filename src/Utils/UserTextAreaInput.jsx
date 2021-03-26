@@ -10,12 +10,20 @@ const UserTextInput = (props) => {
   // props = label, stateId, sectionName, width, left
   const { t } = useTranslation();
 
+  const newMemoryKey = `inputColor${props.stateId}`;
+  let backgroundCol = appState[newMemoryKey] || "white";
+
   const key = `${props.stateId}`; // ${props.sectionName}
 
   const handleChange = (event) => {
     event.preventDefault();
     const value = event.target.value;
     appState[key] = value;
+    if (value.trim().length === 0) {
+      appState[newMemoryKey] = "lightpink";
+    } else {
+      appState[newMemoryKey] = "white";
+    }
   };
 
   return (
@@ -32,6 +40,7 @@ const UserTextInput = (props) => {
         value={appState[key] || ""}
         onChange={handleChange}
         className="optionsInput"
+        backCol={backgroundCol}
       />
     </InputContainerDiv>
   );
@@ -39,13 +48,20 @@ const UserTextInput = (props) => {
 
 export default view(UserTextInput);
 
-const UserText = styled.textarea((props) => ({
-  width: `${props.width + 26}%`,
-  height: `${props.height}px`,
-  marginLeft: `${props.left}px`,
-  marginTop: `25px`,
-  paddingLeft: `10px`,
-}));
+const UserText = styled.textarea`
+  width: ${(props) => props.width + 26}%;
+  height: ${(props) => props.height}px;
+  margin-left: ${(props) => props.left}px;
+  background-color: ${(props) => props.backCol};
+  margin-top: 25px;
+  padding-left: 10px;
+  box-sizing: border-box;
+  &:focus {
+    outline: none !important;
+    border: 3px solid var(--second-theme-color);
+    box-shadow: 0 0 5px var(--second-theme-color);
+  }
+`;
 
 const InputContainerDiv = styled.div`
   display: flex;
