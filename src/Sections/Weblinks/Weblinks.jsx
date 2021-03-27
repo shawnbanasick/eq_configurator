@@ -35,6 +35,15 @@ const Statements = () => {
           <a
             target="_blank"
             rel="noopener noreferrer"
+            href="https://github.com/shawnbanasick/eq-mobile"
+          >
+            EQ Mobile
+          </a>
+        </p>
+        <p>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
             href="https://github.com/shawnbanasick/kade"
           >
             KADE (Q methhodology Analysis Software)

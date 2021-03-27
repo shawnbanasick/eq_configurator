@@ -8,18 +8,10 @@ import exportToXml from "../../Utils/exportToXml";
 import UserTextAreaInput from "../../Utils/UserTextAreaInput";
 import appState from "../../GlobalState/appState";
 import generateLanguageXml from "../Language/generateLanguageXml";
+import generateMobileLanguageXml from "../Language/generateMobileLanguageXml";
 import LangTextInput from "../../Utils/LangTextInput";
 import { toast } from "react-toastify";
 import { ToastContainer, Slide } from "react-toastify";
-
-const handleClick = () => {
-  const data = generateLanguageXml();
-  if (data.includes(`"></item>`)) {
-    notifyError("There is missing language input");
-  } else {
-    exportToXml("language.xml", data, "xml");
-  }
-};
 
 const notifyError = (errorMessage) => {
   toast.error(errorMessage, {
@@ -39,9 +31,26 @@ const Language = () => {
     displayMode = false;
   }
 
+  let configurationTarget = appState.configurationTarget;
+
+  let data;
+  const handleClick = () => {
+    if (configurationTarget === "easyHtmlq") {
+      data = generateLanguageXml();
+      console.log("easy branch");
+    } else {
+      data = generateMobileLanguageXml();
+      console.log("mobile branch");
+    }
+    if (data.includes(`"></item>`)) {
+      notifyError("There is missing language input");
+    } else {
+      exportToXml("language.xml", data, "xml");
+    }
+  };
+
   let langPartId;
   let sectionTitle;
-  let configurationTarget = appState.configurationTarget;
   if (configurationTarget === "easyHtmlq") {
     showMobileOptions = false;
     showHtmlqOptions = true;
