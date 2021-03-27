@@ -48,6 +48,18 @@ const generateLanguageXml = () => {
         <item id="loginInvalidInput">${appState.langUserCodeInvalid}</item>
         <item id="loginNoConnection">${appState.langServerConnectFail}</item>
 
+        <!-- EQ Mobile Controls Language, only displayed if Mobile is selected -->
+        <item id="loginQsortsStored">${appState.langQsortsStored}</item>
+        <item id="loginSaveToLocalMemory">${appState.langSaveToLocalMemory}</item>
+        <item id="loginReturnToControl">${appState.langReturnToControl}</item>
+        <item id="loginSendQsortsToFirebase">${appState.langSendQsortsToFirebase}</item>
+        <item id="loginFirebaseSuccess">${appState.langFirebaseSuccess}</item>
+        <item id="loginClearAppMemory">${appState.langClearAppMemory}</item>
+        <item id="loginRememberAutolock">${appState.langRememberAutolock}</item>
+        <item id="loginDoScreenCapture">${appState.langDoScreenCapture}</item>
+        <item id="loginDeleteLocalQsorts">${appState.langDeleteLocalQsorts}</item>
+
+    
         <!-- introduction (leave blank to skip popup) -->
         <item id="introHead">${appState.langIntroduction}</item>
         <item id="introText">${appState.langIntroText}</item>

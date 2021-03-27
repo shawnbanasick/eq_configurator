@@ -85,5 +85,5 @@ const InputContainerDiv = styled.div`
 
 const TitleSpan = styled.span`
   margin-right: 10px;
-  /* width: auto; */
+  width: auto;
 `;
