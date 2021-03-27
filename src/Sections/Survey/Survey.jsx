@@ -337,7 +337,7 @@ const ExampleContainer = styled.div`
   width: 75vw;
   max-width: 1200px;
   // height: 620px;
-  transition: all 2s ease-in-out;
+  transition: all 0.5s ease-in-out;
 `;
 
 const SettingsContainer = styled.div`
@@ -354,7 +354,7 @@ const SettingsContainer = styled.div`
   padding-bottom: 5px;
   width: 75vw;
   max-width: 1200px;
-  transition: all 1s ease-out;
+  transition: all 0.5s ease-out;
 `;
 
 const AddItemButton = styled(GeneralButton)`
@@ -366,7 +366,7 @@ const AddItemButton = styled(GeneralButton)`
 
 const ImageContainer = styled.div`
   width: clamp(300px, 74vw, 1175px);
-  transition: all 1s ease-out;
+  transition: all 0.5s ease-out;
 `;
 
 const StyledToastContainer = styled(ToastContainer).attrs({

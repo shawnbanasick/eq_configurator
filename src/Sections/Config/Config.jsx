@@ -49,12 +49,24 @@ const notifyError = (errorMessage) => {
 };
 
 const Config = () => {
+  const configurationTarget = appState.configurationTarget;
+
+  let showHtmlqContent;
+  let showMobileContent;
+
+  if (configurationTarget !== "easyHtmlq") {
+    showMobileContent = true;
+    showHtmlqContent = false;
+  } else {
+    showMobileContent = false;
+    showHtmlqContent = true;
+  }
+
   let configUseLogInScript = convertToFalse(appState.configUseLogInScript);
   let configLogInRequired = convertToFalse(appState.configLogInRequired);
   let configShowStep5 = convertToFalse(appState.configShowStep5);
 
   // for use with EQ mobile
-  const configurationTarget = appState.configurationTarget;
   appState.configLogInRequiredtrueDisabled = false;
   appState.configLogInRequiredfalseDisabled = false;
   appState.configPartNameRequiredtrueDisabled = false;
@@ -92,10 +104,10 @@ const Config = () => {
         structure of your project. The second section is a question generator
         for the (optional) Step 5 questionnaire. <br />
         <br />
-        By default Easy HTMLQ changes the Q sort card size and font size
-        according to the size of the participant's screen. If you want to change
-        this behavior, you can specify a constant size for the Q-sort cards
-        here. See the description for question 11a for more details.
+        By default the Q sort card size and font size adjusts according to the
+        size of the participant's screen. If you want to change this behavior,
+        you can specify a constant size for the Q-sort cards here. See the
+        description for question 11a for more details.
       </DisplayModeText>
 
       <QuestionContainer>
@@ -129,18 +141,25 @@ const Config = () => {
         />
 
         {displayMode && (
-          <DisplayModeText>
-            5a. The project access code is the same for all participants. The
-            code can be a phrase instead of just a single word, and is
-            case-sensitive. <br />
-            <br /> On <b>EQ Mobile</b>, the Project Access Code and participant
-            names or id are always required, so options 5a and 5c are set to
-            "true" and disabled.{" "}
-            <b>
-              Please enter the Project Access Code for your EQ Mobile project in
-              option 5b.
-            </b>
-          </DisplayModeText>
+          <React.Fragment>
+            <DisplayModeText>
+              5a. The project access code is the same for all participants. The
+              code can be a phrase instead of just a single word, and is
+              case-sensitive. <br />
+              {showMobileContent && (
+                <>
+                  <br />
+                  On <b>EQ Mobile</b>, the Project Access Code and participant
+                  names or id are always required, so options 5a and 5c are set
+                  to "true" and disabled.{" "}
+                  <b>
+                    Please enter the Project Access Code for your EQ Mobile
+                    project in option 5b.
+                  </b>
+                </>
+              )}
+            </DisplayModeText>
+          </React.Fragment>
         )}
 
         <RadioButtons
@@ -225,14 +244,14 @@ const Config = () => {
         />
         {displayMode && (
           <DisplayModeText>
-            11a. By default, Easy HTMLQ has responsive Q-sort card and text font
-            sizes, so the size of the cards and text will change according to
-            the size of the participant's browser on the{" "}
+            11a. By default the Q-sort cards and text font sizes are responsive,
+            so the size of the cards and text will change according to the size
+            of the participant's browser on the{" "}
             <b>
               <i>initial</i>
             </b>{" "}
-            web page load of Easy HTMLQ. All of the cards will be visible on the
-            screen and no page scrolling is needed.
+            web page load. All of the cards will be visible on the screen and no
+            page scrolling is needed.
             <br />
             <br />
             If you want to specify a constant size for the Q-sort cards for all

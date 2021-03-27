@@ -308,7 +308,8 @@ const FirebaseInfo = () => {
         >
           JavaScript Object Notation
         </a>
-        ) format. Click on "Export JSON". You can use{" "}
+        ) format. Click on "Export JSON". You can use the desktop analysis
+        application{" "}
         <a
           target="_blank"
           rel="noopener noreferrer"
