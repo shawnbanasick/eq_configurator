@@ -29,11 +29,29 @@ const notifyError = (errorMessage) => {
 };
 
 const Language = () => {
+  let showMobileOptions = false;
+  let showHtmlqOptions = true;
+
   let displayMode = appState.displayMode;
   if (displayMode === "beginner") {
     displayMode = true;
   } else {
     displayMode = false;
+  }
+
+  let langPartId;
+  let sectionTitle;
+  let configurationTarget = appState.configurationTarget;
+  if (configurationTarget === "easyHtmlq") {
+    showMobileOptions = false;
+    showHtmlqOptions = true;
+    sectionTitle = "User Login Screen";
+    langPartId = appState.langPartIdText;
+  } else {
+    showMobileOptions = true;
+    showHtmlqOptions = false;
+    sectionTitle = "EQ Mobile Controls";
+    langPartId = appState.langPartIdTextMobile;
   }
 
   return (
@@ -154,24 +172,28 @@ const Language = () => {
             left={0}
           />
         </ColorContainer>
-        <h3>Welcome Screen</h3>
-        <LangTextInput
-          label="Welcome!"
-          stateId="langWelcome"
-          sectionName="lang"
-          width={25}
-          left={0}
-        />
-        <UserTextAreaInput
-          label="Welcome Text"
-          stateId="langWelcomeText"
-          sectionName="lang"
-          width={45}
-          height={130}
-          left={0}
-        />
+        {showHtmlqOptions && (
+          <div>
+            <h3>Welcome Screen</h3>
+            <LangTextInput
+              label="Welcome!"
+              stateId="langWelcome"
+              sectionName="lang"
+              width={25}
+              left={0}
+            />
+            <UserTextAreaInput
+              label="Welcome Text"
+              stateId="langWelcomeText"
+              sectionName="lang"
+              width={45}
+              height={130}
+              left={0}
+            />
+          </div>
+        )}
         <ColorContainer>
-          <h3>User Login Screen</h3>
+          <h3>{sectionTitle}</h3>
           <LangTextInput
             label="Access code"
             stateId="langUserCode"
@@ -179,12 +201,11 @@ const Language = () => {
             width={25}
             left={0}
           />
-          <UserTextAreaInput
+          <LangTextInput
             label="Log in Text"
             stateId="langLogInText"
             sectionName="lang"
-            width={56}
-            height={100}
+            width={40}
             left={0}
           />
           <LangTextInput
@@ -195,7 +216,7 @@ const Language = () => {
             left={0}
           />
           <LangTextInput
-            label="Participant name or Id number"
+            label={langPartId}
             stateId="langPartIdText"
             sectionName="lang"
             width={25}
@@ -223,6 +244,73 @@ const Language = () => {
             width={25}
             left={0}
           />
+          {showMobileOptions && (
+            <>
+              <LangTextInput
+                label="Q sorts Stored in Local Memory:"
+                stateId="langQsortsStored"
+                sectionName="lang"
+                width={30}
+                left={0}
+              />
+              <LangTextInput
+                label="Currently Offline - Save to Local Memory"
+                stateId="langSaveToLocalMemory"
+                sectionName="lang"
+                width={30}
+                left={0}
+              />
+              <LangTextInput
+                label="Return to Control Screen"
+                stateId="langReturnToControl"
+                sectionName="lang"
+                width={30}
+                left={0}
+              />
+              <LangTextInput
+                label="Send Stored Q Sorts to Firebase"
+                stateId="langSendQsortsToFirebase"
+                sectionName="lang"
+                width={30}
+                left={0}
+              />
+              <LangTextInput
+                label="Success - All Stored Q Sorts Sent to Firebase"
+                stateId="langFirebaseSuccess"
+                sectionName="lang"
+                width={25}
+                left={0}
+              />
+              <LangTextInput
+                label="Clear App Memory"
+                stateId="langClearAppMemory"
+                sectionName="lang"
+                width={30}
+                left={0}
+              />
+              <LangTextInput
+                label="Remember to Turn Off Auto Screen Lock Before Start"
+                stateId="langRememberAutolock"
+                sectionName="lang"
+                width={23}
+                left={0}
+              />
+              <LangTextInput
+                label="Always Do a Screen Capture of Q Sorts as Backup"
+                stateId="langDoScreenCapture"
+                sectionName="lang"
+                width={23}
+                left={0}
+              />
+              <LangTextInput
+                label="Enter Access Code to Permanently Remove Locally Stored Q Sorts"
+                stateId="langDeleteLocalQsorts"
+                sectionName="lang"
+                width={23}
+                left={0}
+              />
+            </>
+          )}
         </ColorContainer>
         <h3>Introduction</h3>
         <LangTextInput
