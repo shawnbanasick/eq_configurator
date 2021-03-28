@@ -108,6 +108,16 @@ const Config = () => {
         size of the participant's screen. If you want to change this behavior,
         you can specify a constant size for the Q-sort cards here. See the
         description for question 11a for more details.
+        <br />
+        <br />
+        After you have set all of the desired options, click the gray button
+        labelled
+        <br />
+        <b>
+          'Save file to <b>SETTINGS</b> folder and replace the "config.xml"
+          file'
+        </b>
+        <br /> to update your base file.
       </DisplayModeText>
 
       <QuestionContainer>
