@@ -92,7 +92,7 @@ const Server = () => {
     <MainContent>
       <StyledToastContainer />
       <GlobalStyle />
-      <Title>Testing Server Startup</Title>
+      <Title>Testing Server Start-up</Title>
       {displayMode && (
         <div>
           {showHtmlqContent && (
