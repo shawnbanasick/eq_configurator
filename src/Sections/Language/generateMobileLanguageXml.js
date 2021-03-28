@@ -1,14 +1,15 @@
 import appState from "../../GlobalState/appState";
 
-let langPartId;
-let configurationTarget = appState.configurationTarget;
-if (configurationTarget === "easyHtmlq") {
-  langPartId = appState.langPartIdText;
-} else {
-  langPartId = appState.langPartIdTextMobile;
-}
-
 const generateLanguageXml = () => {
+  let langPartId;
+  let configurationTarget = appState.configurationTarget;
+  if (configurationTarget === "easyHtmlq") {
+    langPartId = appState.langPartIdText;
+  } else {
+    langPartId = appState.langPartIdTextMobile;
+  }
+  console.log(langPartId);
+
   let data = `<?xml version="1.0" encoding="UTF-8"?>
 
    <language version="1.0" htmlParse="true">\n;

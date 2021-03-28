@@ -284,17 +284,10 @@ const Language = () => {
                 left={0}
               />
               <LangTextInput
-                label="Success - All Stored Q Sorts Sent to Firebase"
+                label="Success - All Stored Q Sorts Transferred to Firebase"
                 stateId="langFirebaseSuccess"
                 sectionName="lang"
                 width={25}
-                left={0}
-              />
-              <LangTextInput
-                label="Clear App Memory"
-                stateId="langClearAppMemory"
-                sectionName="lang"
-                width={30}
                 left={0}
               />
               <LangTextInput
@@ -307,13 +300,6 @@ const Language = () => {
               <LangTextInput
                 label="Always Do a Screen Capture of Q Sorts as Backup"
                 stateId="langDoScreenCapture"
-                sectionName="lang"
-                width={23}
-                left={0}
-              />
-              <LangTextInput
-                label="Enter Access Code to Permanently Remove Locally Stored Q Sorts"
-                stateId="langDeleteLocalQsorts"
                 sectionName="lang"
                 width={23}
                 left={0}

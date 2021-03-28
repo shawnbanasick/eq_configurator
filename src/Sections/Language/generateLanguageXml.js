@@ -1,13 +1,5 @@
 import appState from "../../GlobalState/appState";
 
-let langPartId;
-let configurationTarget = appState.configurationTarget;
-if (configurationTarget === "easyHtmlq") {
-  langPartId = appState.langPartIdText;
-} else {
-  langPartId = appState.langPartIdTextMobile;
-}
-
 const generateLanguageXml = () => {
   let data = `<?xml version="1.0" encoding="UTF-8"?>
 
@@ -43,7 +35,7 @@ const generateLanguageXml = () => {
         <item id="loginHead">${appState.langUserCode}</item>
         <item id="loginText">${appState.langLogInText}</item>
         <item id="loginFormHeader">${appState.langFormHeader}</item>
-        <item id="loginPartIdText">${langPartId}</item>
+        <item id="loginPartIdText">${appState.langPartIdText}</item>
         <item id="loginNoInput">${appState.langNoInput}</item>
         <item id="loginInvalidInput">${appState.langUserCodeInvalid}</item>
         <item id="loginNoConnection">${appState.langServerConnectFail}</item>

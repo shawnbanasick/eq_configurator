@@ -6,7 +6,7 @@ const appState = store({
   userSelectedFilePath: "",
   displayMode: "beginner",
   configurationTarget: "easyHtmlq",
-  appVersion: "1.0.1",
+  appVersion: "1.1.0",
   inputColor: "white",
 
   /*
@@ -150,7 +150,7 @@ const appState = store({
   langSaveToLocalMemory: "Currently Offline - Save to Local Memory",
   langReturnToControl: "Return to Control Screen",
   langSendQsortsToFirebase: "Send Stored Q Sorts to Firebase",
-  langFirebaseSuccess: "Success - All Stored Q Sorts Sent to Firebase",
+  langFirebaseSuccess: "Success - All Stored Q Sorts Transferred to Firebase",
   langClearAppMemory: "Clear App Memory",
   langRememberAutolock: "Remember to Turn Off Auto Screen Lock Before Start",
   langDoScreenCapture: "Always Do a Screen Capture of Q Sorts as Backup",
