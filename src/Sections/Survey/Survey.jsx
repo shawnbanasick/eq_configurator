@@ -116,6 +116,10 @@ const Survey = () => {
         if (questionScale.indexOf(";") === -1) {
           throw new Error("Separate scale options using a semicolon ;");
         }
+        if (questionScale.includes(";;")) {
+          throw new Error("Consecutive semicolons not allowed");
+        }
+
         newItemObj.scale = questionScale;
         newItemArray.push(`Scale: ${questionScale}`);
       }
@@ -128,6 +132,14 @@ const Survey = () => {
         if (questionOptions.indexOf(";") === -1) {
           throw new Error("Separate options using a semicolon ;");
         }
+        if (questionOptions.includes(";;")) {
+          throw new Error("Consecutive semicolons not allowed");
+        }
+        let lastChar = questionOptions.substr(questionOptions.length - 1);
+        if (lastChar === ";") {
+          throw new Error("No semicolon allowed at the end of options");
+        }
+
         newItemObj.options = questionOptions;
         newItemArray.push(`Options: ${questionOptions}`);
       }

@@ -540,7 +540,7 @@ const DisplayModeText = styled.div`
   width: 92%;
   max-width: 1200px;
   font-size: 20px;
-  padding: 0 10px 0 10px;
+  padding: 10px;
   border: 3px solid black;
 `;
 
