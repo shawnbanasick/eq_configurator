@@ -148,9 +148,9 @@ const Server = () => {
           <SpacerDiv />
           <DisplayModeText>
             To start the local web server, all you need to do is
-            <strong> find the uncompressed folder </strong>with the Easy HTMLQ
-            base files. You don't need to select a specific file - you just need
-            to find the folder.
+            <strong> find the uncompressed folder </strong>with the base files.
+            You don't need to select a specific file - you just need to find the
+            folder.
           </DisplayModeText>
           <SpacerDiv />
         </div>
@@ -180,8 +180,9 @@ const Server = () => {
           location before you begin your actual project).
           <br />
           <br />
-          The next step is to replace the four settings files of the demo with
-          your project's information.
+          The next step is to replace the four settings files (config.xml,
+          statements.xml, map.xml, and language.xml) of the demo's base files
+          with your project's information.
         </DisplayModeText>
       )}
       <SpacerDiv />
