@@ -105,6 +105,6 @@ const DisplayModeText = styled.div`
   width: 94%;
   max-width: 1200px;
   font-size: 20px;
-  padding: 0 10px 0 10px;
+  padding: 10px;
   border: 2px solid black;
 `;

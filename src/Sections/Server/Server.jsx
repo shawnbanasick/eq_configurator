@@ -178,6 +178,10 @@ const Server = () => {
           local server to test your complete setup - including data upload
           (however, don't forget to delete any testing data from your Firebase
           location before you begin your actual project).
+          <br />
+          <br />
+          The next step is to replace the four settings files of the demo with
+          your project's information.
         </DisplayModeText>
       )}
       <SpacerDiv />
@@ -313,7 +317,7 @@ const DisplayModeText = styled.div`
   width: 78vw;
   max-width: 1200px;
   font-size: 20px;
-  padding: 0 10px 0 10px;
+  padding: 10px;
   border: 2px solid black;
 `;
 

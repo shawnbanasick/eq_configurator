@@ -100,9 +100,10 @@ const Config = () => {
       <GlobalStyle />
       <Title>General Configuration</Title>
       <DisplayModeText>
-        This file has two sections. The first section sets up the overall
-        structure of your project. The second section is a question generator
-        for the (optional) Step 5 questionnaire. <br />
+        This "config.xml" file has two sections. The first section sets up the
+        overall structure of your project. The second section is a question
+        generator for the (optional) post-Q sort questionnaire (called "step 5"
+        below). <br />
         <br />
         By default the Q sort card size and font size adjusts according to the
         size of the participant's screen. If you want to change this behavior,
@@ -226,6 +227,15 @@ const Config = () => {
               sectionName="config"
             />
           </LeftSpacer>
+        )}
+
+        {displayMode && (
+          <DisplayModeText>
+            7. Step 1 is the intial sorting of cards into the three groups (in
+            the demo labelled "Disagree, Neutral, Agree"). Step 2 is the Q sort
+            screen. Both step 1 and step 2 are required. Steps 3 - 5 are
+            optional)
+          </DisplayModeText>
         )}
 
         <RadioButtons
@@ -388,7 +398,7 @@ const DisplayModeText = styled.div`
   width: 75vw;
   max-width: 1000px;
   font-size: 20px;
-  padding: 0 10px 0 10px;
+  padding: 10px;
   border: 2px solid black;
 `;
 
