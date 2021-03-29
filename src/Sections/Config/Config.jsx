@@ -51,15 +51,12 @@ const notifyError = (errorMessage) => {
 const Config = () => {
   const configurationTarget = appState.configurationTarget;
 
-  let showHtmlqContent;
   let showMobileContent;
 
   if (configurationTarget !== "easyHtmlq") {
     showMobileContent = true;
-    showHtmlqContent = false;
   } else {
     showMobileContent = false;
-    showHtmlqContent = true;
   }
 
   let configUseLogInScript = convertToFalse(appState.configUseLogInScript);
