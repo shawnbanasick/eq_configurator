@@ -65,8 +65,8 @@
     "mac": {
       "hardenedRuntime": true,
       "gatekeeperAssess": false,
-      "entitlements": "build/entitlements.mac.plist",
-      "entitlementsInherit": "build/entitlements.mac.plist",
+      "entitlements": "build/entitlements.mac.inherit.plist",
+      "entitlementsInherit": "build/entitlements.mac.inherit.plist",
       "icon": "../build/icons/icon.icns",
       "target": [
         "dmg"
