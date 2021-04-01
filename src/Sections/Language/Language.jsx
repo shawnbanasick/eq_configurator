@@ -520,10 +520,10 @@ const ColorContainer = styled.div`
 `;
 
 const DownloadMapButton = styled(GeneralButton)`
-  width: 70%;
-  max-width: 500px;
+  max-width: 300px;
   align-self: center;
   margin-top: 50px;
+  margin-bottom: 50px;
 `;
 
 // const SubTitles = styled.p`

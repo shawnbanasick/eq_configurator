@@ -270,7 +270,8 @@ const IntroText = styled.span`
 `;
 
 const FindServerButton = styled(GeneralButton)`
-  height: 50px;
+  height: 100px;
+  width: 300px;
   margin-top: 20px;
   margin-bottom: 20px;
   font-weight: bold;

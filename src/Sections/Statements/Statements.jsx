@@ -19,10 +19,10 @@ const Statements = () => {
       <GlobalStyle />
       <Title>Statements Settings</Title>
       <StatementTextArea />
-      <GeneralButton onClick={() => handleClick()}>
+      <SaveStatementsButton onClick={() => handleClick()}>
         Save file to <b>SETTINGS</b> folder and replace the "statements.xml"
         file
-      </GeneralButton>
+      </SaveStatementsButton>
     </MainContent>
   );
 };
@@ -76,4 +76,8 @@ const Title = styled.h1`
   width: 80vw;
   align-items: center;
   justify-content: center;
+`;
+
+const SaveStatementsButton = styled(GeneralButton)`
+  width: 300px;
 `;

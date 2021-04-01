@@ -163,9 +163,8 @@ const Title = styled.h1`
 
 const DownloadMapButton = styled(GeneralButton)`
   margin-top: 20px;
-  margin-bottom: 50px;
-  width: 70%;
-  max-width: 500px;
+  margin-bottom: 80px;
+  max-width: 300px;
   /* border: 2px solid red; */
 `;
 

@@ -379,7 +379,7 @@ const Title2 = styled.h1`
 `;
 
 const DownloadConfigButton = styled(GeneralButton)`
-  width: 600px;
+  width: 300px;
   align-self: center;
   margin-bottom: 100px;
 `;
