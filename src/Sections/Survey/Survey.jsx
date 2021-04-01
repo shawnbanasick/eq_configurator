@@ -129,7 +129,10 @@ const Survey = () => {
         if (questionOptions.trim() === "") {
           throw new Error("Options are missing");
         }
-        if (questionOptions.indexOf(";") === -1) {
+        if (
+          questionOptions.indexOf(";") === -1 &&
+          surveyQuestionType !== "information"
+        ) {
           throw new Error("Separate options using a semicolon ;");
         }
         if (questionOptions.includes(";;")) {

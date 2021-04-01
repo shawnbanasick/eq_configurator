@@ -157,7 +157,7 @@ const Server = () => {
       )}
 
       <FindServerButton onClick={() => handleClick()}>
-        Navigate to the HTMLQ base files folder where "index.html" is located.
+        Navigate to the HTMLQ base files folder where "index.html" is located
       </FindServerButton>
       <IntroText>
         After opening the folder, the configurator will find the "index.html"

@@ -36,7 +36,6 @@ import firebaseDeleteParticipant from "../../assets/images/firebase-delete-parti
 import firebaseDeleteConfirm from "../../assets/images/firebase-delete-confirm.png";
 import generateEqmobileWithFirebase from "./generateEqmobileWithFirebase";
 import appState from "../../GlobalState/appState";
-import { GeneratedIdentifierFlags } from "typescript";
 
 const text = `
     {
@@ -173,7 +172,7 @@ const FirebaseInfo = () => {
       <img src={copyApiInfo} width="90%" alt="s" />
       <DisplayModeText>
         <b>1i.</b>
-        <br /> Paste the Firebase Javascript SDK inforamtion into the text area
+        <br /> Paste the Firebase Javascript SDK information into the text area
         below. Then click the gray button to save the new file to the{" "}
         <b>Easy HTMLQ base files folder</b> and replace the "<b>index.html</b>"
         file.
