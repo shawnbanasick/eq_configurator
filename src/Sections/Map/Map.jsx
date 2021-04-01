@@ -95,7 +95,7 @@ const Title = styled.h1`
 `;
 
 const DownloadMapButton = styled(GeneralButton)`
-  width: 600px;
+  width: 300px;
 `;
 
 const DisplayModeText = styled.div`

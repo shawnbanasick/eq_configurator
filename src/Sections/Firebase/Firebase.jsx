@@ -36,6 +36,7 @@ import firebaseDeleteParticipant from "../../assets/images/firebase-delete-parti
 import firebaseDeleteConfirm from "../../assets/images/firebase-delete-confirm.png";
 import generateEqmobileWithFirebase from "./generateEqmobileWithFirebase";
 import appState from "../../GlobalState/appState";
+import { GeneratedIdentifierFlags } from "typescript";
 
 const text = `
     {
@@ -179,10 +180,10 @@ const FirebaseInfo = () => {
       </DisplayModeText>
       <SpacerDiv />
       <FirebaseTextArea />
-      <GeneralButton onClick={() => handleClick()}>
+      <SaveFirebaseButton onClick={() => handleClick()}>
         Save file to the <b>Easy HTMLQ folder</b> and replace the "index.html"
         file
-      </GeneralButton>
+      </SaveFirebaseButton>
       <SpacerDiv />
       <SpacerDiv />
       <SpacerDiv />
@@ -451,4 +452,8 @@ const SpacerDiv = styled.div`
   height: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
+`;
+
+const SaveFirebaseButton = styled(GeneralButton)`
+  width: 300px;
 `;
