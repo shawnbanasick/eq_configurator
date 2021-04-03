@@ -136,23 +136,21 @@ const App = (props) => {
             <p className="title">{`8. ${t("Upload")}`}</p>
           </FileButton>
           <Spacer />
-          <FileButton
+          <OtherButton
             buttonColor={loadingsButtonColor}
-            style={{ textAlign: "center" }}
             active={viewWeblinks}
             onClick={() => handleClick("viewWeblinks")}
           >
             <p className="title">{`${t("Related Software")}`}</p>
-          </FileButton>
+          </OtherButton>
 
-          <FileButton
+          <OtherButton
             buttonColor={loadingsButtonColor}
-            style={{ textAlign: "center" }}
             active={viewLicense}
             onClick={() => handleClick("viewLicense")}
           >
             <p className="title">{`${t("Licenses")}`}</p>
-          </FileButton>
+          </OtherButton>
         </FilesWindow>
         <ActionWindow>
           {viewStart && <Start view={viewStart} />}
@@ -244,8 +242,7 @@ const FileButton = styled.button`
 const StartButton = styled.button`
   box-sizing: border-box;
   height: 45px;
-  padding: 5px;
-  padding-right: 25px;
+  padding: 10px;
   width: 100%;
   background-color: var(--second-theme-color);
   border: none;
@@ -294,4 +291,40 @@ const StartButton = styled.button`
 
 const Spacer = styled.div`
   margin-top: 50px;
+`;
+
+const OtherButton = styled.button`
+  box-sizing: border-box;
+  padding: 10px;
+  padding-bottom: 8px;
+  padding-top: 15px;
+  text-align: center;
+  padding-left: 10px;
+  width: 100%;
+  height: auto;
+  background: ${(props) => props.buttonColor || "#d6dbe0"};
+  color: black;
+  border: none;
+  transition: 0.3s ease all;
+  outline: none !important;
+  user-select: none;
+
+  &:hover {
+    opacity: 1;
+    box-shadow: inset 0 0 0 4px #666, 0 0 1px transparent;
+  }
+
+  ${({ active }) =>
+    active &&
+    `
+    background-color: white;
+    opacity: 1;
+    `};
+
+  .title {
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin: 0 0 5px;
+    color: black;
+  }
 `;

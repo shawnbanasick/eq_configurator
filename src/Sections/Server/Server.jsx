@@ -79,13 +79,16 @@ const Server = () => {
 
   let showHtmlqContent;
   let showMobileContent;
+  let nameDisplay;
   const configurationTarget = appState.configurationTarget;
   if (configurationTarget !== "easyHtmlq") {
     showMobileContent = true;
     showHtmlqContent = false;
+    nameDisplay = "EQ Mobile";
   } else {
     showMobileContent = false;
     showHtmlqContent = true;
+    nameDisplay = "Easy HtmlQ";
   }
 
   return (
@@ -157,7 +160,8 @@ const Server = () => {
       )}
 
       <FindServerButton onClick={() => handleClick()}>
-        Navigate to the HTMLQ base files folder where "index.html" is located
+        Navigate to the {nameDisplay} base files folder where "index.html" is
+        located
       </FindServerButton>
       <IntroText>
         After opening the folder, the configurator will find the "index.html"
@@ -170,19 +174,22 @@ const Server = () => {
       </ProjectLinkDiv>
       {displayMode && (
         <DisplayModeText>
-          The default project files will now load in your browser. The project
-          is not on the internet - it is being hosted from your computer, and
-          you're accessing it from the browser on your machine. However, after
-          you set up your Firebase file, this demo project will save completed Q
-          sort data to the Firebase realtime database. So, you can use this
-          local server to test your complete setup - including data upload
-          (however, don't forget to delete any testing data from your Firebase
-          location before you begin your actual project).
+          The <b>default project files</b> will now load in your browser. The
+          project is not on the internet - it is being hosted from your
+          computer, and you're accessing it from the browser on your machine.
+          However, after you set up your Firebase file, this demo project will
+          save completed Q sort data to the Firebase realtime database.
           <br />
           <br />
-          The next step is to replace the four settings files (config.xml,
-          statements.xml, map.xml, and language.xml) of the demo's base files
-          with your project's information.
+          So, you can use this local server to <b>test your complete setup</b> -
+          including data upload (however, don't forget to delete any testing
+          data from your Firebase location before you begin your actual
+          project).
+          <br />
+          <br />
+          The next step is to replace the <b>four settings files</b>{" "}
+          (config.xml, statements.xml, map.xml, and language.xml) of the demo
+          project's base files with your project's information.
         </DisplayModeText>
       )}
       <SpacerDiv />
@@ -270,7 +277,7 @@ const IntroText = styled.span`
 `;
 
 const FindServerButton = styled(GeneralButton)`
-  height: 100px;
+  height: auto;
   width: 300px;
   margin-top: 20px;
   margin-bottom: 20px;

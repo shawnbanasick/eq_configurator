@@ -70,7 +70,30 @@ const Language = () => {
       <Title>Language Settings</Title>
       {displayMode && (
         <DisplayModeText>
+          In this file you can customize the user interface language for your
+          project.
+          <br />
+          <br />
           {`Language formatting is available here by using tags before and after the text to be modified. Options include bold {b} {/b}, italics {i} {/i}, and underline {u} {/u}.`}{" "}
+          <br />
+          <br />
+          For example: <br />
+          If you input - {`{b}`}test{`{/b}`} - the participant will see -{" "}
+          <b>test</b>
+          <br />
+          If you input - {`{u}`}test{`{/u}`} - the participant will see -{" "}
+          <u>test</u>
+          <br />
+          If you input - {`{i}`}test{`{/i}`} - the participant will see -{" "}
+          <i>test</i>
+          <br />
+          If you input - {`{b}{i}{u}`}test{`{/u}{/i}{/b}`} - the participant
+          will see -{" "}
+          <u>
+            <b>
+              <i>test</i>
+            </b>
+          </u>
           <br />
           <br />
           {`A new line can be inserted using a single break tag {br}, and an open line between text can be created by using two break tags {br}{br}.`}
@@ -81,7 +104,7 @@ const Language = () => {
           {`{a href="https://qmethod.org/" target="_blank"}{u}qmethod.org{/u}{/a}.`}
           <br />
           <br />
-          {`See the default text below for examples.`}
+          {`See the default text below for more examples.`}
         </DisplayModeText>
       )}
 
