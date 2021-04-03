@@ -327,6 +327,37 @@ const Language = () => {
                 width={23}
                 left={0}
               />
+
+              <LangTextInput
+                label="Clear Cache"
+                stateId="langClearCache"
+                sectionName="lang"
+                width={23}
+                left={0}
+              />
+              <LangTextInput
+                label="Clear Cache Password"
+                stateId="langClearCachePassword"
+                sectionName="lang"
+                width={23}
+                left={0}
+              />
+              <LangTextInput
+                label="Clear"
+                stateId="langClear"
+                sectionName="lang"
+                width={23}
+                left={0}
+              />
+
+              <UserTextAreaInput
+                label="Clear Cache Text"
+                stateId="langClearCacheText"
+                sectionName="lang"
+                width={46}
+                height={100}
+                left={0}
+              />
             </>
           )}
         </ColorContainer>

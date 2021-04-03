@@ -59,8 +59,12 @@ const generateLanguageXml = () => {
         <item id="loginRememberAutolock">${appState.langRememberAutolock}</item>
         <item id="loginDoScreenCapture">${appState.langDoScreenCapture}</item>
         <item id="loginDeleteLocalQsorts">${appState.langDeleteLocalQsorts}</item>
+        <item id="loginShowClearCacheButton">${appState.langClearCache}</item>
+        <item id="loginCachePasswordLabel">${appState.langClearCachePassword}</item>
+        <item id="loginClearCacheButton">${appState.langClear}</item>
+        <item id="loginClearCacheText">${appState.langClearCacheText}</item>
 
-    
+
         <!-- introduction (leave blank to skip popup) -->
         <item id="introHead">${appState.langIntroduction}</item>
         <item id="introText">${appState.langIntroText}</item>

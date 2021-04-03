@@ -170,6 +170,12 @@ const Config = () => {
                     Please enter the Project Access Code for your EQ Mobile
                     project in option 5b.
                   </b>
+                  <br />
+                  <br />
+                  If you want to update an EQ Mobile project, in some cases it
+                  is necessary to remove the stored files from the cache. A
+                  clear cache password is required to prevent accidental
+                  clearing.
                 </>
               )}
             </DisplayModeText>
@@ -199,6 +205,17 @@ const Config = () => {
             />
           </LeftSpacer>
         )}
+
+        {showMobileContent && (
+          <UserTextInput
+            label="5d. Clear Cache Password:"
+            stateId="clearCachePassword"
+            sectionName="config"
+            width={30}
+            left={0}
+          />
+        )}
+
         {displayMode && (
           <DisplayModeText>
             6a. The Log In Script is a legacy option from FlashQ. It allows the

@@ -45,6 +45,7 @@ const appState = store({
   configStep2ConstantWidth: false,
   configStep2ConstantWidthfalseActive: true,
   configStep2CardWidth: 200,
+  clearCachePassword: "cleareqmobilecache",
 
   stylesStatementNumberDisplayfalseActive: true,
   stylesStatementNumberDisplay: false,
@@ -154,6 +155,13 @@ const appState = store({
   langClearAppMemory: "Clear App Memory",
   langRememberAutolock: "Remember to Turn Off Auto Screen Lock Before Start",
   langDoScreenCapture: "Always Do a Screen Capture of Q Sorts as Backup",
+
+  langClearCache: "Clear Cache",
+  langClearCachePassword: "Clear Cache Password",
+  langClear: "Clear",
+  langClearCacheText:
+    "This will delete all of the cached files from the iPad memory and allow an update to the project.",
+
   langDeleteLocalQsorts:
     "Enter Access Code to Permanently Remove Locally Stored Q Sorts",
 

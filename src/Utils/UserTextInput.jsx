@@ -48,13 +48,13 @@ const UserTextInput = (props) => {
 export default view(UserTextInput);
 
 const UserText = styled.input`
+  box-sizing: border-box;
   width: ${(props) => props.width}vw;
   margin-left: ${(props) => props.left}px;
   padding-left: 10px;
   background-color: ${(props) => props.backCol};
   border: 1px solid rgb(118, 118, 118);
   border-radius: 2px;
-  box-sizing: border-box;
   &:focus {
     outline: none !important;
     border: 3px solid var(--second-theme-color);
