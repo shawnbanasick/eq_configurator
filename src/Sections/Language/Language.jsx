@@ -247,14 +247,24 @@ const Language = () => {
             width={25}
             left={0}
           />
-          <LangTextInput
-            label={langPartId}
-            stateId="langPartIdText"
-            sectionName="lang"
-            width={25}
-            left={0}
-          />
-
+          {!showMobileOptions && (
+            <LangTextInput
+              label="Your name or survey id number"
+              stateId="langPartIdText"
+              sectionName="lang"
+              width={25}
+              left={0}
+            />
+          )}
+          {showMobileOptions && (
+            <LangTextInput
+              label="Participant name or survey id number"
+              stateId="langPartIdTextMobile"
+              sectionName="lang"
+              width={25}
+              left={0}
+            />
+          )}
           <LangTextInput
             label="Please enter your access code."
             stateId="langNoInput"
