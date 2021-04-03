@@ -11,12 +11,15 @@ const generateServiceWorker = () => {
     return result;
   }
 
-  const cacheName = makeid(9);
+  const cacheName = makeid(4);
+  let configTitle = appState.configTitle;
+  configTitle = configTitle.replace(/ /g, "_");
+
   console.log(cacheName);
 
   let data = `
   // Files to cache
-const cacheName = "${cacheName}";
+const cacheName = "${configTitle}-${cacheName}";
 const appShellFiles = [
   "/",
   "index.html",

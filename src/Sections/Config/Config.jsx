@@ -17,14 +17,27 @@ import { ToastContainer, Slide } from "react-toastify";
 const handleClick = () => {
   try {
     let configLogInPassword = appState.configLogInPassword;
-    configLogInPassword = configLogInPassword.trim();
+    let configurationTarget = appState.configurationTarget;
+    let configTitle = appState.configTitle;
     let configLogInRequired = appState.configLogInRequired;
+
+    // remove whitespaces
+    configLogInPassword = configLogInPassword.trim();
+
+    // confirm access code input
     if (configLogInRequired === "true") {
       configLogInRequired = true;
     }
     if (configLogInPassword.length === 0 && configLogInRequired === true) {
       throw new Error("5b. Project Access Code is required");
     }
+
+    // confirm unique project name if eq-mobile
+    if (configurationTarget === "mobile" && configTitle === "My_Q_project") {
+      throw new Error("A unique project name is required");
+    }
+
+    // generate new file
     const data = generateConfigXml();
     exportToXml("config.xml", data, "xml");
   } catch (error) {
@@ -127,7 +140,7 @@ const Config = () => {
       <QuestionContainer>
         <Title2>Project Options</Title2>
         <UserTextInput
-          label="1. Project title:"
+          label="1. Project name:"
           stateId="configTitle"
           sectionName="config"
           width={30}
