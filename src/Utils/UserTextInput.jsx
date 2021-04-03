@@ -59,6 +59,7 @@ const UserText = styled.input`
     outline: none !important;
     border: 3px solid var(--second-theme-color);
     box-shadow: 0 0 5px var(--second-theme-color);
+    outline-offset: 0;
   }
 `;
 

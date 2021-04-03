@@ -1,7 +1,8 @@
 import appState from "../../GlobalState/appState";
 
 const addFirebaseInfoToEqmobileHtml = () => {
-  let firebaseInfo = appState.firebaseInfo;
+  const firebaseInfo = appState.firebaseInfo;
+  const configTitle = appState.configTitle;
 
   let data = `
   <!DOCTYPE html>
@@ -36,7 +37,7 @@ const addFirebaseInfoToEqmobileHtml = () => {
       />
       <meta http-equiv="Pragma" content="no-cache" />
       <meta http-equiv="Expires" content="0" /> -->
-      <title>EQ Mobile</title>
+      <title>${configTitle}</title>
   
       <script src="src/jquery.min.js" type="text/javascript"></script>
       <script src="src/jquery-ui.min.js" type="text/javascript"></script>
@@ -104,7 +105,7 @@ const addFirebaseInfoToEqmobileHtml = () => {
       <script>
         if ("serviceWorker" in navigator) {
           window.addEventListener("load", function () {
-            navigator.serviceWorker.register("/eq-mobile/sw.js").then(
+            navigator.serviceWorker.register("/sw.js").then(
               function (registration) {
                 // Registration was successful
                 console.log(
