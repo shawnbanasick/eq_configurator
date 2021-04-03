@@ -96,27 +96,33 @@ const Config = () => {
       <StyledToastContainer />
       <GlobalStyle />
       <Title>General Configuration</Title>
-      <DisplayModeText>
-        This "config.xml" file has two sections. The first section sets up the
-        overall structure of your project. The second section is a question
-        generator for the (optional) post-Q sort questionnaire (called "step 5"
-        below). <br />
-        <br />
-        By default the Q sort card size and font size adjusts according to the
-        size of the participant's screen. If you want to change this behavior,
-        you can specify a constant size for the Q-sort cards here. See the
-        description for question 11a for more details.
-        <br />
-        <br />
-        After you have set all of the desired options, click the gray button
-        labelled
-        <br />
-        <b>
-          'Save file to <b>SETTINGS</b> folder and replace the "config.xml"
-          file'
-        </b>
-        <br /> to update your base file.
-      </DisplayModeText>
+      {displayMode && (
+        <DisplayModeText>
+          This "config.xml" file has two sections. The first section sets up the
+          overall structure of your project. The second section is a question
+          generator for the (optional) post-Q sort questionnaire (called "step
+          5" below). <br />
+          <br />
+          By default the Q sort card size and font size adjusts in relation to
+          the size of the participant's web browser{" "}
+          <b>
+            <i>on the initial page load</i>
+          </b>
+          . If you want to change this behavior, you can specify a constant size
+          for the Q-sort cards here. See the description for question 11a for
+          more details.
+          <br />
+          <br />
+          After you have set all of the desired options, click the gray button
+          labelled
+          <br />
+          <b>
+            'Save file to <b>SETTINGS</b> folder and replace the "config.xml"
+            file'
+          </b>
+          <br /> to update your base file.
+        </DisplayModeText>
+      )}
 
       <QuestionContainer>
         <Title2>Project Options</Title2>
