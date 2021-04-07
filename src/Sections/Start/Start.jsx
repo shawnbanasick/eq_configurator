@@ -57,6 +57,8 @@ const Start = () => {
 
   const version = appState.appVersion;
 
+  const showTargetButtons = false;
+
   return (
     <MainContent>
       <GlobalStyle />
@@ -93,51 +95,55 @@ const Start = () => {
         )}
       </DescriptionDiv>
       <SpacerDiv />
-      <CustomH2>Select Configuration Target:</CustomH2>
-      <ButtonContainer>
-        <HtmlqButton
-          id="htmlq"
-          isActive={appState.htmlqButtonActive}
-          onClick={setTarget}
-        >
-          Easy HTMLQ
-        </HtmlqButton>
-        <MobileButton
-          id="mobile"
-          isActive={appState.mobileButtonActive}
-          onClick={setTarget}
-        >
-          EQ Mobile
-        </MobileButton>
-      </ButtonContainer>
-      <DescriptionDiv>
-        {showDescriptionMobile && (
-          <div>
-            <IntroText>
-              mobile offline Q sorts on an iPad or laptop computer:
-            </IntroText>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://github.com/shawnbanasick/eq-mobile"
+      {showTargetButtons && (
+        <div>
+          <CustomH2>Select Configuration Target:</CustomH2>
+          <ButtonContainer>
+            <HtmlqButton
+              id="htmlq"
+              isActive={appState.htmlqButtonActive}
+              onClick={setTarget}
             >
-              Download Page
-            </a>
-          </div>
-        )}
-        {showDescriptionHtmlq && (
-          <div>
-            <IntroText>online Q sorts:</IntroText>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://github.com/shawnbanasick/easy-htmlq"
+              Easy HTMLQ
+            </HtmlqButton>
+            <MobileButton
+              id="mobile"
+              isActive={appState.mobileButtonActive}
+              onClick={setTarget}
             >
-              Download Page
-            </a>
-          </div>
-        )}
-      </DescriptionDiv>
+              EQ Mobile
+            </MobileButton>
+          </ButtonContainer>
+          <DescriptionDiv>
+            {showDescriptionMobile && (
+              <div>
+                <IntroText>
+                  mobile offline Q sorts on an iPad or laptop computer:
+                </IntroText>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://github.com/shawnbanasick/eq-mobile"
+                >
+                  Download Page
+                </a>
+              </div>
+            )}
+            {showDescriptionHtmlq && (
+              <div>
+                <IntroText>online Q sorts:</IntroText>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://github.com/shawnbanasick/easy-htmlq"
+                >
+                  Download Page
+                </a>
+              </div>
+            )}
+          </DescriptionDiv>
+        </div>
+      )}
     </MainContent>
   );
 };
