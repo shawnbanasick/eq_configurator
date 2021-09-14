@@ -9,10 +9,8 @@ import appState from "../GlobalState/appState";
 const UserTextInput = (props) => {
   // props = label, stateId, sectionName, width, left
   const { t } = useTranslation();
-
   const newMemoryKey = `inputColor${props.stateId}`;
   let backgroundCol = appState[newMemoryKey] || "white";
-
   const key = `${props.stateId}`; // ${props.sectionName}
 
   const handleChange = (event) => {
