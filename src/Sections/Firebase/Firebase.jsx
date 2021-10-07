@@ -20,7 +20,8 @@ import createProject from "../../assets/images/firebase-create-project.png";
 import projectCreated from "../../assets/images/firebase-project-created.png";
 import getJavascriptApi from "../../assets/images/firebase-get-javascript-api.png";
 import addNickname from "../../assets/images/firebase-add-nickname.png";
-import copyApiInfo from "../../assets/images/firebase-copy-api-info.png";
+// import copyApiInfo from "../../assets/images/firebase-copy-api-info.png";
+import newSetupFirebaseConfig from "../../assets/images/newSetupFirebaseConfig.png";
 import createDatabase from "../../assets/images/firebase-create-database.png";
 import databaseLocation from "../../assets/images/firebase-database-location.png";
 import defaultRules from "../../assets/images/firebase-default-rules.png";
@@ -218,10 +219,11 @@ const FirebaseInfo = () => {
       <img src={addNickname} alt="s" />
       <DisplayModeText>
         <b>1h.</b>
-        <br /> Copy the Firebase SDK information by clicking on the icon in the
-        bottom right corner. Then click "Continue to console".
+        <br /> In the Firebase SDK box, highlight ONLY THE PART SHOWN IN DARK
+        BLUE IN THE IMAGE BELOW. Then copy that section and paste it into the
+        Configurator software.
       </DisplayModeText>
-      <img src={copyApiInfo} width="90%" alt="s" />
+      <img src={newSetupFirebaseConfig} width="90%" alt="s" />
       <DisplayModeText>
         <b>1i.</b>
         <br /> Paste the Firebase Javascript SDK information into the text area

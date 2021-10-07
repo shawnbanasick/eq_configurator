@@ -49,18 +49,18 @@ const Language = () => {
     }
   };
 
-  let langPartId;
+  // let langPartId;
   let sectionTitle;
   if (configurationTarget === "easyHtmlq") {
     showMobileOptions = false;
     showHtmlqOptions = true;
     sectionTitle = "User Login Screen";
-    langPartId = appState.langPartIdText;
+    // langPartId = appState.langPartIdText;
   } else {
     showMobileOptions = true;
     showHtmlqOptions = false;
     sectionTitle = "EQ Mobile Controls";
-    langPartId = appState.langPartIdTextMobile;
+    // langPartId = appState.langPartIdTextMobile;
   }
 
   return (
