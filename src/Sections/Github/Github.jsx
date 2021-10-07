@@ -38,11 +38,32 @@ const Server = () => {
   let displayNetlify = false;
   let displayGithub = false;
   let uploadService = appState.uploadService;
-  if (uploadService === "Netlify") {
-    displayNetlify = true;
-  }
-  if (uploadService === "Github") {
+
+  const configurationTarget = appState.configurationTarget;
+
+  let showMobileContent;
+
+  if (configurationTarget !== "easyHtmlq") {
+    showMobileContent = true;
     displayGithub = true;
+    displayNetlify = false;
+    appState.uploadServiceNetlifyDisabled = true;
+    appState.uploadServiceNetlifyActive = false;
+    appState.uploadServiceGithubActive = true;
+  } else {
+    showMobileContent = false;
+    appState.uploadServiceNetlifyDisabled = false;
+
+    if (uploadService === "Netlify") {
+      displayNetlify = true;
+      appState.uploadServiceNetlifyActive = true;
+      appState.uploadServiceGithubActive = false;
+    }
+    if (uploadService === "Github") {
+      displayGithub = true;
+      appState.uploadServiceNetlifyActive = false;
+      appState.uploadServiceGithubActive = true;
+    }
   }
 
   return (
@@ -50,26 +71,46 @@ const Server = () => {
       <GlobalStyle />
       <Title>Upload Your Files to the Web</Title>
 
-      <DisplayModeText>
-        The next step is to <strong>upload</strong> your Easy HTMLQ files to a
-        web server. I recommend either
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.netlify.com/"
-        >
-          Netlify
-        </a>{" "}
-        or{" "}
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/">
-          Github
-        </a>
-        . Both options are free to use for small, non-commercial projects.
-        Netlify is quicker and easier to setup. With Github it is easier to make
-        small changes to your project after you have uploaded it. Note that if
-        you use Github your user account name becomes part of the url for your
-        project.
-      </DisplayModeText>
+      {!showMobileContent && (
+        <DisplayModeText>
+          The next step is to <strong>upload</strong> your Easy HTMLQ files to a
+          web server. I recommend either
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.netlify.com/"
+          >
+            Netlify
+          </a>{" "}
+          or{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/"
+          >
+            Github
+          </a>
+          . Both options are free to use for small, non-commercial projects.
+          Netlify is quicker and easier to setup. With Github it is easier to
+          make small changes to your project after you have uploaded it. Note
+          that if you use Github your user account name becomes part of the url
+          for your project.
+        </DisplayModeText>
+      )}
+      {showMobileContent && (
+        <DisplayModeText>
+          The next step is to <strong>upload</strong> your EQ Mobile files to a
+          web server. Currently, only
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/"
+          >
+            Github
+          </a>{" "}
+          is working consistently as a host, so the Netlify option is disabled.
+        </DisplayModeText>
+      )}
       <RadioButtons
         label="Display instructions for:"
         buttonIdArray={["Netlify", "Github"]}
@@ -390,7 +431,7 @@ const DisplayModeText = styled.div`
   width: 78vw;
   max-width: 1200px;
   font-size: 20px;
-  padding: 0 10px 0 10px;
+  padding: 10px;
   border: 2px solid black;
 `;
 

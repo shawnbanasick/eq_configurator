@@ -6,7 +6,7 @@ import appState from "../GlobalState/appState";
 
 // const clone = require("rfdc")();
 
-const UserTextInput = (props) => {
+const LangTextInput = (props) => {
   // props = label, stateId, sectionName, width, left
   const { t } = useTranslation();
 
@@ -34,7 +34,6 @@ const UserTextInput = (props) => {
         type="text"
         placeholder={props.placeholder}
         width={props.width}
-        height={props.height}
         left={props.left}
         name={props.name}
         value={appState[key] || ""}
@@ -46,15 +45,15 @@ const UserTextInput = (props) => {
   );
 };
 
-export default view(UserTextInput);
+export default view(LangTextInput);
 
-const UserText = styled.textarea`
-  width: ${(props) => props.width + 26}%;
-  height: ${(props) => props.height}px;
+const UserText = styled.input`
+  width: ${(props) => props.width}vw;
   margin-left: ${(props) => props.left}px;
-  background-color: ${(props) => props.backCol};
-  margin-top: 25px;
   padding-left: 10px;
+  background-color: ${(props) => props.backCol};
+  border: 1px solid rgb(118, 118, 118);
+  border-radius: 2px;
   box-sizing: border-box;
   &:focus {
     outline: none !important;
@@ -63,9 +62,22 @@ const UserText = styled.textarea`
   }
 `;
 
+/*
+const UserText = styled.input((props) => ({
+  width: `${props.width}vw`,
+  marginLeft: `${props.left}px`,
+  paddingLeft: `10px`,
+  backgroundColor: `${props.backCol}`,
+  border: `1px solid rgb(118,118,118)`,
+  borderRadius: `2px`,
+}));
+*/
+
 const InputContainerDiv = styled.div`
   display: flex;
+  margin-top: 25px;
   margin-left: 70px;
+  width: 800px;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
@@ -73,4 +85,5 @@ const InputContainerDiv = styled.div`
 
 const TitleSpan = styled.span`
   margin-right: 10px;
+  width: auto;
 `;

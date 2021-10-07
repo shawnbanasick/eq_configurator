@@ -5,6 +5,9 @@ const appState = store({
   DEFAULT settings */
   userSelectedFilePath: "",
   displayMode: "beginner",
+  configurationTarget: "easyHtmlq",
+  appVersion: "1.1.1",
+  inputColor: "white",
 
   /*
   DEFAULT page opening */
@@ -16,12 +19,13 @@ const appState = store({
   showSurveytextImage: true,
 
   configTitle: "My_Q_project",
-  configVersion: "1.0",
+  configVersion: "1.1.1",
   configTextAlignleftActive: true,
   configTextAlign: "left",
   configshuffleCardstrueActive: true,
   configshuffleCards: true,
   configLogInRequiredfalseActive: true,
+  configLogInPassword: "",
   configLogInRequired: false,
   configUseLogInScriptfalseActive: true,
   configUseLogInScript: false,
@@ -41,6 +45,7 @@ const appState = store({
   configStep2ConstantWidth: false,
   configStep2ConstantWidthfalseActive: true,
   configStep2CardWidth: 200,
+  clearCachePassword: "cleareqmobilecache",
 
   stylesStatementNumberDisplayfalseActive: true,
   stylesStatementNumberDisplay: false,
@@ -66,8 +71,6 @@ const appState = store({
   surveyAnswerRequired: false,
   surveyAnswerRequiredtrueActive: false,
   surveyAnswerRequiredfalseActive: true,
-  surveyQuestionLabel: "",
-  surveyQuestionNote: "",
   surveyAnswerLenIsLimited: false,
   surveyAnswerLenIsLimitedtrueActive: false,
   surveyAnswerLenIsLimitedfalseActive: false,
@@ -79,6 +82,9 @@ const appState = store({
   surveyAnswerRestrictedfalseActive: false,
   surveyQuestionScale: "",
   surveyQuestionOptions: "",
+  surveyQuestionLabel: "",
+  surveyQuestionNote: "",
+
   surveyBackgroundDisplay: true,
   surveyBackgroundDisplaytrueActive: true,
   surveyBackgroundDisplayfalseActive: false,
@@ -137,17 +143,39 @@ const appState = store({
   langLogInText: "Please enter the access code for this survey.",
   langFormHeader: "Access Code",
   langPartIdText: "Your name or survey id number",
-  langNoInput: "Please insert the access code.",
+  langPartIdTextMobile: "Participant name or survey id number",
+  langNoInput: "Please enter the access code.",
   langUserCodeInvalid: "Access code invalid",
   langServerConnectFail: "Connection to server failed. Please try again.",
+  langQsortsStored: "Q Sorts Stored in Local Memory",
+  langSaveToLocalMemory: "Currently Offline - Save to Local Memory",
+  langReturnToControl: "Return to Control Screen",
+  langSendQsortsToFirebase: "Send Stored Q Sorts to Firebase",
+  langFirebaseSuccess: "Success - All Stored Q Sorts Transferred to Firebase",
+  langClearAppMemory: "Clear App Memory",
+  langRememberAutolock: "Remember to Turn Off Auto Screen Lock Before Start",
+  langDoScreenCapture: "Always Do a Screen Capture of Q Sorts as Backup",
+
+  langClearCache: "Clear Cache",
+  langClearCachePassword: "Clear Cache Password",
+  langClear: "Clear",
+  langClearCacheText:
+    "This will delete all of the cached files from the iPad memory and allow an update to the project.",
+
+  langDeleteLocalQsorts:
+    "Enter Access Code to Permanently Remove Locally Stored Q Sorts",
+
   langIntroduction: "Introduction",
   langIntroText: `This study is about iPad use in the classroom.`,
   langStep1: "Step 1 of 5",
-  langStep1Text: `Read the folowing statements carefully and split them up into three piles: a pile for statements you tend to disagree with, a pile for cards you tend to agree with, and a pile for the rest.{br}{br}You can either drag the cards into one of the three piles or {b}press 1, 2, 3{/b} on your keyboard. Changes can be made later.{br}{br}If you want to read this instruction a second time, press the help-button at the bottom left corner.`,
+  langStep1Text: `Read the following statements carefully and split them up into three piles: a pile for statements you tend to disagree with, a pile for cards you tend to agree with, and a pile for the rest.{br}{br}You can either drag the cards into one of the three piles or {b}press 1, 2, 3{/b} on your keyboard. Changes can be made later.{br}{br}If you want to read this instruction a second time, press the help-button at the bottom left corner.`,
   langStep2: "Step 2 of 5",
-  langStep2Text: `Take the cards from the "AGREE"-pile and arrange them on right side of the score sheet.{br}{br}Next, take the cards from the "DISAGREE"-pile and arrange them on the left side of the score sheet. Follow this procedure for all cards in the "AGREE"- and "DIAGREE"-piles.{br}{br}Finally, take the "NEUTRAL"-cards arange them in the remaining open boxes of the score sheet.`,
+  langStep2Text: `Take the cards from the "AGREE"-pile and arrange them on right side of the score sheet.{br}{br}Next, take the cards from the "DISAGREE"-pile and arrange them on the left side of the score sheet. Follow this procedure for all cards in the "AGREE"- and "DISAGREE"-piles.{br}{br}Finally, take the "NEUTRAL"-cards arrange them in the remaining open boxes of the score sheet.`,
+  langStep2CondOfInstruc: "Give condition of instruction here",
+  langStep2TextSizeLabel: "Text",
   langStep3: "Step 3 of 5",
   langStep3Text: `Now you have placed all cards on the score sheet. Please go over your distribution once more and swap card positions cards if desired.`,
+  langStep3CondOfInstruc: "Give condition of instruction here",
   langStep4: "Step 4 of 5",
   langStep4Text: `Please explain why you agree most or disagree most with the following statements you have placed below "+4" or "-4".`,
   langStep5: "Step 5 of 5",
@@ -156,9 +184,6 @@ const appState = store({
   langTransferText: "You've finished the survey. Please submit your data now.",
   langTransferFailed: "Data submission failed. Please try again.",
   langTransferOk: `Thank you for using Easy HTMLQ!{br}{br}You can now close your browser window.`,
-
-  langStep2CondOfInstruc: "Give condition of instruction here",
-  langStep3CondOfInstruc: "Give condition of instruction here",
 
   uploadService: "Netlify",
   uploadServiceNetlifyActive: true,

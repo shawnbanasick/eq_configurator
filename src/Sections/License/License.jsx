@@ -2,15 +2,17 @@ import React from "react";
 import { view } from "@risingstack/react-easy-state";
 import styled, { keyframes } from "styled-components";
 import GlobalStyle from "../../Utils/GlobalStyle";
+import appState from "../../GlobalState/appState";
 
 const Statements = () => {
+  const version = appState.appVersion;
   return (
     <MainContent>
       <GlobalStyle />
       <Title>Licenses</Title>
 
       <WebLinkDiv1>
-        <h1>EQ Configurator</h1>
+        <h1>EQ Configurator &nbsp;&nbsp; v{version}</h1>
         <h2>Copyright (C) 2021 Shawn Banasick</h2>
 
         <br />

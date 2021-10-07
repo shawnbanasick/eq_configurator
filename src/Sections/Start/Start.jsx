@@ -13,10 +13,22 @@ const setMode = (event) => {
   }
 };
 
+const setTarget = (event) => {
+  if (event.target.id === "htmlq") {
+    appState.configurationTarget = "easyHtmlq";
+  } else {
+    appState.configurationTarget = "mobile";
+  }
+};
+
 const Start = () => {
   let showDescriptionPro;
   let showDescriptionBeginner;
+  let showDescriptionHtmlq;
+  let showDescriptionMobile;
   const displayMode = appState.displayMode;
+  const configurationTarget = appState.configurationTarget;
+
   if (displayMode === "pro") {
     appState.beginnerButtonActive = false;
     appState.proButtonActive = true;
@@ -29,13 +41,32 @@ const Start = () => {
     showDescriptionBeginner = true;
   }
 
+  if (configurationTarget === "easyHtmlq") {
+    appState.htmlqButtonActive = true;
+    appState.mobileButtonActive = false;
+    showDescriptionHtmlq = true;
+    showDescriptionMobile = false;
+    appState.langPartIdText = "Your name or survey id number";
+  } else {
+    appState.langPartIdText = "Participant name or survey id number";
+    appState.htmlqButtonActive = false;
+    appState.mobileButtonActive = true;
+    showDescriptionHtmlq = false;
+    showDescriptionMobile = true;
+  }
+
+  const version = appState.appVersion;
+
+  const showTargetButtons = false;
+
   return (
     <MainContent>
       <GlobalStyle />
       <Title>Easy HTMLQ Configurator</Title>
+      <CustomH3>version {version}</CustomH3>
       <IntroText>
         Easy HTMLQ Configurator simplifies the set-up and testing of an online Q
-        sort project. It provides simplified editing of the HTMLQ configuration
+        sort project. It provides guided editing of the HTMLQ configuration
         files and offers increased control over the appearance of the Q-sort. It
         also includes a local web server to immediately test the setup on any
         installed web browser.
@@ -63,6 +94,56 @@ const Start = () => {
           <IntroText>in-depth descriptions and directions</IntroText>
         )}
       </DescriptionDiv>
+      <SpacerDiv />
+      {showTargetButtons && (
+        <div>
+          <CustomH2>Select Configuration Target:</CustomH2>
+          <ButtonContainer>
+            <HtmlqButton
+              id="htmlq"
+              isActive={appState.htmlqButtonActive}
+              onClick={setTarget}
+            >
+              Easy HTMLQ
+            </HtmlqButton>
+            <MobileButton
+              id="mobile"
+              isActive={appState.mobileButtonActive}
+              onClick={setTarget}
+            >
+              EQ Mobile
+            </MobileButton>
+          </ButtonContainer>
+          <DescriptionDiv>
+            {showDescriptionMobile && (
+              <div>
+                <IntroText>
+                  mobile offline Q sorts on an iPad or laptop computer:
+                </IntroText>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://github.com/shawnbanasick/eq-mobile"
+                >
+                  Download Page
+                </a>
+              </div>
+            )}
+            {showDescriptionHtmlq && (
+              <div>
+                <IntroText>online Q sorts:</IntroText>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://github.com/shawnbanasick/easy-htmlq"
+                >
+                  Download Page
+                </a>
+              </div>
+            )}
+          </DescriptionDiv>
+        </div>
+      )}
     </MainContent>
   );
 };
@@ -106,6 +187,22 @@ const MainContent = styled.div`
   overflow: auto;
   user-select: none;
   /* border: 2px solid green; */
+
+  a {
+    padding-bottom: 1px;
+    text-decoration: none;
+    color: #000;
+    box-shadow: inset 0 -4px 0 var(--second-theme-color);
+    transition: background-color 0.25s ease-out;
+    margin-left: 5px;
+    font-size: 2vw;
+  }
+
+  a:hover {
+    background-color: var(--second-theme-color);
+    padding-top: 2px;
+    box-shadow: none;
+  }
 `;
 
 const Title = styled.h1`
@@ -119,9 +216,9 @@ const BeginnerButton = styled(GeneralButton)`
   box-sizing: border-box;
   text-align: center;
   vertical-align: center;
-  height: 100px;
-  width: 200px;
-  font-size: 40px;
+  height: 50px;
+  width: 170px;
+  font-size: 20px;
   font-weight: bold;
 `;
 
@@ -129,10 +226,30 @@ const ProButton = styled(GeneralButton)`
   box-sizing: border-box;
   text-align: center;
   vertical-align: center;
-  height: 100px;
-  width: 200px;
+  height: 50px;
+  width: 170px;
   font-weight: bold;
-  font-size: 40px;
+  font-size: 20px;
+`;
+
+const HtmlqButton = styled(GeneralButton)`
+  box-sizing: border-box;
+  text-align: center;
+  vertical-align: center;
+  height: 50px;
+  width: 170px;
+  font-size: 20px;
+  font-weight: bold;
+`;
+
+const MobileButton = styled(GeneralButton)`
+  box-sizing: border-box;
+  text-align: center;
+  vertical-align: center;
+  height: 50px;
+  width: 170px;
+  font-weight: bold;
+  font-size: 20px;
 `;
 
 const ButtonContainer = styled.div`
@@ -149,16 +266,33 @@ const ButtonContainer = styled.div`
 const IntroText = styled.span`
   /* font-size: 22px; */
   align-self: center;
-  padding: 30px;
+  padding: 10px;
   width: 70vw;
   font-size: 2vw;
+  margin-bottom: 20px;
 `;
 
-const CustomH2 = styled.h2`
+const CustomH2 = styled.span`
+  font-weight: bold;
+  font-size: 25px;
   text-align: center;
+  margin-bottom: 10px;
 `;
 
 const DescriptionDiv = styled.div`
   text-align: center;
-  margin-top: 25px;
+  margin-top: 10px;
+`;
+
+const SpacerDiv = styled.div`
+  width: 20px;
+  height: 50px;
+`;
+
+const CustomH3 = styled.span`
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+  margin-top: 10px;
+  margin-bottom: 20px;
 `;

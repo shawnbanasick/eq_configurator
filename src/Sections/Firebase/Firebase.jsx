@@ -20,7 +20,8 @@ import createProject from "../../assets/images/firebase-create-project.png";
 import projectCreated from "../../assets/images/firebase-project-created.png";
 import getJavascriptApi from "../../assets/images/firebase-get-javascript-api.png";
 import addNickname from "../../assets/images/firebase-add-nickname.png";
-import copyApiInfo from "../../assets/images/firebase-copy-api-info.png";
+// import copyApiInfo from "../../assets/images/firebase-copy-api-info.png";
+import newSetupFirebaseConfig from "../../assets/images/newSetupFirebaseConfig.png";
 import createDatabase from "../../assets/images/firebase-create-database.png";
 import databaseLocation from "../../assets/images/firebase-database-location.png";
 import defaultRules from "../../assets/images/firebase-default-rules.png";
@@ -34,6 +35,9 @@ import exportJson from "../../assets/images/firebase-export-json.png";
 import gotoConsole from "../../assets/images/firebase-goto-console.png";
 import firebaseDeleteParticipant from "../../assets/images/firebase-delete-participant.png";
 import firebaseDeleteConfirm from "../../assets/images/firebase-delete-confirm.png";
+import generateEqmobileWithFirebase from "./generateEqmobileWithFirebase";
+import generateServiceWorker from "./generateServiceWorker";
+import appState from "../../GlobalState/appState";
 
 const text = `
     {
@@ -45,10 +49,24 @@ const text = `
     `;
 
 const handleClick = () => {
-  const data = generateHtmlWithFirebase();
+  let data;
+  let configurationTarget = appState.configurationTarget;
+  if (configurationTarget === "easyHtmlq") {
+    data = generateHtmlWithFirebase();
+  } else {
+    data = generateEqmobileWithFirebase();
+  }
+
   // console.log(data);
   if (data !== undefined) {
     exportToXml("index.html", data, "html");
+  }
+};
+
+const generateCacheFile = () => {
+  let data = generateServiceWorker();
+  if (data !== undefined) {
+    exportToXml("sw.js", data, "js");
   }
 };
 
@@ -85,28 +103,73 @@ const copyText = () => {
 };
 
 const FirebaseInfo = () => {
+  const configurationTarget = appState.configurationTarget;
+  let showMobileContent;
+  let numSteps;
+  if (configurationTarget !== "easyHtmlq") {
+    showMobileContent = true;
+    numSteps = "4";
+  } else {
+    showMobileContent = false;
+    numSteps = "3";
+  }
+
   return (
     <MainContent>
       <StyledToastContainer />
       <GlobalStyle />
       <Title>Firebase Settings</Title>
-      <DisplayModeText>
-        Firebase is a database company owned by Google. It provides a convenient
-        way to store the participants' response data. If you don't have a Google
-        account, make one before you begin the setup process.
-        <br /> <br />
-        Information on how to export the Firebase data for analysis and how to
-        delete individual data entries is at the bottom of this page. <br />{" "}
-        <br />
-        There are three steps needed to provide a database for Easy HTMLQ:
-        <br /> &nbsp;&nbsp;&nbsp;1&#41; create a new Firebase project;
-        <br /> &nbsp;&nbsp;&nbsp;2&#41; set the database to allow anonymous
-        log-ins;
-        <br /> &nbsp;&nbsp;&nbsp;3&#41; initialize the database and set the
-        access rules.
-      </DisplayModeText>
+      {!showMobileContent && (
+        <DisplayModeText>
+          <b>Firebase</b> is a database company owned by Google. It provides a
+          convenient way to store the participants' response data. If you don't
+          have a Google account, make one before you begin the setup process.
+          <br /> <br />
+          There are <b>three steps</b> needed to provide a database for Easy
+          HTMLQ:
+          <br /> &nbsp;&nbsp;&nbsp;1&#41; create a new Firebase project;
+          <br /> &nbsp;&nbsp;&nbsp;2&#41; set the database to allow anonymous
+          log-ins;
+          <br /> &nbsp;&nbsp;&nbsp;3&#41; initialize the database and set the
+          access rules.
+          <br />
+          <br />
+          <b>**Caution**</b> This file should be saved to the <b>project</b>{" "}
+          folder, not the "settings" folder.
+          <br /> <br />
+          Instructions on <b>how to export the Firebase data</b> for analysis
+          and
+          <b> how to delete individual data entries</b> are at the bottom of
+          this page.
+        </DisplayModeText>
+      )}
+      {showMobileContent && (
+        <DisplayModeText>
+          <b>Firebase</b> is a database company owned by Google. It provides a
+          convenient way to store the participants' response data. If you don't
+          have a Google account, make one before you begin the setup process.
+          <br /> <br />
+          There are <b>four steps</b> needed to provide a database and file
+          cache for EQ Mobile:
+          <br /> &nbsp;&nbsp;&nbsp;1&#41; create a new Firebase project;
+          <br /> &nbsp;&nbsp;&nbsp;2&#41; set the database to allow anonymous
+          log-ins;
+          <br /> &nbsp;&nbsp;&nbsp;3&#41; initialize the database and set the
+          access rules;
+          <br /> &nbsp;&nbsp;&nbsp;4&#41; autogenerate and save a new unique
+          cache.
+          <br />
+          <br />
+          <b>**Caution**</b> This file should be saved to the <b>project</b>{" "}
+          folder, not the "settings" folder.
+          <br /> <br />
+          Information on <b>how to export the Firebase data</b> for analysis and
+          <b> how to delete individual data entries</b> is at the bottom of this
+          page.
+        </DisplayModeText>
+      )}
       <SpacerDiv />
-      <Title2>Step 1 of 3 - Create a New Project</Title2>
+      <Title2>Step 1 of {numSteps} - Create a New Project</Title2>
 
       <DisplayModeText>
         <b>1a.</b>
@@ -156,28 +219,29 @@ const FirebaseInfo = () => {
       <img src={addNickname} alt="s" />
       <DisplayModeText>
         <b>1h.</b>
-        <br /> Copy the Firebase SDK information by clicking on the icon in the
-        bottom right corner. Then click "Continue to console".
+        <br /> In the Firebase SDK box, highlight ONLY THE PART SHOWN IN DARK
+        BLUE IN THE IMAGE BELOW. Then copy that section and paste it into the
+        Configurator software.
       </DisplayModeText>
-      <img src={copyApiInfo} width="90%" alt="s" />
+      <img src={newSetupFirebaseConfig} width="90%" alt="s" />
       <DisplayModeText>
         <b>1i.</b>
-        <br /> Paste the Firebase Javascript SDK inforamtion into the text area
+        <br /> Paste the Firebase Javascript SDK information into the text area
         below. Then click the gray button to save the new file to the{" "}
         <b>Easy HTMLQ base files folder</b> and replace the "<b>index.html</b>"
         file.
       </DisplayModeText>
       <SpacerDiv />
       <FirebaseTextArea />
-      <GeneralButton onClick={() => handleClick()}>
+      <SaveFirebaseButton onClick={() => handleClick()}>
         Save file to the <b>Easy HTMLQ folder</b> and replace the "index.html"
         file
-      </GeneralButton>
+      </SaveFirebaseButton>
       <SpacerDiv />
       <SpacerDiv />
       <SpacerDiv />
 
-      <Title2>Step 2 of 3 - Allow Anonymous Log-ins</Title2>
+      <Title2>Step 2 of {numSteps} - Allow Anonymous Log-ins</Title2>
       <DisplayModeText>
         <b>2a.</b>
         <br /> Go back to Firebase and click on "Authentication" in the
@@ -208,7 +272,7 @@ const FirebaseInfo = () => {
       <SpacerDiv />
       <SpacerDiv />
       <SpacerDiv />
-      <Title2>Step 3 of 3 - Initialize and Set Access Rules</Title2>
+      <Title2>Step 3 of {numSteps} - Initialize and Set Access Rules</Title2>
       <DisplayModeText>
         <b>3a.</b>
         <br /> In the navigation panel on the left side, click on "Realtime
@@ -280,6 +344,30 @@ const FirebaseInfo = () => {
       <SpacerDiv />
       <SpacerDiv />
       <SpacerDiv />
+
+      {showMobileContent && (
+        <>
+          <Title2>
+            Step 4 of {numSteps} - Autogenerate and Save Unique Cache File
+          </Title2>
+          <DisplayModeText>
+            EQ Mobile works offline on iPads and Notebook computers by storing
+            all of the web sites files in a local cache. In this step we
+            generate a uniquely named cache file for your project. You don't
+            have to do anything other than save the file - all of the necessary
+            information for the file is generated automatically.
+          </DisplayModeText>
+          <SpacerDiv />
+
+          <SaveFirebaseButton onClick={() => generateCacheFile()}>
+            Auto-generate a unique cache file, save to the{" "}
+            <b>Easy HTMLQ folder</b> and replace the "sw.js" file
+          </SaveFirebaseButton>
+          <SpacerDiv />
+          <SpacerDiv />
+          <SpacerDiv />
+        </>
+      )}
       <Title2>Exporting Data for Analysis</Title2>
       <DisplayModeText>
         <b></b>
@@ -298,7 +386,8 @@ const FirebaseInfo = () => {
         >
           JavaScript Object Notation
         </a>
-        ) format. Click on "Export JSON". You can use{" "}
+        ) format. Click on "Export JSON". You can use the desktop analysis
+        application{" "}
         <a
           target="_blank"
           rel="noopener noreferrer"
@@ -306,7 +395,7 @@ const FirebaseInfo = () => {
         >
           KADE
         </a>{" "}
-        or another program to analyze the data.
+        or the "qmethod" R package to analyze the data.
       </DisplayModeText>
       <img src={exportJson} width="90%" alt="s" />
       <SpacerDiv />
@@ -315,8 +404,9 @@ const FirebaseInfo = () => {
       <DisplayModeText>
         <b></b>
         <br /> To delete an individual participant's data, open the "Realtime
-        database" and then click the "X" to the right side of the participant's
-        data that you want to delete.
+        database" and then hover the mouse pointer over the data you want to
+        delete. Click the "X" to the right side of the participant's id number.
+        This will permanently delete the data, so be careful.
       </DisplayModeText>
       <img src={firebaseDeleteParticipant} alt="s" />
       <DisplayModeText>
@@ -387,8 +477,7 @@ const MainContent = styled.div`
 `;
 
 const Title = styled.h1`
-  width: 80vw;
-  max-width: 700px;
+  font-size: 5vw;
   align-self: center;
 `;
 
@@ -425,7 +514,7 @@ const DisplayModeText = styled.div`
   width: 78vw;
   max-width: 1200px;
   font-size: 20px;
-  padding: 0 10px 0 10px;
+  padding: 10px;
   border: 2px solid black;
 `;
 
@@ -439,4 +528,8 @@ const SpacerDiv = styled.div`
   height: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
+`;
+
+const SaveFirebaseButton = styled(GeneralButton)`
+  width: 300px;
 `;

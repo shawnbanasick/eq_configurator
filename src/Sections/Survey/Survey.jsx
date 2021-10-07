@@ -26,11 +26,13 @@ import clearAddItemForm from "./clearAddItemForm";
 const clone = require("rfdc/default");
 
 const defaultArray = [
-  "required (true/false): true",
-  "label text: Age",
-  "note: Please enter your year of birth (YYYY, eg. 1980).",
-  "maxlength: 4",
-  `restricted: "0-9"`,
+  "Text question type",
+  "Answer mandatory (true/false): true",
+  "Label: Age",
+  "Question note: Please enter your year of birth (YYYY, eg. 1980).",
+  "Limit answer length: true",
+  "Answer maximum length: 4",
+  `Answer restricted to numbers "0-9": true`,
 ];
 
 const notifySuccess = () => {
@@ -40,8 +42,8 @@ const notifySuccess = () => {
   });
 };
 
-const notifyError = () => {
-  toast.error("Error - Item Not Added", {
+const notifyError = (errorMessage) => {
+  toast.error(errorMessage, {
     position: toast.POSITION.BOTTOM_CENTER,
     transition: Slide,
   });
@@ -69,43 +71,86 @@ const Survey = () => {
     try {
       const newItemObj = {};
       newItemObj.surveyQuestionType = surveyQuestionType;
-      const newItemArray = [`item type: ${surveyQuestionType}`];
+      const newItemArray = [`Question type: ${surveyQuestionType}`];
 
       if (displayBoolean.required === true) {
         newItemObj.required = appState.surveyAnswerRequired;
         newItemArray.push(
-          `answer required (true/false): ${appState.surveyAnswerRequired}`
+          `Answer mandatory (true/false): ${appState.surveyAnswerRequired}`
         );
       }
       if (displayBoolean.label === true) {
-        newItemObj.label = appState.surveyQuestionLabel;
-        newItemArray.push(`label text: ${appState.surveyQuestionLabel}`);
+        let questionLabel = appState.surveyQuestionLabel;
+        // to prevent "missing node" error in EQ
+        if (questionLabel.trim() === "") {
+          throw new Error("Label is missing");
+        }
+        newItemObj.label = questionLabel;
+        newItemArray.push(`Label: ${questionLabel}`);
       }
       if (displayBoolean.note === true) {
-        newItemObj.note = appState.surveyQuestionNote;
-        newItemArray.push(`question note: ${appState.surveyQuestionNote}`);
+        let questionNote = appState.surveyQuestionNote;
+        // to prevent "missing node" error in EQ
+        if (questionNote.trim() === "") {
+          throw new Error("Note is missing");
+        }
+        newItemObj.note = questionNote;
+        newItemArray.push(`Question note: ${questionNote}`);
       }
       if (displayBoolean.maxlength === true) {
         newItemObj.maxlength = appState.surveyAnswerLenMax;
-        newItemArray.push(`max length: ${appState.surveyAnswerLenMax}`);
+        newItemArray.push(`Answer max length: ${appState.surveyAnswerLenMax}`);
       }
       if (displayBoolean.restricted === true) {
         newItemObj.restricted = appState.surveyAnswerRestricted;
         newItemArray.push(
-          `answer restricted to numbers "0-9" (true/false): ${appState.surveyAnswerRestricted}`
+          `Answer restricted to numbers "0-9" (true/false): ${appState.surveyAnswerRestricted}`
         );
       }
       if (displayBoolean.scale === true) {
-        newItemObj.scale = appState.surveyQuestionScale;
-        newItemArray.push(`scale: ${appState.surveyQuestionScale}`);
+        let questionScale = appState.surveyQuestionScale;
+        // to prevent "missing node" error in EQ
+        if (questionScale.trim() === "") {
+          throw new Error("Scale is missing");
+        }
+        if (questionScale.indexOf(";") === -1) {
+          throw new Error("Separate scale options using a semicolon ;");
+        }
+        if (questionScale.includes(";;")) {
+          throw new Error("Consecutive semicolons not allowed");
+        }
+
+        newItemObj.scale = questionScale;
+        newItemArray.push(`Scale: ${questionScale}`);
       }
       if (displayBoolean.options === true) {
-        newItemObj.options = appState.surveyQuestionOptions;
-        newItemArray.push(`options: ${appState.surveyQuestionOptions}`);
+        let questionOptions = appState.surveyQuestionOptions;
+        // to prevent "missing node" error in EQ
+        if (questionOptions.trim() === "") {
+          throw new Error("Options are missing");
+        }
+        if (
+          questionOptions.indexOf(";") === -1 &&
+          surveyQuestionType !== "information"
+        ) {
+          throw new Error("Separate options using a semicolon ;");
+        }
+        if (questionOptions.includes(";;")) {
+          throw new Error("Consecutive semicolons not allowed");
+        }
+        let lastChar = questionOptions.substr(questionOptions.length - 1);
+        if (lastChar === ";") {
+          throw new Error("No semicolon allowed at the end of options");
+        }
+
+        newItemObj.options = questionOptions;
+        newItemArray.push(`Options: ${questionOptions}`);
       }
       if (displayBoolean.bg === true) {
         newItemObj.bg = appState.surveyBackgroundDisplay;
-        newItemArray.push(`background: ${appState.surveyBackgroundDisplay}`);
+        newItemArray.push(
+          `Use yellow background: ${appState.surveyBackgroundDisplay}`
+        );
       }
       const val = Math.floor(1000 + Math.random() * 9000);
       newItemObj.id = `item-${val}`;
@@ -115,9 +160,8 @@ const Survey = () => {
       appState.surveyQuestionsArray = surveyQuestionsArray;
       notifySuccess();
       clearAddItemForm();
-      // console.log(JSON.stringify(appState, null, 2));
     } catch (error) {
-      notifyError();
+      notifyError(error.message);
       console.log(error);
     }
   };
@@ -130,71 +174,74 @@ const Survey = () => {
       {/* {showSurvey === "true" && ( */}
       <SurveyContainer>
         <ExampleContainer>
-          <h3>Example Item:</h3>
-          <ImageContainer>
-            {showSurveytextImage && (
-              <FadeIn delay={150} duration={450}>
-                <TextImage />
-              </FadeIn>
+          <div></div>
+          <div>
+            <h3>Example Item:</h3>
+            <ImageContainer>
+              {showSurveytextImage && (
+                <FadeIn delay={150} duration={450}>
+                  <TextImage />
+                </FadeIn>
+              )}
+              {showSurveytextareaImage && (
+                <FadeIn delay={150} duration={450}>
+                  <TextAreaImage />
+                </FadeIn>
+              )}
+              {showSurveyradioImage && (
+                <FadeIn delay={150} duration={450}>
+                  <RadioImage />
+                </FadeIn>
+              )}
+              {showSurveyselectImage && (
+                <FadeIn delay={150} duration={450}>
+                  <SelectImage />
+                </FadeIn>
+              )}
+              {showSurveycheckboxImage && (
+                <FadeIn delay={150} duration={450}>
+                  <CheckboxImage />
+                </FadeIn>
+              )}
+              {showSurveyrating2Image && (
+                <FadeIn delay={150} duration={450}>
+                  <Scale2Image />
+                </FadeIn>
+              )}
+              {showSurveyrating5Image && (
+                <FadeIn delay={150} duration={450}>
+                  <Scale5Image />
+                </FadeIn>
+              )}
+              {showSurveyrating10Image && (
+                <FadeIn delay={150} duration={450}>
+                  <Scale10Image />
+                </FadeIn>
+              )}
+              {showSurveyinformationImage && (
+                <FadeIn delay={150} duration={450}>
+                  <InformationImage />
+                </FadeIn>
+              )}
+            </ImageContainer>
+            <p>
+              <strong>Settings:</strong>
+            </p>
+            {detailsArray && (
+              <ul>
+                {detailsArray.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
             )}
-            {showSurveytextareaImage && (
-              <FadeIn delay={150} duration={450}>
-                <TextAreaImage />
-              </FadeIn>
-            )}
-            {showSurveyradioImage && (
-              <FadeIn delay={150} duration={450}>
-                <RadioImage />
-              </FadeIn>
-            )}
-            {showSurveyselectImage && (
-              <FadeIn delay={150} duration={450}>
-                <SelectImage />
-              </FadeIn>
-            )}
-            {showSurveycheckboxImage && (
-              <FadeIn delay={150} duration={450}>
-                <CheckboxImage />
-              </FadeIn>
-            )}
-            {showSurveyrating2Image && (
-              <FadeIn delay={150} duration={450}>
-                <Scale2Image />
-              </FadeIn>
-            )}
-            {showSurveyrating5Image && (
-              <FadeIn delay={150} duration={450}>
-                <Scale5Image />
-              </FadeIn>
-            )}
-            {showSurveyrating10Image && (
-              <FadeIn delay={150} duration={450}>
-                <Scale10Image />
-              </FadeIn>
-            )}
-            {showSurveyinformationImage && (
-              <FadeIn delay={150} duration={450}>
-                <InformationImage />
-              </FadeIn>
-            )}
-          </ImageContainer>
-          <p>
-            <strong>Settings:</strong>
-          </p>
-          {detailsArray && (
-            <ul>
-              {detailsArray.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          )}
+          </div>
         </ExampleContainer>
         <SettingsContainer>
           <h3 style={{ marginBottom: 5, marginTop: 5 }}>New Item Settings:</h3>
           <UserDropdown />
           {displayBoolean.required && (
             <RadioButtons
-              label="Answer required:"
+              label="Answer mandatory:"
               buttonIdArray={["true", "false"]}
               stateId="surveyAnswerRequired"
               sectionName="survey"
@@ -292,6 +339,9 @@ const SurveyContainer = styled.div`
 `;
 
 const ExampleContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   border: 3px solid black;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
@@ -301,8 +351,8 @@ const ExampleContainer = styled.div`
   padding-left: 10px;
   width: 75vw;
   max-width: 1200px;
-  height: auto;
-  transition: opacity 3s ease-in-out;
+  // height: 620px;
+  transition: all 0.5s ease-in-out;
 `;
 
 const SettingsContainer = styled.div`
@@ -319,6 +369,7 @@ const SettingsContainer = styled.div`
   padding-bottom: 5px;
   width: 75vw;
   max-width: 1200px;
+  transition: all 0.5s ease-out;
 `;
 
 const AddItemButton = styled(GeneralButton)`
@@ -330,6 +381,7 @@ const AddItemButton = styled(GeneralButton)`
 
 const ImageContainer = styled.div`
   width: clamp(300px, 74vw, 1175px);
+  transition: all 0.5s ease-out;
 `;
 
 const StyledToastContainer = styled(ToastContainer).attrs({

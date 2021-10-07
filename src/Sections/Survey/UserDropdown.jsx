@@ -36,7 +36,7 @@ const UserDropdown = () => {
   return (
     <InputContainerDiv>
       <TitleSpan>Select question type</TitleSpan>
-      <select
+      <SelectType
         name="category"
         value={appState.surveyQuestionType}
         onChange={(event) => handleCategoryChange(event.target.value)}
@@ -50,7 +50,7 @@ const UserDropdown = () => {
         <option id="6">rating5</option>
         <option id="7">rating10</option>
         <option id="8">information</option>
-      </select>
+      </SelectType>
     </InputContainerDiv>
   );
 };
@@ -69,4 +69,13 @@ const InputContainerDiv = styled.div`
 
 const TitleSpan = styled.span`
   margin-right: 10px;
+`;
+
+const SelectType = styled.select`
+  box-sizing: border-box;
+  &:focus {
+    outline: none !important;
+    border: 3px solid var(--second-theme-color);
+    box-shadow: 0 0 5px var(--second-theme-color);
+  }
 `;

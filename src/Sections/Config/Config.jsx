@@ -11,11 +11,39 @@ import generateConfigXml from "../Config/generateConfigXml";
 import appState from "../../GlobalState/appState";
 import FadeIn from "./FadeIn";
 import UserNumberInput from "../../Utils/UserNumberInput";
+import { toast } from "react-toastify";
+import { ToastContainer, Slide } from "react-toastify";
 
 const handleClick = () => {
-  const data = generateConfigXml();
+  try {
+    let configLogInPassword = appState.configLogInPassword;
+    let configurationTarget = appState.configurationTarget;
+    let configTitle = appState.configTitle;
+    let configLogInRequired = appState.configLogInRequired;
 
-  exportToXml("config.xml", data, "xml");
+    // remove whitespaces
+    configLogInPassword = configLogInPassword.trim();
+
+    // confirm access code input
+    if (configLogInRequired === "true") {
+      configLogInRequired = true;
+    }
+    if (configLogInPassword.length === 0 && configLogInRequired === true) {
+      throw new Error("5b. Project Access Code is required");
+    }
+
+    // confirm unique project name if eq-mobile
+    if (configurationTarget === "mobile" && configTitle === "My_Q_project") {
+      throw new Error("A unique project name is required");
+    }
+
+    // generate new file
+    const data = generateConfigXml();
+    exportToXml("config.xml", data, "xml");
+  } catch (error) {
+    notifyError(error.message);
+    console.log(error);
+  }
 };
 
 const convertToFalse = (value) => {
@@ -26,10 +54,48 @@ const convertToFalse = (value) => {
   }
 };
 
+const notifyError = (errorMessage) => {
+  toast.error(errorMessage, {
+    position: toast.POSITION.BOTTOM_CENTER,
+    transition: Slide,
+  });
+};
+
 const Config = () => {
+  const configurationTarget = appState.configurationTarget;
+
+  let showMobileContent;
+
+  if (configurationTarget !== "easyHtmlq") {
+    showMobileContent = true;
+  } else {
+    showMobileContent = false;
+  }
+
   let configUseLogInScript = convertToFalse(appState.configUseLogInScript);
   let configLogInRequired = convertToFalse(appState.configLogInRequired);
   let configShowStep5 = convertToFalse(appState.configShowStep5);
+
+  // for use with EQ mobile
+  appState.configLogInRequiredtrueDisabled = false;
+  appState.configLogInRequiredfalseDisabled = false;
+  appState.configPartNameRequiredtrueDisabled = false;
+  appState.configPartNameRequiredfalseDisabled = false;
+  if (configurationTarget !== "easyHtmlq") {
+    // set memory values of 5a and 5c to true (required)
+    appState.configLogInRequired = true;
+    appState.configPartNameRequired = true;
+    // set 5a and 5c active button colors
+    appState.configLogInRequiredtrueActive = true;
+    appState.configLogInRequiredfalseActive = false;
+    appState.configPartNameRequiredtrueActive = true;
+    appState.configPartNameRequiredfalseActive = false;
+    // disable all 5a and 5c buttons
+    appState.configLogInRequiredtrueDisabled = true;
+    appState.configLogInRequiredfalseDisabled = true;
+    appState.configPartNameRequiredtrueDisabled = true;
+    appState.configPartNameRequiredfalseDisabled = true;
+  }
 
   let displayMode = appState.displayMode;
   if (displayMode === "beginner") {
@@ -40,23 +106,41 @@ const Config = () => {
 
   return (
     <MainContent>
+      <StyledToastContainer />
       <GlobalStyle />
       <Title>General Configuration</Title>
-      <DisplayModeText>
-        This file has two sections. The first section sets up the overall
-        structure of your project. The second section is a question generator
-        for the (optional) Step 5 questionnaire. <br />
-        <br />
-        By default Easy HTMLQ changes the Q sort card size and font size
-        according to the size of the participant's screen. If you want to change
-        this behavior, you can specify a constant size for the Q-sort cards
-        here. See the description for question 11a for more details.
-      </DisplayModeText>
+      {displayMode && (
+        <DisplayModeText>
+          This "config.xml" file has two sections. The first section sets up the
+          overall structure of your project. The second section is a question
+          generator for the (optional) post-Q sort questionnaire (called "step
+          5" below). <br />
+          <br />
+          By default the Q sort card size and font size adjusts in relation to
+          the size of the participant's web browser{" "}
+          <b>
+            <i>on the initial page load</i>
+          </b>
+          . If you want to change this behavior, you can specify a constant size
+          for the Q-sort cards here. See the description for question 11a for
+          more details.
+          <br />
+          <br />
+          After you have set all of the desired options, click the gray button
+          labelled
+          <br />
+          <b>
+            'Save file to <b>SETTINGS</b> folder and replace the "config.xml"
+            file'
+          </b>
+          <br /> to update your base file.
+        </DisplayModeText>
+      )}
 
       <QuestionContainer>
         <Title2>Project Options</Title2>
         <UserTextInput
-          label="1. Project title:"
+          label="1. Project name:"
           stateId="configTitle"
           sectionName="config"
           width={30}
@@ -84,11 +168,31 @@ const Config = () => {
         />
 
         {displayMode && (
-          <DisplayModeText>
-            5a. The project access code is the same for all participants. The
-            code can be a phrase instead of just a single word, and is
-            case-sensitive.
-          </DisplayModeText>
+          <React.Fragment>
+            <DisplayModeText>
+              5a. The project access code is the same for all participants. The
+              code can be a phrase instead of just a single word, and is
+              case-sensitive. <br />
+              {showMobileContent && (
+                <>
+                  <br />
+                  On <b>EQ Mobile</b>, the Project Access Code and participant
+                  names or id are always required, so options 5a and 5c are set
+                  to "true" and disabled.{" "}
+                  <b>
+                    Please enter the Project Access Code for your EQ Mobile
+                    project in option 5b.
+                  </b>
+                  <br />
+                  <br />
+                  If you want to update an EQ Mobile project, in some cases it
+                  is necessary to remove the stored files from the cache. A
+                  clear cache password is required to prevent accidental
+                  clearing.
+                </>
+              )}
+            </DisplayModeText>
+          </React.Fragment>
         )}
 
         <RadioButtons
@@ -114,11 +218,23 @@ const Config = () => {
             />
           </LeftSpacer>
         )}
+
+        {showMobileContent && (
+          <UserTextInput
+            label="5d. Clear Cache Password:"
+            stateId="clearCachePassword"
+            sectionName="config"
+            width={30}
+            left={0}
+          />
+        )}
+
         {displayMode && (
           <DisplayModeText>
             6a. The Log In Script is a legacy option from FlashQ. It allows the
             use of a custom software to log participants into the project from
-            outside the Easy HTMLQ software.
+            outside the Easy HTMLQ software. Most projects won't need this
+            option.
           </DisplayModeText>
         )}
 
@@ -144,6 +260,15 @@ const Config = () => {
               sectionName="config"
             />
           </LeftSpacer>
+        )}
+
+        {displayMode && (
+          <DisplayModeText>
+            7. Step 1 is the intial sorting of cards into the three groups (in
+            the demo labelled "Disagree, Neutral, Agree"). Step 2 is the Q sort
+            screen. Both step 1 and step 2 are required. Steps 3 - 5 are
+            optional)
+          </DisplayModeText>
         )}
 
         <RadioButtons
@@ -172,14 +297,14 @@ const Config = () => {
         />
         {displayMode && (
           <DisplayModeText>
-            11a. By default, Easy HTMLQ has responsive Q-sort card and text font
-            sizes, so the size of the cards and text will change according to
-            the size of the participant's browser on the{" "}
+            11a. By default the Q-sort cards and text font sizes are responsive,
+            so the size of the cards and text will change according to the size
+            of the participant's browser on the{" "}
             <b>
               <i>initial</i>
             </b>{" "}
-            web page load of Easy HTMLQ. All of the cards will be visible on the
-            screen and no page scrolling is needed.
+            web page load. All of the cards will be visible on the screen and no
+            page scrolling is needed.
             <br />
             <br />
             If you want to specify a constant size for the Q-sort cards for all
@@ -290,7 +415,7 @@ const Title2 = styled.h1`
 `;
 
 const DownloadConfigButton = styled(GeneralButton)`
-  width: 600px;
+  width: 300px;
   align-self: center;
   margin-bottom: 100px;
 `;
@@ -306,6 +431,16 @@ const DisplayModeText = styled.div`
   width: 75vw;
   max-width: 1000px;
   font-size: 20px;
-  padding: 0 10px 0 10px;
+  padding: 10px;
   border: 2px solid black;
+`;
+
+const StyledToastContainer = styled(ToastContainer).attrs({
+  // custom props
+})`
+  .Toastify__toast--success {
+    padding-left: 40px;
+    background-color: var(--main-theme-color);
+    width: 200px;
+  }
 `;

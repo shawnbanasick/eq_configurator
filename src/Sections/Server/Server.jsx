@@ -6,8 +6,8 @@ import GeneralButton from "../../Utils/GeneralButton";
 import appState from "../../GlobalState/appState";
 import { toast } from "react-toastify";
 import { ToastContainer, Slide } from "react-toastify";
-import eqClickSaveFiles from "../../assets/images/eq-click-save-files.png";
-import eqDownloadZip from "../../assets/images/eq-download-zip.png";
+import eqClickSaveFiles from "../../assets/images/htmlq-download-link.png";
+import mobileClickSaveFiles from "../../assets/images/mobile-download-link.png";
 
 const electron = window.require("electron");
 const ipcRenderer = electron.ipcRenderer;
@@ -77,49 +77,91 @@ const Server = () => {
     displayMode = false;
   }
 
+  let showHtmlqContent;
+  let showMobileContent;
+  let nameDisplay;
+  const configurationTarget = appState.configurationTarget;
+  if (configurationTarget !== "easyHtmlq") {
+    showMobileContent = true;
+    showHtmlqContent = false;
+    nameDisplay = "EQ Mobile";
+  } else {
+    showMobileContent = false;
+    showHtmlqContent = true;
+    nameDisplay = "Easy HtmlQ";
+  }
+
   return (
     <MainContent>
       <StyledToastContainer />
       <GlobalStyle />
-      <Title>Testing Server Startup</Title>
+      <Title>Testing Server Start-up</Title>
       {displayMode && (
-        <>
-          <DisplayModeText>
-            The first step is to download the base files for Easy HTMLQ and save
-            them to an accessible place on your computer (for example, to the
-            "Desktop" folder). To download, go to the{" "}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://github.com/shawnbanasick/easy-htmlq"
-            >
-              Easy HTMLQ
-            </a>{" "}
-            home page and click the green "Code" button.
-          </DisplayModeText>
+        <div>
+          {showHtmlqContent && (
+            <>
+              <DisplayModeText>
+                The first step is to download the base files for Easy HTMLQ and
+                save them to an accessible place on your computer (for example,
+                to the "Desktop" folder). To download, go to the{" "}
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://github.com/shawnbanasick/easy-htmlq"
+                >
+                  Easy HTMLQ
+                </a>{" "}
+                home page and click the download link. The files will be in a
+                compressed format (*.zip), so don't forget to{" "}
+                <b>
+                  <i>decompress</i>
+                </b>{" "}
+                them.
+              </DisplayModeText>
+              <SpacerDiv />
+              <img src={eqClickSaveFiles} width="90%" alt="a" />
+            </>
+          )}
+
+          {showMobileContent && (
+            <>
+              <DisplayModeText>
+                The first step is to download the base files for EQ Mobile and
+                save them to an accessible place on your computer (for example,
+                to the "Desktop" folder). To download, go to the{" "}
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://github.com/shawnbanasick/eq-mobile"
+                >
+                  EQ Mobile
+                </a>{" "}
+                home page and click the download link. The files will be in a
+                compressed format (*.zip), so don't forget to{" "}
+                <b>
+                  <i>decompress</i>
+                </b>{" "}
+                them.
+              </DisplayModeText>
+              <SpacerDiv />
+              <img src={mobileClickSaveFiles} width="90%" alt="a" />
+            </>
+          )}
+
           <SpacerDiv />
-          <img src={eqClickSaveFiles} width="90%" alt="a" />
-          <DisplayModeText>
-            Click on "Download ZIP". The files will be in a compressed format
-            (*.zip), so don't forget to{" "}
-            <b>
-              <i>decompress</i>
-            </b>{" "}
-            them.
-          </DisplayModeText>
-          <img src={eqDownloadZip} alt="a" />
           <DisplayModeText>
             To start the local web server, all you need to do is
-            <strong> find the uncompressed folder </strong>with the Easy HTMLQ
-            base files. You dont't need to select a specific file - you just
-            need to find the folder.
+            <strong> find the uncompressed folder </strong>with the base files.
+            You don't need to select a specific file - you just need to find the
+            folder.
           </DisplayModeText>
           <SpacerDiv />
-        </>
+        </div>
       )}
 
       <FindServerButton onClick={() => handleClick()}>
-        Navigate to the HTMLQ base files folder where "index.html" is located.
+        Navigate to the {nameDisplay} base files folder where "index.html" is
+        located
       </FindServerButton>
       <IntroText>
         After opening the folder, the configurator will find the "index.html"
@@ -128,18 +170,26 @@ const Server = () => {
       </IntroText>
       <ProjectLinkDiv>
         <LinkSpan>http://localhost:9990</LinkSpan>
-        <LinkCopyButton onClick={copyText}>Copy to Clipboard</LinkCopyButton>
+        <LinkCopyButton onClick={copyText}>Click Here to Copy</LinkCopyButton>
       </ProjectLinkDiv>
       {displayMode && (
         <DisplayModeText>
-          The default Easy HTMLQ demo project will now load in your browser. The
+          The <b>default project files</b> will now load in your browser. The
           project is not on the internet - it is being hosted from your
           computer, and you're accessing it from the browser on your machine.
           However, after you set up your Firebase file, this demo project will
-          save completed Q sort data to the Firebase realtime database. So, you
-          can use this local server to test your complete setup - including data
-          upload (however, don't forget to delete any testing data from your
-          Firebase location before you begin your actual project).
+          save completed Q sort data to the Firebase realtime database.
+          <br />
+          <br />
+          So, you can use this local server to <b>test your complete setup</b> -
+          including data upload (however, don't forget to delete any testing
+          data from your Firebase location before you begin your actual
+          project).
+          <br />
+          <br />
+          The next step is to replace the <b>four settings files</b>{" "}
+          (config.xml, statements.xml, map.xml, and language.xml) of the demo
+          project's base files with your project's information.
         </DisplayModeText>
       )}
       <SpacerDiv />
@@ -189,6 +239,8 @@ const MainContent = styled.div`
 
   img {
     max-width: 1000px;
+    display: block;
+    margin: auto;
   }
 
   a {
@@ -225,7 +277,8 @@ const IntroText = styled.span`
 `;
 
 const FindServerButton = styled(GeneralButton)`
-  height: 50px;
+  height: auto;
+  width: 300px;
   margin-top: 20px;
   margin-bottom: 20px;
   font-weight: bold;
@@ -273,7 +326,7 @@ const DisplayModeText = styled.div`
   width: 78vw;
   max-width: 1200px;
   font-size: 20px;
-  padding: 0 10px 0 10px;
+  padding: 10px;
   border: 2px solid black;
 `;
 

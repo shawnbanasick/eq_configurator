@@ -13,10 +13,10 @@ const generateConfigXml = () => {
   const alignString1 = `     <!-- text-align property(left|right) -->\n`;
   const alignString2 = `     <item id="textAlign">${appState.configTextAlign}</item>\n\n`;
 
-  const shuffleString1 = `     <!-- shuffle cards (true|false)  -->\n`;
+  const shuffleString1 = `     <!-- shuffle cards (true|false) (4) -->\n`;
   const shuffleString2 = `     <item id="shuffleCards">${appState.configshuffleCards}</item>\n\n`;
 
-  const loginString1 = `     <!-- login required (true|false) -->\n`;
+  const loginString1 = `     <!-- access code required (true|false) (5) -->\n`;
   const loginString2 = `     <item id="loginrequired">${appState.configLogInRequired}</item>\n`;
 
   const loginPassString1 = `     <!-- login with common password (leave blank if not required) -->\n`;
@@ -26,6 +26,11 @@ const generateConfigXml = () => {
   const loginPassString3 = `    <item id="partNameRequired">${
     appState.configPartNameRequired || "false"
   }</item>\n`;
+
+  const loginString3 = `     <item id="clearCachePassword">${appState.clearCachePassword}</item>\n`;
+
+  const loginUrlString1a = `      <!-- Use login script -->\n`;
+  const loginUrlString3 = `     <item id="useLogInScript">${appState.configUseLogInScript}</item>\n`;
 
   const loginUrlString1 = `      <!-- URL to individual login script(leave blank if not required) -->\n`;
   const loginUrlString2 = `     <item id="loginUrl">${
@@ -66,9 +71,12 @@ const generateConfigXml = () => {
     shuffleString2,
     loginString1,
     loginString2,
+    loginString3,
     loginPassString1,
     loginPassString2,
     loginPassString3,
+    loginUrlString1a,
+    loginUrlString3,
     loginUrlString1,
     loginUrlString2,
     loginMethodString1,

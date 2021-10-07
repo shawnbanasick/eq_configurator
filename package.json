@@ -1,7 +1,7 @@
 {
   "name": "eq-configurator",
   "description": "Configurator for online Q sorting",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "private": true,
   "author": {
     "name": "Shawn Banasick",
@@ -28,7 +28,6 @@
         {
           "target": "rpm",
           "arch": [
-            "ia32",
             "x64"
           ]
         },
@@ -47,7 +46,6 @@
         {
           "target": "tar.gz",
           "arch": [
-            "ia32",
             "x64"
           ]
         }
@@ -66,8 +64,8 @@
     "mac": {
       "hardenedRuntime": true,
       "gatekeeperAssess": false,
-      "entitlements": "build/entitlements.mac.plist",
-      "entitlementsInherit": "build/entitlements.mac.plist",
+      "entitlements": "build/entitlements.mac.inherit.plist",
+      "entitlementsInherit": "build/entitlements.mac.inherit.plist",
       "icon": "../build/icons/icon.icns",
       "target": [
         "dmg"

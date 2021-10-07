@@ -1,6 +1,15 @@
 import appState from "../../GlobalState/appState";
 
 const generateLanguageXml = () => {
+  let langPartId;
+  let configurationTarget = appState.configurationTarget;
+  if (configurationTarget === "easyHtmlq") {
+    langPartId = appState.langPartIdText;
+  } else {
+    langPartId = appState.langPartIdTextMobile;
+  }
+  console.log(langPartId);
+
   let data = `<?xml version="1.0" encoding="UTF-8"?>
 
    <language version="1.0" htmlParse="true">\n;
@@ -35,10 +44,26 @@ const generateLanguageXml = () => {
         <item id="loginHead">${appState.langUserCode}</item>
         <item id="loginText">${appState.langLogInText}</item>
         <item id="loginFormHeader">${appState.langFormHeader}</item>
-        <item id="loginPartIdText">${appState.langPartIdText}</item>
+        <item id="loginPartIdText">${langPartId}</item>
         <item id="loginNoInput">${appState.langNoInput}</item>
         <item id="loginInvalidInput">${appState.langUserCodeInvalid}</item>
         <item id="loginNoConnection">${appState.langServerConnectFail}</item>
+
+        <!-- EQ Mobile Controls Language, only displayed if Mobile is selected -->
+        <item id="loginQsortsStored">${appState.langQsortsStored}</item>
+        <item id="loginSaveToLocalMemory">${appState.langSaveToLocalMemory}</item>
+        <item id="loginReturnToControl">${appState.langReturnToControl}</item>
+        <item id="loginSendQsortsToFirebase">${appState.langSendQsortsToFirebase}</item>
+        <item id="loginFirebaseSuccess">${appState.langFirebaseSuccess}</item>
+        <item id="loginClearAppMemory">${appState.langClearAppMemory}</item>
+        <item id="loginRememberAutolock">${appState.langRememberAutolock}</item>
+        <item id="loginDoScreenCapture">${appState.langDoScreenCapture}</item>
+        <item id="loginDeleteLocalQsorts">${appState.langDeleteLocalQsorts}</item>
+        <item id="loginShowClearCacheButton">${appState.langClearCache}</item>
+        <item id="loginCachePasswordLabel">${appState.langClearCachePassword}</item>
+        <item id="loginClearCacheButton">${appState.langClear}</item>
+        <item id="loginClearCacheText">${appState.langClearCacheText}</item>
+
 
         <!-- introduction (leave blank to skip popup) -->
         <item id="introHead">${appState.langIntroduction}</item>
