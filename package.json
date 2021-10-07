@@ -1,7 +1,7 @@
 {
   "name": "eq-configurator",
   "description": "Configurator for online Q sorting",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "private": true,
   "author": {
     "name": "Shawn Banasick",
@@ -46,7 +46,6 @@
         {
           "target": "tar.gz",
           "arch": [
-            "ia32",
             "x64"
           ]
         }

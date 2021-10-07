@@ -6,7 +6,7 @@ const appState = store({
   userSelectedFilePath: "",
   displayMode: "beginner",
   configurationTarget: "easyHtmlq",
-  appVersion: "1.1.0",
+  appVersion: "1.1.1",
   inputColor: "white",
 
   /*
@@ -19,7 +19,7 @@ const appState = store({
   showSurveytextImage: true,
 
   configTitle: "My_Q_project",
-  configVersion: "1.0",
+  configVersion: "1.1.1",
   configTextAlignleftActive: true,
   configTextAlign: "left",
   configshuffleCardstrueActive: true,
